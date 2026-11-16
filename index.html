@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@800&text=%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D9%88%D9%86&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
   <!-- your saved design (written by the ?edit designer) -->
   <style id="custom-theme"></style>
 </head>
@@ -303,42 +303,74 @@
               <div class="p-links"><a class="btn primary sm" href="/wc2026/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/WC2026Echo" target="_blank" rel="noopener">Code</a></div>
             </div>
           </article>
-        </div>
 
-        <div class="mini-head" id="miniHead">
-          <h3 data-edit>Award-winning coursework</h3>
-          <p data-edit>Three course projects recognised by the University of Haifa.</p>
-        </div>
-        <div class="projects mini" id="miniGrid">
-          <article class="project" data-cat="java award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="60" y="40" width="280" height="140"/><path class="frame" d="M106 40v54M152 40v54M198 40v54M244 40v54M290 40v54M106 180v-54M152 180v-54M198 180v-54M244 180v-54M290 180v-54"/><polygon class="g2" points="114,82 129,52 144,82"/><polygon class="g3" points="206,170 221,140 236,170"/><polygon class="g1" points="252,82 267,52 282,82"/></svg><span class="ribbon">2026</span></div>
-            <div class="p-body">
-              <p class="label award" data-edit>★ Most Outstanding Project</p>
+          <article class="project case" data-cat="java award">
+            <div class="case-media">
+              <div class="frame-win paper">
+                <div class="win-bar"><i></i><i></i><i></i><span>Diagram · ParkWise conveyors</span></div>
+                <button class="shot" type="button" aria-label="Enlarge diagram"><img src="assets/diagrams/parkwise-states.svg" alt="State machine: conveyors move from off to initializing, testing and operational, with failures resetting them" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More diagrams">
+                <button type="button" class="on" data-src="assets/diagrams/parkwise-states.svg"><img src="assets/diagrams/parkwise-states.svg" alt="Conveyor state machine" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/diagrams/parkwise-ecb.svg"><img src="assets/diagrams/parkwise-ecb.svg" alt="Entity-Control-Boundary architecture" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/diagrams/parkwise-pricing.svg"><img src="assets/diagrams/parkwise-pricing.svg" alt="Price list adoption history" width="320" height="200" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label award" data-edit>★ Most Outstanding Project · 2026</p>
               <h3 data-edit>AURORA ParkWise</h3>
-              <p data-edit>A management system for automated parking lots. It simulates mechanical conveyors as state machines, including failure scenarios, and handles dynamic pricing with full history. Built with the Entity-Control-Boundary pattern.</p>
+              <p data-edit>A Java management system for automated parking facilities, built for the Design and Development of Information Systems course.</p>
+              <ul class="hl">
+                <li data-edit>Simulates conveyor units as state machines, with random failure scenarios</li>
+                <li data-edit>Dynamic pricing with a full history of which price list was active, and when</li>
+                <li data-edit>Entity-Control-Boundary design, an Access database and JSON data import</li>
+              </ul>
               <ul class="tags"><li>Java</li><li>ECB architecture</li><li>State machines</li></ul>
-              <div class="p-links"><a class="arrow" href="https://github.com/IslamHassadya11/Aurora-Parking-Service" target="_blank" rel="noopener">Repository</a></div>
+              <div class="p-links"><a class="btn ghost sm" href="https://github.com/IslamHassadya11/Aurora-Parking-Service" target="_blank" rel="noopener">Repository</a></div>
             </div>
           </article>
-          <article class="project" data-cat="java award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><path class="frame" d="M0 170h400"/><polygon class="g1" points="120,160 160,90 240,90 280,160"/><polygon class="g3" points="170,95 200,60 230,95"/><circle class="g2" cx="160" cy="165" r="16"/><circle class="g2" cx="240" cy="165" r="16"/></svg><span class="ribbon">2025</span></div>
-            <div class="p-body">
-              <p class="label award" data-edit>★ Best Project</p>
+
+          <article class="project case" data-cat="java award">
+            <div class="case-media">
+              <div class="frame-win paper">
+                <div class="win-bar"><i></i><i></i><i></i><span>Diagram · AURORA Taxi</span></div>
+                <button class="shot" type="button" aria-label="Enlarge diagram"><img src="assets/diagrams/taxi-overview.svg" alt="Overview: one management system connecting the fleet, drivers and rides" width="1200" height="750" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label award" data-edit>★ Best Project · 2025</p>
               <h3 data-edit>AURORA Taxi</h3>
-              <p data-edit>An end-to-end management system for a taxi business, covering the fleet, drivers and rides, designed around encapsulation, inheritance and polymorphism.</p>
+              <p data-edit>An end-to-end management system for a taxi business, built for Introduction to Object-Oriented Programming.</p>
+              <ul class="hl">
+                <li data-edit>Manages the fleet, the drivers and the rides in one system</li>
+                <li data-edit>Built on encapsulation, inheritance and polymorphism</li>
+                <li data-edit>Class hierarchies designed to grow without rewriting existing code</li>
+              </ul>
               <ul class="tags"><li>Java</li><li>OOP</li><li>Software design</li></ul>
             </div>
           </article>
-          <article class="project" data-cat="web award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="90" y="40" width="70" height="140" rx="12"/><rect class="frame" x="220" y="70" width="110" height="74" rx="8"/><polygon class="g3" points="105,150 125,110 145,150"/><polygon class="g2" points="250,130 275,90 300,130"/></svg><span class="ribbon">2022</span></div>
-            <div class="p-body">
-              <p class="label award" data-edit>★ First Place, Best B2B Project</p>
+
+          <article class="project case" data-cat="web award">
+            <div class="case-media">
+              <div class="frame-win paper">
+                <div class="win-bar"><i></i><i></i><i></i><span>Diagram · Sunshine Design</span></div>
+                <button class="shot" type="button" aria-label="Enlarge diagram"><img src="assets/diagrams/sunshine-journey.svg" alt="Customer journey: choose a product, design it, check out" width="1200" height="750" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label award" data-edit>★ First Place, Best B2B Project · 2022</p>
               <h3 data-edit>Sunshine Design</h3>
-              <p data-edit>An online store where customers design their own phone cases, laptop cases and accessories, with an interactive product configurator and a complete checkout flow.</p>
+              <p data-edit>An online store where customers design their own phone cases, laptop cases and tech accessories.</p>
+              <ul class="hl">
+                <li data-edit>Interactive product configurator</li>
+                <li data-edit>A complete checkout flow</li>
+                <li data-edit>Responsive interface that works on phones and desktops</li>
+              </ul>
               <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UX</li></ul>
             </div>
           </article>
         </div>
+
         <p class="more"><a class="arrow" href="https://github.com/IslamHassadya11?tab=repositories" target="_blank" rel="noopener">More on GitHub</a></p>
       </div>
     </section>
@@ -516,6 +548,6 @@
   </footer>
   <dialog class="lightbox" id="lightbox" aria-label="Screenshot"><button class="lb-close" type="button" aria-label="Close">×</button><img alt=""></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

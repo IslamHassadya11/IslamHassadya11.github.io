@@ -16,8 +16,6 @@
   $$('.chip').forEach(c => c.addEventListener('click', () => {
     $$('.chip').forEach(x => x.classList.toggle('on', x === c));
     $$('#projects .project').forEach(p => { p.hidden = c.dataset.f !== 'all' && !p.dataset.cat.split(' ').includes(c.dataset.f); });
-    const mini = $$('#miniGrid .project');
-    $('#miniHead').hidden = mini.every(p => p.hidden);
   }));
 
   // screenshot galleries: thumbnails swap the main image
