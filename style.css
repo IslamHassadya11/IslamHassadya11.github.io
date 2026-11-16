@@ -176,15 +176,16 @@ p { margin: 0; }
 
 /* education & awards */
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-.edu { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
-.edu li { position: relative; padding-inline-start: 30px; }
-.edu li::before { content: ""; position: absolute; left: 0; top: 6px; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid var(--g3); }
+.edu { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--g1); }
+.edu li { position: relative; padding: 18px 0 18px 30px; border-bottom: 1px solid var(--line); }
+.edu li::before { content: ""; position: absolute; left: 0; top: 24px; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid var(--g3); }
 .edu li:first-child::before { border-bottom-color: var(--g2); }
 .edu h3 { font-size: 1.2rem; font-weight: 800; color: var(--g1); line-height: 1.25; }
-.edu .meta { margin: 6px 0; font-weight: 600; color: var(--g2); font-size: .92rem; }
+.edu .meta { margin: 4px 0 6px; font-weight: 600; color: var(--g2); font-size: .92rem; }
+.edu p:last-child { font-size: .95rem; }
 .edu p:last-child { color: var(--muted); }
 .awards { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--g1); }
-.awards li { display: grid; grid-template-columns: 86px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.awards li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .yr { font-weight: 800; color: var(--g2); }
 .awards b { display: block; font-size: 1.08rem; color: var(--g1); }
 .awards small { color: var(--muted); font-size: .92rem; }
@@ -246,3 +247,6 @@ p { margin: 0; }
   .section { padding: 72px 0; }
   .wrap { width: min(1160px, 100% - 36px); }
 }
+/* keep the two side-by-side headings on one line so their rules line up */
+.two .sec-head h2 { font-size: clamp(1.8rem, 3.3vw, 2.6rem); white-space: nowrap; }
+@media (max-width: 420px) { .two .sec-head h2 { white-space: normal; } }
