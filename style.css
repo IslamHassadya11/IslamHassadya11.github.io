@@ -39,7 +39,7 @@ p { margin: 0; }
 .nav.scrolled { border-bottom-color: var(--line); }
 .nav-in { display: flex; align-items: center; gap: 24px; height: 68px; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 800 1.05rem var(--head); letter-spacing: .01em; text-transform: uppercase; color: var(--g1); }
-.logo-mark { width: 34px; height: 30px; }
+.logo-mark { width: 34px; height: 34px; border-radius: 8px; }
 .nav nav { margin-inline-start: auto; }
 .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { display: block; padding: 8px 14px; text-decoration: none; font-weight: 600; font-size: .95rem; color: var(--muted); }
