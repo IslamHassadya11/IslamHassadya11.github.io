@@ -18,3 +18,9 @@ When you're done, press **Download my site**, then upload the downloaded `index.
 Drafts are kept in your browser until you press **Reset everything**. Visitors never see the panel, and nobody else can change the live site this way.
 
 `tools/geo.py` regenerates the triangle artwork. Every shape takes its colour from the `--g1`–`--g4` variables in `style.css`.
+
+## Hosted apps
+
+- `petalcalc/` is the single-file build of [cutie-calc](https://github.com/IslamHassadya11/cutie-calc), served at islamhassadya.com/petalcalc/.
+- `wc2026/` is the production build of [WC2026Echo](https://github.com/IslamHassadya11/WC2026Echo) (`npx vite build --base=/wc2026/`).
+- `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).

@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@800&text=%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D9%88%D9%86&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <!-- your saved design (written by the ?edit designer) -->
   <style id="custom-theme"></style>
@@ -34,6 +35,7 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#community">Community</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#contact" class="nav-cta">Contact</a></li>
@@ -126,7 +128,7 @@
             <h3 data-edit>PetalCalc 3.0</h3>
             <p data-edit>I rebuilt my first calculator into a complete web app. It has a notebook calculator, scientific and programmer modes, interactive graphing with symbolic analysis, and advanced math tools.</p>
             <p class="stack" data-edit>JavaScript · Parsing · Canvas · PWA</p>
-            <a class="arrow" href="/cutie-calc/">Open the app</a>
+            <a class="arrow" href="/petalcalc/">Open the app</a>
           </article>
           <article class="now-card">
             <p class="label" data-edit>Open to work</p>
@@ -153,105 +155,246 @@
           </div>
         </div>
 
-        <div class="projects" id="projectGrid">
-          <article class="project feature" data-cat="web data">
-            <div class="p-art art-coast" aria-hidden="true"><svg viewBox="0 0 400 220"><polygon class="g3" points="0,150 400,120 400,220 0,220"/><polygon class="g2" points="0,180 400,160 400,220 0,220"/><polygon class="g1" points="230,150 260,60 290,150"/><polygon class="g4" points="280,150 305,85 330,150"/><polygon class="g1" points="320,150 340,100 360,150"/></svg></div>
-            <div class="p-body">
-              <p class="label">Live · Seminar project</p>
-              <h3>Save The Coast Line</h3>
-              <p>This app shows sea-level rise on Israel's Mediterranean coast in 2D, 3D and photoreal views, using real elevation data and real buildings. You can compare IPCC scenarios, try a CO₂-budget calculator, and fly over 23 coastal sites. I built it for a sustainability seminar.</p>
-              <p class="stack">TypeScript · Vite · 3D maps · Geo data · EN / עברית</p>
+        <div class="cases" id="projectGrid">
+
+          <article class="project case" data-cat="web data">
+            <div class="case-media">
+              <div class="frame-win">
+                <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/SaveTheCoastLine</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/coast.jpg" alt="Save The Coast Line: a map of Haifa Bay showing projected sea-level rise" width="1200" height="750" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>Live · Sustainability seminar</p>
+              <h3 data-edit>Save The Coast Line</h3>
+              <p data-edit>An interactive lab that shows how sea-level rise would reshape Israel's Mediterranean coast, built on real elevation data and real building footprints.</p>
+              <ul class="hl">
+                <li data-edit>2D, 3D and photoreal views of 23 coastal sites, with a guided fly-over</li>
+                <li data-edit>Side-by-side IPCC scenarios and a CO₂-budget calculator</li>
+                <li data-edit>Fully bilingual interface in English and Hebrew</li>
+              </ul>
+              <ul class="tags"><li>TypeScript</li><li>Vite</li><li>3D maps</li><li>Geo data</li></ul>
               <div class="p-links"><a class="btn primary sm" href="/SaveTheCoastLine/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/SaveTheCoastLine" target="_blank" rel="noopener">Code</a></div>
             </div>
           </article>
 
-          <article class="project" data-cat="web">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><g class="nfa"><circle cx="70" cy="110" r="20"/><circle cx="170" cy="70" r="20"/><circle cx="170" cy="150" r="20"/><circle cx="270" cy="110" r="20"/><circle cx="345" cy="110" r="20"/><circle cx="345" cy="110" r="13"/></g><path class="edge" d="M90 102 L150 78M90 118 L150 142M190 78 L250 102M190 142 L250 118M290 110 L325 110"/></svg></div>
-            <div class="p-body">
-              <p class="label">Live</p>
-              <h3>RAILYARD</h3>
-              <p>A regex playground with a visible engine. It parses each pattern into a syntax tree and compiles it into a real NFA using Thompson's construction. It also animates the match trace and profiles patterns to expose catastrophic backtracking (ReDoS).</p>
-              <p class="stack">JavaScript · Compilers · Automata</p>
+          <article class="project case" data-cat="web">
+            <div class="case-media">
+              <div class="frame-win dark">
+                <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/railyard</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/railyard.jpg" alt="RAILYARD: a regular expression drawn as a railroad diagram, with matches highlighted" width="1200" height="750" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>Live · Compilers &amp; automata</p>
+              <h3 data-edit>RAILYARD</h3>
+              <p data-edit>A regular-expression playground with a visible engine. Every pattern is parsed into a syntax tree and drawn as a railroad diagram as you type.</p>
+              <ul class="hl">
+                <li data-edit>Compiles patterns into a real NFA using Thompson's construction</li>
+                <li data-edit>Animated match trace that steps through the engine</li>
+                <li data-edit>Profiler that exposes catastrophic backtracking (ReDoS)</li>
+              </ul>
+              <ul class="tags"><li>JavaScript</li><li>Parsing</li><li>Automata</li><li>SVG</li></ul>
               <div class="p-links"><a class="btn primary sm" href="/railyard/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/railyard" target="_blank" rel="noopener">Code</a></div>
             </div>
           </article>
 
-          <article class="project" data-cat="web">
-            <div class="p-art photo" aria-hidden="true"><img src="assets/petalcalc.jpg" alt="" width="960" height="726"></div>
-            <div class="p-body">
-              <p class="label">Live</p>
-              <h3>PetalCalc</h3>
-              <p>A notebook calculator with variables, units, currencies and dates, plus scientific and programmer modes. Its graphing workbench finds derivatives, integrals and extrema symbolically. It uses a hand-written safe parser, has 65 unit tests, and works offline.</p>
-              <p class="stack">JavaScript · Parsing · Symbolic math · Canvas</p>
-              <div class="p-links"><a class="btn primary sm" href="/cutie-calc/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/cutie-calc" target="_blank" rel="noopener">Code</a></div>
+          <article class="project case" data-cat="java">
+            <div class="case-media">
+              <div class="frame-win">
+                <div class="win-bar"><i></i><i></i><i></i><span>Panther Ludo · desktop app</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/ludo-board.jpg" alt="Panther Ludo: the game board with two players' panther pieces" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More screenshots">
+                <button type="button" class="on" data-src="assets/shots/ludo-board.jpg"><img src="assets/shots/ludo-board-t.jpg" alt="Game board" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/ludo-home.jpg"><img src="assets/shots/ludo-home-t.jpg" alt="Main menu" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/ludo-login.jpg"><img src="assets/shots/ludo-login-t.jpg" alt="Sign-in screen" width="320" height="200" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>In progress · Team project</p>
+              <h3 data-edit>Panther Ludo</h3>
+              <p data-edit>A desktop Ludo game with trivia squares, built by a team for the Software Engineering course and developed in iterations.</p>
+              <ul class="hl">
+                <li data-edit>Two to four players with easy, medium and hard levels</li>
+                <li data-edit>Guest and admin modes, with a question wizard for admins</li>
+                <li data-edit>Game history, Maven build and JUnit 5 test suite</li>
+              </ul>
+              <ul class="tags"><li>Java 21</li><li>Swing</li><li>Maven</li><li>JUnit 5</li></ul>
+              <div class="p-links"><a class="btn primary sm" href="https://github.com/IslamHassadya11/SE-Ludo-Panther/raw/main/Iteration1/PantherLudo-Iteration1.jar">Download (.jar)</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/SE-Ludo-Panther" target="_blank" rel="noopener">Code</a></div>
             </div>
           </article>
 
+          <article class="project case" data-cat="web">
+            <div class="case-media">
+              <div class="frame-win">
+                <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/petalcalc</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/petal-graph.jpg" alt="PetalCalc: the graphing workbench plotting functions" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More screenshots">
+                <button type="button" class="on" data-src="assets/shots/petal-graph.jpg"><img src="assets/shots/petal-graph-t.jpg" alt="Graphing" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/petal-notebook.jpg"><img src="assets/shots/petal-notebook-t.jpg" alt="Notebook" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/petal-sci.jpg"><img src="assets/shots/petal-sci-t.jpg" alt="Scientific mode, dark theme" width="320" height="200" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>Live · Version 3.0</p>
+              <h3 data-edit>PetalCalc</h3>
+              <p data-edit>A notebook calculator that understands variables, units, currencies and dates, rebuilt from my very first project into a complete web app.</p>
+              <ul class="hl">
+                <li data-edit>Graphing workbench that finds derivatives, integrals and extrema symbolically</li>
+                <li data-edit>Scientific and programmer modes, in light and dark themes</li>
+                <li data-edit>Hand-written safe parser, 65 unit tests, works offline</li>
+              </ul>
+              <ul class="tags"><li>JavaScript</li><li>Parsing</li><li>Symbolic math</li><li>Canvas</li></ul>
+              <div class="p-links"><a class="btn primary sm" href="/petalcalc/">Open the app</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/cutie-calc" target="_blank" rel="noopener">Code</a></div>
+            </div>
+          </article>
+
+          <article class="project case" data-cat="data">
+            <div class="case-media">
+              <div class="frame-win paper">
+                <div class="win-bar"><i></i><i></i><i></i><span>Figures · NSL-KDD evaluation</span></div>
+                <button class="shot" type="button" aria-label="Enlarge figure"><img src="assets/shots/nsl-gap.jpg" alt="Bar chart: reported accuracy near 100% against held-out recall below 10% for R2L and U2R attacks" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More figures">
+                <button type="button" class="on" data-src="assets/shots/nsl-gap.jpg"><img src="assets/shots/nsl-gap-t.jpg" alt="Reported accuracy vs held-out recall" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/nsl-cm.jpg"><img src="assets/shots/nsl-cm-t.jpg" alt="Confusion matrix" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/nsl-classes.jpg"><img src="assets/shots/nsl-classes-t.jpg" alt="Class prevalence, train vs test" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/nsl-recall.jpg"><img src="assets/shots/nsl-recall-t.jpg" alt="Per-class recall by model" width="320" height="200" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>Research · Cybersecurity</p>
+              <h3 data-edit>Intrusion Detection: a Critical Evaluation</h3>
+              <p data-edit>I reproduced a popular NSL-KDD tutorial that reports 98–99% accuracy and showed why those numbers don't hold up on genuinely unseen data.</p>
+              <ul class="hl">
+                <li data-edit>Found cross-validation on the test set and preprocessing leakage</li>
+                <li data-edit>Held-out recall for rare attacks (R2L, U2R) drops below 10%</li>
+                <li data-edit>Reports balanced accuracy, macro-F1, MCC and per-class recall</li>
+              </ul>
+              <ul class="tags"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>ML evaluation</li></ul>
+              <div class="p-links"><a class="btn primary sm" href="https://github.com/IslamHassadya11/nsl-kdd-critical-evaluation/blob/main/Report_Islam_Hassadya.pdf" target="_blank" rel="noopener">Read the report</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/nsl-kdd-critical-evaluation" target="_blank" rel="noopener">Notebook</a></div>
+            </div>
+          </article>
+
+          <article class="project case" data-cat="web">
+            <div class="case-media">
+              <div class="frame-win dark">
+                <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/wc2026</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/wc-dash.jpg" alt="World Cup 2026 Bracket Editor: dashboard with group standings" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More screenshots">
+                <button type="button" class="on" data-src="assets/shots/wc-dash.jpg"><img src="assets/shots/wc-dash-t.jpg" alt="Dashboard" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/wc-groups.jpg"><img src="assets/shots/wc-groups-t.jpg" alt="Group stage" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/wc-ko.jpg"><img src="assets/shots/wc-ko-t.jpg" alt="Knockout bracket" width="320" height="200" loading="lazy"></button>
+              </div>
+            </div>
+            <div class="case-body">
+              <p class="label" data-edit>Live · React app</p>
+              <h3 data-edit>World Cup 2026 Bracket Editor</h3>
+              <p data-edit>A complete bracket editor for the first 48-team World Cup, from the opening group match to the final.</p>
+              <ul class="hl">
+                <li data-edit>All 96 group matches, with standings that update as you type</li>
+                <li data-edit>Ranks the best third-placed teams automatically</li>
+                <li data-edit>Knockout bracket from the Round of 32, with penalty shoot-outs</li>
+              </ul>
+              <ul class="tags"><li>React 18</li><li>Vite</li><li>Tailwind CSS</li></ul>
+              <div class="p-links"><a class="btn primary sm" href="/wc2026/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/WC2026Echo" target="_blank" rel="noopener">Code</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mini-head" id="miniHead">
+          <h3 data-edit>Award-winning coursework</h3>
+          <p data-edit>Three course projects recognised by the University of Haifa.</p>
+        </div>
+        <div class="projects mini" id="miniGrid">
           <article class="project" data-cat="java award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="60" y="40" width="280" height="140"/><path class="frame" d="M106 40v54M152 40v54M198 40v54M244 40v54M290 40v54M106 180v-54M152 180v-54M198 180v-54M244 180v-54M290 180v-54"/><polygon class="g2" points="114,82 129,52 144,82"/><polygon class="g3" points="206,170 221,140 236,170"/><polygon class="g1" points="252,82 267,52 282,82"/></svg></div>
+            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="60" y="40" width="280" height="140"/><path class="frame" d="M106 40v54M152 40v54M198 40v54M244 40v54M290 40v54M106 180v-54M152 180v-54M198 180v-54M244 180v-54M290 180v-54"/><polygon class="g2" points="114,82 129,52 144,82"/><polygon class="g3" points="206,170 221,140 236,170"/><polygon class="g1" points="252,82 267,52 282,82"/></svg><span class="ribbon">2026</span></div>
             <div class="p-body">
-              <p class="label award">★ Most Outstanding Project, 2026</p>
-              <h3>AURORA ParkWise</h3>
-              <p>A complete management system for automated parking lots. It manages lots, simulates mechanical conveyors as state machines (including failure scenarios), handles dynamic pricing with adoption history, and imports data from JSON. It's built with the Entity-Control-Boundary pattern.</p>
-              <p class="stack">Java · ECB architecture · State machines</p>
-              <div class="p-links"><a class="btn ghost sm" href="https://github.com/IslamHassadya11/Aurora-Parking-Service" target="_blank" rel="noopener">Code</a></div>
+              <p class="label award" data-edit>★ Most Outstanding Project</p>
+              <h3 data-edit>AURORA ParkWise</h3>
+              <p data-edit>A management system for automated parking lots. It simulates mechanical conveyors as state machines, including failure scenarios, and handles dynamic pricing with full history. Built with the Entity-Control-Boundary pattern.</p>
+              <ul class="tags"><li>Java</li><li>ECB architecture</li><li>State machines</li></ul>
+              <div class="p-links"><a class="arrow" href="https://github.com/IslamHassadya11/Aurora-Parking-Service" target="_blank" rel="noopener">Repository</a></div>
             </div>
           </article>
-
-          <article class="project" data-cat="data">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="g1" x="70" y="50" width="34" height="130"/><rect class="g2" x="116" y="90" width="34" height="90"/><rect class="g3" x="162" y="130" width="34" height="50"/><rect class="g4" x="208" y="160" width="34" height="20"/><rect class="g2" x="270" y="70" width="34" height="110"/><path class="frame" d="M50 180h300"/></svg></div>
-            <div class="p-body">
-              <p class="label">Research · Cybersecurity</p>
-              <h3>Intrusion Detection: a Critical Evaluation</h3>
-              <p>I reproduced a popular NSL-KDD tutorial that reports 98–99% accuracy and showed why those results don't hold up. The tutorial cross-validated on its test set, leaked preprocessing between train and test data, and relied on accuracy with imbalanced classes. My evaluation trains on the training set, tests on the test set, and reports balanced accuracy, macro-F1, MCC and per-class recall.</p>
-              <p class="stack">Python · scikit-learn · ML evaluation</p>
-              <div class="p-links"><a class="btn ghost sm" href="https://github.com/IslamHassadya11/nsl-kdd-critical-evaluation" target="_blank" rel="noopener">Code &amp; report</a></div>
-            </div>
-          </article>
-
           <article class="project" data-cat="java award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><path class="frame" d="M0 170h400"/><polygon class="g1" points="120,160 160,90 240,90 280,160"/><polygon class="g3" points="170,95 200,60 230,95"/><circle class="g2" cx="160" cy="165" r="16"/><circle class="g2" cx="240" cy="165" r="16"/></svg></div>
+            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><path class="frame" d="M0 170h400"/><polygon class="g1" points="120,160 160,90 240,90 280,160"/><polygon class="g3" points="170,95 200,60 230,95"/><circle class="g2" cx="160" cy="165" r="16"/><circle class="g2" cx="240" cy="165" r="16"/></svg><span class="ribbon">2025</span></div>
             <div class="p-body">
-              <p class="label award">★ Best Project, 2025</p>
-              <h3>AURORA Taxi</h3>
-              <p>An end-to-end management system for a taxi business, covering the fleet, drivers and rides. I designed it around clean OOP (encapsulation, inheritance and polymorphism), with class hierarchies that are easy to extend.</p>
-              <p class="stack">Java · OOP · Software design</p>
+              <p class="label award" data-edit>★ Best Project</p>
+              <h3 data-edit>AURORA Taxi</h3>
+              <p data-edit>An end-to-end management system for a taxi business, covering the fleet, drivers and rides, designed around encapsulation, inheritance and polymorphism.</p>
+              <ul class="tags"><li>Java</li><li>OOP</li><li>Software design</li></ul>
             </div>
           </article>
-
           <article class="project" data-cat="web award">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="90" y="40" width="70" height="140" rx="12"/><rect class="frame" x="220" y="70" width="110" height="74" rx="8"/><polygon class="g3" points="105,150 125,110 145,150"/><polygon class="g2" points="250,130 275,90 300,130"/></svg></div>
+            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><rect class="frame" x="90" y="40" width="70" height="140" rx="12"/><rect class="frame" x="220" y="70" width="110" height="74" rx="8"/><polygon class="g3" points="105,150 125,110 145,150"/><polygon class="g2" points="250,130 275,90 300,130"/></svg><span class="ribbon">2022</span></div>
             <div class="p-body">
-              <p class="label award">★ First Place, Best B2B Project, 2022</p>
-              <h3>Sunshine Design</h3>
-              <p>An online store where customers design their own phone cases, laptop cases and tech accessories. It has an interactive product configurator, a responsive interface and a complete checkout flow.</p>
-              <p class="stack">HTML · CSS · JavaScript · UX</p>
-            </div>
-          </article>
-
-          <article class="project" data-cat="web">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><path class="frame" d="M60 40h50v30h50M60 100h50V70M60 120h50v30h50M60 180h50v-30M160 70v40h50M160 150v-40M210 110h40"/><polygon class="g3" points="270,80 330,80 300,130"/><rect class="g1" x="292" y="130" width="16" height="22"/><rect class="g1" x="282" y="152" width="36" height="10"/></svg></div>
-            <div class="p-body">
-              <p class="label">React app</p>
-              <h3>World Cup 2026 Bracket Editor</h3>
-              <p>A full bracket editor for the 48-team 2026 World Cup. You can enter all 96 group matches and the standings update automatically, including the best third-place teams. The knockout bracket runs through to the final, with penalty shootouts.</p>
-              <p class="stack">React 18 · Vite · Tailwind</p>
-              <div class="p-links"><a class="btn ghost sm" href="https://github.com/IslamHassadya11/WC2026Echo" target="_blank" rel="noopener">Code</a></div>
-            </div>
-          </article>
-
-          <article class="project feature full" data-cat="web">
-            <div class="p-art" aria-hidden="true"><svg viewBox="0 0 400 220"><polygon class="g1" points="120,170 160,100 200,170"/><polygon class="g2" points="170,170 210,85 250,170"/><polygon class="g3" points="220,170 260,100 300,170"/><text x="200" y="200" class="t">EN · عربي · עב</text></svg></div>
-            <div class="p-body">
-              <p class="label">Live · Community</p>
-              <h3>FureidisTech</h3>
-              <p>The website for the community tech initiative I co-founded. It's in English, Arabic and Hebrew with right-to-left layouts, has light and dark themes, an events page and a working sign-up form.</p>
-              <p class="stack">HTML · CSS · JavaScript · i18n</p>
-              <div class="p-links"><a class="btn primary sm" href="/fureidistech/">Live site</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/fureidistech" target="_blank" rel="noopener">Code</a></div>
+              <p class="label award" data-edit>★ First Place, Best B2B Project</p>
+              <h3 data-edit>Sunshine Design</h3>
+              <p data-edit>An online store where customers design their own phone cases, laptop cases and accessories, with an interactive product configurator and a complete checkout flow.</p>
+              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>UX</li></ul>
             </div>
           </article>
         </div>
         <p class="more"><a class="arrow" href="https://github.com/IslamHassadya11?tab=repositories" target="_blank" rel="noopener">More on GitHub</a></p>
+      </div>
+    </section>
+
+    <!-- ── community ── -->
+    <section class="section tint" id="community">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="num">04</span>
+          <h2 data-edit>Community</h2>
+        </div>
+        <p class="sec-lead" data-edit>Technology matters most when it opens doors. Alongside my studies, I help young people in my town and in the wider Arab community find their way into higher education and tech.</p>
+
+        <article class="org">
+          <div class="org-body">
+            <div class="org-top">
+              <img class="org-logo" src="assets/fureidistech-logo.png" alt="FureidisTech logo" width="360" height="191" loading="lazy">
+              <p class="label" data-edit>Co-founder · Fureidis</p>
+            </div>
+            <h3 data-edit>FureidisTech</h3>
+            <p data-edit>A community tech hub that brings together pupils, university students, graduates and professionals from Fureidis to learn, build real projects and open doors for one another. I co-founded the initiative and designed and built its website.</p>
+            <ol class="pillars">
+              <li><b data-edit>Learn</b><span data-edit>Lectures and hands-on workshops led by local academics and guests from industry.</span></li>
+              <li><b data-edit>Build</b><span data-edit>Team projects and innovation challenges that solve real problems.</span></li>
+              <li><b data-edit>Connect</b><span data-edit>A network linking students with mentors, graduates and opportunities.</span></li>
+            </ol>
+            <ul class="tags"><li>English</li><li>العربية</li><li>עברית</li><li>RTL layouts</li><li>Light &amp; dark</li></ul>
+            <div class="p-links"><a class="btn primary sm" href="/fureidistech/">Visit the site</a><a class="btn ghost sm" href="https://www.facebook.com/FureidisTech" target="_blank" rel="noopener">Facebook</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/fureidistech" target="_blank" rel="noopener">Code</a></div>
+          </div>
+          <div class="org-media">
+            <div class="frame-win back">
+              <div class="win-bar"><i></i><i></i><i></i><span>العربية · الوضع الداكن</span></div>
+              <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/fureidis-dark.jpg" alt="FureidisTech website in Arabic with the dark theme" width="1200" height="750" loading="lazy"></button>
+            </div>
+            <div class="frame-win front">
+              <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/fureidistech</span></div>
+              <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/fureidis.jpg" alt="FureidisTech website home page in English" width="1200" height="750" loading="lazy"></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="org-row">
+          <article class="org-card dark">
+            <svg class="org-geo" viewBox="0 0 300 260" aria-hidden="true"><polygon class="g2" points="150,0 300,0 225,130"/><polygon class="g3" points="225,130 300,0 300,260"/><polygon class="g4" points="150,260 225,130 300,260"/><polygon class="g2" points="225,130 262,65 300,130" opacity=".6"/></svg>
+            <p class="ar" lang="ar" dir="rtl">مبادرون</p>
+            <p class="label" data-edit>Representative</p>
+            <h3 data-edit>Mubaderoon</h3>
+            <p data-edit>A community programme whose name means "initiators" in Arabic. As a representative, I promoted access to higher education for local youth and supported community development projects.</p>
+          </article>
+          <article class="org-card">
+            <p class="label" data-edit>Since November 2024</p>
+            <h3 data-edit>Peer mentoring</h3>
+            <p data-edit>At the University of Haifa I mentor students in the Computer Science and Information Systems departments, teaching programming in Java, Python, C and C++ and helping with Data Structures, Algorithms and Operating Systems.</p>
+            <a class="arrow" href="#experience">See experience</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -261,7 +404,7 @@
     <section class="section" id="experience">
       <div class="wrap">
         <div class="sec-head">
-          <span class="num">04</span>
+          <span class="num">05</span>
           <h2 data-edit>Experience &amp; leadership</h2>
         </div>
         <ol class="timeline">
@@ -300,7 +443,7 @@
     <section class="section tint" id="education">
       <div class="wrap two">
         <div>
-          <div class="sec-head"><span class="num">05</span><h2 data-edit>Education</h2></div>
+          <div class="sec-head"><span class="num">06</span><h2 data-edit>Education</h2></div>
           <ol class="edu">
             <li>
               <h3 data-edit>B.Sc. in Computer Science and Information Systems</h3>
@@ -320,7 +463,7 @@
           </ol>
         </div>
         <div>
-          <div class="sec-head"><span class="num">06</span><h2 data-edit>Honors &amp; awards</h2></div>
+          <div class="sec-head"><span class="num">07</span><h2 data-edit>Honors &amp; awards</h2></div>
           <ul class="awards">
             <li><span class="yr">2026</span><div><b data-edit>Most Outstanding Project</b><small data-edit>AURORA ParkWise · Design and Development of Information Systems</small></div></li>
             <li><span class="yr">2025</span><div><b data-edit>Best Project</b><small data-edit>AURORA Taxi · Introduction to Object-Oriented Programming</small></div></li>
@@ -335,7 +478,7 @@
     <!-- ── skills ── -->
     <section class="section" id="skills">
       <div class="wrap">
-        <div class="sec-head"><span class="num">07</span><h2 data-edit>Skills</h2></div>
+        <div class="sec-head"><span class="num">08</span><h2 data-edit>Skills</h2></div>
         <div class="skills">
           <div><h3 data-edit>Languages</h3><p data-edit>Java, C, C++, Python, JavaScript, TypeScript, HTML5, CSS, Assembly</p></div>
           <div><h3 data-edit>Core</h3><p data-edit>Object-oriented design, data structures, algorithms, software design, operating systems</p></div>
@@ -349,7 +492,7 @@
     <section class="contact" id="contact">
       <!--GEO:contact--><svg class="geo geo-contact" viewBox="0 0 560 346" aria-hidden="true" focusable="false"><polygon class="g4" points="240.0,207.8 280.0,138.6 320.0,207.8"/><polygon class="g2" points="280.0,138.6 360.0,138.6 320.0,207.8"/><polygon class="g4" points="342.0,195.1 360.0,164.0 378.0,195.1"/><polygon class="g2" points="502.0,195.1 520.0,164.0 538.0,195.1"/><polygon class="g2" points="120.0,277.1 160.0,207.8 200.0,277.1"/><polygon class="g3" points="200.0,277.1 240.0,207.8 280.0,277.1"/><polygon class="g1" points="320.0,207.8 400.0,207.8 360.0,277.1"/><polygon class="g2" points="400.0,207.8 480.0,207.8 440.0,277.1"/><polygon class="g3" points="462.0,264.4 480.0,233.2 498.0,264.4"/><polygon class="g3" points="480.0,207.8 560.0,207.8 520.0,277.1"/><polygon class="g3" points="40.0,277.1 120.0,277.1 80.0,346.4"/><polygon class="g3" points="80.0,346.4 120.0,277.1 160.0,346.4"/><polygon class="g2" points="120.0,277.1 200.0,277.1 160.0,346.4"/><polygon class="g3" points="182.0,333.7 200.0,302.5 218.0,333.7"/><polygon class="g2" points="200.0,277.1 280.0,277.1 240.0,346.4"/><polygon class="g3" points="302.0,289.8 338.0,289.8 320.0,321.0"/><polygon class="g4" points="320.0,346.4 360.0,277.1 400.0,346.4"/><polygon class="g2" points="360.0,277.1 440.0,277.1 400.0,346.4"/><polygon class="g1" points="400.0,346.4 440.0,277.1 480.0,346.4"/><polygon class="g3" points="440.0,277.1 520.0,277.1 480.0,346.4"/><polygon class="g3" points="480.0,346.4 520.0,277.1 560.0,346.4"/></svg><!--/GEO-->
       <div class="wrap contact-in">
-        <span class="num light">08</span>
+        <span class="num light">09</span>
         <h2 data-edit>Let's work together.</h2>
         <p data-edit>I'm looking for junior software engineering and student developer roles. Email is the fastest way to reach me.</p>
         <div class="cta">
@@ -371,6 +514,7 @@
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot"><button class="lb-close" type="button" aria-label="Close">×</button><img alt=""></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>

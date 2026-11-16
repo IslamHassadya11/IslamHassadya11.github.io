@@ -70,6 +70,8 @@
   /* ── text editing ── */
   let editing = false;
   const editable = () => $$('[data-edit]');
+  // page layout changed since the draft was saved? drop old text edits so they don't land in the wrong place
+  if (st.textCount !== editable().length) { st.text = {}; st.textCount = editable().length; }
   editable().forEach((el, i) => { el.dataset.editId = i; if (st.text[i] !== undefined) el.innerHTML = st.text[i]; });
   document.addEventListener('input', e => { const el = e.target.closest('[data-edit]'); if (el) { st.text[el.dataset.editId] = el.innerHTML; save(); } });
   function setEditing(on) {

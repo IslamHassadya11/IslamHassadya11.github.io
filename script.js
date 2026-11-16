@@ -15,8 +15,28 @@
   // project filters
   $$('.chip').forEach(c => c.addEventListener('click', () => {
     $$('.chip').forEach(x => x.classList.toggle('on', x === c));
-    $$('#projectGrid .project').forEach(p => { p.hidden = c.dataset.f !== 'all' && !p.dataset.cat.split(' ').includes(c.dataset.f); });
+    $$('#projects .project').forEach(p => { p.hidden = c.dataset.f !== 'all' && !p.dataset.cat.split(' ').includes(c.dataset.f); });
+    const mini = $$('#miniGrid .project');
+    $('#miniHead').hidden = mini.every(p => p.hidden);
   }));
+
+  // screenshot galleries: thumbnails swap the main image
+  $$('.thumbs').forEach(t => t.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const img = t.parentElement.querySelector('.shot img');
+    $$('button', t).forEach(x => x.classList.toggle('on', x === b));
+    img.src = b.dataset.src; img.alt = b.querySelector('img').alt;
+  }));
+
+  // lightbox: click a screenshot to see it full size
+  const lb = $('#lightbox');
+  if (lb && lb.showModal) {
+    $$('.shot').forEach(s => s.addEventListener('click', () => {
+      if (document.body.classList.contains('ds-editing')) return;
+      const i = $('img', s); $('img', lb).src = i.src; $('img', lb).alt = i.alt; lb.showModal();
+    }));
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('.lb-close')) lb.close(); });
+  }
 
   // scroll spy + reveal
   if ('IntersectionObserver' in window) {
@@ -26,7 +46,7 @@
     $$('main section[id]').forEach(s => spy.observe(s));
     if (!location.search.includes('edit')) {
       const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
-      $$('.sec-head, .now-card, .project, .timeline > li, .edu li, .awards li, .skills > div, .facts').forEach(el => { el.classList.add('reveal'); rv.observe(el); });
+      $$('.sec-head, .sec-lead, .now-card, .project, .org, .org-card, .mini-head, .timeline > li, .edu li, .awards li, .skills > div, .facts').forEach(el => { el.classList.add('reveal'); rv.observe(el); });
     }
   }
 
