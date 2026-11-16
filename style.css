@@ -98,6 +98,14 @@ p { margin: 0; }
 .num.light { color: #fff; } .num.light::before { border-bottom-color: var(--g4); }
 .sec-head h2, .contact h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; color: var(--g1); }
 
+/* logo ("1IS" mark from GitHub) */
+.mark { margin: 0 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; align-self: center; }
+.mark img { width: 112px; height: 112px; border-radius: 22px; box-shadow: 0 14px 30px rgba(28, 26, 77, .18), 0 0 0 1px var(--line); transform: rotate(-4deg); transition: transform .3s; }
+.mark img:hover { transform: rotate(0) scale(1.04); }
+.mark figcaption { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.foot-brand { display: inline-flex; align-items: center; gap: 12px; }
+.foot-brand img { width: 48px; height: 48px; border-radius: 12px; }
+
 /* about */
 .about-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px 56px; }
 .about-body .big { grid-column: 1 / -1; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.45; color: var(--ink); font-weight: 500; }
@@ -197,7 +205,7 @@ p { margin: 0; }
 .social.light span { border: 0; opacity: .7; }
 
 .foot { background: var(--g1); color: rgba(255,255,255,.6); border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; font-size: .9rem; }
-.foot-in { display: flex; justify-content: space-between; gap: 12px; }
+.foot-in { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .foot a { color: #fff; text-decoration: none; }
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: var(--g1); color: #fff; padding: 10px 18px; border-radius: var(--radius); font-weight: 600; opacity: 0; pointer-events: none; transition: .25s; z-index: 90; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
@@ -226,6 +234,7 @@ p { margin: 0; }
   .project.feature, .project.feature.full { grid-column: auto; flex-direction: column; }
   .project.feature .p-art { aspect-ratio: 400 / 220; border-inline-end: 0; border-bottom: 1px solid var(--line); }
   .timeline > li { grid-template-columns: 1fr; gap: 6px; }
+  .mark img { width: 76px; height: 76px; border-radius: 16px; }
 }
 @media (max-width: 720px) {
   .menu-btn { display: inline-grid; place-items: center; }
