@@ -34,7 +34,7 @@
     out.push({ g: 'Open live', label: 'Open FureidisTech', ic: '↗', hint: '/fureidistech/', run: () => open('/fureidistech/') });
     const dark = document.documentElement.dataset.theme === 'dark';
     out.push({ g: 'Theme', label: dark ? 'Switch to light theme' : 'Switch to dark theme', ic: dark ? '☀' : '☾', hint: 'T', run: () => { IH.toggleTheme(); dlg.close(); } });
-    const names = { ice: 'Ice blue', crimson: 'Crimson', emerald: 'Emerald', mono: 'Black and white only' };
+    const names = { pink: 'Pink', purple: 'Purple', yellow: 'Bright yellow' };
     Object.keys(IH.ACCENTS).forEach(k => out.push({ g: 'Theme', label: `Dark theme: ${names[k]}`, ic: '●', color: IH.ACCENTS[k], run: () => { IH.setAccent(k); dlg.close(); } }));
     out.push({ g: 'Contact', label: 'Copy my email', ic: '⧉', hint: email, run: () => { navigator.clipboard?.writeText(email).then(() => toast('Email copied'), () => {}); dlg.close(); } });
     out.push({ g: 'Contact', label: 'Send me an email', ic: '✉', run: () => { dlg.close(); location.href = 'mailto:' + email; } });

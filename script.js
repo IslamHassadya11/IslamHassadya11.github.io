@@ -10,13 +10,13 @@
 
   // theme: light violet or black with one accent colour; both remembered between visits
   const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]'), logoDark = $('#logoDark');
-  const ACCENTS = { ice: '#4fd8ff', crimson: '#ff4d6d', emerald: '#35e39b', mono: '#ffffff' };
+  const ACCENTS = { pink: '#ff5fd2', purple: '#a77bff', yellow: '#fff23a' };
   const save = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
   const paint = () => {
-    const dark = root.dataset.theme === 'dark', acc = ACCENTS[root.dataset.accent] ? root.dataset.accent : 'ice';
+    const dark = root.dataset.theme === 'dark', acc = ACCENTS[root.dataset.accent] ? root.dataset.accent : 'pink';
     root.dataset.accent = acc;
-    if (logoDark) logoDark.src = `assets/logo-1is-${acc}.png?v=1`;
-    if (fav) fav.href = dark ? `assets/favicon-${acc}.png?v=1` : 'assets/favicon.png?v=4';
+    if (logoDark) logoDark.src = `assets/logo-1is-${acc}.png?v=2`;
+    if (fav) fav.href = dark ? `assets/favicon-${acc}.png?v=2` : 'assets/favicon.png?v=4';
     if (meta) meta.content = dark ? '#000000' : '#1c1a4d';
     tbtn.setAttribute('aria-label', dark ? 'Switch to the light theme' : 'Switch to the dark theme');
     $$('.swatch').forEach(b => b.setAttribute('aria-pressed', b.dataset.accent === acc));

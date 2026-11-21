@@ -284,7 +284,7 @@ p { margin: 0; }
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --acc: #4fd8ff;
+  --acc: #ff5fd2;
   --g1: #161616;     /* near-black shapes */
   --g2: var(--acc);  /* the one accent */
   --g3: #3a3a3a;     /* graphite */
@@ -298,9 +298,8 @@ html[data-theme="dark"] {
   --rule: #ffffff;
   --on-accent: #000000;
 }
-html[data-theme="dark"][data-accent="crimson"] { --acc: #ff4d6d; }
-html[data-theme="dark"][data-accent="emerald"] { --acc: #35e39b; }
-html[data-theme="dark"][data-accent="mono"] { --acc: #ffffff; }
+html[data-theme="dark"][data-accent="purple"] { --acc: #a77bff; }
+html[data-theme="dark"][data-accent="yellow"] { --acc: #fff23a; }
 [data-theme="dark"] body { background: #000; }
 [data-theme="dark"] .nav { background: rgba(0, 0, 0, .82); }
 [data-theme="dark"] .btn.primary:hover { background: #fff; color: #000; }

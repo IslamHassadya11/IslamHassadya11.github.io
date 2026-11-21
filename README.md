@@ -29,7 +29,7 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 
 The button next to the menu switches between the light violet theme and a dark theme in black and white with an accent colour (the logo and browser icon switch too). The choice is remembered in the visitor's browser (`localStorage` key `ih-theme`). Dark colours live in the `html[data-theme="dark"]` block in `style.css`.
 
-Dark theme update: black and white with one accent colour (Ice, Crimson, Emerald or Mono), picked with the dots in the menu bar; each accent has its own logo (`assets/logo-1is-<accent>.png`).
+Dark theme update: black and white with one accent colour (Pink, Purple or Bright yellow), picked with the dots in the menu bar; each accent has its own logo (`assets/logo-1is-<accent>.png`).
 
 ## Shortcuts
 
