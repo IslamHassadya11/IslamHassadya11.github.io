@@ -8,6 +8,20 @@
   menu.addEventListener('click', () => { const open = links.classList.toggle('open'); menu.setAttribute('aria-expanded', open); });
   links.addEventListener('click', e => { if (e.target.closest('a')) { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); } });
 
+  // theme: light violet / dark gold, remembered between visits
+  const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]');
+  const applyTheme = t => {
+    if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme;
+    tbtn.setAttribute('aria-label', t === 'dark' ? 'Switch to the light violet theme' : 'Switch to the dark gold theme');
+    if (fav) fav.href = t === 'dark' ? 'assets/favicon-gold.png?v=1' : 'assets/favicon.png?v=4';
+    if (meta) meta.content = t === 'dark' ? '#0b0b0c' : '#1c1a4d';
+  };
+  applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
+  tbtn.addEventListener('click', () => {
+    const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(t); try { localStorage.setItem('ih-theme', t); } catch (e) {}
+  });
+
   // nav border once scrolled
   const nav = $('.nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });

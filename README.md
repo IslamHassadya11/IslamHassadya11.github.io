@@ -24,3 +24,7 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 - `petalcalc/` is the single-file build of [cutie-calc](https://github.com/IslamHassadya11/cutie-calc), served at islamhassadya.com/petalcalc/.
 - `wc2026/` is the production build of [WC2026Echo](https://github.com/IslamHassadya11/WC2026Echo) (`npx vite build --base=/wc2026/`).
 - `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).
+
+## Themes
+
+The button next to the menu switches between the light violet theme and a dark theme in black, white and gold (the logo and browser icon switch too). The choice is remembered in the visitor's browser (`localStorage` key `ih-theme`). Dark colours live in the `html[data-theme="dark"]` block in `style.css`.
