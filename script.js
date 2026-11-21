@@ -8,19 +8,25 @@
   menu.addEventListener('click', () => { const open = links.classList.toggle('open'); menu.setAttribute('aria-expanded', open); });
   links.addEventListener('click', e => { if (e.target.closest('a')) { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); } });
 
-  // theme: light violet / dark gold, remembered between visits
-  const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]');
-  const applyTheme = t => {
-    if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme;
-    tbtn.setAttribute('aria-label', t === 'dark' ? 'Switch to the light violet theme' : 'Switch to the dark gold theme');
-    if (fav) fav.href = t === 'dark' ? 'assets/favicon-gold.png?v=1' : 'assets/favicon.png?v=4';
-    if (meta) meta.content = t === 'dark' ? '#0b0b0c' : '#1c1a4d';
+  // theme: light violet or black with one accent colour; both remembered between visits
+  const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]'), logoDark = $('#logoDark');
+  const ACCENTS = { ice: '#4fd8ff', crimson: '#ff4d6d', emerald: '#35e39b', mono: '#ffffff' };
+  const save = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  const paint = () => {
+    const dark = root.dataset.theme === 'dark', acc = ACCENTS[root.dataset.accent] ? root.dataset.accent : 'ice';
+    root.dataset.accent = acc;
+    if (logoDark) logoDark.src = `assets/logo-1is-${acc}.png?v=1`;
+    if (fav) fav.href = dark ? `assets/favicon-${acc}.png?v=1` : 'assets/favicon.png?v=4';
+    if (meta) meta.content = dark ? '#000000' : '#1c1a4d';
+    tbtn.setAttribute('aria-label', dark ? 'Switch to the light theme' : 'Switch to the dark theme');
+    $$('.swatch').forEach(b => b.setAttribute('aria-pressed', b.dataset.accent === acc));
   };
-  applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
-  tbtn.addEventListener('click', () => {
-    const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    applyTheme(t); try { localStorage.setItem('ih-theme', t); } catch (e) {}
-  });
+  const setTheme = t => { if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme; save('ih-theme', t); paint(); };
+  const setAccent = a => { root.dataset.accent = a; save('ih-accent', a); if (root.dataset.theme !== 'dark') setTheme('dark'); else paint(); };
+  window.IH = { toggleTheme: () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'), setTheme, setAccent, ACCENTS };
+  tbtn.addEventListener('click', IH.toggleTheme);
+  $$('.swatch').forEach(b => b.addEventListener('click', () => setAccent(b.dataset.accent)));
+  paint();
 
   // nav border once scrolled
   const nav = $('.nav');
