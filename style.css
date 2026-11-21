@@ -299,7 +299,7 @@ html[data-theme="dark"] {
   --on-accent: #000000;
 }
 html[data-theme="dark"][data-accent="purple"] { --acc: #a77bff; }
-html[data-theme="dark"][data-accent="yellow"] { --acc: #fff23a; }
+html[data-theme="dark"][data-accent="yellow"] { --acc: #ffd60a; }
 [data-theme="dark"] body { background: #000; }
 [data-theme="dark"] .nav { background: rgba(0, 0, 0, .82); }
 [data-theme="dark"] .btn.primary:hover { background: #fff; color: #000; }
