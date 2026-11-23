@@ -121,7 +121,7 @@ p { margin: 0; }
 .facts dd { margin: 6px 0 0; font-weight: 600; color: var(--hc); }
 
 /* now */
-.now-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); }
+.now-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border: 1px solid var(--line); }
 .now-card { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 32px 28px; background: var(--bg); border-inline-start: 1px solid var(--line); }
 .now-card:first-child { border-inline-start: 0; }
 .now-card::before { content: ""; position: absolute; top: 0; right: 0; border-top: 34px solid var(--g3); border-left: 34px solid transparent; }

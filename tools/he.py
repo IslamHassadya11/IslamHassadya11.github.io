@@ -56,7 +56,9 @@ HE = {
   "A Ludo board game with trivia and surprise squares, built as a team for the Software Engineering course. It's developed in iterations, with a Maven build and JUnit tests.":
     "משחק לודו עם משבצות טריוויה והפתעות, שאנחנו בונים כצוות בקורס הנדסת תוכנה. הפיתוח מתקדם באיטרציות, עם בנייה ב-Maven ובדיקות JUnit.",
   "View code": "לקוד",
-  "Just shipped": "יצא עכשיו",
+  "See screenshots": "לצילומי המסך",
+  "Screenshots only. The game itself isn't shared for download.": "צילומי מסך בלבד. המשחק עצמו לא זמין להורדה.",
+  "Ongoing": "בפיתוח מתמשך",
   "I rebuilt my first calculator into a complete web app. It has a notebook calculator, scientific and programmer modes, interactive graphing with symbolic analysis, and advanced math tools.":
     "בניתי מחדש את המחשבון הראשון שלי כאפליקציית ווב מלאה: מחשבון מחברת, מצבים מדעי ומתכנת, גרפים אינטראקטיביים עם ניתוח סימבולי וכלים למתמטיקה מתקדמת.",
   "Open the app": "לאפליקציה",
@@ -120,6 +122,15 @@ HE = {
   "Found cross-validation on the test set and preprocessing leakage": "מצאתי cross-validation על סט המבחן ודליפת מידע בעיבוד המקדים",
   "Held-out recall for rare attacks (R2L, U2R) drops below 10%": "ה-recall על נתונים חדשים בהתקפות נדירות (R2L,‏ U2R) יורד מתחת ל-10%",
   "Reports balanced accuracy, macro-F1, MCC and per-class recall": "מדווח balanced accuracy,‏ macro-F1,‏ MCC ו-recall לכל מחלקה",
+  "Research · Data Science in Cyber": "מחקר · מדע נתונים בסייבר",
+  "An intrusion detection system is a model that watches network traffic and flags cyber-attacks. NSL-KDD is the standard dataset for training these models, and a popular tutorial claims its models catch attacks with 98–99% accuracy. For my final project, I rebuilt that tutorial and tested the models properly, on traffic they had never seen.":
+    "מערכת לזיהוי חדירות היא מודל שעוקב אחרי תעבורת רשת ומתריע על מתקפות סייבר. NSL-KDD הוא מאגר הנתונים המקובל לאימון מודלים כאלה, ומדריך פופולרי טוען שהמודלים שלו מזהים מתקפות בדיוק של 98–99%. בפרויקט הגמר שלי בניתי מחדש את המדריך ובדקתי את המודלים כמו שצריך, על תעבורה שהם לא ראו מעולם.",
+  "The high scores came from cross-validation run on the test set itself, plus information leaking from the test data during preprocessing":
+    "הציונים הגבוהים נבעו מ-cross-validation שהורץ על סט המבחן עצמו, ומדליפת מידע מנתוני המבחן בשלב העיבוד המקדים",
+  "On truly new traffic, the models miss over 90% of the rarest attacks: remote break-ins (R2L) and privilege escalation (U2R)":
+    "על תעבורה חדשה באמת, המודלים מפספסים יותר מ-90% מהמתקפות הנדירות ביותר: חדירה מרחוק (R2L) והסלמת הרשאות (U2R)",
+  "I re-measured everything with metrics that stay honest when attacks are rare: balanced accuracy, macro-F1, MCC and per-class recall":
+    "מדדתי הכול מחדש במדדים שנשארים הוגנים גם כשמתקפות נדירות: balanced accuracy,‏ macro-F1,‏ MCC ו-recall לכל מחלקה",
   "ML evaluation": "הערכת מודלים",
   "Read the report": "לדוח המלא",
   "ParkWise · desktop app": "ParkWise · אפליקציית דסקטופ",
