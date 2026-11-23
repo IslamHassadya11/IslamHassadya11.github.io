@@ -237,6 +237,7 @@ HE = {
   "Real admission rules for 615 programs at 9 universities and 21 colleges, with acceptance and rejection lines": "תנאי קבלה אמיתיים ל-615 תוכניות ב-9 אוניברסיטאות ו-21 מכללות, עם ספי קבלה ודחייה",
   "Works out the best bagrut average at each university, using its own bonus rules and the subjects it lets you drop": "מחשב את ממוצע הבגרות הטוב ביותר בכל אוניברסיטה, לפי כללי הבונוס שלה והמקצועות שהיא מאפשרת להוריד",
   "Every campus on a map of Israel, sorted by distance from home; your grades stay in your browser": "כל קמפוס על מפת ישראל, ממוין לפי המרחק מהבית; הציונים נשארים בדפדפן שלך",
+  "Every campus on a map, sorted by distance from any of 1,244 Israeli towns; results as cards or a list you can customize": "כל קמפוס על המפה, ממוין לפי המרחק מכל אחד מ-1,244 היישובים בישראל; התוצאות ככרטיסים או כרשימה שאפשר להתאים",
   "Interactive product configurator": "מעצב מוצרים אינטראקטיבי", "A complete checkout flow": "תהליך תשלום מלא",
   "Responsive interface that works on phones and desktops": "ממשק רספונסיבי שעובד בטלפון ובמחשב",
   "More on GitHub": "עוד ב-GitHub",
