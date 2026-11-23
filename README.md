@@ -21,6 +21,7 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 
 ## Hosted apps
 
+- `mesila/` is built from the Mesila admission calculator by `tools/build_mesila.py` (guest mode only: grades stay in the visitor's browser).
 - `petalcalc/` is the single-file build of [petal-calc](https://github.com/IslamHassadya11/petal-calc), served at islamhassadya.com/petalcalc/.
 - `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).
 
