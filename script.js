@@ -9,20 +9,27 @@
   links.addEventListener('click', e => { if (e.target.closest('a')) { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); } });
 
   // theme: light violet or black with one accent colour; both remembered between visits
-  const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]'), logoDark = $('#logoDark');
+  // UI strings for the site chrome (page text itself lives in each language's HTML)
+  const UI = {
+    en: { toLight: 'Switch to the light theme', toDark: 'Switch to the dark theme', copied: 'Email copied' },
+    he: { toLight: 'מעבר לערכת צבעים בהירה', toDark: 'מעבר לערכת צבעים כהה', copied: 'כתובת המייל הועתקה' },
+  };
+  const L = window.IH_L = k => (UI[document.documentElement.lang] || UI.en)[k] || UI.en[k] || k;
+  const root = document.documentElement, tbtn = $('#themeBtn'), fav = $('#favicon'), meta = $('meta[name="theme-color"]'), logoDark = $('#logoDark'), logoLight = $('#logoLight');
   const ACCENTS = { pink: '#ff5fd2', purple: '#a77bff', yellow: '#ffd60a' };
   const save = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
   const paint = () => {
-    const dark = root.dataset.theme === 'dark', acc = ACCENTS[root.dataset.accent] ? root.dataset.accent : 'pink';
-    root.dataset.accent = acc;
-    if (logoDark) logoDark.src = `assets/logo-1is-${acc}.png?v=3`;
-    if (fav) fav.href = dark ? `assets/favicon-${acc}.png?v=3` : 'assets/favicon.png?v=4';
-    if (meta) meta.content = dark ? '#000000' : '#1c1a4d';
-    tbtn.setAttribute('aria-label', dark ? 'Switch to the light theme' : 'Switch to the dark theme');
+    const dark = root.dataset.theme === 'dark', picked = ACCENTS[root.dataset.accent] ? root.dataset.accent : '';
+    const acc = picked || (dark ? 'pink' : 'purple');
+    if (logoDark) logoDark.src = `/assets/logo-1is-${acc}.png?v=3`;
+    if (logoLight) logoLight.src = acc === 'purple' ? '/assets/logo-1is.png?v=4' : `/assets/logo-1is-light-${acc}.png?v=1`;
+    if (fav) fav.href = dark ? `/assets/favicon-${acc}.png?v=3` : acc === 'purple' ? '/assets/favicon.png?v=4' : `/assets/favicon-light-${acc}.png?v=1`;
+    if (meta) meta.content = dark ? '#000000' : ({ purple: '#1c1a4d', pink: '#2a0f24', yellow: '#1d1a0e' })[acc];
+    tbtn.setAttribute('aria-label', L(dark ? 'toLight' : 'toDark'));
     $$('.swatch').forEach(b => b.setAttribute('aria-pressed', b.dataset.accent === acc));
   };
   const setTheme = t => { if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme; save('ih-theme', t); paint(); };
-  const setAccent = a => { root.dataset.accent = a; save('ih-accent', a); if (root.dataset.theme !== 'dark') setTheme('dark'); else paint(); };
+  const setAccent = a => { root.dataset.accent = a; save('ih-accent', a); paint(); };
   window.IH = { toggleTheme: () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'), setTheme, setAccent, ACCENTS };
   tbtn.addEventListener('click', IH.toggleTheme);
   $$('.swatch').forEach(b => b.addEventListener('click', () => setAccent(b.dataset.accent)));
@@ -73,12 +80,12 @@
   PCsay = t => { toast.textContent = t; toast.classList.add('show'); clearTimeout(PCsay.t); PCsay.t = setTimeout(() => toast.classList.remove('show'), 2000); };
   $('#copyEmail').addEventListener('click', e => {
     const em = e.currentTarget.dataset.email;
-    (navigator.clipboard ? navigator.clipboard.writeText(em) : Promise.reject()).then(() => PCsay('Email copied'), () => PCsay(em));
+    (navigator.clipboard ? navigator.clipboard.writeText(em) : Promise.reject()).then(() => PCsay(L('copied')), () => PCsay(em));
   });
 
   $('#yr').textContent = new Date().getFullYear();
 
   // the designer only loads for you, at ?edit
-  if (/[?&]edit\b/.test(location.search)) { const s = document.createElement('script'); s.src = 'designer.js'; document.body.appendChild(s); }
+  if (/[?&]edit\b/.test(location.search)) { const s = document.createElement('script'); s.src = '/designer.js'; document.body.appendChild(s); }
 })();
 var PCsay;

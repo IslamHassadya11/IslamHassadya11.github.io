@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://islamhassadya.com/assets/islam.jpg" />
   <meta name="theme-color" content="#1c1a4d" />
-  <script>try{var d=document.documentElement,t=localStorage.getItem("ih-theme"),a=localStorage.getItem("ih-accent");if(t)d.dataset.theme=t;d.dataset.accent=a||"pink"}catch(e){}</script>
+  <script>try{var d=document.documentElement,t=localStorage.getItem("ih-theme"),a=localStorage.getItem("ih-accent");if(t)d.dataset.theme=t;if(a)d.dataset.accent=a}catch(e){}</script>
   <link rel="canonical" href="https://islamhassadya.com/" />
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png?v=4" id="favicon" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4" />
@@ -21,7 +21,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@800&text=%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D9%88%D9%86&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="alternate" hreflang="en" href="https://islamhassadya.com/" />
+  <link rel="alternate" hreflang="he" href="https://islamhassadya.com/he/" />
+  <link rel="alternate" hreflang="x-default" href="https://islamhassadya.com/" />
+  <link rel="stylesheet" href="style.css?v=13" />
   <!-- your saved design (written by the ?edit designer) -->
   <style id="custom-theme"></style>
 </head>
@@ -32,7 +35,7 @@
   <header class="nav" id="top">
     <div class="wrap nav-in">
       <a class="logo" href="#top" aria-label="Islam Hassadya, home">
-        <img class="logo-mark violet" src="assets/logo-1is.png?v=4" alt="" width="36" height="36" />
+        <img class="logo-mark violet" id="logoLight" src="assets/logo-1is.png?v=4" alt="" width="36" height="36" />
         <img class="logo-mark dark" id="logoDark" src="assets/logo-1is-pink.png?v=3" alt="" width="36" height="36" />
         <span class="logo-name">Islam Hassadya</span>
       </a>
@@ -52,6 +55,7 @@
         <div class="swatches" role="group" aria-label="Accent colour">
           <button class="swatch" type="button" data-accent="pink" style="--c:#ff5fd2" aria-label="Pink accent"></button><button class="swatch" type="button" data-accent="purple" style="--c:#a77bff" aria-label="Purple accent"></button><button class="swatch" type="button" data-accent="yellow" style="--c:#ffd60a" aria-label="Bright yellow accent"></button>
         </div>
+        <a class="icon-btn lang-btn" id="langLink" href="/he/" hreflang="he" lang="he" title="עברית" aria-label="גרסה בעברית">עב</a>
         <button class="icon-btn cmd-btn" id="cmdBtn" type="button" aria-label="Quick jump (Ctrl+K)" title="Quick jump">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><kbd>Ctrl K</kbd>
         </button>
@@ -296,76 +300,57 @@
               <div class="p-links"><a class="btn primary sm" href="https://github.com/IslamHassadya11/nsl-kdd-critical-evaluation/blob/main/Report_Islam_Hassadya.pdf" target="_blank" rel="noopener">Read the report</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/nsl-kdd-critical-evaluation" target="_blank" rel="noopener">Notebook</a></div>
             </div>
           </article>
-
-          <article class="project case" data-cat="web">
-            <div class="case-media">
-              <div class="frame-win dark">
-                <div class="win-bar"><i></i><i></i><i></i><span>islamhassadya.com/wc2026</span></div>
-                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/wc-dash.jpg" alt="World Cup 2026 Bracket Editor: dashboard with group standings" width="1200" height="750" loading="lazy"></button>
-              </div>
-              <div class="thumbs" aria-label="More screenshots">
-                <button type="button" class="on" data-src="assets/shots/wc-dash.jpg"><img src="assets/shots/wc-dash-t.jpg" alt="Dashboard" width="320" height="200" loading="lazy"></button>
-                <button type="button" data-src="assets/shots/wc-groups.jpg"><img src="assets/shots/wc-groups-t.jpg" alt="Group stage" width="320" height="200" loading="lazy"></button>
-                <button type="button" data-src="assets/shots/wc-ko.jpg"><img src="assets/shots/wc-ko-t.jpg" alt="Knockout bracket" width="320" height="200" loading="lazy"></button>
-              </div>
-            </div>
-            <div class="case-body">
-              <p class="label" data-edit>Live · React app</p>
-              <h3 data-edit>World Cup 2026 Bracket Editor</h3>
-              <p data-edit>A complete bracket editor for the first 48-team World Cup, from the opening group match to the final.</p>
-              <ul class="hl">
-                <li data-edit>All 96 group matches, with standings that update as you type</li>
-                <li data-edit>Ranks the best third-placed teams automatically</li>
-                <li data-edit>Knockout bracket from the Round of 32, with penalty shoot-outs</li>
-              </ul>
-              <ul class="tags"><li>React 18</li><li>Vite</li><li>Tailwind CSS</li></ul>
-              <div class="p-links"><a class="btn primary sm" href="/wc2026/">Live demo</a><a class="btn ghost sm" href="https://github.com/IslamHassadya11/WC2026Echo" target="_blank" rel="noopener">Code</a></div>
-            </div>
-          </article>
-
           <article class="project case" data-cat="java award">
             <div class="case-media">
-              <div class="frame-win paper">
-                <div class="win-bar"><i></i><i></i><i></i><span>Diagram · ParkWise conveyors</span></div>
-                <button class="shot" type="button" aria-label="Enlarge diagram"><img src="assets/diagrams/parkwise-states.svg" alt="State machine: conveyors move from off to initializing, testing and operational, with failures resetting them" width="1200" height="750" loading="lazy"></button>
+              <div class="frame-win dark">
+                <div class="win-bar"><i></i><i></i><i></i><span>ParkWise · desktop app</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/pw-live.jpg" alt="ParkWise live sessions: cars in the lot, gate and barrier status, and the live event log" width="1200" height="750" loading="lazy"></button>
               </div>
-              <div class="thumbs" aria-label="More diagrams">
-                <button type="button" class="on" data-src="assets/diagrams/parkwise-states.svg"><img src="assets/diagrams/parkwise-states.svg" alt="Conveyor state machine" width="320" height="200" loading="lazy"></button>
-                <button type="button" data-src="assets/diagrams/parkwise-ecb.svg"><img src="assets/diagrams/parkwise-ecb.svg" alt="Entity-Control-Boundary architecture" width="320" height="200" loading="lazy"></button>
-                <button type="button" data-src="assets/diagrams/parkwise-pricing.svg"><img src="assets/diagrams/parkwise-pricing.svg" alt="Price list adoption history" width="320" height="200" loading="lazy"></button>
+              <div class="thumbs" aria-label="More screenshots">
+                <button type="button" class="on" data-src="assets/shots/pw-live.jpg"><img src="assets/shots/pw-live-t.jpg" alt="ParkWise live sessions: cars in the lot, gate and barrier status, and the live event log" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/pw-dashboard.jpg"><img src="assets/shots/pw-dashboard-t.jpg" alt="ParkWise administrator dashboard" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/pw-customer.jpg"><img src="assets/shots/pw-customer-t.jpg" alt="ParkWise customer portal with the member’s vehicles" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/pw-annual.jpg"><img src="assets/shots/pw-annual-t.jpg" alt="Annual summary report generated with JasperReports" width="320" height="200" loading="lazy"></button>
               </div>
             </div>
             <div class="case-body">
               <p class="label award" data-edit>★ Most Outstanding Project · 2026</p>
               <h3 data-edit>AURORA ParkWise</h3>
-              <p data-edit>A Java management system for automated parking facilities, built for the Design and Development of Information Systems course.</p>
+              <p data-edit>A Java management system for automated parking lots, with an administrator command centre and a customer portal, built for the Design and Development of Information Systems course.</p>
               <ul class="hl">
-                <li data-edit>Simulates conveyor units as state machines, with random failure scenarios</li>
-                <li data-edit>Dynamic pricing with a full history of which price list was active, and when</li>
-                <li data-edit>Entity-Control-Boundary design, an Access database and JSON data import</li>
+                <li data-edit>Live sessions: vehicles are detected at the gate, assigned a space and charged on exit</li>
+                <li data-edit>Conveyors run as state machines, with random failures during start-up and testing</li>
+                <li data-edit>Customer club, dynamic price lists with history, and JasperReports annual reports</li>
               </ul>
-              <ul class="tags"><li>Java</li><li>ECB architecture</li><li>State machines</li></ul>
-              <div class="p-links"><a class="btn ghost sm" href="https://github.com/IslamHassadya11/Aurora-Parking-Service" target="_blank" rel="noopener">Repository</a></div>
+              <ul class="tags"><li>Java</li><li>Swing</li><li>MS Access</li><li>JasperReports</li><li>ECB architecture</li></ul>
+              <p class="private-note" data-edit>Code is in a private repository, available on request.</p>
             </div>
           </article>
 
           <article class="project case" data-cat="java award">
             <div class="case-media">
-              <div class="frame-win paper">
-                <div class="win-bar"><i></i><i></i><i></i><span>Diagram · AURORA Taxi</span></div>
-                <button class="shot" type="button" aria-label="Enlarge diagram"><img src="assets/diagrams/taxi-overview.svg" alt="Overview: one management system connecting the fleet, drivers and rides" width="1200" height="750" loading="lazy"></button>
+              <div class="frame-win dark">
+                <div class="win-bar"><i></i><i></i><i></i><span>AURORA Cabs · desktop app</span></div>
+                <button class="shot" type="button" aria-label="Enlarge screenshot"><img src="assets/shots/taxi-manager.jpg" alt="AURORA Cabs main manager screen" width="1200" height="750" loading="lazy"></button>
+              </div>
+              <div class="thumbs" aria-label="More screenshots">
+                <button type="button" class="on" data-src="assets/shots/taxi-manager.jpg"><img src="assets/shots/taxi-manager-t.jpg" alt="AURORA Cabs main manager screen" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/taxi-welcome.jpg"><img src="assets/shots/taxi-welcome-t.jpg" alt="AURORA Cabs welcome screen and login" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/taxi-fleet.jpg"><img src="assets/shots/taxi-fleet-t.jpg" alt="Fleet table with every taxi, its type, status and pricing" width="320" height="200" loading="lazy"></button>
+                <button type="button" data-src="assets/shots/taxi-subscriber.jpg"><img src="assets/shots/taxi-subscriber-t.jpg" alt="Subscriber screen" width="320" height="200" loading="lazy"></button>
               </div>
             </div>
             <div class="case-body">
               <p class="label award" data-edit>★ Best Project · 2025</p>
               <h3 data-edit>AURORA Taxi</h3>
-              <p data-edit>An end-to-end management system for a taxi business, built for Introduction to Object-Oriented Programming.</p>
+              <p data-edit>AURORA Cabs, a management system for a taxi company, built for Introduction to Object-Oriented Programming.</p>
               <ul class="hl">
-                <li data-edit>Manages the fleet, the drivers and the rides in one system</li>
-                <li data-edit>Built on encapsulation, inheritance and polymorphism</li>
-                <li data-edit>Class hierarchies designed to grow without rewriting existing code</li>
+                <li data-edit>Separate windows for the main manager, station managers and subscribers</li>
+                <li data-edit>Regular, Express and Intercity taxis, built with inheritance and polymorphism</li>
+                <li data-edit>Orders, stations and each subscriber’s ride history</li>
               </ul>
-              <ul class="tags"><li>Java</li><li>OOP</li><li>Software design</li></ul>
+              <ul class="tags"><li>Java</li><li>Swing</li><li>OOP</li></ul>
+              <p class="private-note" data-edit>Code is in a private repository, available on request.</p>
             </div>
           </article>
 
@@ -573,7 +558,7 @@
   </dialog>
   <dialog class="lightbox" id="lightbox" aria-label="Screenshot"><button class="lb-close" type="button" aria-label="Close">×</button><img alt=""></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js?v=8"></script>
-  <script src="features.js?v=2"></script>
+  <script src="script.js?v=9"></script>
+  <script src="features.js?v=3"></script>
 </body>
 </html>

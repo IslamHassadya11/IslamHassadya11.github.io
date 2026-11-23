@@ -21,25 +21,34 @@
   const toast = msg => window.PCsay ? window.PCsay(msg) : null;
   const email = 'ihassadya@gmail.com';
 
+  const T = {
+    en: { sections: 'Sections', projects: 'Projects', live: 'Open live', theme: 'Theme', contact: 'Contact', about: 'About me', proj: 'Projects', comm: 'Community', exp: 'Experience', edu: 'Education and awards', skills: 'Skills', cont: 'Contact',
+      open: x => `Open ${x}`, toLight: 'Switch to light theme', toDark: 'Switch to dark theme', accent: x => `Accent colour: ${x}`, pink: 'Pink', purple: 'Purple', yellow: 'Bright yellow',
+      copy: 'Copy my email', copied: 'Email copied', mail: 'Send me an email', lang: 'עברית (Hebrew version)', none: 'Nothing matches. Try "projects" or "email".' },
+    he: { sections: 'חלקים באתר', projects: 'פרויקטים', live: 'פתיחה', theme: 'ערכת צבעים', contact: 'יצירת קשר', about: 'קצת עליי', proj: 'פרויקטים', comm: 'קהילה', exp: 'ניסיון', edu: 'השכלה ופרסים', skills: 'מיומנויות', cont: 'צור קשר',
+      open: x => `פתיחת ${x}`, toLight: 'מעבר לערכה בהירה', toDark: 'מעבר לערכה כהה', accent: x => `צבע הדגשה: ${x}`, pink: 'ורוד', purple: 'סגול', yellow: 'צהוב',
+      copy: 'העתקת המייל שלי', copied: 'כתובת המייל הועתקה', mail: 'שליחת מייל', lang: 'English version', none: 'לא נמצאה התאמה. נסו "פרויקטים" או "מייל".' },
+  };
+  const tx = T[document.documentElement.lang] || T.en;
   const items = () => {
     const out = [];
-    const sec = (label, id, ic) => { const el = document.getElementById(id); if (el) out.push({ g: 'Sections', label, ic, run: () => go(el) }); };
-    sec('About me', 'about', '01'); sec('Projects', 'projects', '03'); sec('Community', 'community', '04');
-    sec('Experience', 'experience', '05'); sec('Education and awards', 'education', '06'); sec('Skills', 'skills', '08'); sec('Contact', 'contact', '09');
+    const sec = (label, id, ic) => { const el = document.getElementById(id); if (el) out.push({ g: tx.sections, label, ic, run: () => go(el) }); };
+    sec(tx.about, 'about', '01'); sec(tx.proj, 'projects', '03'); sec(tx.comm, 'community', '04');
+    sec(tx.exp, 'experience', '05'); sec(tx.edu, 'education', '06'); sec(tx.skills, 'skills', '08'); sec(tx.cont, 'contact', '09');
     $$('#projects .case').forEach(c => {
       const h = $('h3', c), demo = $$('.p-links a', c).find(a => /Live demo|Open the app/i.test(a.textContent));
-      out.push({ g: 'Projects', label: h.textContent.trim(), ic: '▲', hint: $('.label', c)?.textContent.trim(), run: () => go(c) });
-      if (demo) out.push({ g: 'Open live', label: `Open ${h.textContent.trim()}`, ic: '↗', hint: demo.getAttribute('href'), run: () => open(demo.getAttribute('href')) });
+      out.push({ g: tx.projects, label: h.textContent.trim(), ic: '▲', hint: $('.label', c)?.textContent.trim(), run: () => go(c) });
+      if (demo) out.push({ g: tx.live, label: tx.open(h.textContent.trim()), ic: '↗', hint: demo.getAttribute('href'), run: () => open(demo.getAttribute('href')) });
     });
-    out.push({ g: 'Open live', label: 'Open FureidisTech', ic: '↗', hint: '/fureidistech/', run: () => open('/fureidistech/') });
+    out.push({ g: tx.live, label: tx.open('FureidisTech'), ic: '↗', hint: '/fureidistech/', run: () => open('/fureidistech/') });
     const dark = document.documentElement.dataset.theme === 'dark';
-    out.push({ g: 'Theme', label: dark ? 'Switch to light theme' : 'Switch to dark theme', ic: dark ? '☀' : '☾', hint: 'T', run: () => { IH.toggleTheme(); dlg.close(); } });
-    const names = { pink: 'Pink', purple: 'Purple', yellow: 'Bright yellow' };
-    Object.keys(IH.ACCENTS).forEach(k => out.push({ g: 'Theme', label: `Dark theme: ${names[k]}`, ic: '●', color: IH.ACCENTS[k], run: () => { IH.setAccent(k); dlg.close(); } }));
-    out.push({ g: 'Contact', label: 'Copy my email', ic: '⧉', hint: email, run: () => { navigator.clipboard?.writeText(email).then(() => toast('Email copied'), () => {}); dlg.close(); } });
-    out.push({ g: 'Contact', label: 'Send me an email', ic: '✉', run: () => { dlg.close(); location.href = 'mailto:' + email; } });
-    out.push({ g: 'Contact', label: 'GitHub', ic: '⌥', hint: 'IslamHassadya11', run: () => open('https://github.com/IslamHassadya11') });
-    out.push({ g: 'Contact', label: 'LinkedIn', ic: 'in', run: () => open('https://www.linkedin.com/in/islamhassadya/') });
+    out.push({ g: tx.theme, label: dark ? tx.toLight : tx.toDark, ic: dark ? '☀' : '☾', hint: 'T', run: () => { IH.toggleTheme(); dlg.close(); } });
+    Object.keys(IH.ACCENTS).forEach(k => out.push({ g: tx.theme, label: tx.accent(tx[k] || k), ic: '●', color: IH.ACCENTS[k], run: () => { IH.setAccent(k); dlg.close(); } }));
+    out.push({ g: tx.contact, label: tx.copy, ic: '⧉', hint: email, run: () => { navigator.clipboard?.writeText(email).then(() => toast(tx.copied), () => {}); dlg.close(); } });
+    out.push({ g: tx.contact, label: tx.mail, ic: '✉', run: () => { dlg.close(); location.href = 'mailto:' + email; } });
+    out.push({ g: tx.contact, label: 'GitHub', ic: '⌥', hint: 'IslamHassadya11', run: () => open('https://github.com/IslamHassadya11') });
+    const ll = document.getElementById('langLink'); if (ll) out.push({ g: tx.theme, label: tx.lang, ic: 'א', run: () => { dlg.close(); location.href = ll.getAttribute('href'); } });
+    out.push({ g: tx.contact, label: 'LinkedIn', ic: 'in', run: () => open('https://www.linkedin.com/in/islamhassadya/') });
     return out;
   };
 
@@ -55,7 +64,7 @@
     const q = input.value.trim().toLowerCase();
     shown = all.map(it => [it, score(it, q)]).filter(x => x[1] > 0).sort((a, b) => q ? b[1] - a[1] : 0).map(x => x[0]);
     cur = Math.min(cur, Math.max(0, shown.length - 1));
-    if (!shown.length) { list.innerHTML = '<li class="cmdk-empty">Nothing matches. Try "projects" or "email".</li>'; return; }
+    if (!shown.length) { list.innerHTML = '<li class="cmdk-empty">' + esc(tx.none) + '</li>'; return; }
     let g = '', html = '';
     shown.forEach((it, i) => {
       if (!q && it.g !== g) { g = it.g; html += `<li class="cmdk-group" role="presentation">${esc(g)}</li>`; }

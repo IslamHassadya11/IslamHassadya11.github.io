@@ -22,7 +22,6 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 ## Hosted apps
 
 - `petalcalc/` is the single-file build of [cutie-calc](https://github.com/IslamHassadya11/cutie-calc), served at islamhassadya.com/petalcalc/.
-- `wc2026/` is the production build of [WC2026Echo](https://github.com/IslamHassadya11/WC2026Echo) (`npx vite build --base=/wc2026/`).
 - `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).
 
 ## Themes
@@ -35,3 +34,11 @@ Dark theme update: black and white with one accent colour (Pink, Purple or Brigh
 
 - `Ctrl+K` (or `/`) opens the quick-jump menu: sections, every project, live demos, theme and accent, copy email.
 - `T` switches between the light and dark themes.
+
+## Hebrew version
+
+`he/index.html` is generated from `index.html`. After editing the English page, run `python3 tools/build_he.py`; it applies the translations in `tools/he.py` and lists any new text that still needs a Hebrew version.
+
+## Colours
+
+The dots in the menu bar pick an accent colour (purple, pink or bright yellow) in both the light and dark themes; each has its own 1IS logo and browser icon.
