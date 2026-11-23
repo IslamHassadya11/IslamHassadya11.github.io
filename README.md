@@ -21,7 +21,7 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 
 ## Hosted apps
 
-- `petalcalc/` is the single-file build of [cutie-calc](https://github.com/IslamHassadya11/cutie-calc), served at islamhassadya.com/petalcalc/.
+- `petalcalc/` is the single-file build of [petal-calc](https://github.com/IslamHassadya11/petal-calc), served at islamhassadya.com/petalcalc/.
 - `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).
 
 ## Themes
