@@ -28,7 +28,7 @@
     tbtn.setAttribute('aria-label', L(dark ? 'toLight' : 'toDark'));
     $$('.swatch').forEach(b => b.setAttribute('aria-pressed', b.dataset.accent === acc));
   };
-  const setTheme = t => { if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme; save('ih-theme', t); paint(); };
+  const setTheme = t => { if (t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme; save('ih-mode', t); paint(); };
   const setAccent = a => { root.dataset.accent = a; save('ih-accent', a); paint(); };
   window.IH = { toggleTheme: () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'), setTheme, setAccent, ACCENTS };
   tbtn.addEventListener('click', IH.toggleTheme);

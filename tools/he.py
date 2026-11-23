@@ -3,16 +3,16 @@
 # Names of products, technologies and organisations stay in English, as is usual on Israeli tech CVs.
 HE = {
   # head
-  "Islam Hassadya | Software Engineer": "איסלאם חסאדיה | מהנדס תוכנה",
+  "Islam Hassadya | Software Engineer": "איסלאם חסדייה | מהנדס תוכנה",
   "Islam Hassadya, aspiring software engineer. Double major B.Sc. in Computer Science and Information Systems at the University of Haifa. Projects, experience and contact.":
-    "איסלאם חסאדיה, מהנדס תוכנה בתחילת דרכו. סטודנט לתואר ראשון כפול במדעי המחשב ובמערכות מידע באוניברסיטת חיפה. פרויקטים, ניסיון ויצירת קשר.",
-  "Islam Hassadya": "איסלאם חסאדיה",
+    "איסלאם חסדייה, מהנדס תוכנה בתחילת דרכו. סטודנט לתואר ראשון כפול במדעי המחשב ובמערכות מידע באוניברסיטת חיפה. פרויקטים, ניסיון ויצירת קשר.",
+  "Islam Hassadya": "איסלאם חסדייה",
   "Projects, experience and contact. Double major B.Sc. in Computer Science & Information Systems, University of Haifa.":
     "פרויקטים, ניסיון ויצירת קשר. תואר ראשון כפול במדעי המחשב ובמערכות מידע, אוניברסיטת חיפה.",
 
   # nav and chrome
   "Skip to content": "דילוג לתוכן",
-  "Islam Hassadya, home": "איסלאם חסאדיה, לדף הבית",
+  "Islam Hassadya, home": "איסלאם חסדייה, לדף הבית",
   "Main": "ניווט ראשי",
   "About": "אודות", "Projects": "פרויקטים", "Community": "קהילה", "Experience": "ניסיון", "Education": "השכלה", "Contact": "צור קשר",
   "Accent colour": "צבע הדגשה", "Accent": "צבע",
@@ -23,13 +23,13 @@ HE = {
 
   # hero
   "Software Engineer · Haifa, Israel": "מהנדס תוכנה · חיפה",
-  "Islam": "איסלאם", "Hassadya": "חסאדיה",
+  "Islam": "איסלאם", "Hassadya": "חסדייה",
   "Computer Science & Information Systems": "מדעי המחשב ומערכות מידע",
   "I build software end to end, from algorithms and system design to interfaces people enjoy using. I'm a double major at the University of Haifa, on the Dean's List, with three award-winning projects. I'm open to junior software engineering roles.":
     "אני בונה תוכנה מקצה לקצה, מאלגוריתמים ותכנון מערכות ועד ממשקים שנעים להשתמש בהם. אני סטודנט לתואר כפול באוניברסיטת חיפה, ברשימת הדיקן, עם שלושה פרויקטים עטורי פרסים. אני פתוח למשרות ג׳וניור בהנדסת תוכנה.",
   "See my projects": "לפרויקטים שלי", "Contact me": "צרו קשר",
   "Email": "מייל",
-  "Portrait of Islam Hassadya": "תמונה של איסלאם חסאדיה",
+  "Portrait of Islam Hassadya": "תמונה של איסלאם חסדייה",
 
   # about
   "About me": "קצת עליי",
