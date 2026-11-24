@@ -24,7 +24,7 @@
     if (logoDark) logoDark.src = `/assets/logo-1is-${acc}.png?v=3`;
     if (logoLight) logoLight.src = acc === 'purple' ? '/assets/logo-1is.png?v=4' : `/assets/logo-1is-light-${acc}.png?v=1`;
     if (fav) fav.href = dark ? `/assets/favicon-${acc}.png?v=3` : acc === 'purple' ? '/assets/favicon.png?v=4' : `/assets/favicon-light-${acc}.png?v=1`;
-    if (meta) meta.content = dark ? '#000000' : ({ purple: '#1c1a4d', pink: '#2a0f24', yellow: '#1d1a0e' })[acc];
+    if (meta) meta.content = dark ? '#2b2b30' : ({ purple: '#1c1a4d', pink: '#2a0f24', yellow: '#1d1a0e' })[acc];
     tbtn.setAttribute('aria-label', L(dark ? 'toLight' : 'toDark'));
     $$('.swatch').forEach(b => b.setAttribute('aria-pressed', b.dataset.accent === acc));
   };

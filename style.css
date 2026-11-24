@@ -288,23 +288,23 @@ p { margin: 0; }
 html[data-theme="dark"] {
   color-scheme: dark;
   --acc: #ff5fd2;
-  --g1: #161616;     /* near-black shapes */
+  --g1: #1f1f23;     /* deeper charcoal shapes */
   --g2: var(--acc);  /* the one accent */
-  --g3: #3a3a3a;     /* graphite */
+  --g3: #4b4b52;     /* graphite */
   --g4: #ececec;     /* white */
-  --bg: #000000;
-  --paper: #0b0b0b;
+  --bg: #2b2b30;
+  --paper: #34343a;
   --ink: #ededed;
-  --muted: #8f8f8f;
-  --line: #1f1f1f;
+  --muted: #aeaeb5;
+  --line: #44444b;
   --hc: #ffffff;
   --rule: #ffffff;
   --on-accent: #000000;
 }
 html[data-theme="dark"][data-accent="purple"] { --acc: #a77bff; }
 html[data-theme="dark"][data-accent="yellow"] { --acc: #ffd60a; }
-[data-theme="dark"] body { background: #000; }
-[data-theme="dark"] .nav { background: rgba(0, 0, 0, .82); }
+[data-theme="dark"] body { background: var(--bg); }
+[data-theme="dark"] .nav { background: rgba(43, 43, 48, .86); }
 [data-theme="dark"] .btn.primary:hover { background: #fff; color: #000; }
 [data-theme="dark"] .btn.ghost:hover { background: #fff; border-color: #fff; color: #000; }
 [data-theme="dark"] .nav-links .nav-cta { background: #fff; color: #000; }
@@ -312,10 +312,10 @@ html[data-theme="dark"][data-accent="yellow"] { --acc: #ffd60a; }
 [data-theme="dark"] .chip.on { background: #fff; border-color: #fff; color: #000; }
 [data-theme="dark"] .skip { color: #000; }
 [data-theme="dark"] .label.award { color: var(--acc) !important; }
-[data-theme="dark"] .contact, [data-theme="dark"] .foot { background: #000; }
+[data-theme="dark"] .contact, [data-theme="dark"] .foot { background: #232327; }
 [data-theme="dark"] .contact { border-top: 1px solid var(--line); }
 [data-theme="dark"] .contact .btn.light { background: var(--acc); color: #000; }
-[data-theme="dark"] .org-card.dark { background: #050505; border-color: var(--line); }
+[data-theme="dark"] .org-card.dark { background: #232327; border-color: var(--line); }
 [data-theme="dark"] .org-card.dark .label { color: var(--acc) !important; }
 [data-theme="dark"] .ribbon, [data-theme="dark"] .toast { background: #fff; color: #000; }
 [data-theme="dark"] .hl li::before { border-bottom-color: var(--acc); }
