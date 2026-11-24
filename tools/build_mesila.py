@@ -12,7 +12,7 @@ src = pathlib.Path(sys.argv[1])
 out = pathlib.Path(__file__).resolve().parent.parent / 'mesila'
 if out.exists():
     shutil.rmtree(out)
-for part in ('css', 'js', 'data', 'fonts'):
+for part in ('css', 'js', 'data', 'fonts', 'logos'):
     shutil.copytree(src / part, out / part)
 
 html = (src / 'index.html').read_text(encoding='utf-8')
