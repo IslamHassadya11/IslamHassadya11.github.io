@@ -115,7 +115,7 @@ p { margin: 0; }
 .about-body .big { grid-column: 1 / -1; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.45; color: var(--ink); font-weight: 500; }
 .about-body p { color: var(--muted); }
 .about-body strong { color: var(--hc); font-weight: 700; }
-.facts { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1.7fr 1fr 1.3fr; margin: 24px 0 0; border-top: 3px solid var(--rule); }
+.facts { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); margin: 24px 0 0; border-top: 3px solid var(--rule); }
 .facts > div { padding: 18px 18px 0 0; }
 .facts dt { font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--g2t); }
 .facts dd { margin: 6px 0 0; font-weight: 600; color: var(--hc); }
