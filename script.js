@@ -53,6 +53,42 @@
     img.src = b.dataset.src; img.alt = b.querySelector('img').alt;
   }));
 
+  // "What I'm working on" reels: screenshots change every few seconds; the round dots pick one.
+  // They pause while hovered or focused, when off screen, and for people who prefer less motion.
+  const calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const he = document.documentElement.lang === 'he';
+  $$('[data-reel]').forEach((reel, n) => {
+    const imgs = $$('img', reel), dots = $('.reel-dots', reel);
+    let i = 0, timer = 0, paused = false, seen = false;
+    imgs.forEach((im, k) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', he ? `צילום מסך ${k + 1} מתוך ${imgs.length}` : `Screenshot ${k + 1} of ${imgs.length}`);
+      b.addEventListener('click', () => { show(k); restart(); });
+      dots.appendChild(b);
+    });
+    const show = k => {
+      i = (k + imgs.length) % imgs.length;
+      const next = imgs[(i + 1) % imgs.length]; if (next.loading === 'lazy') next.loading = 'eager'; // fetch the next one early
+      imgs.forEach((im, j) => im.classList.toggle('on', j === i));
+      $$('button', dots).forEach((d, j) => d.setAttribute('aria-current', String(j === i)));
+    };
+    const tick = () => { if (!paused && seen && !document.hidden) show(i + 1); };
+    const restart = () => { clearInterval(timer); if (!calm) timer = setInterval(tick, 3800); };
+    show(0);
+    setTimeout(restart, n * 900); // cards change one after another, not all at once
+    reel.addEventListener('mouseenter', () => paused = true);
+    reel.addEventListener('mouseleave', () => paused = false);
+    reel.addEventListener('focusin', () => paused = true);
+    reel.addEventListener('focusout', () => paused = false);
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { seen = es[0].isIntersecting; }).observe(reel);
+    else seen = true;
+    $('.reel-view', reel).addEventListener('click', () => {
+      const lb = $('#lightbox'); if (!lb || !lb.showModal) return;
+      $('img', lb).src = imgs[i].src; $('img', lb).alt = imgs[i].alt; lb.showModal();
+    });
+  });
+
   // lightbox: click a screenshot to see it full size
   const lb = $('#lightbox');
   if (lb && lb.showModal) {
