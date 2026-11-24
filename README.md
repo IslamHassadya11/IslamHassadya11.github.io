@@ -21,6 +21,7 @@ Drafts are kept in your browser until you press **Reset everything**. Visitors n
 
 ## Hosted apps
 
+- `mubadroon/` is the browser-only demo of the Mubadroon CRM, built in that repository with `cd demo && npm install && BASE=/mubadroon/ npm run build` (the real API runs in a service worker on SQLite compiled to WebAssembly).
 - `mesila/` is built from the [Mesila](https://github.com/IslamHassadya11/Mesila) repository by `tools/build_mesila.py` (guest mode only: grades stay in the visitor's browser).
 - `petalcalc/` is the single-file build of [petal-calc](https://github.com/IslamHassadya11/petal-calc), served at islamhassadya.com/petalcalc/.
 - `assets/shots/` holds the project screenshots (1200×750 JPEG, plus `-t` thumbnails).

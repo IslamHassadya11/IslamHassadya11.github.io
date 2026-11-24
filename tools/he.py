@@ -255,6 +255,7 @@ HE = {
   "A leadership path for young people, volunteer hours with verifiable certificates, and an impact dashboard and reports for funders": "מסלול מנהיגות לבני נוער, שעות התנדבות עם תעודות שאפשר לאמת, ולוח בקרה ודוחות השפעה לתורמים",
   "Arabic, Hebrew and English with right-to-left layouts, role-based privacy and an audit log; 54 automated tests": "ערבית, עברית ואנגלית עם תצוגה מימין לשמאל, פרטיות לפי תפקיד ויומן ביקורת; 54 בדיקות אוטומטיות",
   "Watch the walkthrough": "לצפייה בסרטון ההדגמה",
+  "Runs entirely in your browser with fictional demo data. Sign in as admin@mubadroon.org with the password Admin123!": "רץ כולו בדפדפן שלך, עם נתוני הדגמה בדויים. התחברו כ-admin@mubadroon.org עם הסיסמה Admin123!",
   "Interactive product configurator": "מעצב מוצרים אינטראקטיבי", "A complete checkout flow": "תהליך תשלום מלא",
   "Responsive interface that works on phones and desktops": "ממשק רספונסיבי שעובד בטלפון ובמחשב",
   "More on GitHub": "עוד ב-GitHub",
