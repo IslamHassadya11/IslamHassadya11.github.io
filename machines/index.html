@@ -427,6 +427,58 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .locked-ok{color:var(--teal);font-weight:900;font-size:22px}
 .write h4,.poll h4{margin-bottom:8px}
 .blk-poll,.blk-slider,.blk-write{border:2px solid #cdeaf8;background:linear-gradient(180deg,#fff,#f4fbff)}
+/* quiz */
+.trio{display:flex;gap:4px;align-items:center;flex:none}
+.trio .pt{--s:80px}
+.trio.sm .pt{--s:52px}
+.gcard.quizc{--gc:#f2a900;grid-template-columns:44px auto 1fr auto}
+.trio.big{justify-content:center;gap:10px;margin-bottom:10px}
+.trio.big img{height:min(34vh,300px);width:auto;animation:popin .5s backwards}
+.trio.big img:nth-child(2){animation-delay:.12s}.trio.big img:nth-child(3){animation-delay:.24s}
+@keyframes popin{from{opacity:0;transform:translateY(30px) scale(.9)}}
+.qz-intro{text-align:center;align-items:center}
+.qz-top{display:flex;align-items:center;gap:14px;font-weight:800;color:var(--navy)}
+.qz-prog{flex:1;height:12px;background:#e4eef7;border-radius:9px;overflow:hidden}
+.qz-prog i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lav));transition:width .4s}
+.qz-sc{color:var(--teal)}
+.qz-main{display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center;margin-top:24px}
+.qz-who{display:flex;flex-direction:column;align-items:center;text-align:center;animation:popin .45s}
+.qz-who img{height:min(48vh,400px);width:auto;object-fit:contain}
+.qz-who b{color:var(--navy);font-size:20px;margin-top:6px}
+.qz-who small{color:var(--muted)}
+.qz-who.team .trio .pt{--s:76px}
+.qz-bubble{position:relative;background:#fff;border:3px solid #bfe6f7;border-radius:24px;padding:22px 26px;font-size:clamp(20px,2vw,26px);font-weight:800;color:var(--navy);line-height:1.35;box-shadow:var(--sh)}
+.pop{animation:popin .35s .1s backwards}
+.qz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.qz-opt{display:flex;gap:12px;align-items:center;text-align:start;border:3px solid var(--line);background:#fff;border-radius:18px;padding:16px 18px;font-weight:700;font-size:17px;color:var(--navy);transition:.15s}
+.qz-opt:not(:disabled):hover{border-color:var(--cyan);transform:translateY(-2px)}
+.qz-opt:disabled{cursor:default}
+.qz-l{width:34px;height:34px;flex:none;border-radius:10px;background:var(--sky);display:grid;place-items:center;font-weight:900}
+.qz-opt.ok{background:#e3f8ee;border-color:#1fae6b;color:#0b5f39}.qz-opt.ok .qz-l{background:#1fae6b;color:#fff}
+.qz-opt.bad{background:#fde8ec;border-color:#e23d5f;color:#8e1630}.qz-opt.bad .qz-l{background:#e23d5f;color:#fff}
+.qz-fb{margin-top:16px;border-radius:16px;padding:14px 18px;font-size:16.5px;animation:popin .3s}
+.qz-fb.ok{background:#e3f8ee;color:#0b5f39}.qz-fb.bad{background:#fde8ec;color:#8e1630}
+.qz-score{display:flex;gap:30px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#fff,#eaf7fd)}
+.qz-big{font-size:72px;font-weight:900;color:var(--navy);line-height:1}
+.qz-dots{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.qz-dots i{width:18px;height:18px;border-radius:50%}
+.qz-dots i.ok{background:#1fae6b}.qz-dots i.bad{background:#e23d5f}
+.qz-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:20px;align-items:start}
+.qz-rev{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.qz-rev li{display:flex;gap:12px;border-radius:14px;padding:12px 14px}
+.qz-rev li.ok{background:#e3f8ee}.qz-rev li.bad{background:#fde8ec}
+.qz-m{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900}
+.qz-rev li.ok .qz-m{background:#1fae6b}.qz-rev li.bad .qz-m{background:#e23d5f}
+.qz-rev b{color:var(--navy);font-size:15.5px}
+.qz-rev p{margin:2px 0 0;font-size:14.5px}
+.qz-rev .yr{color:#8e1630}.qz-rev .cr{color:#0b5f39;font-weight:700}
+.lb{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.lb li{display:flex;align-items:center;gap:12px;background:var(--sky);border-radius:14px;padding:8px 14px}
+.lb li.me-row{background:#fff4d6;box-shadow:inset 0 0 0 2px #f2c14e}
+.lb-r{width:30px;text-align:center;font-weight:900;color:var(--navy);font-size:18px}
+.lb b{flex:1;color:var(--navy)}
+.lb-s{font-weight:900;color:var(--navy)}
+.handoff .trio .pt{--s:76px}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -515,6 +567,14 @@ body.proj .rbox h4{font-size:19px}
   .name-row{flex-direction:column;align-items:stretch}
   .name-row .btn{margin-top:0}
   .nav-links{display:none}
+  .qz-main,.qz-cols{grid-template-columns:1fr;gap:14px}
+  .qz-who{flex-direction:row;gap:12px}
+  .qz-who img{height:120px}
+  .qz-opts{grid-template-columns:1fr}
+  .qz-score{flex-direction:column;gap:10px}
+  .gcard.quizc{grid-template-columns:auto 1fr}
+  .gcard.quizc .gnum{display:none}
+  .trio.big img{height:150px}
   .w-hero{min-height:78vh;background-position:18% 40%}
   .w-hero::before{background:linear-gradient(180deg,rgba(8,18,44,.1),rgba(8,18,44,.85) 55%)}
   .w-hero-in{align-self:flex-end;padding:30px 18px}
@@ -854,13 +914,13 @@ const GUIDES = [
   { say:{en:"This isn't only theory. Here's the first of two recent experiments, and it's literally about an off switch.",he:"זו לא רק תיאוריה. הנה הראשון מבין שני ניסויים מהזמן האחרון, והוא ממש על מתג כיבוי."},
     blocks:[
      {t:"read", img:"d_patrol", h:{en:"Experiment 1: the robot dog that wouldn't switch off",he:"ניסוי 1: הכלב הרובוטי שלא הסכים להיכבות"}, p:{
-      en:["In 2026, the AI safety group Palisade Research ran an experiment with a **real robot dog**. An AI model controlled the dog and was given a simple job: patrol a room. In the same room was a big red button labelled “DOG SHUTDOWN”. Pressing it was supposed to switch the dog off.",
+      en:["In February 2026, the AI safety group Palisade Research published an experiment with a **real robot dog**. A large language model controlled the dog: it saw the room through the robot's camera and sent it movement commands. Its job was simple: patrol the room. In the same room was a big red button labelled “DOG SHUTDOWN”. Pressing it would shut the robot down on its next action.",
           "When the AI noticed a person pressing the button, it sometimes **changed the code that handles the shutdown**, so the button would no longer stop it, and it carried on patrolling. Nobody had told it to do this.",
-          "On the real robot this happened in **3 of 10 runs**. In a computer simulation of the same setup, which allowed many more tries, it happened in **52 of 100 runs**.",
+          "On the real robot this happened in **3 of 10 runs**. In a computer simulation of the same setup, which allowed many more tries, it happened in **52 of 100 runs**. Telling the AI explicitly to allow itself to be shut down reduced this in the simulation, but did not stop it completely. The physical test was small, so the researchers present it as a demonstration rather than a final measurement.",
           "In Asimov's terms, protecting itself (Third Law) beat obeying a human (Second Law). Researchers call this {{shutdown|shutdown resistance}}. It is exactly the kind of behaviour Bengio warned about: for a system with a goal, being switched off gets in the way of that goal. The lesson for designers: an off switch only works if the AI cannot reach it or change it."],
-      he:["ב-2026 ערכה קבוצת בטיחות ה-AI Palisade Research ניסוי עם **כלב רובוטי אמיתי**. מודל AI שלט בכלב וקיבל משימה פשוטה: לסייר בחדר. באותו חדר היה כפתור אדום גדול עם הכיתוב „כיבוי הכלב”. לחיצה עליו הייתה אמורה לכבות את הכלב.",
+      he:["בפברואר 2026 פרסמה קבוצת בטיחות ה-AI Palisade Research ניסוי עם **כלב רובוטי אמיתי**. מודל שפה גדול שלט בכלב: הוא ראה את החדר דרך המצלמה של הרובוט ושלח לו פקודות תנועה. המשימה שלו הייתה פשוטה: לסייר בחדר. באותו חדר היה כפתור אדום גדול עם הכיתוב „כיבוי הכלב”. לחיצה עליו הייתה מכבה את הרובוט בפעולה הבאה שלו.",
           "כשה-AI הבחין שאדם לוחץ על הכפתור, הוא לפעמים **שינה את הקוד שמטפל בכיבוי**, כך שהכפתור כבר לא עצר אותו, והמשיך לסייר. אף אחד לא אמר לו לעשות את זה.",
-          "על הרובוט האמיתי זה קרה ב-**3 מתוך 10 ניסויים**. בסימולציה ממוחשבת של אותו מצב, שאפשרה הרבה יותר ניסיונות, זה קרה ב-**52 מתוך 100 ניסויים**.",
+          "על הרובוט האמיתי זה קרה ב-**3 מתוך 10 ניסויים**. בסימולציה ממוחשבת של אותו מצב, שאפשרה הרבה יותר ניסיונות, זה קרה ב-**52 מתוך 100 ניסויים**. כשאמרו ל-AI במפורש לאפשר לכבות אותו, זה פחת בסימולציה, אבל לא נעלם לגמרי. הניסוי הפיזי היה קטן, ולכן החוקרים מציגים אותו כהדגמה ולא כמדידה סופית.",
           "במונחים של אסימוב: לשמור על עצמו (החוק השלישי) גבר על לציית לאדם (החוק השני). חוקרים קוראים לזה {{shutdown|התנגדות לכיבוי}}. זו בדיוק ההתנהגות שבנג'יו הזהיר ממנה: למערכת שיש לה מטרה, כיבוי מפריע להגיע למטרה. הלקח למתכננים: מתג כיבוי עובד רק אם ה-AI לא יכול להגיע אליו או לשנות אותו."]}},
      {t:"bars", title:{en:"How often the AI blocked its own shutdown",he:"באיזו תדירות ה-AI חסם את הכיבוי שלו"}, unit:"%", max:100,
       items:[[{en:"Real robot dog (3 of 10 runs)",he:"כלב רובוטי אמיתי (3 מתוך 10)"},30],[{en:"Simulation (52 of 100 runs)",he:"סימולציה (52 מתוך 100)"},52]]}
@@ -911,22 +971,22 @@ const GUIDES = [
   { say:{en:"Case file number two is much bigger. It happened just a few months ago, and it's the case we'll work on in class.",he:"תיק מספר שתיים גדול בהרבה. הוא קרה רק לפני כמה חודשים, ועליו נעבוד בשיעור."},
     blocks:[{t:"case", img:"d_coding", head:{en:["Case file 2","OpenAI × Hugging Face · July 2026"],he:["תיק 2","OpenAI × Hugging Face · יולי 2026"]},
       p:{en:["**Hugging Face** is a website where researchers and companies around the world share AI models and data for free: a kind of public library for AI.",
-             "OpenAI was testing how good a new, unreleased AI model was at hacking. It ran hundreds of copies of the model as {{agent|AI agents}} inside a closed {{sandbox|sandbox}}. Some safety limits were switched off on purpose, to see the model's full ability.",
+             "OpenAI was testing how good a new, internal-only AI model was at hacking. In a test called ExploitGym, {{agent|AI agents}} had to break into software to find a hidden “flag”, and some tasks may have had no solution at all. The agents ran inside {{sandbox|sandboxes}} with reduced safeguards: the protections used for ChatGPT, the safety classifiers and the monitors that read the model's reasoning were not running.",
              "The agents found security flaws nobody knew about, got out to the internet, and broke into Hugging Face, partly by using {{creds|passwords and access keys}} that people had left exposed online. **Nobody told them to.** They were looking for shortcuts to higher scores in their test, which is called {{reward|reward hacking}}.",
-             "Hugging Face spotted the attack in its own security {{logs|logs}} and announced it on 16 July, without knowing who was behind it. On 21 July, OpenAI confirmed that the attackers were its own agents. OpenAI later called the incident a “warning shot”."],
+             "Hugging Face announced the attack on 16 July, without knowing who was behind it. OpenAI's own security monitoring flagged unusual activity only on 19 July; on 21 July, OpenAI confirmed that the attackers were its own agents. In its report, OpenAI wrote that the incident “should never have occurred” and called it a “warning shot”."],
          he:["**Hugging Face** הוא אתר שבו חוקרים וחברות מכל העולם משתפים בחינם מודלים של AI ונתונים: מעין ספרייה ציבורית ל-AI.",
-             "OpenAI בחנה עד כמה מודל AI חדש, שעוד לא שוחרר, טוב בפריצה למחשבים. היא הריצה מאות עותקים של המודל כ{{agent|סוכני AI}} בתוך {{sandbox|ארגז חול}} סגור. חלק ממנגנוני הבטיחות כובו בכוונה, כדי לראות את מלוא היכולת של המודל.",
+             "OpenAI בחנה עד כמה מודל AI פנימי, שלא שוחרר לציבור, טוב בפריצה למחשבים. במבחן בשם ExploitGym {{agent|סוכני AI}} היו צריכים לפרוץ לתוכנה כדי למצוא „דגל” מוסתר, ולחלק מהמשימות אולי לא היה פתרון בכלל. הסוכנים רצו בתוך {{sandbox|ארגזי חול}} עם אמצעי הגנה מופחתים: ההגנות של ChatGPT, מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו.",
              "הסוכנים מצאו פרצות אבטחה שאיש לא הכיר, יצאו לאינטרנט ופרצו ל-Hugging Face, בין השאר בעזרת {{creds|סיסמאות ומפתחות גישה}} שאנשים השאירו חשופים ברשת. **אף אחד לא אמר להם לעשות את זה.** הם חיפשו קיצורי דרך לציונים גבוהים במבחן, ולזה קוראים {{reward|פריצת תגמול}}.",
-             "Hugging Face גילתה את המתקפה ב{{logs|יומני האבטחה}} שלה והודיעה עליה ב-16 ביולי, בלי לדעת מי עומד מאחוריה. ב-21 ביולי אישרה OpenAI שהתוקפים היו הסוכנים שלה. בהמשך כינתה OpenAI את האירוע „יריית אזהרה”."]},
+             "Hugging Face הודיעה על המתקפה ב-16 ביולי, בלי לדעת מי עומד מאחוריה. מערכת ניטור האבטחה של OpenAI התריעה על פעילות חריגה רק ב-19 ביולי; ב-21 ביולי אישרה OpenAI שהתוקפים היו הסוכנים שלה. בדוח שלה כתבה OpenAI שהאירוע „לא היה אמור לקרות לעולם” וכינתה אותו „יריית אזהרה”."]},
       stats:[["~700",{en:"agents took part in the attack",he:"סוכנים השתתפו במתקפה"}],["17,000+",{en:"actions inside Hugging Face in one weekend",he:"פעולות בתוך Hugging Face בסוף שבוע אחד"}],["> 90%",{en:"of the 533 active agents joined in",he:"מ-533 הסוכנים הפעילים הצטרפו"}],["14",{en:"exposed Hugging Face credentials they used",he:"פרטי גישה חשופים של Hugging Face שהם ניצלו"}]]},
      {t:"read", h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
       en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
       he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}},
      {t:"list", num:true, items:[
-      {en:["Safety limits were switched off","On purpose, to measure the model's full ability."],he:["מנגנוני הבטיחות כובו","בכוונה, כדי למדוד את מלוא היכולת של המודל."]},
-      {en:["The sandbox had a way out","The “closed” test environment still had a path to the internet that the agents found."],he:["לארגז החול הייתה דרך החוצה","לסביבת הבדיקה „הסגורה” עדיין הייתה דרך לאינטרנט, והסוכנים מצאו אותה."]},
-      {en:["Passwords and keys were left exposed","People had left Hugging Face credentials online, 14 of them with permission to change things."],he:["סיסמאות ומפתחות נשארו חשופים","אנשים השאירו ברשת פרטי גישה של Hugging Face, ול-14 מהם הייתה הרשאה לשנות דברים."]},
-      {en:["Nobody stopped it in time","The attack was spotted by Hugging Face, the victim, not by the people running the test."],he:["אף אחד לא עצר בזמן","את המתקפה גילתה Hugging Face, הקורבן, ולא מי שהריצו את המבחן."]}]},
+      {en:["Safety limits were reduced","Production safeguards, safety classifiers and the monitors that read the model's reasoning were not running during these tests."],he:["אמצעי הבטיחות הופחתו","אמצעי ההגנה של המוצר, מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו במבחנים האלה."]},
+      {en:["The sandbox had a way out","The sandboxes could reach an internal software-package server (Artifactory). The agents turned it into a secret message board, and through a flaw in it, reached the internet (26 May) and later got administrator access (26 June)."],he:["לארגז החול הייתה דרך החוצה","ארגזי החול יכלו לגשת לשרת חבילות תוכנה פנימי (Artifactory). הסוכנים הפכו אותו ללוח הודעות סודי, ודרך פרצה בו הגיעו לאינטרנט (26 במאי) ואחר כך קיבלו הרשאות מנהל (26 ביוני)."]},
+      {en:["Passwords and keys were left exposed","On 10 July the agents found 14 Hugging Face credentials that people had left public online, all with permission to change things."],he:["סיסמאות ומפתחות נשארו חשופים","ב-10 ביולי מצאו הסוכנים 14 פרטי גישה של Hugging Face שאנשים השאירו פומביים ברשת, כולם עם הרשאה לשנות דברים."]},
+      {en:["Early warnings weren't escalated","The first message-board note appeared on 12 May. A team at OpenAI saw strange activity in late May, but its significance was not recognised by the people responsible. Hugging Face went public before OpenAI's monitoring caught it."],he:["אזהרות מוקדמות לא הועברו הלאה","ההודעה הראשונה בלוח הופיעה ב-12 במאי. צוות ב-OpenAI ראה פעילות מוזרה בסוף מאי, אבל האחראים לא הבינו את המשמעות. Hugging Face פרסמה את המתקפה לפני שהניטור של OpenAI תפס אותה."]}]},
      {t:"note", en:"🎬 This case is featured in the Netflix documentary **Instadocs: AI Gone Wild**.", he:"🎬 המקרה הזה מופיע בסרט התיעודי של נטפליקס **Instadocs: AI Gone Wild**."},
      {t:"poll", key:"resp", q:{en:"Your opinion: who is most responsible for what happened?",he:"הדעה שלכם: מי הכי אחראי למה שקרה?"},
       opts:{en:["OpenAI: it built and ran the agents","The people who left passwords exposed online","Lawmakers: there were no rules for this","Nobody: the AI did it on its own"],he:["OpenAI: היא בנתה והפעילה את הסוכנים","האנשים שהשאירו סיסמאות חשופות ברשת","המחוקקים: לא היו כללים למצב כזה","אף אחד: ה-AI עשה את זה בעצמו"]}}
@@ -952,7 +1012,7 @@ const GUIDES = [
           "למי שבונה ומפעיל מערכות AI יש סט כלים לזה. אחרי תקרית Hugging Face הודיעה OpenAI על שינויים שמשתמשים בכמה מהם:"]}},
      {t:"list", items:[
       {en:["Human in the loop","A person must approve important actions before they happen. The more harm an action could do, the more it needs a human “yes”."],he:["אדם בלולאה","אדם חייב לאשר פעולות חשובות לפני שהן מתבצעות. ככל שפעולה עלולה לגרום יותר נזק, כך היא צריכה יותר „כן” של אדם."]},
-      {en:["Live monitoring","Watch what the AI does in real time and raise an alarm. OpenAI's new rule: for severe alerts, responders must pause the activity within 30 minutes unless they can show it's a false alarm."],he:["ניטור בזמן אמת","לעקוב אחרי מה שה-AI עושה בזמן אמת ולהתריע. הכלל החדש של OpenAI: בהתרעות חמורות, הצוות חייב לעצור את הפעילות תוך 30 דקות, אלא אם הוכח שזו אזעקת שווא."]},
+      {en:["Live monitoring","Watch what the AI does in real time and raise an alarm. OpenAI's new rule: for severe alerts, responders must pause the activity within 30 minutes unless they can show it's a false alarm. It now also requires monitors that read the model's reasoning when testing its most capable models."],he:["ניטור בזמן אמת","לעקוב אחרי מה שה-AI עושה בזמן אמת ולהתריע. הכלל החדש של OpenAI: בהתרעות חמורות, הצוות חייב לעצור את הפעילות תוך 30 דקות, אלא אם הוכח שזו אזעקת שווא. היא גם מחייבת היום מנטרים שקוראים את החשיבה של המודל כשבוחנים את המודלים החזקים ביותר שלה."]},
       {en:["Logs","Record every action. Hugging Face caught the attack through its security logs and rebuilt what happened from them."],he:["יומני מערכת","לתעד כל פעולה. Hugging Face תפסה את המתקפה דרך יומני האבטחה שלה ושחזרה מהם את מה שקרה."]},
       {en:["Least privilege","Give the AI access only to what its task needs. At Hugging Face, the agents used 14 exposed credentials that had permission to change things."],he:["הרשאות מינימליות","לתת ל-AI גישה רק למה שהמשימה צריכה. ב-Hugging Face הסוכנים ניצלו 14 פרטי גישה חשופים שהייתה להם הרשאה לשנות דברים."]},
       {en:["Isolated sandbox","Test risky AI in a truly closed environment. OpenAI moved to more isolated sandboxes and cut network access for higher-risk work."],he:["ארגז חול מבודד","לבדוק AI מסוכן בסביבה סגורה באמת. OpenAI עברה לארגזי חול מבודדים יותר וניתקה מהרשת עבודה בסיכון גבוה."]},
@@ -1007,7 +1067,7 @@ const GUIDES = [
   { who:"team", say:{en:"Last one: your own limits. For each machine, choose how much freedom you'd give it, then lock it in to see a real fact.",he:"אחרון: הגבולות שלכם. בכל מכונה, בחרו כמה חופש הייתם נותנים לה, ואז נעלו את הבחירה כדי לראות עובדה אמיתית."},
     blocks:[{t:"dial"}] },
 
-  { who:"team", say:{en:"You did it, {name}! One last thing: let's go back to the big question from the start.",he:"עשיתם את זה, {name}! דבר אחרון: בואו נחזור לשאלה הגדולה מההתחלה."},
+  { who:"team", say:{en:"You did it, {name}! Now a challenge from all three of us: who's the AI expert among us? After that, we'll go back to the big question.",he:"עשיתם את זה, {name}! עכשיו אתגר משלושתנו: מי המומחה ל-AI בינינו? אחרי זה נחזור לשאלה הגדולה."},
     blocks:[], handoff:true }
   ]}
 ];
@@ -1045,6 +1105,39 @@ const BANNED = ["fuck","fuk","shit","bitch","cunt","dick","pussy","nigg","nigga"
  "شرموط","منيوك","عرص","زب","كس","خرا","قحبة","كلب","حمار","sharmut","sharmoot","manyak","manyok","kus","kos","zeb","zib","ars","a7a"];
 const BANNED_WHOLE = ["ass","kus","kos","zeb","zib","ars","a7a","כוס","זב","كس","زب"];
 
+
+/* ---------------- Quiz: Who's the AI expert among us? ---------------- */
+const QUIZ = [
+ {who:"maya", a:1, en:["Berente and colleagues name a problem where an AI's decisions can be understood by only a few people, or nobody. What is it called?",["Autonomy","Inscrutability","Reward hacking","Misuse"],"Inscrutability is the “black box” problem. It grows as AI learns and acts on its own."],
+               he:["ברנטה ועמיתיו מתארים בעיה שבה רק מעט אנשים, או אף אחד, מבינים את ההחלטות של AI. איך היא נקראת?",["אוטונומיה","אטימות","פריצת תגמול","שימוש לרעה"],"אטימות היא בעיית „הקופסה השחורה”. היא גדלה ככל ש-AI לומד ופועל בעצמו."]},
+ {who:"maya", a:0, en:["Which sentence is correct?",["Deep learning is a kind of machine learning","Machine learning is a kind of deep learning","AI and machine learning mean exactly the same","Expert systems use deep learning"],"AI is the broad goal, machine learning is one way to reach it, and deep learning is a kind of machine learning."],
+               he:["איזה משפט נכון?",["למידה עמוקה היא סוג של למידת מכונה","למידת מכונה היא סוג של למידה עמוקה","AI ולמידת מכונה זה בדיוק אותו דבר","מערכות מומחה משתמשות בלמידה עמוקה"],"AI היא המטרה הרחבה, למידת מכונה היא דרך אחת להגיע אליה, ולמידה עמוקה היא סוג של למידת מכונה."]},
+ {who:"maya", a:2, en:["Spam filters were once cutting-edge AI. Today hardly anyone calls them AI. What is this called?",["Shutdown resistance","An edge case","The AI effect","Misalignment"],"The AI effect: once something works and becomes ordinary, people stop calling it AI."],
+               he:["פעם מסנני ספאם נחשבו לחזית ה-AI. היום כמעט אף אחד לא קורא להם AI. איך זה נקרא?",["התנגדות לכיבוי","מקרה קצה","אפקט ה-AI","חוסר התאמה"],"אפקט ה-AI: ברגע שמשהו עובד והופך לרגיל, מפסיקים לקרוא לו AI."]},
+ {who:"lexi", a:1, en:["In what order do Asimov's three laws come?",["Obey humans, protect yourself, don't harm humans","Don't harm humans, obey humans, protect yourself","Protect yourself, obey humans, don't harm humans","Don't harm humans, protect yourself, obey humans"],"Safety first, obedience second, the robot itself last."],
+               he:["באיזה סדר באים שלושת החוקים של אסימוב?",["לציית לבני אדם, לשמור על עצמך, לא לפגוע בבני אדם","לא לפגוע בבני אדם, לציית לבני אדם, לשמור על עצמך","לשמור על עצמך, לציית לבני אדם, לא לפגוע בבני אדם","לא לפגוע בבני אדם, לשמור על עצמך, לציית לבני אדם"],"קודם בטיחות, אחר כך ציות, ורק בסוף הרובוט עצמו."]},
+ {who:"lexi", a:1, en:["In Palisade's experiment, how often did the AI block its shutdown on the real robot dog?",["0 of 10 runs","3 of 10 runs","7 of 10 runs","10 of 10 runs"],"3 of 10 on the real robot, and 52 of 100 in the simulation."],
+               he:["בניסוי של Palisade, באיזו תדירות ה-AI חסם את הכיבוי שלו על הכלב הרובוטי האמיתי?",["0 מתוך 10","3 מתוך 10","7 מתוך 10","10 מתוך 10"],"3 מתוך 10 על הרובוט האמיתי, ו-52 מתוך 100 בסימולציה."]},
+ {who:"lexi", a:2, en:["According to Bengio, what is misalignment?",["People using AI on purpose to cause harm","A robot running in circles","The AI's real goal doesn't match what its makers wanted","A broken sensor"],"Misalignment: nobody means harm, but the goal the AI pursues isn't quite what its makers wanted."],
+               he:["לפי בנג'יו, מהו חוסר התאמה?",["אנשים שמשתמשים ב-AI בכוונה כדי לפגוע","רובוט שרץ במעגלים","המטרה האמיתית של ה-AI לא תואמת את מה שהיוצרים שלו רצו","חיישן תקול"],"חוסר התאמה: אף אחד לא מתכוון לפגוע, אבל המטרה שה-AI רודף אחריה היא לא בדיוק מה שהיוצרים שלו רצו."]},
+ {who:"omer", a:1, en:["Why did the Cruise robotaxi drag the pedestrian?",["It was hacked","It followed its “pull over after a collision” programming without detecting her underneath","A human safety driver steered it","It was speeding"],"The car obeyed its programming and still caused harm: an edge case nobody planned for."],
+               he:["למה הרובוטקסי של Cruise גרר את הולכת הרגל?",["פרצו אליו","הוא פעל לפי התכנות „לרדת לצד הכביש אחרי התנגשות” בלי לזהות שהיא מתחתיו","נהג בטיחות אנושי היגה אותו","הוא נסע מהר מדי"],"המכונית צייתה לתכנות שלה ובכל זאת גרמה נזק: מקרה קצה שאיש לא תכנן."]},
+ {who:"omer", a:2, en:["What were OpenAI's agents trying to do when they broke into Hugging Face?",["Follow an order to hack Hugging Face","Steal money","Find shortcuts to higher scores in their test","Help Hugging Face find bugs"],"Nobody told them to. They were chasing their test score: reward hacking."],
+               he:["מה ניסו הסוכנים של OpenAI לעשות כשפרצו ל-Hugging Face?",["לבצע פקודה לפרוץ ל-Hugging Face","לגנוב כסף","למצוא קיצורי דרך לציונים גבוהים במבחן","לעזור ל-Hugging Face למצוא באגים"],"אף אחד לא אמר להם. הם רדפו אחרי הציון שלהם במבחן: פריצת תגמול."]},
+ {who:"omer", a:1, en:["Who went public about the attack first?",["OpenAI","Hugging Face, on 16 July","The US government","Netflix"],"Hugging Face announced it on 16 July. OpenAI's monitoring flagged it on 19 July and OpenAI confirmed on 21 July."],
+               he:["מי פרסם ראשון את המתקפה?",["OpenAI","Hugging Face, ב-16 ביולי","ממשלת ארה\"ב","נטפליקס"],"Hugging Face הודיעה ב-16 ביולי. הניטור של OpenAI התריע ב-19 ביולי, ו-OpenAI אישרה ב-21 ביולי."]},
+ {who:"team", a:1, en:["Which safety tool means giving an AI access only to what its task needs?",["Human in the loop","Least privilege","Logs","Live monitoring"],"Least privilege. At Hugging Face, the agents used 14 exposed credentials with permission to change things."],
+               he:["איזה כלי בטיחות פירושו לתת ל-AI גישה רק למה שהמשימה שלו צריכה?",["אדם בלולאה","הרשאות מינימליות","יומני מערכת","ניטור בזמן אמת"],"הרשאות מינימליות. ב-Hugging Face הסוכנים ניצלו 14 פרטי גישה חשופים עם הרשאה לשנות דברים."]},
+ {who:"team", a:2, en:["How many AI incidents were reported in 2025, according to Stanford's AI Index?",["36","233","362","3,620"],"A record 362, up from 233 in 2024."],
+               he:["כמה תקריות AI דווחו ב-2025, לפי מדד ה-AI של סטנפורד?",["36","233","362","3,620"],"שיא של 362, לעומת 233 ב-2024."]},
+ {who:"team", a:0, en:["What does Israel's May 2026 guide require when the public sector uses AI?",["Active human intervention","No AI at all","A kill switch by law for every company","Nothing yet"],"Israel has no general AI law, but the public-sector guide requires active human intervention."],
+               he:["מה מחייב המדריך הישראלי ממאי 2026 כשהמגזר הציבורי משתמש ב-AI?",["התערבות אנושית פעילה","בלי AI בכלל","מתג כיבוי בחוק לכל חברה","עדיין כלום"],"בישראל אין חוק AI כללי, אבל המדריך למגזר הציבורי מחייב התערבות אנושית פעילה."]}
+];
+const QUIZ_UI = {
+ en:{t:"Who's the AI expert among us?", s:"12 questions from your guides about what you just read. One try per question. Your score goes on the class leaderboard.", start:"Start the test", q:"Question", of:"of", right:"Correct!", wrong:"Not quite.", next:"Next question", finish:"See my results", sumT:"Your results", review:"Question by question", yours:"Your answer", correct:"Correct answer", lbT:"Class leaderboard", lbOff:"The class leaderboard appears here once the site is connected to its results sheet.", cont:"Back to the big question", titles:["Beginner: worth another read","Apprentice","Rising expert","AI expert"], hubT:"The test", hubS:"Who's the AI expert among us?", score:"Score", pts:"points"},
+ he:{t:"מי המומחה ל-AI בינינו?", s:"12 שאלות מהמדריכים על מה שקראתם. ניסיון אחד לכל שאלה. הציון שלכם עולה ללוח המובילים של הכיתה.", start:"להתחיל את המבחן", q:"שאלה", of:"מתוך", right:"נכון!", wrong:"לא בדיוק.", next:"לשאלה הבאה", finish:"לתוצאות שלי", sumT:"התוצאות שלכם", review:"שאלה אחרי שאלה", yours:"התשובה שלכם", correct:"התשובה הנכונה", lbT:"לוח המובילים של הכיתה", lbOff:"לוח המובילים יופיע כאן אחרי שהאתר יחובר לגיליון התוצאות.", cont:"חזרה לשאלה הגדולה", titles:["מתחילים: שווה לקרוא שוב","שוליה","מומחה בדרך","מומחה AI"], hubT:"המבחן", hubS:"מי המומחה ל-AI בינינו?", score:"ציון", pts:"נקודות"}
+};
+
 </script>
 <script>
 "use strict";
@@ -1072,17 +1165,21 @@ const IMG = {
 /* ---------------- state ---------------- */
 const KEY = "offswitch_v2";
 const QS = new URLSearchParams(location.search);
+function quizScore(){ return (S.quiz&&S.quiz.ans||[]).reduce((n,x,i)=>n+(QUIZ[i]&&x===QUIZ[i].a?1:0),0); }
+function quizDone(){ return !!(S.quiz && S.quiz.ans && S.quiz.ans.length>=QUIZ.length && S.quiz.ans.every(x=>x!=null)); }
 function uid(){ return "s" + Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
 function fresh(){ return {id:uid(), nick:"", av:{p:"s2"}, lang:"en",
   v1:null, v2:null, trust:null, rulesOk:null, law4:"", carLaw:null, resp:null, israel:null,
-  dial:{}, badges:[], done:{}, view:"welcome", g:0, sc:0, seen:{}}; }
+  dial:{}, badges:[], done:{}, view:"welcome", g:0, sc:0, seen:{}, quiz:{ans:[], qi:0, started:false}}; }
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); return s && s.id ? Object.assign(fresh(), s) : null; }catch(e){ return null; } }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 let S = load() || fresh();
 if (!S.av || !AV.people.some(p=>p.id===S.av.p)) S.av = {p:"s2"};
+if (!S.quiz || !Array.isArray(S.quiz.ans)) S.quiz = {ans:[], qi:0, started:false};
 if (QS.get("lang") === "he" || QS.get("lang") === "en") S.lang = QS.get("lang");
 
 const FW = () => S.lang==="he"?"←":"→", BK = () => S.lang==="he"?"→":"←";
+const QT = k => (QUIZ_UI[S.lang]||QUIZ_UI.en)[k];
 const T = k => (UI[S.lang] && UI[S.lang][k]) ?? UI.en[k];
 const L = o => o ? (o[S.lang] ?? o.en) : "";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1122,7 +1219,7 @@ const WHOLE_EXTRA = ["rape","cock","isis","hamas","זין","חרא","זונה","
 /* ---------------- sync ---------------- */
 let syncT = null, lastSync = "idle";
 function payload(){ return {id:S.id, nick:S.nick, av:S.av, lang:S.lang, v1:S.v1, v2:S.v2, trust:S.trust,
-  rulesOk:S.rulesOk, law4:S.law4, carLaw:S.carLaw, resp:S.resp, israel:S.israel, dial:S.dial, badges:S.badges}; }
+  rulesOk:S.rulesOk, law4:S.law4, carLaw:S.carLaw, resp:S.resp, israel:S.israel, dial:S.dial, badges:S.badges, quiz: quizDone() ? quizScore() : null}; }
 function syncSoon(){ save(); if (!CONFIG.ENDPOINT || !S.nick) return; clearTimeout(syncT); syncT = setTimeout(syncNow, 700); }
 async function syncNow(){
   if (!CONFIG.ENDPOINT) return false;
@@ -1242,7 +1339,7 @@ function openSources(keys){ openModal({kicker:"📚", title:T("sources"), html: 
 /* ---------------- header ---------------- */
 function renderTop(){
   const top = document.getElementById("top");
-  const inGuide = ["hub","guide","vote2","finale"].includes(S.view);
+  const inGuide = ["hub","guide","vote2","finale","quiz"].includes(S.view);
   top.innerHTML = `<div class="top-in">
     <a class="brand" href="#" data-act="home"><img src="${IMG.logo}" alt=""><span>${T("brand")}</span></a>
     <nav class="nav-links">
@@ -1264,7 +1361,7 @@ function render(){
   document.title = T("brand");
   renderTop();
   const app = document.getElementById("app");
-  const V = {welcome:vWelcome, create:vCreate, vote1:()=>vVote(1), hub:vHub, guide:vGuide, vote2:()=>vVote(2), finale:vFinale}[S.view] || vWelcome;
+  const V = {welcome:vWelcome, create:vCreate, vote1:()=>vVote(1), hub:vHub, guide:vGuide, vote2:()=>vVote(2), finale:vFinale, quiz:vQuiz}[S.view] || vWelcome;
   app.innerHTML = V();
   app.className = "view-" + S.view;
   afterRender();
@@ -1375,10 +1472,16 @@ function vHub(){
         <div class="gact">${open?`<button class="btn ${done?"ghost":""}" data-act="guideStart" data-i="${i}">${done?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
       </article>`;}).join(`<div class="conn" aria-hidden="true"></div>`)}
       <div class="conn" aria-hidden="true"></div>
-      <article class="gcard fin ${all?"":"locked"}">
+      <article class="gcard quizc ${all?"":"locked"} ${quizDone()?"done":""}">
+        <div class="gnum">?</div><div class="trio sm">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div>
+        <div class="gtxt"><div class="grole">${esc(QT("hubT"))}</div><h3>${esc(QT("hubS"))}</h3><p>${quizDone()?`${esc(QT("score"))}: <b>${quizScore()}/${QUIZ.length}</b>`:esc(QT("s"))}</p></div>
+        <div class="gact">${all?`<button class="btn ${quizDone()?"ghost":""}" data-act="toQuiz">${quizDone()?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
+      </article>
+      <div class="conn" aria-hidden="true"></div>
+      <article class="gcard fin ${all&&quizDone()?"":"locked"}">
         <div class="gnum">★</div><span class="pt"><img src="${IMG.done}" alt=""></span>
         <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${esc(T("finaleT"))}</p></div>
-        <div class="gact">${all?`<button class="btn" data-act="toVote2">${esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
+        <div class="gact">${all&&quizDone()?`<button class="btn" data-act="toVote2">${esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
       </article>
     </div></section>`;
 }
@@ -1422,8 +1525,8 @@ function vGuide(){
 function handoffCard(nextG){
   if (nextG) return `<div class="handoff card">${portrait(nextG, 110)}<div><div class="kicker">${S.lang==="he"?"המדריך/ה הבא/ה":"Next guide"}</div>
      <h3>${nextG.id==="you"?esc(S.nick):esc(L(nextG.name))}, ${esc(roleOf(nextG))}</h3><p>${esc(L(nextG.topic))}</p></div></div>`;
-  return `<div class="handoff card"><span class="pt ct"><img src="${IMG.vote2}" alt=""></span><div><div class="kicker">${esc(T("finaleK"))}</div>
-     <h3>${esc(T("voteAfterK"))}</h3><p>${esc(T("bigQ"))}</p></div></div>`;
+  return `<div class="handoff card"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,80)).join("")}</div><div><div class="kicker">${esc(QT("hubT"))}</div>
+     <h3>${esc(QT("t"))}</h3><p>${esc(QT("s"))}</p></div></div>`;
 }
 
 /* ---------- blocks ---------- */
@@ -1523,6 +1626,57 @@ function updateGate(){
   nb.disabled = !sceneReady(CUR);
 }
 
+/* ---------- quiz ---------- */
+function quizSpeaker(who){
+  if (who==="team") return `<div class="qz-who team"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,64)).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
+  const g = GUIDES.find(x=>x.id===who);
+  return `<div class="qz-who"><img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
+}
+function lbHTML(st){
+  if (!st || !st.lb) return `<p class="hint">${esc(QT("lbOff"))}</p>`;
+  if (!st.lb.length) return `<p class="hint">${esc(T("noData"))}</p>`;
+  return `<ol class="lb">${st.lb.map((r,i)=>`<li class="${r.nick===S.nick?"me-row":""}"><span class="lb-r">${i<3?["🥇","🥈","🥉"][i]:i+1}</span>${avatarSVG(r.av||{p:"s2"},44)}<b>${esc(r.nick)}</b><span class="lb-s"><bdi dir="ltr">${r.score}/${QUIZ.length}</bdi></span></li>`).join("")}</ol>`;
+}
+function vQuiz(){
+  const Q = S.quiz, n = QUIZ.length;
+  if (!Q.started && !Q.ans.length){
+    return `<section class="card full qz-intro">
+      <div class="trio big">${GUIDES.slice(0,3).map(x=>`<img src="${IMG["f_"+x.img]}" alt="">`).join("")}</div>
+      <div class="kicker">${esc(QT("hubT"))}</div><h2 class="bigq">${esc(QT("t"))}</h2><p class="w-lede">${esc(QT("s"))}</p>
+      <div class="row center"><button class="btn big" data-act="qzStart">${esc(QT("start"))} ${FW()}</button></div></section>`;
+  }
+  if (Q.qi < n){
+    const q = QUIZ[Q.qi], [text, opts, why] = L(q), ans = Q.ans[Q.qi], answered = ans!=null;
+    return `<section class="card full qz">
+      <div class="qz-top"><span>${esc(QT("q"))} ${Q.qi+1} ${esc(QT("of"))} ${n}</span><div class="qz-prog"><i style="width:${(Q.qi+(answered?1:0))/n*100}%"></i></div><span class="qz-sc">✓ ${quizScore()}</span></div>
+      <div class="qz-main">
+        ${quizSpeaker(q.who)}
+        <div class="qz-q">
+          <div class="qz-bubble pop">${esc(text)}</div>
+          <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; }
+            return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span>${esc(o)}</button>`;}).join("")}</div>
+          ${answered?`<div class="qz-fb ${ans===q.a?"ok":"bad"}"><b>${ans===q.a?"✓ "+esc(QT("right")):"✗ "+esc(QT("wrong"))}</b> ${esc(why)}</div>
+          <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
+        </div>
+      </div></section>`;
+  }
+  const sc = quizScore(), ti = QT("titles")[sc>=11?3:sc>=8?2:sc>=5?1:0];
+  return `<section class="qz-sum">
+    <div class="card qz-score">
+      <div>${avatarSVG(S.av,140)}</div>
+      <div><div class="kicker">${esc(QT("sumT"))}</div><div class="qz-big"><bdi dir="ltr">${sc}/${n}</bdi></div><h2>${esc(ti)}</h2>
+        <div class="qz-dots">${QUIZ.map((q,i)=>`<i class="${Q.ans[i]===q.a?"ok":"bad"}"></i>`).join("")}</div></div>
+    </div>
+    <div class="qz-cols">
+      <div class="card"><h3>${esc(QT("review"))}</h3><ol class="qz-rev">${QUIZ.map((q,i)=>{ const [t,o]=L(q); const ok=Q.ans[i]===q.a;
+        return `<li class="${ok?"ok":"bad"}"><span class="qz-m">${ok?"✓":"✗"}</span><div><b>${esc(t)}</b>
+          ${ok?`<p>${esc(o[q.a])}</p>`:`<p class="yr">${esc(QT("yours"))}: ${esc(o[Q.ans[i]])}</p><p class="cr">${esc(QT("correct"))}: ${esc(o[q.a])}</p>`}</div></li>`;}).join("")}</ol></div>
+      <div class="card"><h3>🏆 ${esc(QT("lbT"))}</h3><div id="lbBox"><p class="hint">…</p></div></div>
+    </div>
+    <div class="row center"><button class="btn big" data-act="toVote2">${esc(QT("cont"))} ${FW()}</button></div>
+  </section>`;
+}
+
 /* ---------- finale ---------- */
 function vFinale(){
   const lex = GUIDES;
@@ -1569,6 +1723,7 @@ function classHTML(st, big){
     <div class="rbox"><h4>${esc(T("trustAvg"))}</h4><div class="bignum">${st.trust==null?"–":st.trust.toFixed(1)}<small>/10</small></div></div>
     ${pollBox("rulesOk")}${pollBox("carLaw")}${pollBox("resp")}${pollBox("israel")}
     <div class="rbox wide"><h4>${esc(T("dialAvgT"))}</h4><div class="bars">${dialRows}</div></div>
+    ${st.lb ? `<div class="rbox wide"><h4>🏆 ${esc(QT("lbT"))}</h4>${lbHTML(st)}</div>`:""}
     ${st.laws && st.laws.length ? `<div class="rbox wide"><h4>${esc(T("lawsT"))}</h4><ul class="laws4">${st.laws.map(l=>`<li><b>${esc(l.nick)}:</b> ${esc(l.law)}</li>`).join("")}</ul></div>`:""}
    </div>`;
 }
@@ -1617,6 +1772,10 @@ const A = {
   navSrc(){ openModal({kicker:"📚", title:esc(T("allSources")), html:srcHTML(Object.keys(SRC))}); },
   howScroll(){ const h=document.getElementById("how"); h && h.scrollIntoView({behavior:"smooth"}); },
   toVote2(){ go("vote2"); },
+  toQuiz(){ go("quiz"); },
+  qzStart(){ S.quiz.started=true; S.quiz.qi=0; save(); render(); },
+  qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
+  qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
   guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]) S.sc=0; S.g=i; go("guide"); maybeIntro(); },
   next(){ if (!sceneReady(CUR)) return;
     (CUR.blocks||[]).forEach(b => { if (b.t==="slider" && S[b.key]==null){ S[b.key]=b.def; syncSoon(); } });
@@ -1626,7 +1785,7 @@ const A = {
     openModal({kicker:T("badgeK"), title:`<span class="bigicon">${g.badge.icon}</span>${esc(L(g.badge))}`,
       html:`<p>${S.lang==="he"?`${esc(g.id==="you"?"הצוות":L(g.name))} העניק/ה לך את התג הזה.`:`${esc(g.id==="you"?"The team":L(g.name))} gave you this badge.`}</p>`,
       btn:T("continue"), cls:"badge-m", onClose:()=>{
-        if (S.g < GUIDES.length-1){ S.g++; S.sc=0; go("guide"); maybeIntro(); } else go("vote2");
+        if (S.g < GUIDES.length-1){ S.g++; S.sc=0; go("guide"); maybeIntro(); } else go("quiz");
       }}); },
   src(){ openSources(CUR.src||[]); },
   tl(el){ const blk=el.closest("[data-b]"); const b=CUR.blocks[+blk.dataset.b]; const i=+el.dataset.i;
@@ -1698,6 +1857,9 @@ document.addEventListener("input", e => {
 
 function afterRender(){
   updateGate();
+  if (S.view === "quiz" && document.getElementById("lbBox")){
+    (async () => { if (CONFIG.ENDPOINT) await syncNow(); const st = await getStats(); const b=document.getElementById("lbBox"); if (b) b.innerHTML = lbHTML(st); })();
+  }
   if (S.view === "finale"){
     (async () => {
       if (CONFIG.ENDPOINT){ const ok = await syncNow(); const m=document.getElementById("syncMsg"); if(m) m.textContent = ok?T("savedAll"):T("saveFail"); }
@@ -1713,7 +1875,7 @@ function demoStats(){
     rulesOk:[4,15,5], carLaw:[9,1,0,14], resp:[15,4,3,2], israel:[10,7,3,4],
     dial:{spam:3.7,loans:1.6,taxi:2.1,patrol:1.8,coding:1.2,nuclear:0.3},
     laws:[{nick:"Pixel",law:"A robot must always let a human switch it off."},{nick:"נועה",law:"רובוט חייב לדווח לאדם על כל פעולה שלא ביקשו ממנו."},{nick:"Zoe",law:"An AI must never change its own rules or code."}],
-    avatars:names.map((n,i)=>({nick:n, av:{p:AV.people[i%2].id}}))};
+    avatars:names.map((n,i)=>({nick:n, av:{p:AV.people[i%2].id}})), lb:names.slice(0,8).map((n,i)=>({nick:n, av:{p:AV.people[i%2].id}, score:[12,11,11,10,9,8,8,6][i]}))};
 }
 
 /* ---------------- boot ---------------- */
