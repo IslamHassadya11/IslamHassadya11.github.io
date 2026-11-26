@@ -16,7 +16,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:"Source Sans 3","Heebo",system-ui,sans-serif;color:var(--ink);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;
-  background:#e3f2fc url("img/bg.webp?v=0dedd686") center/cover fixed;min-height:100vh}
+  background:#e3f2fc url("img/bg.webp?v=fb264435") center/cover fixed;min-height:100vh}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(1000px 500px at 85% -10%,rgba(24,191,232,.18),transparent 60%),radial-gradient(800px 500px at -10% 110%,rgba(142,124,242,.12),transparent 60%)}
 img{max-width:100%;display:block}
 button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
@@ -53,7 +53,7 @@ main.view-welcome{max-width:none;padding:0}
 .nav-links button{background:none;border:0;color:var(--navy);font-weight:700;font-size:15px;padding:8px 12px;border-radius:999px}
 .nav-links button:hover{background:var(--sky)}
 /* website-style welcome */
-.w-hero{position:relative;min-height:calc(100vh - 58px);background:#0b1a3d url("img/hero.webp?v=a8996252") 22% 40%/cover no-repeat;display:flex;align-items:center}
+.w-hero{position:relative;min-height:calc(100vh - 58px);background:#0b1a3d url("img/hero.webp?v=98c4e8f5") 22% 40%/cover no-repeat;display:flex;align-items:center}
 .w-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,18,44,0) 25%,rgba(8,18,44,.55) 55%,rgba(8,18,44,.85))}
 .w-hero-in{position:relative;width:100%;max-width:1200px;margin:auto;padding:60px 22px;display:flex}
 .w-hero-txt{margin-left:auto;max-width:560px;color:#fff;text-align:start}
@@ -1825,8 +1825,8 @@ const QUIZ = [
                he:["מה מחייב המדריך הישראלי ממאי 2026 כשהמגזר הציבורי משתמש ב-AI?",["התערבות אנושית פעילה","בלי AI בכלל","מתג כיבוי בחוק לכל חברה","עדיין כלום"],"בישראל אין חוק AI כללי, אבל המדריך למגזר הציבורי מחייב התערבות אנושית פעילה."]}
 ];
 const QUIZ_UI = {
- en:{t:"Who's the AI expert among us?", s:"12 questions from your guides about what you just read. One try per question. Your score goes on the class leaderboard.", start:"Start the test", q:"Question", of:"of", right:"Correct!", wrong:"Not quite.", next:"Next question", finish:"See my results", sumT:"Your results", review:"Question by question", yours:"Your answer", correct:"Correct answer", lbT:"Class leaderboard", lbOff:"The class leaderboard isn't available right now. Please try again in a moment.", cont:"On to your final call", opt:"Optional: take it only if you want to compete with the class. Either way, your final call is waiting next.", titles:["Beginner: worth another read","Apprentice","Rising expert","AI expert"], hubT:"The test", hubS:"Who's the AI expert among us?", score:"Score", pts:"points"},
- he:{t:"מי המומחה ל-AI בינינו?", s:"12 שאלות מהמדריכים על מה שקראתם. ניסיון אחד לכל שאלה. הציון שלכם עולה ללוח המובילים של הכיתה.", start:"להתחיל את המבחן", q:"שאלה", of:"מתוך", right:"נכון!", wrong:"לא בדיוק.", next:"לשאלה הבאה", finish:"לתוצאות שלי", sumT:"התוצאות שלכם", review:"שאלה אחרי שאלה", yours:"התשובה שלכם", correct:"התשובה הנכונה", lbT:"לוח המובילים של הכיתה", lbOff:"לוח המובילים לא זמין כרגע. נסו שוב בעוד רגע.", cont:"להכרעה שלכם", opt:"רשות: רק אם בא לכם להתחרות עם הכיתה. בכל מקרה, ההכרעה שלכם מחכה אחר כך.", titles:["מתחילים: שווה לקרוא שוב","שוליה","מומחה בדרך","מומחה AI"], hubT:"המבחן", hubS:"מי המומחה ל-AI בינינו?", score:"ציון", pts:"נקודות"}
+ en:{t:"Who's the AI expert among us?", s:"12 questions from your guides about what you just read. One try per question, and you can take the test only once. Your score goes on the class leaderboard.", start:"Start the test", q:"Question", of:"of", right:"Correct!", wrong:"Not quite.", next:"Next question", finish:"See my results", sumT:"Your results", review:"Question by question", yours:"Your answer", correct:"Correct answer", lbT:"Class leaderboard", lbOff:"The class leaderboard isn't available right now. Please try again in a moment.", cont:"On to your final call", opt:"Optional: take it only if you want to compete with the class. Either way, your final call is waiting next.", titles:["Beginner: worth another read","Apprentice","Rising expert","AI expert"], hubT:"The test", hubS:"Who's the AI expert among us?", score:"Score", pts:"points"},
+ he:{t:"מי המומחה ל-AI בינינו?", s:"12 שאלות מהמדריכים על מה שקראתם. ניסיון אחד לכל שאלה, ואפשר להיבחן פעם אחת בלבד. הציון שלכם עולה ללוח המובילים של הכיתה.", start:"להתחיל את המבחן", q:"שאלה", of:"מתוך", right:"נכון!", wrong:"לא בדיוק.", next:"לשאלה הבאה", finish:"לתוצאות שלי", sumT:"התוצאות שלכם", review:"שאלה אחרי שאלה", yours:"התשובה שלכם", correct:"התשובה הנכונה", lbT:"לוח המובילים של הכיתה", lbOff:"לוח המובילים לא זמין כרגע. נסו שוב בעוד רגע.", cont:"להכרעה שלכם", opt:"רשות: רק אם בא לכם להתחרות עם הכיתה. בכל מקרה, ההכרעה שלכם מחכה אחר כך.", titles:["מתחילים: שווה לקרוא שוב","שוליה","מומחה בדרך","מומחה AI"], hubT:"המבחן", hubS:"מי המומחה ל-AI בינינו?", score:"ציון", pts:"נקודות"}
 };
 
 /* ---------------- Further reading (curated) ---------------- */
@@ -1870,14 +1870,14 @@ const CONFIG = {
 };
 
 const IMG = {
-  bg:"img/bg.webp?v=0dedd686", books:"img/books.webp?v=83e3e9e0", c3:"img/c3.webp?v=bc593285",
-  c4:"img/c4.webp?v=67a6276c", c5:"img/c5.webp?v=874da332", cliff:"img/cliff.webp?v=b0196905", d_nuke:"img/d_nuke.webp?v=af2d3adb",
+  bg:"img/bg.webp?v=fb264435", books:"img/books.webp?v=f798b709", c3:"img/c3.webp?v=bc593285",
+  c4:"img/c4.webp?v=67a6276c", c5:"img/c5.webp?v=874da332", cliff:"img/cliff.webp?v=301c9dbf", d_nuke:"img/d_nuke.webp?v=af2d3adb",
   d_coding:"img/d_coding.webp?v=6ccb4da2", d_coding2:"img/d_coding2.webp?v=69af713c", d_loans:"img/d_loans.webp?v=0ba6c719",
   d_nuclear:"img/d_nuclear.webp?v=e86c9727", d_patrol:"img/d_patrol.webp?v=7d300906", d_spam:"img/d_spam.webp?v=45e123a8",
   d_taxi:"img/d_taxi.webp?v=664631bc", dev:"img/dev.webp?v=b8d6a7ca", dial:"img/dial.webp?v=a0a63c7c", done:"img/done.webp?v=a374eaf0",
-  hero:"img/hero.webp?v=a8996252",
-  p2_hist:"img/p2_hist.webp?v=c077cba6", p5_laws2:"img/p5_laws2.webp?v=88f4f1bb", p9_blk:"img/p9_blk.webp?v=505ee760", p10_banner:"img/p10_banner.webp?v=3042106a",
-  n_laws:"img/n_laws.webp?v=0b309b6c", n_dough:"img/n_dough.webp?v=22f8e5cb", n_infra:"img/n_infra.webp?v=8f490300", n_gov:"img/n_gov.webp?v=ef5b212b", n_team:"img/n_team.webp?v=aa76ec5e", n_team2:"img/n_team2.webp?v=e5f64155", n_sdg16:"img/n_sdg16.webp?v=337837d9", n_sdg9:"img/n_sdg9.webp?v=c45405bc", n_sdgd:"img/n_sdgd.webp?v=0b8c6ba1",
+  hero:"img/hero.webp?v=98c4e8f5",
+  p2_hist:"img/p2_hist.webp?v=c077cba6", p5_laws2:"img/p5_laws2.webp?v=88f4f1bb", p9_blk:"img/p9_blk.webp?v=505ee760", p10_banner:"img/p10_banner.webp?v=85ae4ffc",
+  n_laws:"img/n_laws.webp?v=f0f72c60", n_dough:"img/n_dough.webp?v=386f5ead", n_infra:"img/n_infra.webp?v=401e4a9d", n_gov:"img/n_gov.webp?v=17876043", n_team:"img/n_team.webp?v=c68f4fa6", n_team2:"img/n_team2.webp?v=746880cf", n_sdg16:"img/n_sdg16.webp?v=337837d9", n_sdg9:"img/n_sdg9.webp?v=c45405bc", n_sdgd:"img/n_sdgd.webp?v=0b8c6ba1",
   i_pos:"img/i_pos.webp?v=6f7b56ca", i_laws:"img/i_laws.webp?v=6929a064", i_tool:"img/i_tool.webp?v=f47ec3ba", i_blk:"img/i_blk.webp?v=5f4568a3", i_itfail:"img/i_itfail.webp?v=d763b453", i_report:"img/i_report.webp?v=34031224", i_resp:"img/i_resp.webp?v=1964e706", i_gov:"img/i_gov.webp?v=40013268", i_sdg:"img/i_sdg.webp?v=ae6be3f8", i_genai:"img/i_genai.webp?v=ed0de8f9", i_runa:"img/i_runa.webp?v=6f0b06cc", i_bengio:"img/i_bengio.webp?v=e18cba08",
   p_maya:"img/p_maya.webp?v=912c689e", p_lexi:"img/p_lexi.webp?v=fc567f22", p_omer:"img/p_omer.webp?v=497bf72e", f_maya:"img/f_maya.webp?v=88598ce0", f_lexi:"img/f_lexi.webp?v=c11d0f43", f_omer:"img/f_omer.webp?v=e0c0c2f6",
   p_s1:"img/p_s1.webp?v=1a26d177", p_s2:"img/p_s2.webp?v=8cc38c8b",
@@ -2189,7 +2189,7 @@ function vCreate(){
 }
 
 function vVote(which){
-  const cur = ANS(which===1?"v1":"v2");
+  const cur = which===1 ? S.v1 : S.v2;
   const opts = [["yes",T("yes")],["no",T("no")],["unsure",T("unsure")]];
   const prev = which===2 && S.v1 ? `<p class="prev">${S.lang==="he"?"בהתחלה עניתם":"At the start you said"}: <b>${esc(T(S.v1))}</b></p>` : "";
   return `<section class="card vote full">
@@ -2200,6 +2200,7 @@ function vVote(which){
       ${which===2?`<p>${esc(T("voteAfterSub"))}</p>`:""}${prev}
       <div class="vote-opts">${opts.map(([v,l])=>`<button class="vbtn ${cur===v?"on":""}" data-act="vote" data-w="${which}" data-v="${v}">${esc(l)}</button>`).join("")}</div>
       ${which===1?`<p class="hint">${S.lang==="he"?"לא צריך לדעת עדיין. נחזור לשאלה הזו בסוף.":"You don't need to know yet. We'll come back to this question at the end."}</p>`:""}
+      ${which===2&&S.v2?`<p class="hint saved show">✓ ${S.lang==="he"?"התשובה שלכם נשמרה. אפשר לשנות אותה בלחיצה על תשובה אחרת.":"Your answer is saved. You can change it by choosing another answer."}</p><div class="row"><button class="btn big" data-act="toFinale">${S.lang==="he"?"לכרטיס הדמות שלי":"See my character card"} ${FW()}</button></div>`:""}
     </div></section>`;
 }
 
@@ -2231,14 +2232,14 @@ function vHub(){
       <article class="gcard quizc ${all?"":"locked"} ${quizDone()?"done":""}">
         <div class="gnum">?</div><div class="trio sm">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div>
         <div class="gtxt"><div class="grole">${esc(QT("hubT"))} <span class="opt-tag">${S.lang==="he"?"רשות":"Optional"}</span></div><h3>${esc(QT("hubS"))}</h3><p>${quizDone()?`${esc(QT("score"))}: <b>${quizScore()}/${QUIZ.length}</b>`:esc(QT("opt"))}</p></div>
-        <div class="gact">${all?`<button class="btn ${quizDone()?"ghost":""}" data-act="toQuiz">${quizDone()?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
+        <div class="gact">${all?`<button class="btn ${quizDone()?"ghost":""}" data-act="toQuiz">${quizDone()?(S.lang==="he"?"התוצאות שלי":"My results"):esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
       </article>
       <div class="conn" aria-hidden="true"></div>
       <article class="gcard fin ${all?"":"locked"} ${S.v2?"done":""}">
         <div class="gnum">★</div><span class="pt"><img src="${IMG.done}" alt=""></span>
         <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${S.v2?(S.lang==="he"?`בהתחלה: <b>${esc(S.v1?T(S.v1):"–")}</b><br>בסוף: <b>${esc(T(S.v2))}</b>`:`At the start: <b>${esc(S.v1?T(S.v1):"–")}</b><br>Your final call: <b>${esc(T(S.v2))}</b>`):(S.lang==="he"?"השאלה מההתחלה, אחרי שהכרתם את כל המדריכים. ואחריה כרטיס הדמות שלכם.":"The question from the start, after meeting all the guides. Then your character card.")}</p>
           ${S.v2?`<span class="chip ok">⭐ ${S.lang==="he"?"כרטיס הדמות מוכן":"Character card ready"}</span>`:""}</div>
-        <div class="gact">${all?`<button class="btn ${S.v2?"ghost":""}" data-act="toVote2">${S.v2?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
+        <div class="gact">${all?(S.v2?`<button class="btn" data-act="toFinale">${S.lang==="he"?"כרטיס הדמות":"My character card"}</button><button class="btn ghost small" data-act="toVote2">${S.lang==="he"?"לשנות תשובה":"Change my answer"}</button>`:`<button class="btn" data-act="toVote2">${esc(T("start"))}</button>`):`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
       </article>
     </div></section>`;
 }
@@ -2587,7 +2588,7 @@ function vQuiz(){
       <div class="card"><h3>${esc(QT("review"))}</h3>${reviewHTML()}</div>
       <div class="card"><h3>🏆 ${esc(QT("lbT"))}</h3><div id="lbBox"><p class="hint">…</p></div></div>
     </div>
-    <div class="row center">${GUIDES.every(g=>S.done[g.id])?`<button class="btn big" data-act="toVote2">${esc(QT("cont"))} ${FW()}</button>`:`<button class="btn big" data-act="hub">${BK()} ${esc(T("toHub"))}</button>`}<button class="btn ghost" data-act="qzRetry">${S.lang==="he"?"לנסות שוב":"Try again"}</button></div>
+    <div class="row center">${GUIDES.every(g=>S.done[g.id])?`<button class="btn big" data-act="toVote2">${esc(QT("cont"))} ${FW()}</button>`:`<button class="btn big" data-act="hub">${BK()} ${esc(T("toHub"))}</button>`}</div>
   </section>`;
 }
 
@@ -2601,7 +2602,8 @@ function vFinale(){
        <div class="badges">${lex.map(g=>`<div class="bdg ${S.badges.includes(g.id)?"on":""}" style="--gc:${g.color}"><span>${g.badge.icon}</span><b>${esc(L(g.badge))}</b><small>${g.id==="you"?esc(T("you")):esc(L(g.name))}</small></div>`).join("")}</div>
        <ul class="mine">
          <li class="wide"><span>${S.lang==="he"?"ההכרעה שלכם":"Your final call"}</span><b>${bigQLine()}</b></li>
-         <li><span>${S.lang==="he"?"אמון ב-AI":"Trust in AI"}</span><b>${S.trust ?? "–"}/10</b></li>
+         <li><span>${S.lang==="he"?"דאגה ש-AI ייצא משליטה":"Worry that AI gets out of control"}</span><b>${S.trust ?? "–"}/10</b></li>
+         <li><span>${S.lang==="he"?"המבחן":"The test"}</span>${quizDone()?`<b><bdi dir="ltr">${quizScore()}/${QUIZ.length}</bdi></b>`:`<button class="btn small" data-act="toQuiz">${S.lang==="he"?"להיבחן (פעם אחת בלבד)":"Take the test (one try only)"}</button>`}</li>
          ${S.law4?`<li class="wide law4"><span>${S.lang==="he"?"החוק הרביעי שלכם לאסימוב":"Your fourth Asimov law"}</span><b>${S.lang==="he"?`"${esc(S.law4)}"`:`“${esc(S.law4)}”`}</b><em>${S.lang==="he"?"אסימוב היה גאה בכם!":"He would be so proud of you!"}</em></li>`:""}
        </ul>
      </div>
@@ -2705,7 +2707,8 @@ const A = {
   navTest(){ if (!S.nick){ go("create"); return; } go("quiz"); },
   navSrc(){ go("sources"); },
   howScroll(){ const h=document.getElementById("how"); h && h.scrollIntoView({behavior:"smooth"}); },
-  toVote2(){ NOW.delete("v2"); go("vote2"); },
+  toVote2(){ go("vote2"); },
+  toFinale(){ go("finale"); },
   toQuiz(){ go("quiz"); },
   qzStart(){ S.quiz.started=true; S.quiz.qi=0; save(); render(); },
   qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
