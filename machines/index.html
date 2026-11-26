@@ -685,9 +685,7 @@ html[lang=he] .blk p,html[lang=he] .rtext p{font-size:17px}
 .q-guide{width:100%;max-height:340px;object-fit:contain;animation:popin .4s}
 .blk-poll,.blk-write{padding-bottom:18px}
 /* comfortable size on large screens */
-@media (min-width:1500px){html{zoom:1.12}}
-@media (min-width:1800px){html{zoom:1.25}}
-@media (min-width:2300px){html{zoom:1.45}}
+
 /* side column content */
 .side-dia{display:flex;flex-direction:column;gap:14px}
 .side-blk{background:var(--card);border-radius:16px}
@@ -748,6 +746,44 @@ input[type=range].unset{filter:saturate(.3);opacity:.8}
 .mine .law4 em{font-style:normal;color:var(--pink);font-weight:800;margin-top:2px}
 /* quiz team fits its column */
 .trio.full{width:100%;justify-content:center}.trio.full img{width:33%;height:auto;max-height:300px;object-fit:contain;margin:0}
+/* smooth page entry */
+.say-row{animation:fadeUp .6s ease both}
+.blocks>.blk{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
+.blocks>.blk:nth-child(1){animation-delay:.12s}.blocks>.blk:nth-child(2){animation-delay:.32s}.blocks>.blk:nth-child(3){animation-delay:.52s}.blocks>.blk:nth-child(4){animation-delay:.72s}
+.nav,.handoff{animation:fadeUp .6s .4s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}}
+.rtext>p,.rtext>.slist{animation:fadeUp .6s ease both}
+.rtext>p:nth-child(2){animation-delay:.2s}.rtext>p:nth-child(3){animation-delay:.3s}.rtext>p:nth-child(4){animation-delay:.4s}.rtext>p:nth-child(5){animation-delay:.5s}.rtext>p:nth-child(n+6){animation-delay:.6s}
+/* sliders: room + motion */
+.blk-slider{padding:30px 32px 34px}
+.blocks:has(.blk-slider+.blk-slider) {gap:34px}
+.sld h4{font-size:19px;margin-bottom:16px}
+.sld-row{margin-top:4px}
+.sld-val{margin:12px 0 4px}
+.sld-val b{display:inline-block;transition:transform .2s}
+.sld-val b.tick{animation:tick .3s}
+@keyframes tick{40%{transform:scale(1.35)}}
+.blk.revealed{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+.sl-resp{animation:fadeUp .5s ease both}
+.resp-g{display:flex;gap:12px;align-items:center}
+.resp-g .pt{--s:46px;flex:none;box-shadow:0 0 0 3px var(--gc,var(--cyan))}
+input[type=range]{height:12px}
+input[type=range]::-webkit-slider-thumb{transition:transform .15s}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
+/* timeline fills its column */
+.blk-read.has-img:has(.side-tlside){align-items:stretch}
+.blk-read.has-img:has(.side-tlside) .rimg-wrap{position:static}
+.side-tlside{height:100%;display:flex}.side-tlside .tls{flex:1;display:flex;flex-direction:column}
+.tls input[type=range]{flex:none;height:12px;width:100%}
+.tls{padding:20px 22px}
+.tls-big{font-size:58px;font-weight:900;line-height:1;margin:14px 0 4px;background:linear-gradient(135deg,var(--gc,var(--cyan)),#8e7cf2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tls-card{flex:1;display:flex;flex-direction:column;min-height:260px;height:auto}
+.tls-card .anim{animation:fadeUp .45s ease both}
+.tls-card h5{font-size:19px;margin:0 0 8px;color:var(--navy)}
+.tls-card .srcs{margin-top:auto;padding-top:10px;font-size:13px}
+.tls-prog{display:flex;gap:5px;margin-top:10px}.tls-prog i{flex:1;height:5px;border-radius:4px;background:var(--line);transition:background .3s}.tls-prog i.on{background:var(--gc,var(--cyan))}
+/* badge modal guide */
+.badge-m .m-img img{max-height:230px;animation:popin .5s}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -1976,7 +2012,8 @@ function block(b, bi){
     return `<div class="tls"><h4>🕰️ ${S.lang==="he"?"ציר הזמן":"Timeline"}</h4>
       <input type="range" min="0" max="${n-1}" step="1" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
       <div class="tls-ticks">${TIMELINE.map((t,i)=>`<button class="${i===sel?"on":""}" data-act="tlPick" data-i="${i}"><bdi dir="ltr">${esc(t[0])}</bdi></button>`).join("")}</div>
-      <div class="resp tls-card">${x?`<b class="tls-y"><bdi dir="ltr">${esc(x[0])}</bdi> · ${ht(L(x[1]))}</b><p>${fmt(L(x[2]))}</p>`:`<p class="hint">${S.lang==="he"?"גררו או לחצו על שנה":"Drag or tap a year"}</p>`}</div></div>`; }
+      <div class="resp tls-card">${x?`<div class="anim" key="${sel}"><div class="tls-big"><bdi dir="ltr">${esc(x[0])}</bdi></div><h5>${ht(L(x[1]))}</h5><p>${fmt(L(x[2]))}</p></div>${srcHTML([x[3]])}`:`<div class="tls-big">?</div><p class="hint">${S.lang==="he"?"גררו את הסמן או לחצו על שנה כדי לטייל בזמן":"Drag the slider or tap a year to travel through time"}</p>`}
+      <div class="tls-prog">${TIMELINE.map((_,i)=>`<i class="${sel!=null&&i<=sel?"on":""}"></i>`).join("")}</div></div></div>`; }
   case "lawsreal": return `<div class="lreal">${LAWS_REAL.map((x,i)=>{const [h,t]=L(x);return `<div class="lr"><span class="sln">${["I","II","III"][i]}</span><div><b>${ht(h)}</b><p>${ht(t)}</p></div></div>`;}).join("")}</div>`;
   case "tl": return `<p class="hint">${S.lang==="he"?"לחצו על שנה כדי לקרוא עוד":"Tap a year to read more"}</p><div class="stl">${b.items.map((x,i)=>`<button class="stl-i" data-act="tlPop" data-i="${i}"><b><bdi dir="ltr">${esc(x[0])}</bdi></b><span>${ht(L(x[1]))}</span></button>`).join("")}</div>`;
   case "nest": { const n = S.lang==="he"?["בינה מלאכותית (AI)","למידת מכונה","למידה עמוקה","בינה מלאכותית יוצרת"]:["Artificial intelligence (AI)","Machine learning","Deep learning","Generative AI"];
@@ -2007,7 +2044,7 @@ function block(b, bi){
     return `<div class="sld"><h4>${ht(L(b.q))}</h4><div class="sld-row"><span>${esc(e[0])}</span>
       <input type="range" min="${b.min}" max="${b.max}" step="1" value="${v}" class="${set?"":"unset"}" data-inp="slider" data-key="${b.key}" aria-label="${esc(L(b.q))}">
       <span>${esc(e[1])}</span></div><div class="sld-val"><b id="sv_${b.key}">${set?v:"?"}</b> / ${b.max}</div>
-      <div class="resp sl-resp" id="sr_${b.key}">${b.resp&&S[b.key]!=null?ht(sliderResp(b,S[b.key])):""}</div>
+      <div class="resp sl-resp" id="sr_${b.key}">${b.resp&&S[b.key]!=null?respG(ht(sliderResp(b,S[b.key]))):""}</div>
       </div>`; }
   case "laws": return `<div class="laws">${b.items.map((x,i)=>{const [n,body]=L(x);return `<div class="law" role="button" tabindex="0" data-act="law"><div class="law-n">${["I","II","III"][i]}</div><div class="law-t"><b>${esc(n)}</b><p>${esc(body)}</p><span class="law-hint">${esc(T("tapHint"))}</span></div></div>`;}).join("")}</div>`;
   case "two": return `<div class="two">${b.items.map((x,i)=>{const [h,body]=L(x);return `<div class="two-c c${i}"><b>${esc(h)}</b><p>${fmt(body)}</p></div>`;}).join("")}</div>`;
@@ -2028,7 +2065,7 @@ function block(b, bi){
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "poll": { const cur = S[b.key];
     return withGuide(`<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
-      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp"><b>${ht(L(b.resp)[cur])}</b></div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}${b.lawsReal&&cur!=null?`<h4 class="lr-t">${S.lang==="he"?"איך כל חוק מחזיק מול המקרים האמיתיים":"How each law holds up against real cases"}</h4>${block({t:"lawsreal"})}`:""}</div></div>`); }
+      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp">${respG(`<b>${ht(L(b.resp)[cur])}</b>`)}</div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}${b.lawsReal&&cur!=null?`<h4 class="lr-t">${S.lang==="he"?"איך כל חוק מחזיק מול המקרים האמיתיים":"How each law holds up against real cases"}</h4>${block({t:"lawsreal"})}`:""}</div></div>`); }
   case "tools": return `<p class="hint">${esc(T("tapHint"))}</p><div class="tools">${b.items.map((x,i)=>`<button class="tool" data-act="tool" data-i="${i}"><span class="ti">${x.icon}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
   case "findings": return `<div class="finds">${b.items.map(x=>`<div class="find"><b><bdi dir="ltr">${esc(x.big)}</bdi></b><p>${esc(L(x))}</p></div>`).join("")}</div>`;
   case "world": return `<p class="hint">${esc(T("tapHint"))}</p><div class="world">${b.items.map((x,i)=>`<button class="wc" data-act="world" data-i="${i}"><span class="fl">${x.flag}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
@@ -2044,6 +2081,7 @@ function guideFull(){
   return s ? IMG["f_"+s.img] : IMG["f_"+(S.av.p||"s2")];
 }
 function withGuide(inner){ return `<div class="qgrid"><div class="q-main">${inner}</div><img class="q-guide" src="${guideFull()}" alt=""></div>`; }
+function respG(inner){ const g=GUIDES[S.g]; const w=(CUR&&CUR.who)||(g&&g.id); const s=GUIDES.find(x=>x.id===w&&x.img!=="AVATAR"); const pic = s?portrait(s,46):`<span class="pt av">${avatarSVG(S.av,46)}</span>`; return `<div class="resp-g">${pic}<span>${inner}</span></div>`; }
 function chunkP(p){
   const sents = p.split(/(?<=[.!?]["”“]?)\s+/).map(s=>s+" ");
   const out=[]; let cur="";
@@ -2352,7 +2390,7 @@ const A = {
   kwTab(el){ kwTab=el.dataset.g; kwPage=0; A.kw(); },
   gTab(el){ gTab=el.dataset.g; render(); },
   finish(){ const g=GUIDES[S.g]; S.done[g.id]=true; if(!S.badges.includes(g.id)) S.badges.push(g.id); syncSoon();
-    openModal({kicker:T("badgeK"), title:`<span class="bigicon">${g.badge.icon}</span>${esc(L(g.badge))}`,
+    openModal({kicker:T("badgeK"), imgHTML: g.img==="AVATAR" ? `<img src="${IMG["f_"+(S.av.p||"s2")]}" alt="">` : `<img src="${IMG["f_"+g.img]}" alt="">`, title:`<span class="bigicon">${g.badge.icon}</span>${esc(L(g.badge))}`,
       html:`<p>${S.lang==="he"?`${esc(g.id==="you"?"הצוות":L(g.name))} העניק/ה לך את התג הזה.`:`${esc(g.id==="you"?"The team":L(g.name))} gave you this badge.`}</p>`,
       btn:T("continue"), cls:"badge-m", onClose:()=>{
         if (S.g < GUIDES.length-1){ S.g++; S.sc=0; S.pg=0; go("guide"); maybeIntro(); } else go("quiz");
@@ -2432,7 +2470,8 @@ document.addEventListener("input", e => {
     all.hidden=!q; grid.hidden=!!q; all.querySelectorAll(".g-card").forEach(c=>c.style.display=!q||c.dataset.s.includes(q)?"":"none"); }
   if (t.id === "law4"){ const c=document.getElementById("lawCnt"); if(c) c.textContent=t.value.length; }
   if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; t.classList.remove("unset");
-    const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r) r.innerHTML=ht(sliderResp(b,+t.value));
+    const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r){ const nw=respG(ht(sliderResp(b,+t.value))); if (r.innerHTML!==nw){ r.innerHTML=nw; r.style.animation="none"; void r.offsetWidth; r.style.animation=""; } }
+    const sv=document.getElementById("sv_"+k); if (sv){ sv.classList.remove("tick"); void sv.offsetWidth; sv.classList.add("tick"); }
     document.querySelectorAll(`.waiting[data-after="${k}"]`).forEach(el=>{ el.classList.remove("waiting"); el.classList.add("revealed"); }); syncSoon(); }
   if (t.dataset.inp === "dial"){ const id=t.dataset.id; const first = S.dial[id]==null; S.dial[id]=+t.value; t.classList.remove("unset");
     document.getElementById("dl_"+id).textContent=T("lvls")[+t.value];
