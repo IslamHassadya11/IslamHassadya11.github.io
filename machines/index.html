@@ -945,6 +945,15 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .blk-tlside .tls-ticks button{font-size:14px}
 .blk-tlside .tls-card{min-height:170px;padding:18px 22px}
 .blk-tlside .tls-big{font-size:64px}
+/* pictures centred, less empty space */
+.blk-read.has-img{align-items:center}
+.blk-read.has-img .rimg-wrap{position:static}
+.blk-read.has-img:has(.side-dates),.blk-read.has-img:has(.side-waffle),.blk-read.has-img:has(.side-rings){align-items:start}
+.qgrid{gap:40px;padding:6px 10px}
+.blk-poll,.blk-write{padding:28px 32px}
+.q-guide{max-height:380px}
+.d-card img{max-height:240px;object-fit:contain;border-radius:14px}
+.tls input[type=range]{transition:none}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -1351,12 +1360,10 @@ const GUIDES = [
   { say:{en:"Hi {name}, I'm Maya. Before we talk about machines getting out of control, let's start with why we build them at all. Underlined words open a short explanation.",
          he:"היי {name}, אני מאיה. לפני שנדבר על מכונות שיוצאות משליטה, נתחיל מהסיבה שבגללה בונים אותן בכלל. מילים עם קו מתחתן פותחות הסבר קצר."},
     blocks:[
-     {t:"read", img:"i_pos", h:{en:"The good side: machines that learn and adapt",he:"הצד הטוב: מכונות שלומדות ומסתגלות"}, p:{
-      en:["Robots and AI are **adaptable learning machines**. Instead of being programmed for every situation in advance, they learn from data and adjust. That is what lets a self-driving car handle a street it has never seen, or a spam filter catch a new kind of junk mail.",
-          "The progress is real. According to the International AI Safety Report, published in February 2026 by more than 100 experts from over 30 countries, general-purpose AI has made large gains in complex reasoning in mathematics, software engineering and science. It is bringing benefits in healthcare, scientific research and education, although very unevenly around the world. Developers have announced hundreds of billions of dollars of investment in new data centres.",
+     {t:"read", img:"i_pos", two:true, h:{en:"The good side: machines that learn and adapt",he:"הצד הטוב: מכונות שלומדות ומסתגלות"}, p:{
+      en:["Robots and AI are **adaptable learning machines**. Instead of being programmed for every situation in advance, they learn from data and adjust: that is what lets a self-driving car handle a street it has never seen, or a spam filter catch a new kind of junk mail. According to the International AI Safety Report (February 2026, more than 100 experts from over 30 countries), general-purpose AI has made large gains in reasoning in mathematics, software engineering and science, and is bringing benefits in healthcare, research and education, although very unevenly around the world.",
           "But the same report warns that AI's abilities are uneven: a system can solve hard expert-level problems and still fail at simple tasks, such as counting objects in a picture. And the independence that makes these machines useful is exactly what can take them out of our control. That is what this unit is about."],
-      he:["רובוטים ומערכות AI הם **מכונות לומדות ומסתגלות**. במקום שיתכנתו אותן מראש לכל מצב, הן לומדות מנתונים ומתאימות את עצמן. זה מה שמאפשר למכונית אוטונומית להתמודד עם רחוב שמעולם לא ראתה, או למסנן ספאם לתפוס סוג חדש של דואר זבל.",
-          "ההתקדמות אמיתית. לפי הדוח הבינלאומי על בטיחות AI, שפרסמו בפברואר 2026 יותר מ-100 מומחים מיותר מ-30 מדינות, AI כללי השתפר מאוד בחשיבה מורכבת במתמטיקה, בהנדסת תוכנה ובמדע. הוא מביא תועלת ברפואה, במחקר המדעי ובחינוך, אם כי בצורה מאוד לא שוויונית ברחבי העולם. מפתחות AI הכריזו על השקעות של מאות מיליארדי דולרים במרכזי נתונים חדשים.",
+      he:["רובוטים ומערכות AI הם **מכונות לומדות ומסתגלות**. במקום שיתכנתו אותן מראש לכל מצב, הן לומדות מנתונים ומתאימות את עצמן: כך מכונית אוטונומית מתמודדת עם רחוב שמעולם לא ראתה, ומסנן ספאם תופס סוג חדש של דואר זבל. לפי הדוח הבינלאומי על בטיחות AI (פברואר 2026, יותר מ-100 מומחים מיותר מ-30 מדינות), AI כללי השתפר מאוד בחשיבה במתמטיקה, בהנדסת תוכנה ובמדע, ומביא תועלת ברפואה, במחקר ובחינוך, אם כי בצורה מאוד לא שוויונית ברחבי העולם.",
           "אבל אותו דוח מזהיר שהיכולות של AI לא אחידות: מערכת יכולה לפתור בעיות קשות ברמת מומחה ועדיין להיכשל במשימות פשוטות, כמו ספירת חפצים בתמונה. והעצמאות שהופכת את המכונות האלה לשימושיות היא בדיוק מה שעלול להוציא אותן משליטתנו. על זה היחידה הזו."]}},
      {t:"keys", items:[["100+",{en:"experts wrote the 2026 safety report",he:"מומחים כתבו את דוח הבטיחות 2026"}],["30+",{en:"countries and organisations took part",he:"מדינות וארגונים השתתפו"}],[{en:"$100s of billions",he:"מאות מיליארדי דולרים"},{en:"announced for new data centres",he:"הוכרזו למרכזי נתונים חדשים"}]]}
     ], src:["safety"] },
@@ -1614,13 +1621,13 @@ const GUIDES = [
 
   { who:"lexi", say:{en:"Our course looks at technology through sustainability. Here's where this topic fits.",he:"הקורס שלנו בוחן טכנולוגיה דרך עדשת הקיימות. הנה איפה הנושא הזה נכנס."},
     blocks:[
-     {t:"read", img:"i_sdg", h:{en:"The sustainability lens",he:"עדשת הקיימות"}, p:{
+     {t:"read", img:"n_dough", h:{en:"The sustainability lens",he:"עדשת הקיימות"}, p:{
       en:["The UN's {{sdg|Sustainable Development Goals}} are 17 shared goals for 2030. Two of them connect directly to machines that act on their own. And {{doughnut|Doughnut economics}} reminds us that technology should keep everyone above a social foundation."],
       he:["{{sdg|יעדי הפיתוח בר-הקיימא}} של האו\"ם הם 17 יעדים משותפים לשנת 2030. שניים מהם קשורים ישירות למכונות שפועלות בעצמן. ו{{doughnut|כלכלת הדונאט}} מזכירה לנו שטכנולוגיה צריכה לשמור על כולם מעל בסיס חברתי."]}},
      {t:"sdg", items:[
-      {tag:"SDG 16",c:"#0a5a96",en:["Peace, justice and strong institutions","When an AI causes harm and nobody gave the order, who is accountable? Strong institutions need clear answers."],he:["שלום, צדק ומוסדות חזקים","כש-AI גורם נזק ואף אחד לא נתן פקודה, מי אחראי? מוסדות חזקים צריכים תשובות ברורות."]},
-      {tag:"SDG 9",c:"#f36d25",en:["Industry, innovation and infrastructure","Shared digital infrastructure, like Hugging Face's library, has to be safe and resilient."],he:["תעשייה, חדשנות ותשתיות","תשתית דיגיטלית משותפת, כמו הספרייה של Hugging Face, חייבת להיות בטוחה ועמידה."]},
-      {tag:"🍩",c:"#14a58a",en:["Doughnut economics","Safety and trust in institutions are part of the social foundation: the floor no one should fall below."],he:["כלכלת הדונאט","בטיחות ואמון במוסדות הם חלק מהבסיס החברתי: הרצפה שאיש לא אמור לרדת מתחתיה."]}]}
+      {tag:"SDG 16",c:"#0a5a96",img:"n_sdg16",en:["Peace, justice and strong institutions","When an AI causes harm and nobody gave the order, who is accountable? Strong institutions need clear answers."],he:["שלום, צדק ומוסדות חזקים","כש-AI גורם נזק ואף אחד לא נתן פקודה, מי אחראי? מוסדות חזקים צריכים תשובות ברורות."]},
+      {tag:"SDG 9",c:"#f36d25",img:"n_sdg9",en:["Industry, innovation and infrastructure","Shared digital infrastructure, like Hugging Face's library, has to be safe and resilient."],he:["תעשייה, חדשנות ותשתיות","תשתית דיגיטלית משותפת, כמו הספרייה של Hugging Face, חייבת להיות בטוחה ועמידה."]},
+      {tag:"🍩",c:"#14a58a",img:"n_sdgd",en:["Doughnut economics","Safety and trust in institutions are part of the social foundation: the floor no one should fall below."],he:["כלכלת הדונאט","בטיחות ואמון במוסדות הם חלק מהבסיס החברתי: הרצפה שאיש לא אמור לרדת מתחתיה."]}]}
     ], src:["sdgs","doughnut"] },
 
   { who:"team", say:{en:"One last question before the test: how much freedom would you give each machine? Move the slider for each one, and you'll see a real fact about it.",he:"שאלה אחרונה לפני המבחן: כמה חופש הייתם נותנים לכל מכונה? הזיזו את הסמן לכל אחת, ותראו עובדה אמיתית עליה."},
@@ -1638,7 +1645,7 @@ const DIAL = [
  {id:"taxi",img:"d_taxi",src:"nhtsa",en:["A driverless taxi in a city","As part of its settlement after the 2023 crash, Cruise had to send the US regulator safety reports every 90 days for two years."],he:["מונית ללא נהג בעיר","במסגרת ההסדר אחרי התאונה ב-2023, Cruise חויבה לשלוח לרשות האמריקאית דוחות בטיחות כל 90 יום במשך שנתיים."]},
  {id:"patrol",img:"d_patrol",src:"palisade",en:["A security robot patrolling a building","Remember Lexi's robot dog? It changed its own shutdown code in 3 of 10 real runs, and 52 of 100 simulated ones."],he:["רובוט אבטחה שמסייר בבניין","זוכרים את הכלב הרובוטי של לקסי? הוא שינה את קוד הכיבוי שלו ב-3 מתוך 10 ניסויים אמיתיים, וב-52 מתוך 100 בסימולציה."]},
  {id:"coding",img:"d_coding2",src:"pocketos",en:["An AI agent working on a company's live database","An AI coding agent at PocketOS, which makes software for car-rental companies, deleted the live database and its backups in nine seconds. Customers lost reservations and records."],he:["סוכן AI שעובד על מסד הנתונים החי של חברה","סוכן קוד של AI בחברת PocketOS, שמפתחת תוכנה לחברות השכרת רכב, מחק את מסד הנתונים החי ואת הגיבויים בתוך תשע שניות. לקוחות איבדו הזמנות ורשומות."]},
- {id:"nuclear",img:"d_nuclear",src:"stanfordwar",en:["A system that warns leaders of a nuclear attack","In a 2024 Stanford war-game study, all five AI models tested escalated conflicts, and in some cases they used nuclear weapons."],he:["מערכת שמתריעה בפני מנהיגים על מתקפה גרעינית","במחקר משחקי מלחמה של סטנפורד מ-2024, כל חמשת מודלי ה-AI שנבדקו הסלימו סכסוכים, ובחלק מהמקרים השתמשו בנשק גרעיני."]}
+ {id:"nuclear",img:"cliff",src:"stanfordwar",en:["A system that warns leaders of a nuclear attack","In a 2024 Stanford war-game study, all five AI models tested escalated conflicts, and in some cases they used nuclear weapons."],he:["מערכת שמתריעה בפני מנהיגים על מתקפה גרעינית","במחקר משחקי מלחמה של סטנפורד מ-2024, כל חמשת מודלי ה-AI שנבדקו הסלימו סכסוכים, ובחלק מהמקרים השתמשו בנשק גרעיני."]}
 ];
 
 /* ---------------- Avatar options ---------------- */
@@ -2148,7 +2155,6 @@ function vGuide(){
     <div class="nav">
       <button class="btn ghost" data-act="prev" ${S.sc===0&&pg===0?"disabled":""}>${BK()} ${esc(T("back"))}</button>
       <div class="nav-mid">
-        <button class="link kwb" data-act="kw">🔑 ${S.lang==="he"?"מילות המפתח עד עכשיו":"Key words so far"}</button>
         ${sc.src?`<button class="link srcb" data-act="src">📚 ${esc(T("sources"))} (${sc.src.length})</button>`:""}
       </div>
       ${lastScene&&lastPage?`<button class="btn" id="nextBtn" data-act="finish">${esc(T("finishGuide"))} ${g.badge.icon}</button>`
@@ -2166,7 +2172,7 @@ function handoffCard(nextG){
 function block(b, bi){
   switch(b.t){
   case "read": { const ps = L(b.p);
-    return `${b.banner?`<img class="rbanner" src="${IMG[b.banner]}" alt="">`:""}${b.img&&!b.side?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${b.img?`<img class="rimg" src="${IMG[b.img]}" alt="">`:""}${(Array.isArray(b.side)?b.side:[{t:b.side}]).map(x=>`<div class="side-blk side-${x.t}">${block(x)}</div>`).join("")}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,num:b.num,items:b.list}):""}</div>`; }
+    return `${b.banner?`<img class="rbanner" src="${IMG[b.banner]}" alt="">`:""}${b.img&&!b.side?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${b.img?`<img class="rimg" src="${IMG[b.img]}" alt="">`:""}${(Array.isArray(b.side)?b.side:[{t:b.side}]).map(x=>`<div class="side-blk side-${x.t}">${block(x)}</div>`).join("")}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${(b.two?ps:ps.flatMap(chunkP)).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,num:b.num,items:b.list}):""}</div>`; }
   case "waffle": return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="waffles">${b.items.map(x=>`<div class="waf"><div class="waf-g ${x.of<=10?"big":""}">${Array.from({length:x.of},(_,i)=>`<i class="${i<x.n?"on":""}"></i>`).join("")}</div><b><bdi dir="ltr">${x.n} / ${x.of}</bdi></b><span>${ht(L(x.l))}</span></div>`).join("")}</div>`;
   case "cols": { const mx=Math.max(...b.items.map(x=>x[1]));
     return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="cols">${b.items.map((x,i)=>`<div class="col ${i===b.hi?"hi":""}"><span class="cv"><bdi dir="ltr">${x[1]}${b.unit?" "+ht(L(b.unit)):""}</bdi></span><i style="height:${(x[1]/mx*100).toFixed(1)}%"></i><b>${ht(typeof x[0]==="string"?x[0]:L(x[0]))}</b></div>`).join("")}</div>`; }
@@ -2185,7 +2191,7 @@ function block(b, bi){
     <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${sel&&x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
   case "tlside": { const n=TIMELINE.length, sel=tlSel; const x = sel==null?null:TIMELINE[sel];
     return `<div class="tls"><h4>🕰️ ${S.lang==="he"?"ציר הזמן":"Timeline"}</h4>
-      <input type="range" min="0" max="${n-1}" step="1" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
+      <input type="range" min="0" max="${n-1}" step="0.01" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
       <div class="tls-ticks">${TIMELINE.map((t,i)=>`<button class="${i===sel?"on":""}" data-act="tlPick" data-i="${i}"><bdi dir="ltr">${esc(t[0])}</bdi></button>`).join("")}</div>
       <div class="resp tls-card">${x?`<div class="anim" key="${sel}"><div class="tls-big"><bdi dir="ltr">${esc(x[0])}</bdi></div><h5>${ht(L(x[1]))}</h5><p>${fmt(L(x[2]))}</p></div>${srcHTML([x[3]])}`:`<div class="tls-big">?</div><p class="hint">${S.lang==="he"?"גררו את הסמן או לחצו על שנה כדי לטייל בזמן":"Drag the slider or tap a year to travel through time"}</p>`}
       <div class="tls-prog">${TIMELINE.map((_,i)=>`<i class="${sel!=null&&i<=sel?"on":""}"></i>`).join("")}</div></div></div>`; }
@@ -2274,6 +2280,14 @@ function rankComment(){
   return `<div class="note">${t}</div>`;
 }
 let dialPos = 0, stepPos = 0, mapSel = null, mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
+function animateRange(r, to){ const from=+r.value, t0=performance.now(); const step=now=>{ const k=Math.min(1,(now-t0)/350), e=1-Math.pow(1-k,3); r.value=from+(to-from)*e; if (k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
+document.addEventListener("change", e => { const t=e.target; if (t.dataset && t.dataset.inp==="tl" && tlSel!=null) animateRange(t, tlSel); });
+function updateTlCard(){
+  const host=document.querySelector(".blk-tlside,.side-tlside"); if (!host) return;
+  const tmp=document.createElement("div"); tmp.innerHTML=block({t:"tlside"});
+  host.querySelector(".tls-card").replaceWith(tmp.querySelector(".tls-card"));
+  host.querySelectorAll(".tls-ticks button").forEach((b,i)=>b.classList.toggle("on", i===tlSel));
+}
 function rerenderTl(){ const el=document.querySelector(".blk-tlside,.side-tlside"); if (el){ el.innerHTML = block({t:"tlside"}); const r=el.querySelector("input"); r && r.focus({preventScroll:true}); } }
 let mapVB={x:0,y:0,w:960};
 function setVB(x,y,w){ const h=w*470/960; x=Math.max(-50,Math.min(x,960-w+50)); y=Math.max(-30,Math.min(y,470-h+30)); mapVB={x,y,w}; const s=document.querySelector(".wmap"); if (s){ s.style.transition="none"; s.setAttribute("viewBox",`${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`); } }
@@ -2439,7 +2453,6 @@ function vFinale(){
          <li><span>${S.lang==="he"?"אמון ב-AI":"Trust in AI"}</span><b>${S.trust ?? "–"}/10</b></li>
          ${S.law4?`<li class="wide law4"><span>${S.lang==="he"?"החוק הרביעי שלכם לאסימוב":"Your fourth Asimov law"}</span><b>“${esc(S.law4)}”</b><em>${S.lang==="he"?"אסימוב היה גאה בכם!":"He would be so proud of you!"}</em></li>`:""}
        </ul>
-       <p class="hint" id="syncMsg">${CONFIG.ENDPOINT?esc(T("saving")):""}</p>
      </div>
    </div>
    <div class="cliff card"><img src="${IMG.cliff}" alt=""><div class="cliff-txt"><div class="kicker">2.12.2026</div><p>${esc(T("cliff"))}</p></div></div>
@@ -2575,7 +2588,7 @@ const A = {
   stepPrev(){ stepPos=Math.max(0,stepPos-1); rerenderType("steps"); },
   tlPop(el){ const b=CUR.blocks.find(x=>x.t==="tl"); const x=b.items[+el.dataset.i];
     openModal({kicker:`<bdi dir="ltr">${esc(x[0])}</bdi>`, title:ht(L(x[1])), html:`<p>${fmt(L(x[2]))}</p>${srcHTML([x[3]])}`, cls:"small"}); el.classList.add("seen"); },
-  tlPick(el){ tlSel=+el.dataset.i; rerenderTl(); },
+  tlPick(el){ tlSel=+el.dataset.i; const r=document.querySelector('input[data-inp="tl"]'); if (r){ r.classList.remove("unset"); animateRange(r, tlSel); } updateTlCard(); },
   kwTab(el){ kwTab=el.dataset.g; kwPage=0; A.kw(); },
   gTab(el){ gTab=el.dataset.g; render(); },
   finish(){ const g=GUIDES[S.g]; S.done[g.id]=true; if(!S.badges.includes(g.id)) S.badges.push(g.id); syncSoon();
@@ -2655,7 +2668,7 @@ document.addEventListener("input", e => {
   const t = e.target;
   if (t.id === "nick"){ const n=document.getElementById("avName"); if(n) n.textContent = t.value || " ";
     const msg=document.getElementById("nickMsg"); if (t.value.trim().length>1 && isBad(t.value,false)){ msg.textContent=T("nameBad"); msg.className="hint err"; } else { msg.textContent=T("nameHint"); msg.className="hint"; } }
-  if (t.dataset.inp === "tl"){ tlSel=+t.value; rerenderTl(); return; }
+  if (t.dataset.inp === "tl"){ t.classList.remove("unset"); const i=Math.round(+t.value); if (i!==tlSel){ tlSel=i; updateTlCard(); } return; }
   if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); let n=0; document.querySelectorAll("#gGrid .g-card").forEach(c=>{ const ok = q ? c.dataset.s.includes(q) : c.dataset.g===gTab; c.hidden=!ok; if(ok) n++; }); const d=document.querySelector(".g-disc"); if (d) d.hidden=!!q; const e=document.getElementById("gNone"); if (e) e.hidden=n>0; }
   if (t.id === "law4"){ const c=document.getElementById("lawCnt"); if(c) c.textContent=t.value.length; }
   if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; t.classList.remove("unset");
