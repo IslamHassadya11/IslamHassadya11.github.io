@@ -2357,7 +2357,7 @@ function block(b, bi){
   case "watch": { const s=SRC[b.k];
     return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי":"Watch later, in your free time"}</small><b>Instadocs: AI Gone Wild</b><em>${S.lang==="he"?"נטפליקס, 27 דקות: הפריצה ל-Hugging Face, משוחזרת":"Netflix, 27 min: the Hugging Face hack, reconstructed"}</em></span><span class="fr-go">↗</span></a>`; }
   case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]); const k=b.items[i].k;
-    return `<div class="steps"><div class="d-top"><span class="d-count">${i+1} / ${n}</span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
+    return `<div class="steps"><div class="d-top"><span class="d-count"><bdi dir="ltr">${i+1} / ${n}</bdi></span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
       <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<span class="term" role="button" tabindex="0" data-term="${k}">${ht(h)}</span>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
   case "map": { const sel = b.items.find(x=>x.r===mapSel); const [sh,sb]=sel?L(sel):["",""];
     return `<div class="map-head"><h3 class="rh">${ht(L(b.h))}</h3><span class="mz"><button data-act="mapZ" data-z="1.6" aria-label="zoom in">＋</button><button data-act="mapZ" data-z="0.625" aria-label="zoom out">－</button><button data-act="mapZ" data-z="0" aria-label="reset">⟲</button><button data-act="mapBig">${mapBig?"⤡":"⤢"}</button></span></div><p>${fmt(L(b.intro))} <span class="map-hint">${S.lang==="he"?"גללו על המפה כדי להגדיל, וגררו כדי לזוז.":"Scroll on the map to zoom in, and drag to move around."}</span></p>
@@ -2421,7 +2421,7 @@ function block(b, bi){
       <div class="stats">${b.stats.map(s=>`<div class="stat"><b><bdi dir="ltr">${esc(s[0])}</bdi></b><span>${ht(L(s[1]))}</span></div>`).join("")}</div>
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "lawq": { const sh=T("lawShort"), he=S.lang==="he", n=b.items.length, it=b.items[lqPos], a=lqAns[lqPos], [nm,sub,why]=L(it);
-    return `<div class="lq-wrap"><div class="d-top"><span class="d-count">${lqPos+1} / ${n}</span><div class="d-dots">${b.items.map((x,i)=>`<i class="${lqAns[i]!=null?"ok":""} ${i===lqPos?"now":""}"></i>`).join("")}</div></div>
+    return `<div class="lq-wrap"><div class="d-top"><span class="d-count"><bdi dir="ltr">${lqPos+1} / ${n}</bdi></span><div class="d-dots">${b.items.map((x,i)=>`<i class="${lqAns[i]!=null?"ok":""} ${i===lqPos?"now":""}"></i>`).join("")}</div></div>
       <div class="lq anim" key="${lqPos}"><img class="lq-img" src="${IMG[it.img]}" alt=""><div class="lq-main"><span class="lq-k">${ht(nm)}, ${ht(sub)}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4>
       <div class="lc-laws">${sh.map((l,j)=>{ let cls=""; if (a!=null){ cls = j===it.law?"ok":(j===a?"bad":"dim"); }
         return `<button class="lc-law ${cls}" data-act="lqLaw" data-j="${j}" ${a!=null?"disabled":""}><span class="lc-n">${["I","II","III"][j]}</span><span>${esc(l)}</span></button>`; }).join("")}</div>
@@ -2491,7 +2491,7 @@ function dialBlock(){
   }
   const d = DIAL[dialPos], v = ANSD(d.id), set = v!=null, [name] = L(d);
   return `<div class="dial-one">
-    <div class="d-top"><span class="d-count">${dialPos+1} / ${DIAL.length}</span><div class="d-dots">${DIAL.map((x,i)=>`<i class="${ANSD(x.id)!=null?"ok":""} ${i===dialPos?"now":""}"></i>`).join("")}</div></div>
+    <div class="d-top"><span class="d-count"><bdi dir="ltr">${dialPos+1} / ${DIAL.length}</bdi></span><div class="d-dots">${DIAL.map((x,i)=>`<i class="${ANSD(x.id)!=null?"ok":""} ${i===dialPos?"now":""}"></i>`).join("")}</div></div>
     <div class="d-card"><img src="${IMG[d.img]}" alt=""><div class="d-main"><h3>${ht(name)}</h3>
       <div class="dial-ends"><span>${ht(T("dialEnds")[0])}</span><span>${ht(T("dialEnds")[1])}</span></div>
       <input type="range" min="0" max="4" step="0.01" value="${set?v:2}" class="${set?"":"unset"}" data-inp="dial" data-id="${d.id}" aria-label="${esc(name)}">
@@ -2707,7 +2707,7 @@ async function renderResults(){
   app.innerHTML = `<section class="card loading-card"><div class="ld-dots"><i></i><i></i><i></i></div><p>${S.lang==="he"?"טוען את תוצאות הכיתה…":"Loading class results…"}</p></section>`;
   const draw = async () => {
     const st = await getStats();
-    app.innerHTML = `<section class="card"><h2>${esc(T("avatarsT"))}</h2>${QS.has("demo")?`<span class="chip">demo data</span>`:""}
+    app.innerHTML = `<section class="card"><h2>${esc(T("avatarsT"))}</h2>${QS.has("demo")?`<span class="chip">${S.lang==="he"?"נתוני דוגמה":"demo data"}</span>`:""}
       <div class="wall">${st && st.avatars ? st.avatars.map(a=>`<div class="wa">${avatarSVG(a.av,64)}<span>${esc(a.nick)}</span></div>`).join("") : ""}</div></section>
       <section class="card">${classHTML(st, true)}</section>`;
   };
