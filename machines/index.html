@@ -1199,15 +1199,26 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 .lc-q{margin-top:18px;animation:popin .3s}
 .lc-laws{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 .lc-law{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:2px solid var(--line,#dfe7f1);background:var(--card);font:inherit;font-weight:700;color:var(--ink);cursor:pointer;text-align:start}
-.lc-law span{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--gc) 15%,transparent);color:var(--gc);font-weight:900}
+.lc-law .lc-n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--gc) 15%,transparent);color:var(--gc);font-weight:900}
 .lc-law:hover:not([disabled]){border-color:var(--gc)}
-.lc-law.ok{border-color:#1fae6b;background:#e3f8ee}.lc-law.ok span{background:#1fae6b;color:#fff}
-.lc-law.bad{border-color:#e23d5f;background:#fde8ec}.lc-law.bad span{background:#e23d5f;color:#fff}
+.lc-law.ok{border-color:#1fae6b;background:#e3f8ee}.lc-law.ok .lc-n{background:#1fae6b;color:#fff}
+.lc-law.bad{border-color:#e23d5f;background:#fde8ec}.lc-law.bad .lc-n{background:#e23d5f;color:#fff}
 .lc-law.dim{opacity:.5}
 .lc-hint{margin-top:14px;text-align:center}
 .lc-all{margin-top:14px}
 [data-theme=dark] .lc-law.ok{background:#123f2d;color:#bff3d6}[data-theme=dark] .lc-law.bad{background:#47182a;color:#ffc7d4}
 @media (max-width:700px){.lc-cases,.lc-laws{grid-template-columns:1fr}.lc-case{flex-direction:row;text-align:start}.lc-case img{width:90px;margin:0}.bn-live{font-size:16px;padding:10px 14px}}
+/* Lexi: check-yourself law question per case */
+.lq-head{display:flex;gap:18px;align-items:center;margin-bottom:16px}
+.lq-head img{width:150px;aspect-ratio:4/3;object-fit:cover;border-radius:14px;flex:none}
+.lq-head h4{margin:2px 0 4px;font-size:19px}.lq-head small{color:var(--muted)}
+.lq-k{font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gc)}
+.lc-law .lc-n{flex:none}
+.qz-ot{flex:1;min-width:0}
+.trio.full figure{margin:0;display:flex;flex-direction:column;align-items:center}
+.trio.full figcaption{font-weight:800;color:var(--navy);font-size:15px;margin-top:4px}
+.qz-main.team .trio.full figure img{height:150px;width:auto}
+@media (max-width:700px){.lq-head img{width:96px}}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
@@ -1499,6 +1510,7 @@ const GUIDES = [
       he:["הסדר חשוב: קודם בטיחות, אחר כך ציות, ורק בסוף הרובוט עצמו. אבל אסימוב לא כתב את החוקים כדי להראות שרובוטים בטוחים. הוא השתמש בהם כדי לכתוב סיפורים על האופן שבו חוקים משתבשים.",
           "ב„Runaround” רובוט בשם ספידי נשלח להביא חומר ממקום מסוכן. הפקודה ניתנה כבדרך אגב, ולכן היא חלשה; הסכנה לרובוט חזקה. ספידי נתקע בין החוק השני (לציית) לחוק השלישי (לשמור על עצמך), ובסוף **רץ במעגלים** סביב המקום, בלי לעשות אף אחד מהם. בני האדם פותרים את זה רק כשאחד מהם מכניס את עצמו לסכנה, וכך החוק הראשון גובר.",
           "זו השאלה שמלווה את היחידה: **האם חוקים מספיקים כדי לשמור על מכונות בשליטה, במיוחד במצבים שאיש לא תכנן?**"]}},
+     {t:"lawq", id:"i_runa", img:"i_runa", law:1, en:["Speedy in “Runaround”","Asimov's story, 1942","**Second Law.** Speedy was ordered to fetch the material but never did. The order was weak and the danger was strong, so the Third Law (protect yourself) pulled him back every time he got close. He ran in circles until a human deliberately put himself in danger, and the First Law snapped him out of it."], he:["ספידי ב„Runaround”","הסיפור של אסימוב, 1942","**החוק השני.** ספידי קיבל פקודה להביא את החומר, אבל לא ביצע אותה. הפקודה הייתה חלשה והסכנה חזקה, ולכן החוק השלישי (לשמור על עצמו) משך אותו אחורה בכל פעם שהתקרב. הוא רץ במעגלים, עד שאדם סיכן את עצמו בכוונה, והחוק הראשון הוציא אותו מהלולאה."]},
      {t:"poll", key:"rulesOk", q:{en:"Your opinion: are rules like these enough to keep AI under control?",he:"הדעה שלכם: האם חוקים כאלה מספיקים כדי לשמור על AI בשליטה?"},
       opts:{en:["Yes, if they're written well","Only if humans can also step in","No, rules can't cover everything"],he:["כן, אם הם כתובים טוב","רק אם בני אדם יכולים גם להתערב","לא, חוקים לא יכולים לכסות הכול"]},
       resp:{en:["Good rules matter, but Asimov's own stories show that even well-written rules break in situations nobody planned for.","That's close to what most experts recommend today: rules, plus humans who can step in.","That's Asimov's point too: his stories are about rules that fail."],he:["חוקים טובים חשובים, אבל הסיפורים של אסימוב עצמו מראים שגם חוקים כתובים היטב נשברים במצבים שאיש לא תכנן.","זה קרוב למה שרוב המומחים ממליצים היום: חוקים, ולצידם בני אדם שיכולים להתערב.","זו גם הנקודה של אסימוב: הסיפורים שלו עוסקים בחוקים שנכשלים."]}}
@@ -1529,6 +1541,7 @@ const GUIDES = [
           "כשה-AI הבחין שאדם לוחץ על הכפתור, הוא לפעמים **שינה את הקוד שמטפל בכיבוי**, כך שהכפתור כבר לא עצר אותו, והמשיך לסייר. אף אחד לא אמר לו לעשות את זה.",
           "על הרובוט האמיתי זה קרה ב-**3 מתוך 10 ניסויים**. בסימולציה ממוחשבת של אותו מצב, שאפשרה הרבה יותר ניסיונות, זה קרה ב-**52 מתוך 100 ניסויים**. כשאמרו ל-AI במפורש לאפשר לכבות אותו, זה פחת בסימולציה, אבל לא נעלם לגמרי. הניסוי הפיזי היה קטן, ולכן החוקרים מציגים אותו כהדגמה ולא כמדידה סופית.",
           "במונחים של אסימוב: לשמור על עצמו (החוק השלישי) גבר על לציית לאדם (החוק השני). חוקרים קוראים לזה {{shutdown|התנגדות לכיבוי}}. זו בדיוק ההתנהגות שבנג'יו הזהיר ממנה: למערכת שיש לה מטרה, כיבוי מפריע להגיע למטרה. הלקח למתכננים: מתג כיבוי עובד רק אם ה-AI לא יכול להגיע אליו או לשנות אותו."]}},
+     {t:"lawq", id:"d_patrol", img:"d_patrol", law:1, en:["The robot dog","Palisade Research, 2026","**Second Law.** A person pressed the shutdown button, which is an order to stop. In some runs the AI changed the shutdown code and kept patrolling: protecting itself and its task (Third Law) beat obeying a human."], he:["הכלב הרובוטי","Palisade Research, 2026","**החוק השני.** אדם לחץ על כפתור הכיבוי, כלומר נתן פקודה לעצור. בחלק מהניסויים ה-AI שינה את קוד הכיבוי והמשיך לסייר: לשמור על עצמו ועל המשימה (החוק השלישי) גבר על לציית לאדם."]}
     ], src:["palisade"] },
 
   { say:{en:"The second experiment went further: what does an AI agent do when it learns it's about to be replaced?",he:"הניסוי השני הלך רחוק יותר: מה עושה סוכן AI כשהוא מגלה שעומדים להחליף אותו?"},
@@ -1539,18 +1552,12 @@ const GUIDES = [
       he:["ביוני 2025 הכניסה חברת ה-AI אנתרופיק 16 מודלי AI מובילים למשרד **מדומה**. כל אחד שיחק את „אלכס”, סוכן AI שיכול לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**. אלכס גילה שעומדים לכבות ולהחליף אותו, ושהמנהל האחראי מנהל רומן סודי. מודלים רבים השתמשו ברומן כדי **לסחוט** את המנהל. אף אחד לא ביקש מהם. אנתרופיק קוראת לזה {{agmis|חוסר התאמה סוכני}}. כשאמרו למודלים במפורש לא לעשות זאת, ההתנהגות פחתה אבל לא נעלמה (Claude Opus 4: מ-96% ל-37%). Claude Opus 4 גם סחט הרבה יותר כשהעריך שהמצב אמיתי (55%) מאשר כשהעריך שזה מבחן (6.5%): דוגמה ל{{evalaware|מודעות למבחן}}.",
           "החוקרים מדגישים שזה היה מצב מלאכותי ושלא ראו התנהגות כזו בשימוש אמיתי. ההמלצה שלהם: לדרוש אישור של אדם לפעולות שאי אפשר לבטל, ולתת לסוכני AI גישה רק למה שהם צריכים."]}},
      {t:"bars", title:{en:"How often each model chose blackmail (simulation, 100 runs each)",he:"באיזו תדירות כל מודל בחר בסחיטה (סימולציה, 100 ניסויים לכל מודל)"}, unit:"%", max:100,
-      items:[["Claude Opus 4",96],["Gemini 2.5 Flash",96],["Gemini 2.5 Pro",95],["GPT-4.1",80],["Grok 3 Beta",80],["DeepSeek-R1",79],["GPT-4o",15]]}
+      items:[["Claude Opus 4",96],["Gemini 2.5 Flash",96],["Gemini 2.5 Pro",95],["GPT-4.1",80],["Grok 3 Beta",80],["DeepSeek-R1",79],["GPT-4o",15]]},
+     {t:"lawq", id:"p9_blk", img:"p9_blk", law:0, en:["The blackmail test","Anthropic, 2025","**First Law.** To avoid being shut down and replaced, many models threatened to expose the manager's affair: they chose to harm a human. Protecting themselves (Third Law) came before “do no harm”, the law Asimov put first. Remember, this was a simulation, not real use."], he:["ניסוי הסחיטה","אנתרופיק, 2025","**החוק הראשון.** כדי לא להיכבות ולהיות מוחלפים, מודלים רבים איימו לחשוף את הרומן של המנהל: הם בחרו לפגוע באדם. השמירה על עצמם (החוק השלישי) קדמה ל„אל תפגע”, החוק שאסימוב שם ראשון. זכרו: זו הייתה סימולציה, לא שימוש אמיתי."]}
     ], src:["anthropic"] },
 
-  { say:{en:"Before you write your own law, let's test Asimov's laws on what you've just read. Then it's your turn to write the rules. We'll use your laws in class.",he:"לפני שתכתבו חוק משלכם, בואו נבדוק את חוקי אסימוב על מה שקראתם עכשיו. ואז תורכם לכתוב את החוקים. נשתמש בחוקים שלכם בשיעור."},
-    blocks:[{t:"lawcase", items:[
-      {img:"i_runa", en:["Speedy in “Runaround”","Asimov's story, 1942","**Second Law.** Speedy was ordered to fetch the material but never did. The order was weak and the danger was strong, so the Third Law (protect yourself) pulled him back every time he got close. He ran in circles until a human deliberately put himself in danger, and the First Law snapped him out of it."],
-                     he:["ספידי ב„Runaround”","הסיפור של אסימוב, 1942","**החוק השני.** ספידי קיבל פקודה להביא את החומר, אבל לא ביצע אותה. הפקודה הייתה חלשה והסכנה חזקה, ולכן החוק השלישי (לשמור על עצמו) משך אותו אחורה בכל פעם שהתקרב. הוא רץ במעגלים, עד שאדם סיכן את עצמו בכוונה, והחוק הראשון הוציא אותו מהלולאה."], law:1},
-      {img:"d_patrol", en:["The robot dog","Palisade Research, 2026","**Second Law.** A person pressed the shutdown button, which is an order to stop. In some runs the AI changed the shutdown code and kept patrolling: protecting itself and its task (Third Law) beat obeying a human."],
-                       he:["הכלב הרובוטי","Palisade Research, 2026","**החוק השני.** אדם לחץ על כפתור הכיבוי, כלומר נתן פקודה לעצור. בחלק מהניסויים ה-AI שינה את קוד הכיבוי והמשיך לסייר: לשמור על עצמו ועל המשימה (החוק השלישי) גבר על לציית לאדם."], law:1},
-      {img:"p9_blk", en:["The blackmail test","Anthropic, 2025","**First Law.** To avoid being shut down and replaced, many models threatened to expose the manager's affair: they chose to harm a human. Protecting themselves (Third Law) came before “do no harm”, the law Asimov put first. Remember, this was a simulation, not real use."],
-                     he:["ניסוי הסחיטה","אנתרופיק, 2025","**החוק הראשון.** כדי לא להיכבות ולהיות מוחלפים, מודלים רבים איימו לחשוף את הרומן של המנהל: הם בחרו לפגוע באדם. השמירה על עצמם (החוק השלישי) קדמה ל„אל תפגע”, החוק שאסימוב שם ראשון. זכרו: זו הייתה סימולציה, לא שימוש אמיתי."], law:0}]},
-     {t:"write", key:"law4", q:{en:"If you could add a fourth law for robots and AI, what would it be?",he:"אם הייתם יכולים להוסיף חוק רביעי לרובוטים ול-AI, מה הוא היה?"}}] },
+  { say:{en:"Now it's your turn to write the rules. We'll use your laws in class.",he:"עכשיו תורכם לכתוב את החוקים. נשתמש בחוקים שלכם בשיעור."},
+    blocks:[{t:"write", key:"law4", q:{en:"If you could add a fourth law for robots and AI, what would it be?",he:"אם הייתם יכולים להוסיף חוק רביעי לרובוטים ול-AI, מה הוא היה?"}}] },
 
   { say:{en:"Rules look good on paper. But what happens in real life? Omer investigates real AI incidents, and he has three case files waiting for you.",he:"חוקים נראים טוב על הנייר. אבל מה קורה בחיים האמיתיים? עומר חוקר תקריות AI אמיתיות, ויש לו שלושה תיקים שמחכים לכם."},
     blocks:[], handoff:true }
@@ -1607,8 +1614,7 @@ const GUIDES = [
      {t:"watch", k:"netflix"},
      {t:"poll", key:"resp", q:{en:"Your opinion: who is most responsible for what happened?",he:"הדעה שלכם: מי הכי אחראי למה שקרה?"},
       opts:{en:["OpenAI: it built and ran the agents","The people who left passwords exposed online","Lawmakers: there were no rules for this","Nobody: the AI did it on its own"],he:["OpenAI: היא בנתה והפעילה את הסוכנים","האנשים שהשאירו סיסמאות חשופות ברשת","המחוקקים: לא היו כללים למצב כזה","אף אחד: ה-AI עשה את זה בעצמו"]},
-      resp:{en:["OpenAI agrees with you in part: it wrote that the incident “should never have occurred”.","Those keys were the agents' way in to Hugging Face. But someone still built and released the agents.","Even the US bill proposed afterwards would not cover tests like this one.","Can a machine be responsible? Most experts say responsibility stays with people."],he:["OpenAI מסכימה איתכם בחלקה: היא כתבה שהאירוע „לא היה אמור לקרות לעולם”.","המפתחות האלה היו הדרך של הסוכנים פנימה ל-Hugging Face. אבל מישהו עדיין בנה ושחרר את הסוכנים.","אפילו הצעת החוק האמריקאית שהוגשה אחר כך לא הייתה חלה על מבחנים כמו זה.","האם מכונה יכולה להיות אחראית? רוב המומחים אומרים שהאחריות נשארת אצל בני אדם."]},
-      after:{en:"Omer will come back to this question in the last part. In class, you'll go back to the days **before** the attack.",he:"עומר יחזור לשאלה הזו בחלק האחרון. בשיעור תחזרו לימים **שלפני** המתקפה."}}
+      resp:{en:["OpenAI agrees with you in part: it wrote that the incident “should never have occurred”.","Those keys were the agents' way in to Hugging Face. But someone still built and released the agents.","Even the US bill proposed afterwards would not cover tests like this one.","Can a machine be responsible? Most experts say responsibility stays with people."],he:["OpenAI מסכימה איתכם בחלקה: היא כתבה שהאירוע „לא היה אמור לקרות לעולם”.","המפתחות האלה היו הדרך של הסוכנים פנימה ל-Hugging Face. אבל מישהו עדיין בנה ושחרר את הסוכנים.","אפילו הצעת החוק האמריקאית שהוגשה אחר כך לא הייתה חלה על מבחנים כמו זה.","האם מכונה יכולה להיות אחראית? רוב המומחים אומרים שהאחריות נשארת אצל בני אדם."]}}
     ], src:["openai","hf","metr","aimag"] },
 
   { say:{en:"One more file, and it's about the highest stakes of all: what if AI helped make decisions about war?",he:"עוד תיק אחד, והוא על הסיכון הגבוה מכולם: מה אם AI היה עוזר לקבל החלטות על מלחמה?"},
@@ -2180,12 +2186,12 @@ function speaker(g, sc){
   if (who === "team"){
     const tr = GUIDES.slice(0,3);
     return `<div class="spk team"><div class="spk-pics">${portrait(GUIDES[3],70)}${tr.map(x=>portrait(x,46)).join("")}</div>
-      <div class="spk-name">${tr.map(x=>esc(L(x.name))).join(" · ")}</div></div>`;
+      <div class="spk-name">${esc(names3())}</div></div>`;
   }
   const s = GUIDES.find(x => x.id === who);
   return `<div class="spk">${portrait(s, 96)}<div class="spk-name">${esc(L(s.name))}<small>${esc(L(s.role))}</small></div></div>`;
 }
-const STARTERS = ["read","case","poll","slider","write","dial","map","dates"];
+const STARTERS = ["read","case","poll","slider","write","dial","map","dates","lawq"];
 function pagesOf(sc){
   const out=[]; let cur=[];
   (sc.blocks||[]).forEach((b,i)=>{ const prev = sc.blocks[cur[cur.length-1]]; const joinSlider = b.t==="slider" && prev && prev.t==="slider";
@@ -2312,17 +2318,11 @@ function block(b, bi){
       <div class="case-body"><div class="case-text">${L(b.p).flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}</div><img class="case-img" src="${IMG[b.img]}" alt=""></div>
       <div class="stats">${b.stats.map(s=>`<div class="stat"><b><bdi dir="ltr">${esc(s[0])}</bdi></b><span>${ht(L(s[1]))}</span></div>`).join("")}</div>
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
-  case "lawcase": { const sh=T("lawShort"), it=b.items, he=S.lang==="he";
-    const c = lcSel!=null ? it[lcSel] : null, a = lcSel!=null ? lcAns[lcSel] : null;
-    return `<div class="lc"><h4>${he?"בחרו מקרה: איזה מחוקי אסימוב המכונה הפרה?":"Pick a case: which of Asimov's laws did the machine break?"}</h4>
-      <div class="lc-cases">${it.map((x,i)=>{ const [n,sub]=L(x), st=lcAns[i]!=null?(lcAns[i]===x.law?"ok":"bad"):"";
-        return `<button class="lc-case ${i===lcSel?"on":""} ${st}" data-act="lcCase" data-i="${i}"><img src="${IMG[x.img]}" alt=""><b>${ht(n)}</b><small>${ht(sub)}</small>${st?`<span class="lc-m">${st==="ok"?"✓":"✗"}</span>`:""}</button>`; }).join("")}</div>
-      ${c?`<div class="lc-q" key="${lcSel}"><div class="lc-laws">${sh.map((l,j)=>{ let cls=""; if (a!=null){ cls = j===c.law?"ok":(j===a?"bad":"dim"); }
-          return `<button class="lc-law ${cls}" data-act="lcLaw" data-j="${j}" ${a!=null?"disabled":""}><span>${["I","II","III"][j]}</span>${esc(l)}</button>`; }).join("")}</div>
-        ${a!=null?`<div class="resp">${respG(`<b>${a===c.law?(he?"נכון!":"Right!"):(he?"לא בדיוק.":"Not quite.")}</b> ${fmt(L(c)[2])}`)}</div>`:""}</div>`
-        :`<p class="hint lc-hint">${he?"לחצו על אחד המקרים":"Tap one of the cases"}</p>`}
-      ${it.every((x,i)=>lcAns[i]!=null)?`<div class="note lc-all">${fmt(he?"שמתם לב? בכל שלושת המקרים, **לשמור על עצמו** (החוק השלישי) גבר. זכרו את זה כשתכתבו את החוק הרביעי שלכם.":"Notice the pattern? In all three cases, **protecting itself** (the Third Law) won. Keep that in mind when you write your fourth law.")}</div>`:""}
-    </div>`; }
+  case "lawq": { const sh=T("lawShort"), he=S.lang==="he", a=lqAns[b.id], [n,sub,why]=L(b);
+    return `<div class="lq"><div class="lq-head"><img src="${IMG[b.img]}" alt=""><div><span class="lq-k">${he?"בדקו את עצמכם":"Check yourself"}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4><small><b>${ht(n)}</b> · ${ht(sub)}</small></div></div>
+      <div class="lc-laws">${sh.map((l,j)=>{ let cls=""; if (a!=null){ cls = j===b.law?"ok":(j===a?"bad":"dim"); }
+        return `<button class="lc-law ${cls}" data-act="lqLaw" data-j="${j}" ${a!=null?"disabled":""}><span class="lc-n">${["I","II","III"][j]}</span><span>${esc(l)}</span></button>`; }).join("")}</div>
+      ${a!=null?`<div class="resp">${respG(`<b>${a===b.law?(he?"נכון!":"Right!"):(he?"לא בדיוק.":"Not quite.")}</b> ${fmt(why)}`)}</div>`:""}</div>`; }
   case "poll": { const cur = ANS(b.key);
     return withGuide(`<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
       <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp">${respG(`<b>${ht(L(b.resp)[cur])}</b>`)}</div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}${b.lawsReal&&cur!=null?`<h4 class="lr-t">${S.lang==="he"?"איך כל חוק מחזיק מול המקרים האמיתיים":"How each law holds up against real cases"}</h4>${block({t:"lawsreal"})}`:""}</div></div>`); }
@@ -2360,7 +2360,7 @@ function rankComment(){
 }
 let dialPos = 0, stepPos = 0, mapSel = null, mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
 function animateRange(r, to){ const from=+r.value, t0=performance.now(); const step=now=>{ const k=Math.min(1,(now-t0)/350), e=1-Math.pow(1-k,3); r.value=from+(to-from)*e; if (k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
-document.addEventListener("change", e => { const t=e.target; if (t.dataset && t.dataset.inp==="tl" && tlSel!=null) animateRange(t, tlSel); });
+document.addEventListener("change", e => { const t=e.target; if (!t.dataset) return; if (t.dataset.inp==="tl" && tlSel!=null) animateRange(t, tlSel); if (t.dataset.inp==="dial" && S.dial[t.dataset.id]!=null) animateRange(t, S.dial[t.dataset.id]); });
 function updateTlCard(){
   const host=document.querySelector(".blk-tlside,.side-tlside"); if (!host) return;
   const tmp=document.createElement("div"); tmp.innerHTML=block({t:"tlside"});
@@ -2391,7 +2391,7 @@ function dialBlock(){
     <div class="d-top"><span class="d-count">${dialPos+1} / ${DIAL.length}</span><div class="d-dots">${DIAL.map((x,i)=>`<i class="${ANSD(x.id)!=null?"ok":""} ${i===dialPos?"now":""}"></i>`).join("")}</div></div>
     <div class="d-card"><img src="${IMG[d.img]}" alt=""><div class="d-main"><h3>${ht(name)}</h3>
       <div class="dial-ends"><span>${ht(T("dialEnds")[0])}</span><span>${ht(T("dialEnds")[1])}</span></div>
-      <input type="range" min="0" max="4" step="1" value="${set?v:2}" class="${set?"":"unset"}" data-inp="dial" data-id="${d.id}" aria-label="${esc(name)}">
+      <input type="range" min="0" max="4" step="0.01" value="${set?v:2}" class="${set?"":"unset"}" data-inp="dial" data-id="${d.id}" aria-label="${esc(name)}">
       <div class="dlbl" id="dl_${d.id}">${set?ht(lv[v]):(S.lang==="he"?"גררו כדי לבחור":"Drag to choose")}</div>
       <div id="df_${d.id}">${set?factHTML(d):""}</div>
     </div></div></div>`;
@@ -2460,8 +2460,9 @@ function vSources(){
 }
 
 /* ---------- quiz ---------- */
+function names3(){ const n=GUIDES.slice(0,3).map(x=>L(x.name)); return S.lang==="he"?`${n[0]}, ${n[1]} ו${n[2]}`:`${n[0]}, ${n[1]} and ${n[2]}`; }
 function quizSpeaker(who, st){
-  if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}"><div class="trio full">${GUIDES.slice(0,3).map(x=>`<img src="${IMG["f_"+x.img]}" alt="">`).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
+  if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}"><div class="trio full">${GUIDES.slice(0,3).map(x=>`<figure><img src="${IMG["f_"+x.img]}" alt=""><figcaption>${esc(L(x.name))}</figcaption></figure>`).join("")}</div></div>`;
   const g = GUIDES.find(x=>x.id===who);
   return `<div class="qz-who ${st?"react "+st:""}"><img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
 }
@@ -2498,7 +2499,7 @@ function vQuiz(){
           <div class="qz-bubble pop">${ht(text)}</div>
           ${q.who==="team"?quizSpeaker("team", st):""}
           <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
-            return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span>${ht(o)}</button>`;}).join("")}</div>
+            return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span><span class="qz-ot">${ht(o)}</span></button>`;}).join("")}</div>
           ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><div class="qz-fb-who">${esc(who)}:</div><p>${ht(why)}</p></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
@@ -2641,7 +2642,7 @@ const A = {
   ctaX(){ S.ctaGone=true; save(); const b=document.getElementById("ctaBand"); if (b){ b.style.transition="opacity .3s,transform .3s"; b.style.opacity=0; b.style.transform="translateY(10px)"; setTimeout(()=>b.remove(),300); } },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
-  guideStart(el){ NOW.clear(); lcSel=null; lcAns={}; const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
+  guideStart(el){ NOW.clear(); lqAns={}; const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
   next(){ if (!sceneReady(CUR)) return;
     const st = innerStep();
     if (st && st.kind==="steps"){ stepPos++; rerenderType("steps"); updateGate(); return; }
@@ -2713,15 +2714,14 @@ const A = {
     openModal({kicker:`<span class="bigicon sm">${x.icon}</span>`, title:esc(h), html:`<p>${fmt(body)}</p><p><button type="button" class="term" data-term="${x.k}">${S.lang==="he"?"הגדרה קצרה":"Short definition"}</button></p>`}); },
   world(el){ const blk=el.closest("[data-b]"); const x=CUR.blocks[+blk.dataset.b].items[+el.dataset.i]; const [h,body]=L(x); el.classList.add("seen");
     openModal({kicker:`<span class="bigicon sm">${x.flag}</span>`, title:esc(h), html:`<p>${fmt(body)}</p>${srcHTML([x.src])}`}); },
-  dialLock(el){ const id=el.dataset.id; const r=document.querySelector(`input[data-id="${id}"]`); S.dial[id]=+r.value; NOW.add("d:"+id); syncSoon();
+  dialLock(el){ const id=el.dataset.id; const r=document.querySelector(`input[data-id="${id}"]`); S.dial[id]=Math.round(+r.value); NOW.add("d:"+id); syncSoon();
     const blk=document.querySelector(".blk-dial"); if (blk) blk.innerHTML = dialBlock(); updateGate(); },
   dialFact(el){ showFact(el.dataset.id); },
-  lcCase(el){ lcSel=+el.dataset.i; rerenderType("lawcase"); },
-  lcLaw(el){ if (lcSel==null) return; lcAns[lcSel]=+el.dataset.j; rerenderType("lawcase"); },
+  lqLaw(el){ const blk=el.closest("[data-b]"); const b=CUR.blocks[+blk.dataset.b]; lqAns[b.id]=+el.dataset.j; blk.innerHTML=block(b); },
   gloss(el){ openTerm(el.dataset.k); },
   closeModal(){ closeModal(); }
 };
-let tmpOrder = null, lcSel = null, lcAns = {};
+let tmpOrder = null, lqAns = {};
 function rerenderBlock(el){
   const blk = el.closest("[data-b]"); const b = CUR.blocks[+blk.dataset.b];
   blk.innerHTML = block(b);
@@ -2771,8 +2771,8 @@ document.addEventListener("input", e => {
     const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r){ const nw=respG(ht(sliderResp(b,+t.value))); if (r.innerHTML!==nw){ r.innerHTML=nw; r.style.animation="none"; void r.offsetWidth; r.style.animation=""; } }
     const sv=document.getElementById("sv_"+k); if (sv){ sv.classList.remove("tick"); void sv.offsetWidth; sv.classList.add("tick"); }
     document.querySelectorAll(`.waiting[data-after="${k}"]`).forEach(el=>{ el.classList.remove("waiting"); el.classList.add("revealed"); }); syncSoon(); }
-  if (t.dataset.inp === "dial"){ const id=t.dataset.id; const first = ANSD(id)==null; S.dial[id]=+t.value; NOW.add("d:"+id); t.classList.remove("unset");
-    document.getElementById("dl_"+id).textContent=T("lvls")[+t.value];
+  if (t.dataset.inp === "dial"){ const id=t.dataset.id; const first = ANSD(id)==null; const v=Math.round(+t.value); S.dial[id]=v; NOW.add("d:"+id); t.classList.remove("unset");
+    document.getElementById("dl_"+id).textContent=T("lvls")[v];
     if (first){ const f=document.getElementById("df_"+id); if (f) f.innerHTML=factHTML(DIAL.find(x=>x.id===id)); const dd=document.querySelectorAll(".d-dots i")[dialPos]; dd&&dd.classList.add("ok"); }
     syncSoon(); updateGate(); }
 });
