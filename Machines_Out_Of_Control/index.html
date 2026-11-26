@@ -549,7 +549,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .d-count{font-weight:900;color:var(--navy)}
 .d-dots{display:flex;gap:6px}.d-dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
 .d-dots i.ok{background:var(--teal)}.d-dots i.now{box-shadow:0 0 0 3px var(--cyan)}
-.d-card{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start;animation:popin .35s}
+.d-card{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start;animation:popin .35s}
 .d-card img{width:100%;max-height:220px;object-fit:contain}
 .d-card h3{font-size:24px}
 .d-card .dial-ends{flex-direction:row;justify-content:space-between;margin-bottom:6px;font-size:14px}
@@ -956,7 +956,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .qgrid{gap:40px;padding:6px 10px}
 .blk-poll,.blk-write{padding:28px 32px}
 .q-guide{max-height:380px}
-.d-card img{width:100%;height:220px;max-height:none;object-fit:cover;border-radius:16px}
+.d-card img{max-height:240px;object-fit:contain;border-radius:14px}
 .tls input[type=range]{transition:none}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
@@ -1272,7 +1272,6 @@ footer .link+.link{margin-inline-start:18px}
   .mine li.quiz-inv .quiz-pill{align-self:flex-start}
   .quiz-pill{white-space:nowrap}
   .d-card{grid-template-columns:1fr}
-  .d-card img{height:180px}
   .side-waffle .waffles{grid-template-columns:1fr 1fr;gap:12px}
   .side-waffle .waf-g{max-width:150px}.side-waffle .waf-g.big{max-width:120px}
   .side-rings .rings,.rings{justify-content:center}
@@ -1394,7 +1393,7 @@ he:{
 /* ---------------- Key terms (pop-ups + glossary) ---------------- */
 const TERMS = {
  safestop:{en:["Safe stopping","Training an AI so that when people tell it to pause or stop, it stops cleanly, without resisting or trying to work around the order."],he:["עצירה בטוחה","אימון AI כך שכשבני אדם אומרים לו להשהות או לעצור, הוא עוצר באופן מסודר, בלי להתנגד ובלי לנסות לעקוף את ההוראה."]},
- planetary:{en:["Planetary boundaries","Nine limits on how much human activity can change the Earth's systems, such as climate, fresh water and biodiversity, while staying in a safe zone. They form the outer ring of the doughnut. In 2023, scientists found that six of the nine have already been crossed."],he:["גבולות פלנטריים","תשעה גבולות לכמה פעילות אנושית יכולה לשנות את מערכות כדור הארץ, כמו האקלים, המים המתוקים והמגוון הביולוגי, ועדיין להישאר באזור בטוח. הם יוצרים את הטבעת החיצונית של הדונאט. ב-2023 מצאו מדענים ששישה מתוך התשעה כבר נחצו."]},
+ planetary:{en:["Planetary boundaries","Nine limits on how much human activity can change the Earth's systems, such as climate, fresh water and biodiversity, while staying in a safe zone. They form the outer ring of the doughnut. In 2023, scientists found that six of the nine have already been crossed. AI adds to the pressure: data centres, which run AI, are expected to more than double their electricity use by 2030."],he:["גבולות פלנטריים","תשעה גבולות לכמה פעילות אנושית יכולה לשנות את מערכות כדור הארץ, כמו האקלים, המים המתוקים והמגוון הביולוגי, ועדיין להישאר באזור בטוח. הם יוצרים את הטבעת החיצונית של הדונאט. ב-2023 מצאו מדענים ששישה מתוך התשעה כבר נחצו. ה-AI מוסיף ללחץ, כי צריכת החשמל של מרכזי הנתונים שמפעילים אותו צפויה יותר מלהכפיל את עצמה עד 2030."]},
  turingtest:{en:["Turing test","Alan Turing's 1950 idea for judging a machine: a person chats in writing with a machine and a human without seeing them. If the person can't reliably tell which is the machine, the machine passes."],he:["מבחן טיורינג","הרעיון של אלן טיורינג מ-1950 לשפוט מכונה: אדם מתכתב בכתב עם מכונה ועם אדם בלי לראות אותם. אם הוא לא מצליח לזהות בעקביות מי המכונה, המכונה עוברת את המבחן."]},
  imagenet:{en:["ImageNet","A huge collection of labelled photos used for a yearly contest in which computer programs had to recognise what is in each picture. Deep learning's big win there in 2012 changed the field."],he:["ImageNet","אוסף עצום של תמונות מתויגות ששימש לתחרות שנתית, שבה תוכנות מחשב היו צריכות לזהות מה יש בכל תמונה. הניצחון הגדול של הלמידה העמוקה שם ב-2012 שינה את התחום."]},
  aisr:{en:["International AI Safety Report","A report by more than 100 AI experts from over 30 countries, chaired by Yoshua Bengio, that sums up what is known about the risks of the most advanced AI. The 2026 edition came out in February 2026."],he:["הדוח הבינלאומי על בטיחות AI","דוח של יותר מ-100 מומחי AI מיותר מ-30 מדינות, בראשות יושוע בנג'יו, שמסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר. מהדורת 2026 פורסמה בפברואר 2026."]},
@@ -2608,7 +2607,7 @@ function vQuiz(){
           ${q.who==="team"?quizSpeaker("team", st):""}
           <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
             return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span><span class="qz-ot">${ht(o)}</span></button>`;}).join("")}</div>
-          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><p class="qz-fb-say"><b class="qz-fb-who">${esc(who)}</b> ${ht(why)}</p></div>
+          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><p class="qz-fb-say"><b class="qz-fb-who">${esc(who)}:</b> ${ht(why)}</p></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
       </div></section>`;
