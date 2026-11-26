@@ -1219,6 +1219,11 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 .trio.full figcaption{font-weight:800;color:var(--navy);font-size:15px;margin-top:4px}
 .qz-main.team .trio.full figure img{height:150px;width:auto}
 @media (max-width:700px){.lq-head img{width:96px}}
+.lq{display:grid;grid-template-columns:minmax(240px,34%) 1fr;gap:28px;align-items:center}
+.lq-img{width:100%;height:auto;border-radius:16px;object-fit:contain;box-shadow:0 8px 24px rgba(10,30,60,.12)}
+.lq-main h4{margin:4px 0 4px;font-size:20px}.lq-sub{display:block;color:var(--muted);margin-bottom:14px}
+.lq .lc-laws{grid-template-columns:1fr;gap:10px}
+@media (max-width:700px){.lq{grid-template-columns:1fr}}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
@@ -2191,7 +2196,7 @@ function speaker(g, sc){
   const s = GUIDES.find(x => x.id === who);
   return `<div class="spk">${portrait(s, 96)}<div class="spk-name">${esc(L(s.name))}<small>${esc(L(s.role))}</small></div></div>`;
 }
-const STARTERS = ["read","case","poll","slider","write","dial","map","dates","lawq"];
+const STARTERS = ["read","case","poll","slider","write","dial","map","dates"];
 function pagesOf(sc){
   const out=[]; let cur=[];
   (sc.blocks||[]).forEach((b,i)=>{ const prev = sc.blocks[cur[cur.length-1]]; const joinSlider = b.t==="slider" && prev && prev.t==="slider";
@@ -2319,10 +2324,10 @@ function block(b, bi){
       <div class="stats">${b.stats.map(s=>`<div class="stat"><b><bdi dir="ltr">${esc(s[0])}</bdi></b><span>${ht(L(s[1]))}</span></div>`).join("")}</div>
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "lawq": { const sh=T("lawShort"), he=S.lang==="he", a=lqAns[b.id], [n,sub,why]=L(b);
-    return `<div class="lq"><div class="lq-head"><img src="${IMG[b.img]}" alt=""><div><span class="lq-k">${he?"בדקו את עצמכם":"Check yourself"}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4><small><b>${ht(n)}</b> · ${ht(sub)}</small></div></div>
+    return `<div class="lq"><img class="lq-img" src="${IMG[b.img]}" alt=""><div class="lq-main"><span class="lq-k">${he?"בדקו את עצמכם":"Check yourself"}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4><small class="lq-sub"><b>${ht(n)}</b> · ${ht(sub)}</small>
       <div class="lc-laws">${sh.map((l,j)=>{ let cls=""; if (a!=null){ cls = j===b.law?"ok":(j===a?"bad":"dim"); }
         return `<button class="lc-law ${cls}" data-act="lqLaw" data-j="${j}" ${a!=null?"disabled":""}><span class="lc-n">${["I","II","III"][j]}</span><span>${esc(l)}</span></button>`; }).join("")}</div>
-      ${a!=null?`<div class="resp">${respG(`<b>${a===b.law?(he?"נכון!":"Right!"):(he?"לא בדיוק.":"Not quite.")}</b> ${fmt(why)}`)}</div>`:""}</div>`; }
+      ${a!=null?`<div class="resp">${respG(`<b>${a===b.law?(he?"נכון!":"Right!"):(he?"לא בדיוק.":"Not quite.")}</b> ${fmt(why)}`)}</div>`:""}</div></div>`; }
   case "poll": { const cur = ANS(b.key);
     return withGuide(`<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
       <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp">${respG(`<b>${ht(L(b.resp)[cur])}</b>`)}</div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}${b.lawsReal&&cur!=null?`<h4 class="lr-t">${S.lang==="he"?"איך כל חוק מחזיק מול המקרים האמיתיים":"How each law holds up against real cases"}</h4>${block({t:"lawsreal"})}`:""}</div></div>`); }
