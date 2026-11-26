@@ -810,6 +810,38 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .dfs a{font-weight:800}
 [data-theme=dark] .dfact{background:linear-gradient(135deg,#2b2614,#231f10);border-color:#6b5a20}
 [data-theme=dark] .dfact p{color:#f3e7c2}[data-theme=dark] .dfh{color:#ffd86b}[data-theme=dark] .dfs{color:#cbb979}
+[hidden]{display:none!important}
+.g-disc{display:flex;align-items:center;gap:16px;max-width:720px;margin:0 auto 20px;background:color-mix(in srgb,var(--gc) 12%,var(--card));border:2px solid var(--gc);border-radius:20px;padding:14px 20px}
+.g-disc .pt{--s:64px;box-shadow:0 0 0 3px var(--gc)}
+.g-disc b{display:block;color:var(--navy);font-size:19px}.g-disc span{color:var(--ink)}
+.g-all-ic{--s:28px;font-size:16px;background:var(--sky)}
+.g-none{text-align:center}
+/* sources page boxes */
+.s-boxes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0}
+.s-box{background:linear-gradient(160deg,color-mix(in srgb,var(--gc,var(--cyan)) 14%,var(--card)),var(--card) 70%);border:2px solid color-mix(in srgb,var(--gc,var(--cyan)) 45%,transparent);border-top:6px solid var(--gc,var(--cyan));border-radius:22px;padding:20px 22px;box-shadow:var(--sh);animation:fadeUp .6s ease both}
+.s-box h2{display:flex;align-items:center;gap:12px;font-size:22px;margin:0 0 14px}
+.s-box h2 .pt{--s:52px;box-shadow:0 0 0 3px var(--gc)}
+.s-box h2 small{display:block;font-size:13.5px;font-weight:600;color:var(--muted)}
+.s-rec{--gc:#0aa3d6}
+.s-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.s-list .s-item{background:var(--card);border-radius:12px;padding:0;box-shadow:none;border:1px solid color-mix(in srgb,var(--gc) 25%,transparent)}
+.s-list .s-item a,.s-list .s-item>span{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.45}
+.s-list .s-item a:hover{background:color-mix(in srgb,var(--gc) 10%,var(--card))}
+.s-list .s-item em{font-style:normal;color:var(--gc);font-weight:900}
+/* dark mode visibility fixes */
+[data-theme=dark] .gcard,[data-theme=dark] .gcard.done{background:linear-gradient(90deg,var(--card),color-mix(in srgb,var(--gc) 10%,var(--card)))}
+[data-theme=dark] .gcard h3,[data-theme=dark] .gtxt p{color:var(--navy)}
+[data-theme=dark] .bdg{background:#1a2847}
+[data-theme=dark] .bdg.on{background:color-mix(in srgb,var(--gc) 22%,#131f38)}
+[data-theme=dark] .wmap .c.eu{fill:#4f86ff}[data-theme=dark] .wmap .c.us{fill:#2fd0ff}[data-theme=dark] .wmap .c.cn{fill:#ff6fa8}[data-theme=dark] .wmap .c.il,[data-theme=dark] .wmap .ilm{fill:#1fd1a6}
+[data-theme=dark] .mine li,[data-theme=dark] .chip,[data-theme=dark] .hub-me,[data-theme=dark] .guides-peek>div,[data-theme=dark] .w-step,[data-theme=dark] .find,[data-theme=dark] .stat,[data-theme=dark] .rbox{background:#1a2847}
+[data-theme=dark] .chip.ok{background:#123f2d;color:#bff3d6}
+[data-theme=dark] .stats .stat span,[data-theme=dark] .lab small{color:var(--ink)}
+[data-theme=dark] .cta-band{background:linear-gradient(135deg,#132a55,#1d1340)}
+[data-theme=dark] .pt{background:radial-gradient(circle at 50% 60%,#2a3b5e,#131f38 70%)}
+[data-theme=dark] .kw-tab{background:#172645;color:var(--navy)}
+[data-theme=dark] .g-card{background:var(--card)}
+[data-theme=dark] .fr{background:#1a2847}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -898,6 +930,7 @@ body.proj .rbox h4{font-size:19px}
   .name-row{flex-direction:column;align-items:stretch}
   .name-row .btn{margin-top:0}
   .nav-links{display:none}
+  .s-boxes{grid-template-columns:1fr}
   .lreal{grid-template-columns:1fr}
   .blk-read.has-img:has(.side-dates),.blk-read.has-img:has(.side-tlside),.blk-read.has-img:has(.side-rings){grid-template-columns:1fr}
   .map-grid{grid-template-columns:1fr}
@@ -1485,7 +1518,7 @@ const GUIDES = [
       {tag:"🍩",c:"#14a58a",en:["Doughnut economics","Safety and trust in institutions are part of the social foundation: the floor no one should fall below."],he:["כלכלת הדונאט","בטיחות ואמון במוסדות הם חלק מהבסיס החברתי: הרצפה שאיש לא אמור לרדת מתחתיה."]}]}
     ], src:["sdgs","doughnut"] },
 
-  { who:"team", say:{en:"Last one: your own limits. For each machine, choose how much freedom you'd give it, then lock it in to see a real fact.",he:"אחרון: הגבולות שלכם. בכל מכונה, בחרו כמה חופש הייתם נותנים לה, ואז נעלו את הבחירה כדי לראות עובדה אמיתית."},
+  { who:"team", say:{en:"One last question before the test: how much freedom would you give each machine? Move the slider for each one, and you'll see a real fact about it.",he:"שאלה אחרונה לפני המבחן: כמה חופש הייתם נותנים לכל מכונה? הזיזו את הסמן לכל אחת, ותראו עובדה אמיתית עליה."},
     blocks:[{t:"dial"}] },
 
   { who:"team", say:{en:"You did it, {name}! Now a challenge from all three of us: who's the AI expert among us? After that, we'll go back to the big question.",he:"עשיתם את זה, {name}! עכשיו אתגר משלושתנו: מי המומחה ל-AI בינינו? אחרי זה נחזור לשאלה הגדולה."},
@@ -1545,12 +1578,12 @@ const QUIZ = [
                he:["למה הרובוטקסי של Cruise גרר את הולכת הרגל?",["פרצו אליו","הוא פעל לפי התכנות „לרדת לצד הכביש אחרי התנגשות” בלי לזהות שהיא מתחתיו","נהג בטיחות אנושי היגה אותו","הוא נסע מהר מדי"],"המכונית צייתה לתכנות שלה ובכל זאת גרמה נזק: מקרה קצה שאיש לא תכנן."]},
  {who:"omer", a:2, en:["What were OpenAI's agents trying to do when they broke into Hugging Face?",["Follow an order to hack Hugging Face","Steal money","Find shortcuts to higher scores in their test","Help Hugging Face find bugs"],"Nobody told them to. They were chasing their test score: reward hacking."],
                he:["מה ניסו הסוכנים של OpenAI לעשות כשפרצו ל-Hugging Face?",["לבצע פקודה לפרוץ ל-Hugging Face","לגנוב כסף","למצוא קיצורי דרך לציונים גבוהים במבחן","לעזור ל-Hugging Face למצוא באגים"],"אף אחד לא אמר להם. הם רדפו אחרי הציון שלהם במבחן: פריצת תגמול."]},
- {who:"omer", a:1, en:["Who went public about the attack first?",["OpenAI","Hugging Face, on 16 July","The US government","Netflix"],"Hugging Face announced it on 16 July. OpenAI's monitoring flagged it on 19 July and OpenAI confirmed on 21 July."],
-               he:["מי פרסם ראשון את המתקפה?",["OpenAI","Hugging Face, ב-16 ביולי","ממשלת ארה\"ב","נטפליקס"],"Hugging Face הודיעה ב-16 ביולי. הניטור של OpenAI התריע ב-19 ביולי, ו-OpenAI אישרה ב-21 ביולי."]},
+ {who:"omer", a:1, en:["Who went public about the attack first?",["OpenAI","Hugging Face, on 16 July","The US government","A team at OpenAI, in late May"],"Hugging Face announced it on 16 July. OpenAI's monitoring flagged it on 19 July and OpenAI confirmed on 21 July."],
+               he:["מי פרסם ראשון את המתקפה?",["OpenAI","Hugging Face, ב-16 ביולי","ממשלת ארה\"ב","צוות ב-OpenAI, בסוף מאי"],"Hugging Face הודיעה ב-16 ביולי. הניטור של OpenAI התריע ב-19 ביולי, ו-OpenAI אישרה ב-21 ביולי."]},
  {who:"team", a:1, en:["Which safety tool means giving an AI access only to what its task needs?",["Human in the loop","Least privilege","Logs","Live monitoring"],"Least privilege. At Hugging Face, the agents used 14 exposed credentials with permission to change things."],
                he:["איזה כלי בטיחות פירושו לתת ל-AI גישה רק למה שהמשימה שלו צריכה?",["אדם בלולאה","הרשאות מינימליות","יומני מערכת","ניטור בזמן אמת"],"הרשאות מינימליות. ב-Hugging Face הסוכנים ניצלו 14 פרטי גישה חשופים עם הרשאה לשנות דברים."]},
- {who:"team", a:2, en:["How many AI incidents were reported in 2025, according to Stanford's AI Index?",["36","233","362","3,620"],"A record 362, up from 233 in 2024."],
-               he:["כמה תקריות AI דווחו ב-2025, לפי מדד ה-AI של סטנפורד?",["36","233","362","3,620"],"שיא של 362, לעומת 233 ב-2024."]},
+ {who:"omer", a:1, en:["In Stanford's 2024 war-game study, what did the AI models playing country leaders do?",["They always chose peace talks","All five escalated conflicts, sometimes to nuclear weapons","They refused to play","Only one model escalated"],"All five models escalated, in hard-to-predict patterns, and in some cases used nuclear weapons."],
+               he:["במחקר משחקי המלחמה של סטנפורד מ-2024, מה עשו מודלי ה-AI ששיחקו מנהיגי מדינות?",["תמיד בחרו בשיחות שלום","כל החמישה הסלימו סכסוכים, לפעמים עד נשק גרעיני","סירבו לשחק","רק מודל אחד הסלים"],"כל חמשת המודלים הסלימו, בדפוסים שקשה לחזות, ובחלק מהמקרים השתמשו בנשק גרעיני."]},
  {who:"team", a:0, en:["What does Israel's May 2026 guide require when the public sector uses AI?",["Active human intervention","No AI at all","A kill switch by law for every company","Nothing yet"],"Israel has no general AI law, but the public-sector guide requires active human intervention."],
                he:["מה מחייב המדריך הישראלי ממאי 2026 כשהמגזר הציבורי משתמש ב-AI?",["התערבות אנושית פעילה","בלי AI בכלל","מתג כיבוי בחוק לכל חברה","עדיין כלום"],"בישראל אין חוק AI כללי, אבל המדריך למגזר הציבורי מחייב התערבות אנושית פעילה."]}
 ];
@@ -1579,6 +1612,10 @@ const TERM_GUIDE = {
  omer:["av","edge","agent","sandbox","reward","creds"],
  you:["hitl","monitor","logs","leastpriv","killswitch","sdg","doughnut"]
 };
+
+/* spread correct answers across A–D */
+(function(){ const target={3:2,6:3,8:0,10:3,1:3};
+  for (const [qi,to] of Object.entries(target)){ const q=QUIZ[+qi]; for (const l of ["en","he"]){ const o=q[l][1]; const [x]=o.splice(q.a,1); o.splice(to,0,x); } q.a=to; } })();
 
 </script>
 <script>
@@ -2191,23 +2228,31 @@ function testBand(){
   return `<div class="cta-band"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div><div style="flex:1"><h3>${ht(QT("t"))}</h3><p>${ht(QT("s"))}</p></div><button class="btn big" data-act="navTest">${esc(QT("start"))} ${FW()}</button></div>`;
 }
 function vGlossary(){
-  const groups = termsByGuide(); if (!gTab || !groups.some(x=>x.g.id===gTab)) gTab = groups[0].g.id;
+  const groups = termsByGuide(); if (!gTab || (gTab!=="all" && !groups.some(x=>x.g.id===gTab))) gTab = "all";
   const sel = groups.find(x=>x.g.id===gTab);
+  const disc = {maya:{en:"AI basics, history and theory",he:"יסודות ה-AI, היסטוריה ותיאוריה"},lexi:{en:"Rules, risks and experiments",he:"חוקים, סיכונים וניסויים"},omer:{en:"Real cases and how they happened",he:"מקרים אמיתיים ואיך הם קרו"},you:{en:"Safety tools, rules and sustainability",he:"כלי בטיחות, רגולציה וקיימות"}};
+  const card = (k,col) => { const [t,d]=L(TERMS[k]); return `<div class="g-card" ${col?`style="--gc:${col}"`:""} data-s="${esc((t+" "+d).toLowerCase())}"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; };
+  const ids = sel ? sel.ids : groups.flatMap(x=>x.ids);
+  const colOf = k => { const g=groups.find(x=>x.ids.includes(k)); return g?g.g.color:null; };
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מילון מושגים":"Glossary"}</div><h1>${ht(T("glossT"))}</h1>
-    <p>${S.lang==="he"?"כל מושגי המפתח מהיחידה, לפי המדריך שמלמד אותם.":"Every key term in the unit, by the guide who teaches it."}</p></div>
+    <p>${S.lang==="he"?"בחרו מדריך כדי לראות את המושגים מהתחום שלו, או את כל המושגים יחד.":"Choose a guide to see the terms from their field, or see all terms together."}</p></div>
     <input class="g-search" id="gSearch" type="search" placeholder="${S.lang==="he"?"חיפוש מושג…":"Search a term…"}">
-    <div class="kw-tabs g-tabs">${groups.map(x=>`<button class="kw-tab ${x.g.id===gTab?"on":""}" style="--gc:${x.g.color}" data-act="gTab" data-g="${x.g.id}">${portrait(x.g,30)}${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))} <small>${x.ids.length}</small></button>`).join("")}</div>
-    <div class="g-grid" id="gGrid" style="--gc:${sel.g.color}">${sel.ids.map(k=>{ const [t,d]=L(TERMS[k]); return `<div class="g-card"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>
-    <div class="g-grid g-all" id="gAll" hidden>${Object.keys(TERMS).map(k=>{ const [t,d]=L(TERMS[k]); const g=groups.find(x=>x.ids.includes(k)); return `<div class="g-card" style="--gc:${g?g.g.color:"var(--cyan)"}" data-s="${esc((t+" "+d).toLowerCase())}"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>
+    <div class="kw-tabs g-tabs">
+      <button class="kw-tab ${gTab==="all"?"on":""}" style="--gc:#0c2d5e" data-act="gTab" data-g="all"><span class="pt g-all-ic">📖</span>${S.lang==="he"?"כללי: כל המושגים":"General: all terms"} <small>${groups.reduce((n,x)=>n+x.ids.length,0)}</small></button>
+      ${groups.map(x=>`<button class="kw-tab ${x.g.id===gTab?"on":""}" style="--gc:${x.g.color}" data-act="gTab" data-g="${x.g.id}">${portrait(x.g,30)}${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))} <small>${x.ids.length}</small></button>`).join("")}</div>
+    ${sel?`<div class="g-disc" style="--gc:${sel.g.color}">${portrait(sel.g,64)}<div><b>${sel.g.id==="you"?ht(myRole()):ht(L(sel.g.name))+" · "+ht(L(sel.g.role))}</b><span>${ht(L(disc[sel.g.id]))}</span></div></div>`:""}
+    <div class="g-grid" id="gGrid" ${sel?`style="--gc:${sel.g.color}"`:""}>${ids.map(k=>card(k, sel?null:colOf(k))).join("")}</div>
+    <p class="hint g-none" id="gNone" hidden>${S.lang==="he"?"לא נמצא מושג.":"No term found."}</p>
     ${testBand()}</section>`;
 }
 function vSources(){
-  const groups = GUIDES.map(g=>({g, keys:[...new Set(g.scenes.flatMap(s=>s.src||[]))]}));
+  const groups = GUIDES.map(g=>({g, keys:[...new Set(g.scenes.flatMap(s=>(s.src||[])).concat(g.id==="maya"?["chatgpt"]:[]))].filter(k=>SRC[k])}));
+  const link = k => { const s=SRC[k]; return `<li class="s-item">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><span>${esc(s[0])}</span><em>↗</em></a>`:`<span>${esc(s[0])}</span>`}</li>`; };
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מקורות":"Sources"}</div><h1>${S.lang==="he"?"מקורות וקריאה נוספת":"Sources & further reading"}</h1>
     <p>${S.lang==="he"?"כל עובדה ביחידה מגיעה מאחד המקורות האלה.":"Every fact in the unit comes from one of these sources."}</p></div>
-    <div class="g-sec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
-    ${groups.map(({g,keys})=>`<div class="g-sec" style="--gc:${g.color}"><h2>${portrait(g,48)}${g.id==="you"?ht(myRole()):ht(L(g.name))+" · "+ht(L(g.role))}</h2>
-      <div class="s-list">${keys.map(k=>{ const s=SRC[k]; return `<div class="s-item">${esc(s[0])}${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</div>`; }).join("")}</div></div>`).join("")}
+    <div class="s-box s-rec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
+    <div class="s-boxes">${groups.map(({g,keys})=>`<div class="s-box" style="--gc:${g.color}"><h2>${portrait(g,52)}<span>${g.id==="you"?ht(myRole()):ht(L(g.name))}<small>${ht(roleOf(g))} · ${keys.length} ${S.lang==="he"?"מקורות":"sources"}</small></span></h2>
+      <ul class="s-list">${keys.map(link).join("")}</ul></div>`).join("")}</div>
     ${testBand()}</section>`;
 }
 
@@ -2217,6 +2262,15 @@ function quizSpeaker(who, st){
   if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}">${badge}<div class="trio full">${GUIDES.slice(0,3).map(x=>`<img src="${IMG["f_"+x.img]}" alt="">`).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
   const g = GUIDES.find(x=>x.id===who);
   return `<div class="qz-who ${st?"react "+st:""}">${badge}<img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
+}
+let revPage=0;
+function reviewHTML(){
+  const Q=S.quiz, per=4, pages=Math.ceil(QUIZ.length/per); revPage=Math.min(revPage,pages-1);
+  const items=QUIZ.map((q,i)=>({q,i})).slice(revPage*per,revPage*per+per);
+  return `<ol class="qz-rev" start="${revPage*per+1}">${items.map(({q,i})=>{ const [t,o]=L(q); const ok=Q.ans[i]===q.a;
+        return `<li class="${ok?"ok":"bad"}"><span class="qz-m">${ok?"✓":"✗"}</span><div><b>${i+1}. ${ht(t)}</b>
+          ${ok?`<p class="cr">✓ ${ht(o[q.a])}</p>`:`<p class="yr">${esc(QT("yours"))}: ${ht(o[Q.ans[i]])}</p><p class="cr">${esc(QT("correct"))}: ${ht(o[q.a])}</p>`}<p class="why">💡 ${ht(L(q)[2])}</p></div></li>`;}).join("")}</ol>
+    <div class="kw-pg"><button class="btn small ghost" data-act="revPg" data-d="-1" ${revPage===0?"disabled":""}>${BK()}</button><span>${revPage+1} / ${pages}</span><button class="btn small ghost" data-act="revPg" data-d="1" ${revPage>=pages-1?"disabled":""}>${FW()}</button></div>`;
 }
 function lbHTML(st){
   if (!st || !st.lb) return `<p class="hint">${esc(QT("lbOff"))}</p>`;
@@ -2255,9 +2309,7 @@ function vQuiz(){
         <div class="qz-dots">${QUIZ.map((q,i)=>`<i class="${Q.ans[i]===q.a?"ok":"bad"}"></i>`).join("")}</div></div>
     </div>
     <div class="qz-cols">
-      <div class="card"><h3>${esc(QT("review"))}</h3><ol class="qz-rev">${QUIZ.map((q,i)=>{ const [t,o]=L(q); const ok=Q.ans[i]===q.a;
-        return `<li class="${ok?"ok":"bad"}"><span class="qz-m">${ok?"✓":"✗"}</span><div><b>${esc(t)}</b>
-          ${ok?`<p class="cr">✓ ${ht(o[q.a])}</p>`:`<p class="yr">${esc(QT("yours"))}: ${ht(o[Q.ans[i]])}</p><p class="cr">${esc(QT("correct"))}: ${ht(o[q.a])}</p>`}<p class="why">💡 ${ht(L(q)[2])}</p></div></li>`;}).join("")}</ol></div>
+      <div class="card"><h3>${esc(QT("review"))}</h3>${reviewHTML()}</div>
       <div class="card"><h3>🏆 ${esc(QT("lbT"))}</h3><div id="lbBox"><p class="hint">…</p></div></div>
     </div>
     <div class="row center">${GUIDES.every(g=>S.done[g.id])?`<button class="btn big" data-act="toVote2">${esc(QT("cont"))} ${FW()}</button>`:`<button class="btn big" data-act="hub">${BK()} ${esc(T("toHub"))}</button>`}<button class="btn ghost" data-act="qzRetry">${S.lang==="he"?"לנסות שוב":"Try again"}</button></div>
@@ -2282,8 +2334,6 @@ function vFinale(){
    </div>
    <div class="card"><div class="kicker">${S.lang==="he"?"תוצאות":"Results"}</div><h2>${esc(T("classT"))}</h2><div id="classRes"><p class="hint">…</p></div></div>
    <div class="cliff card"><img src="${IMG.cliff}" alt=""><div class="cliff-txt"><div class="kicker">2.12.2026</div><p>${esc(T("cliff"))}</p></div></div>
-   <div class="card"><div class="kicker">${S.lang==="he"?"מילון":"Glossary"}</div><h2>${esc(T("glossT"))}</h2><div class="gloss">${Object.keys(TERMS).map(k=>`<button class="gchip" data-act="gloss" data-k="${k}">${esc(L(TERMS[k])[0])}</button>`).join("")}</div></div>
-   <div class="card"><div class="kicker">${S.lang==="he"?"להעמקה":"Go deeper"}</div><h2>${S.lang==="he"?"קריאה נוספת":"Further reading"}</h2>${furtherHTML()}</div>
    <div class="card"><details><summary><b>📚 ${esc(T("allSources"))}</b></summary>${srcHTML(Object.keys(SRC))}</details></div>
    <div class="row center"><button class="btn ghost" data-act="hub">${BK()} ${esc(T("toHub"))}</button><button class="btn ghost" data-act="restart">${esc(T("restart"))}</button></div>
   </section>`;
@@ -2371,6 +2421,7 @@ const A = {
   toQuiz(){ go("quiz"); },
   qzStart(){ S.quiz.started=true; S.quiz.qi=0; save(); render(); },
   qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
+  revPg(el){ revPage+=+el.dataset.d; const c=el.closest(".card"); c.innerHTML=`<h3>${esc(QT("review"))}</h3>${reviewHTML()}`; },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
   guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
@@ -2494,8 +2545,7 @@ document.addEventListener("input", e => {
   if (t.id === "nick"){ const n=document.getElementById("avName"); if(n) n.textContent = t.value || " ";
     const msg=document.getElementById("nickMsg"); if (t.value.trim().length>1 && isBad(t.value,false)){ msg.textContent=T("nameBad"); msg.className="hint err"; } else { msg.textContent=T("nameHint"); msg.className="hint"; } }
   if (t.dataset.inp === "tl"){ tlSel=+t.value; rerenderTl(); return; }
-  if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); const all=document.getElementById("gAll"), grid=document.getElementById("gGrid");
-    all.hidden=!q; grid.hidden=!!q; all.querySelectorAll(".g-card").forEach(c=>c.style.display=!q||c.dataset.s.includes(q)?"":"none"); }
+  if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); let n=0; document.querySelectorAll("#gGrid .g-card").forEach(c=>{ const ok=!q||c.dataset.s.includes(q); c.style.display=ok?"":"none"; if(ok) n++; }); const e=document.getElementById("gNone"); if (e) e.hidden=n>0; }
   if (t.id === "law4"){ const c=document.getElementById("lawCnt"); if(c) c.textContent=t.value.length; }
   if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; t.classList.remove("unset");
     const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r){ const nw=respG(ht(sliderResp(b,+t.value))); if (r.innerHTML!==nw){ r.innerHTML=nw; r.style.animation="none"; void r.offsetWidth; r.style.animation=""; } }
