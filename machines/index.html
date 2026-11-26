@@ -842,6 +842,16 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 [data-theme=dark] .kw-tab{background:#172645;color:var(--navy)}
 [data-theme=dark] .g-card{background:var(--card)}
 [data-theme=dark] .fr{background:#1a2847}
+/* header toolbar: name + badges + theme + language together */
+.top-r{background:var(--sky);border-radius:999px;padding:4px;gap:6px;border:1px solid var(--line)}
+.top-r .me{background:var(--card)}
+.top-r .icon-btn{border:0;background:var(--card)}
+.tb-sep{width:1px;height:24px;background:var(--line)}
+.nav-links{margin-inline-end:18px}
+/* source lines follow their own language */
+.s-list .s-item a,.s-list .s-item>span{text-align:start}
+.s-list .s-item[dir=ltr] a{flex-direction:row}
+.srcbox .srcs li bdi,.dfs bdi{unicode-bidi:isolate}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -1825,7 +1835,7 @@ function srcHTML(keys){
   keys=keys.filter(k=>SRC[k]); if (!keys.length) return "";
   const lab = keys.length===1 ? (S.lang==="he"?"מקור:":"Source:") : (S.lang==="he"?"מקורות:":"Sources:");
   return `<div class="srcbox"><b class="src-l">${lab}</b><ul class="srcs">${keys.map(k=>{ const s = SRC[k];
-    return `<li>${esc(s[0])}${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ul></div>`;
+    return `<li><bdi dir="auto">${esc(s[0])}</bdi>${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ul></div>`;
 }
 
 function openSources(keys){ openModal({kicker:"📚", title:T("sources"), html: srcHTML(keys), cls:"small"}); }
@@ -1843,7 +1853,7 @@ function renderTop(){
       <button data-act="navTest">${esc(QT("hubT"))}</button>
     </nav>
     <div class="top-r">
-      ${S.nick && inGuide ? `<button class="me" data-act="hub" title="${esc(T("toHub"))}">${avatarSVG(S.av,30)}<span>${esc(S.nick)}</span>${S.badges.length?`<em>${S.badges.map(b=>GUIDES.find(g=>g.id===b)?.badge.icon||"").join("")}</em>`:""}</button>`:""}
+      ${S.nick && inGuide ? `<button class="me" data-act="hub" title="${esc(T("toHub"))}">${avatarSVG(S.av,30)}<span>${esc(S.nick)}</span>${S.badges.length?`<em>${S.badges.map(b=>GUIDES.find(g=>g.id===b)?.badge.icon||"").join("")}</em>`:""}</button><i class="tb-sep"></i>`:""}
       <button class="icon-btn" data-act="theme" aria-label="${S.lang==="he"?"החלפת ערכת צבעים":"Switch theme"}">${document.documentElement.dataset.theme==="dark"?`<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>`:`<svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>`}</button>
       <button class="lang" data-act="lang" aria-label="Language">${S.lang==="en"?"עברית":"English"}</button>
     </div></div>`;
@@ -2247,7 +2257,7 @@ function vGlossary(){
 }
 function vSources(){
   const groups = GUIDES.map(g=>({g, keys:[...new Set(g.scenes.flatMap(s=>(s.src||[])).concat(g.id==="maya"?["chatgpt"]:[]))].filter(k=>SRC[k])}));
-  const link = k => { const s=SRC[k]; return `<li class="s-item">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><span>${esc(s[0])}</span><em>↗</em></a>`:`<span>${esc(s[0])}</span>`}</li>`; };
+  const link = k => { const s=SRC[k]; return `<li class="s-item" dir="auto">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><span dir="auto">${esc(s[0])}</span><em>↗</em></a>`:`<span dir="auto">${esc(s[0])}</span>`}</li>`; };
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מקורות":"Sources"}</div><h1>${S.lang==="he"?"מקורות וקריאה נוספת":"Sources & further reading"}</h1>
     <p>${S.lang==="he"?"כל עובדה ביחידה מגיעה מאחד המקורות האלה.":"Every fact in the unit comes from one of these sources."}</p></div>
     <div class="s-box s-rec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
@@ -2508,7 +2518,7 @@ function rerenderBlock(el){
   blk.innerHTML = block(b);
 }
 function factHTML(d){ const s=SRC[d.src];
-  return `<div class="dfact"><span class="dfi">💡</span><div><b class="dfh">${esc(T("dyk"))}</b><p>${ht(L(d)[1])}</p>${s?`<small class="dfs">${S.lang==="he"?"מקור:":"Source:"} ${esc(s[0])}${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">↗</a>`:""}</small>`:""}</div></div>`; }
+  return `<div class="dfact"><span class="dfi">💡</span><div><b class="dfh">${esc(T("dyk"))}</b><p>${ht(L(d)[1])}</p>${s?`<small class="dfs">${S.lang==="he"?"מקור:":"Source:"} <bdi dir="auto">${esc(s[0])}</bdi>${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">↗</a>`:""}</small>`:""}</div></div>`; }
 function showFact(id){
   const d = DIAL.find(x=>x.id===id); const [name, fact] = L(d); const v = S.dial[id];
   openModal({kicker:"💡 "+esc(T("dyk")), title:esc(name), img:IMG[d.img],
