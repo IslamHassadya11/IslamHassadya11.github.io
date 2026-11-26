@@ -606,13 +606,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .qz-who.react.bad img{animation:shake .5s ease}
 @keyframes hop{30%{transform:translateY(-18px) scale(1.04)}60%{transform:translateY(0)}80%{transform:translateY(-5px)}}
 @keyframes shake{20%,60%{transform:translateX(-8px) rotate(-2deg)}40%,80%{transform:translateX(8px) rotate(2deg)}}
-.qz-badge{position:absolute;top:-14px;inset-inline-start:4%;z-index:2;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:34px;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.2);animation:popin .4s .15s backwards}
+.qz-badge{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:19px;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,.15);animation:popin .4s .1s backwards}
 .qz-badge.ok{background:#1fae6b}.qz-badge.bad{background:#e23d5f}
 .qz-opt.dim{opacity:.45}
 .qz-fb{display:block}
-.qz-fb-h{display:flex;gap:8px;align-items:baseline;margin-bottom:2px}
+.qz-fb-h{display:flex;gap:10px;align-items:center;margin-bottom:8px}
 .qz-fb-h b{font-size:20px}
-.qz-fb-h span{font-weight:700;opacity:.8}
+.qz-fb-who{font-weight:800;font-size:15px;opacity:.85;margin-bottom:2px}
 .qz-fb p{margin:0}
 /* guide colour on every page */
 .scene{--gcl:color-mix(in srgb,var(--gc) 14%,var(--card))}
@@ -1158,6 +1158,16 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 [data-theme=dark] input[type=range]::-webkit-slider-thumb{background:#0a1224;border-color:var(--cyan)}
 [data-theme=dark] .watch{background:linear-gradient(135deg,#060c19,#1d1340)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* team questions: the three guides sit under the question */
+.qz-main.team{grid-template-columns:1fr;max-width:900px;margin-inline:auto}
+.qz-main.team .qz-who.team{margin:14px 0 4px}
+.qz-main.team .trio.full{width:auto;gap:18px}
+.qz-main.team .trio.full img{width:auto;height:150px;max-height:150px;margin:0}
+.qz-main.team .qz-who b{font-size:16px;margin-top:4px}
+/* finale teaser */
+.breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
+@keyframes brk{0%{box-shadow:0 0 0 0 rgba(226,61,95,.6)}70%{box-shadow:0 0 0 12px rgba(226,61,95,0)}100%{box-shadow:0 0 0 0 rgba(226,61,95,0)}}
+@media (prefers-reduced-motion:reduce){.breaking{animation:none}}
 </style>
 </head>
 <body>
@@ -2096,10 +2106,11 @@ function vHub(){
         <div class="gact">${all?`<button class="btn ${quizDone()?"ghost":""}" data-act="toQuiz">${quizDone()?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒</span>`}</div>
       </article>
       <div class="conn" aria-hidden="true"></div>
-      <article class="gcard fin ${all?"":"locked"}">
+      <article class="gcard fin ${all?"":"locked"} ${S.v2?"done":""}">
         <div class="gnum">★</div><span class="pt"><img src="${IMG.done}" alt=""></span>
-        <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${S.lang==="he"?"השאלה מההתחלה, אחרי שהכרתם את כל המדריכים. ואחריה כרטיס הדמות שלכם.":"The question from the start, after meeting all the guides. Then your character card."}</p></div>
-        <div class="gact">${all?`<button class="btn" data-act="toVote2">${esc(T("start"))}</button>`:`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
+        <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${S.v2?(S.lang==="he"?`בהתחלה: <b>${esc(S.v1?T(S.v1):"–")}</b> · בסוף: <b>${esc(T(S.v2))}</b>`:`At the start: <b>${esc(S.v1?T(S.v1):"–")}</b> · Your final call: <b>${esc(T(S.v2))}</b>`):(S.lang==="he"?"השאלה מההתחלה, אחרי שהכרתם את כל המדריכים. ואחריה כרטיס הדמות שלכם.":"The question from the start, after meeting all the guides. Then your character card.")}</p>
+          ${S.v2?`<span class="chip ok">⭐ ${S.lang==="he"?"כרטיס הדמות מוכן":"Character card ready"}</span>`:""}</div>
+        <div class="gact">${all?`<button class="btn ${S.v2?"ghost":""}" data-act="toVote2">${S.v2?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
       </article>
     </div></section>`;
 }
@@ -2382,10 +2393,9 @@ function vSources(){
 
 /* ---------- quiz ---------- */
 function quizSpeaker(who, st){
-  const badge = st ? `<span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span>` : "";
-  if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}">${badge}<div class="trio full">${GUIDES.slice(0,3).map(x=>`<img src="${IMG["f_"+x.img]}" alt="">`).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
+  if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}"><div class="trio full">${GUIDES.slice(0,3).map(x=>`<img src="${IMG["f_"+x.img]}" alt="">`).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
   const g = GUIDES.find(x=>x.id===who);
-  return `<div class="qz-who ${st?"react "+st:""}">${badge}<img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
+  return `<div class="qz-who ${st?"react "+st:""}"><img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
 }
 let revPage=0;
 function reviewHTML(){
@@ -2414,13 +2424,14 @@ function vQuiz(){
     const who = q.who==="team" ? (S.lang==="he"?"הצוות":"The team") : L(GUIDES.find(x=>x.id===q.who).name);
     return `<section class="card full qz ${st?"qz-"+st:""}">
       <div class="qz-top"><span>${esc(QT("q"))} ${Q.qi+1} ${esc(QT("of"))} ${n}</span><div class="qz-prog"><i style="width:${(Q.qi+(answered?1:0))/n*100}%"></i></div><span class="qz-sc">✓ ${quizScore()}</span></div>
-      <div class="qz-main">
-        ${quizSpeaker(q.who, st)}
+      <div class="qz-main ${q.who==="team"?"team":""}">
+        ${q.who==="team"?"":quizSpeaker(q.who, st)}
         <div class="qz-q">
           <div class="qz-bubble pop">${ht(text)}</div>
+          ${q.who==="team"?quizSpeaker("team", st):""}
           <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
             return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span>${ht(o)}</button>`;}).join("")}</div>
-          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b><span>${esc(who)}:</span></div><p>${ht(why)}</p></div>
+          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><div class="qz-fb-who">${esc(who)}:</div><p>${ht(why)}</p></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
       </div></section>`;
@@ -2455,7 +2466,7 @@ function vFinale(){
        </ul>
      </div>
    </div>
-   <div class="cliff card"><img src="${IMG.cliff}" alt=""><div class="cliff-txt"><div class="kicker">2.12.2026</div><p>${esc(T("cliff"))}</p></div></div>
+   <div class="cliff card"><img src="${IMG.cliff}" alt=""><div class="cliff-txt"><div class="breaking">${S.lang==="he"?"מבזק!!!":"Breaking news!!!"}</div><p>${esc(T("cliff"))}</p></div></div>
    <div class="row center"><button class="btn ghost" data-act="hub">${BK()} ${esc(T("toHub"))}</button><button class="btn ghost" data-act="restart">${esc(T("restart"))}</button></div>
   </section>`;
 }
