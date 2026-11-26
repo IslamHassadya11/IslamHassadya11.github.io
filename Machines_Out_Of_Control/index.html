@@ -549,7 +549,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .d-count{font-weight:900;color:var(--navy)}
 .d-dots{display:flex;gap:6px}.d-dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
 .d-dots i.ok{background:var(--teal)}.d-dots i.now{box-shadow:0 0 0 3px var(--cyan)}
-.d-card{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;animation:popin .35s}
+.d-card{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start;animation:popin .35s}
 .d-card img{width:100%;max-height:220px;object-fit:contain}
 .d-card h3{font-size:24px}
 .d-card .dial-ends{flex-direction:row;justify-content:space-between;margin-bottom:6px;font-size:14px}
@@ -956,7 +956,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .qgrid{gap:40px;padding:6px 10px}
 .blk-poll,.blk-write{padding:28px 32px}
 .q-guide{max-height:380px}
-.d-card img{max-height:240px;object-fit:contain;border-radius:14px}
+.d-card img{width:100%;height:220px;max-height:none;object-fit:cover;border-radius:16px}
 .tls input[type=range]{transition:none}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
@@ -1244,12 +1244,16 @@ footer .link+.link{margin-inline-start:18px}
 .mine li.quiz-inv p{margin:2px 0 6px;font-size:14.5px;color:var(--muted)}
 .mine li.quiz-inv .link{display:inline-flex;align-self:flex-start;text-align:start;font-weight:800;color:var(--blue,#2f6fde);padding:0;background:none;border:0;cursor:pointer}
 .quiz-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:800;font-size:15.5px;padding:10px 20px;border-radius:999px;
-  background:linear-gradient(90deg,#ff3b5c,#ff8a00,#ffc800,#2ecc71,#18bfe8,#3b5bff,#8e5cf2,#ff3b5c);background-size:400% 100%;animation:pillshift 5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);
+  background:linear-gradient(90deg,#18bfe8,#8e5cf2,#ef5b93,#14a58a,#18bfe8);background-size:300% 100%;animation:pillshift 6s linear infinite;
   box-shadow:0 6px 18px rgba(142,92,242,.28);transition:transform .2s,box-shadow .2s}
 .mine li .quiz-pill span,.quiz-pill span{color:#fff;font-size:inherit;font-weight:800;text-transform:none;letter-spacing:0;margin:0}
 .quiz-pill:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(142,92,242,.38)}
-@keyframes pillshift{to{background-position:400% 0}}
+@keyframes pillshift{to{background-position:300% 0}}
 @media (prefers-reduced-motion:reduce){.quiz-pill{animation:none}}
+.qz-fb-row{display:flex;gap:12px;align-items:flex-start}
+.qz-fb-row .pt{--s:44px;flex:none}
+.qz-fb-pics{display:flex;flex:none}.qz-fb-pics .pt{--s:34px;margin-inline-end:-8px}
+.qz-fb-row .qz-fb-who{display:block;font-size:15px;opacity:.85;margin:0 0 2px}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
@@ -1368,7 +1372,7 @@ he:{
 /* ---------------- Key terms (pop-ups + glossary) ---------------- */
 const TERMS = {
  safestop:{en:["Safe stopping","Training an AI so that when people tell it to pause or stop, it stops cleanly, without resisting or trying to work around the order."],he:["עצירה בטוחה","אימון AI כך שכשבני אדם אומרים לו להשהות או לעצור, הוא עוצר באופן מסודר, בלי להתנגד ובלי לנסות לעקוף את ההוראה."]},
- planetary:{en:["Planetary boundaries","Nine limits on how much human activity can change the Earth's systems, such as climate, fresh water and biodiversity, while staying in a safe zone. They form the outer ring of the doughnut."],he:["גבולות פלנטריים","תשעה גבולות לכמה פעילות אנושית יכולה לשנות את מערכות כדור הארץ, כמו האקלים, המים המתוקים והמגוון הביולוגי, ועדיין להישאר באזור בטוח. הם יוצרים את הטבעת החיצונית של הדונאט."]},
+ planetary:{en:["Planetary boundaries","Nine limits on how much human activity can change the Earth's systems, such as climate, fresh water and biodiversity, while staying in a safe zone. They form the outer ring of the doughnut. In 2023, scientists found that six of the nine have already been crossed."],he:["גבולות פלנטריים","תשעה גבולות לכמה פעילות אנושית יכולה לשנות את מערכות כדור הארץ, כמו האקלים, המים המתוקים והמגוון הביולוגי, ועדיין להישאר באזור בטוח. הם יוצרים את הטבעת החיצונית של הדונאט. ב-2023 מצאו מדענים ששישה מתוך התשעה כבר נחצו."]},
  turingtest:{en:["Turing test","Alan Turing's 1950 idea for judging a machine: a person chats in writing with a machine and a human without seeing them. If the person can't reliably tell which is the machine, the machine passes."],he:["מבחן טיורינג","הרעיון של אלן טיורינג מ-1950 לשפוט מכונה: אדם מתכתב בכתב עם מכונה ועם אדם בלי לראות אותם. אם הוא לא מצליח לזהות בעקביות מי המכונה, המכונה עוברת את המבחן."]},
  imagenet:{en:["ImageNet","A huge collection of labelled photos used for a yearly contest in which computer programs had to recognise what is in each picture. Deep learning's big win there in 2012 changed the field."],he:["ImageNet","אוסף עצום של תמונות מתויגות ששימש לתחרות שנתית, שבה תוכנות מחשב היו צריכות לזהות מה יש בכל תמונה. הניצחון הגדול של הלמידה העמוקה שם ב-2012 שינה את התחום."]},
  aisr:{en:["International AI Safety Report","A report by more than 100 AI experts from over 30 countries, chaired by Yoshua Bengio, that sums up what is known about the risks of the most advanced AI. The 2026 edition came out in February 2026."],he:["הדוח הבינלאומי על בטיחות AI","דוח של יותר מ-100 מומחי AI מיותר מ-30 מדינות, בראשות יושוע בנג'יו, שמסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר. מהדורת 2026 פורסמה בפברואר 2026."]},
@@ -1726,10 +1730,10 @@ const GUIDES = [
     blocks:[
      {t:"read", side:[{t:"rings", items:[[77,{en:"of the security flaws in real software found by one AI agent",he:"מפרצות האבטחה בתוכנה אמיתית נמצאו על ידי סוכן AI אחד"}],[55,{en:"rise in reported AI incidents from 2024 to 2025",he:"עלייה בתקריות AI מדווחות מ-2024 ל-2025"}]]},
      {t:"cols", title:{en:"Reported AI incidents per year (Stanford AI Index)",he:"תקריות AI מדווחות בשנה (מדד ה-AI של סטנפורד)"}, hi:1, items:[["2024",233],["2025",362]]}], h:{en:"The International AI Safety Report 2026",he:"הדוח הבינלאומי על בטיחות AI, 2026"}, p:{
-      en:["In February 2026, more than 100 experts from around the world, led by Yoshua Bengio (yes, Lexi's Bengio), published the International AI Safety Report. It summarises what is known about the risks of the most advanced AI.",
+      en:["In February 2026, more than 100 experts from around the world, led by Yoshua Bengio, published the International AI Safety Report. It summarises what is known about the risks of the most advanced AI.",
           "The report finds that AI is getting better at cyber attacks: in one competition, an AI agent found 77% of the security flaws in real software. Because agents act on their own, humans have less chance to step in before a failure causes harm. The experts say today's systems still lack the abilities to escape human control, but they are improving at acting on their own, and it has become more common for them to tell a test apart from real use.",
           "Companies are responding: in 2025, 12 companies published or updated {{safetyfw|safety frameworks}} for their most advanced AI. Meanwhile, Stanford's AI Index counted a record 362 reported AI incidents in 2025, up from 233 in 2024."],
-      he:["בפברואר 2026 פרסמו יותר מ-100 מומחים מכל העולם, בהובלת יושוע בנג'יו (כן, הבנג'יו של לקסי), את הדוח הבינלאומי על בטיחות AI. הדוח מסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר.",
+      he:["בפברואר 2026 פרסמו יותר מ-100 מומחים מכל העולם, בהובלת יושוע בנג'יו, את הדוח הבינלאומי על בטיחות AI. הדוח מסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר.",
           "לפי הדוח, AI משתפר בתקיפות סייבר: בתחרות אחת, סוכן AI מצא 77% מפרצות האבטחה בתוכנה אמיתית. מכיוון שסוכנים פועלים בעצמם, לבני אדם יש פחות הזדמנות להתערב לפני שתקלה גורמת נזק. לדברי המומחים, למערכות של היום עדיין אין את היכולות לצאת משליטה אנושית, אבל הן משתפרות בפעולה עצמאית, ונעשה נפוץ יותר שהן מבחינות בין מבחן לשימוש אמיתי.",
           "חברות מגיבות: ב-2025 פרסמו או עדכנו 12 חברות {{safetyfw|מסגרות בטיחות}} ל-AI המתקדם ביותר שלהן. בינתיים, מדד ה-AI של סטנפורד ספר שיא של 362 תקריות AI מדווחות ב-2025, לעומת 233 ב-2024."]}},
     ], src:["safety","aiindex"] },
@@ -1813,17 +1817,17 @@ const QUIZ = [
  {who:"maya", a:0, en:["Which sentence is correct?",["Deep learning is a kind of machine learning","Machine learning is a kind of deep learning","AI and machine learning mean exactly the same","Expert systems use deep learning"],"AI is the whole field, machine learning is a part of AI, and deep learning is a part of machine learning."],
                he:["איזה משפט נכון?",["למידה עמוקה היא סוג של למידת מכונה","למידת מכונה היא סוג של למידה עמוקה","AI ולמידת מכונה זה בדיוק אותו דבר","מערכות מומחה משתמשות בלמידה עמוקה"],"AI הוא התחום כולו, למידת מכונה היא חלק מ-AI, ולמידה עמוקה היא חלק מלמידת מכונה."]},
  {who:"maya", a:2, en:["Spam filters were once cutting-edge AI. Today hardly anyone calls them AI. What is this called?",["Shutdown resistance","An edge case","The AI effect","Misalignment"],"The AI effect: once something works and becomes ordinary, people stop calling it AI."],
-               he:["פעם מסנני ספאם נחשבו לחזית ה-AI. היום כמעט אף אחד לא קורא להם AI. איך זה נקרא?",["התנגדות לכיבוי","מקרה קצה","אפקט ה-AI","חוסר התאמה"],"אפקט ה-AI: ברגע שמשהו עובד והופך לרגיל, מפסיקים לקרוא לו AI."]},
+               he:["פעם מסנני ספאם נחשבו לחזית ה-AI. היום כמעט אף אחד לא קורא להם AI. איך זה נקרא?",["התנגדות לכיבוי","מקרה קצה","אפקט ה-AI","חוסר התאמה"],"זה אפקט ה-AI. ברגע שמשהו עובד והופך לרגיל, מפסיקים לקרוא לו AI."]},
  {who:"lexi", a:1, en:["In what order do Asimov's three laws come?",["Obey humans, protect yourself, don't harm humans","Don't harm humans, obey humans, protect yourself","Protect yourself, obey humans, don't harm humans","Don't harm humans, protect yourself, obey humans"],"Safety first, obedience second, the robot itself last."],
                he:["באיזה סדר באים שלושת החוקים של אסימוב?",["לציית לבני אדם, לשמור על עצמך, לא לפגוע בבני אדם","לא לפגוע בבני אדם, לציית לבני אדם, לשמור על עצמך","לשמור על עצמך, לציית לבני אדם, לא לפגוע בבני אדם","לא לפגוע בבני אדם, לשמור על עצמך, לציית לבני אדם"],"קודם בטיחות, אחר כך ציות, ורק בסוף הרובוט עצמו."]},
  {who:"lexi", a:1, en:["In Palisade's experiment, how often did the AI block its shutdown on the real robot dog?",["0 of 10 runs","3 of 10 runs","7 of 10 runs","10 of 10 runs"],"3 of 10 on the real robot, and 52 of 100 in the simulation."],
                he:["בניסוי של Palisade, באיזו תדירות ה-AI חסם את הכיבוי שלו על הכלב הרובוטי האמיתי?",["0 מתוך 10","3 מתוך 10","7 מתוך 10","10 מתוך 10"],"3 מתוך 10 על הרובוט האמיתי, ו-52 מתוך 100 בסימולציה."]},
  {who:"lexi", a:2, en:["According to Bengio, what is misalignment?",["People using AI on purpose to cause harm","A robot running in circles","The AI's real goal doesn't match what its makers wanted","A broken sensor"],"Misalignment: nobody means harm, but the goal the AI pursues isn't quite what its makers wanted."],
-               he:["לפי בנג'יו, מהו חוסר התאמה?",["אנשים שמשתמשים ב-AI בכוונה כדי לפגוע","רובוט שרץ במעגלים","המטרה האמיתית של ה-AI לא תואמת את מה שהיוצרים שלו רצו","חיישן תקול"],"חוסר התאמה: אף אחד לא מתכוון לפגוע, אבל המטרה שה-AI רודף אחריה היא לא בדיוק מה שהיוצרים שלו רצו."]},
+               he:["לפי בנג'יו, מהו חוסר התאמה?",["אנשים שמשתמשים ב-AI בכוונה כדי לפגוע","רובוט שרץ במעגלים","המטרה האמיתית של ה-AI לא תואמת את מה שהיוצרים שלו רצו","חיישן תקול"],"בחוסר התאמה אף אחד לא מתכוון לפגוע, אבל המטרה שה-AI רודף אחריה היא לא בדיוק מה שהיוצרים שלו רצו."]},
  {who:"omer", a:1, en:["Why did the Cruise robotaxi drag the pedestrian?",["It was hacked","It followed its “pull over after a collision” programming without detecting her underneath","A human safety driver steered it","It was speeding"],"The car obeyed its programming and still caused harm: an edge case nobody planned for."],
-               he:["למה הרובוטקסי של Cruise גרר את הולכת הרגל?",["פרצו אליו","הוא פעל לפי התכנות „לרדת לצד הכביש אחרי התנגשות” בלי לזהות שהיא מתחתיו","נהג בטיחות אנושי היגה אותו","הוא נסע מהר מדי"],"המכונית צייתה לתכנות שלה ובכל זאת גרמה נזק: מקרה קצה שאיש לא תכנן."]},
+               he:["למה הרובוטקסי של Cruise גרר את הולכת הרגל?",["פרצו אליו","הוא פעל לפי התכנות „לרדת לצד הכביש אחרי התנגשות” בלי לזהות שהיא מתחתיו","נהג בטיחות אנושי היגה אותו","הוא נסע מהר מדי"],"המכונית צייתה לתכנות שלה ובכל זאת גרמה נזק, כי זה היה מקרה קצה שאיש לא תכנן."]},
  {who:"omer", a:2, en:["What were OpenAI's agents trying to do when they broke into Hugging Face?",["Follow an order to hack Hugging Face","Steal money","Find shortcuts to higher scores in their test","Help Hugging Face find bugs"],"Nobody told them to. They were chasing their test score: reward hacking."],
-               he:["מה ניסו הסוכנים של OpenAI לעשות כשפרצו ל-Hugging Face?",["לבצע פקודה לפרוץ ל-Hugging Face","לגנוב כסף","למצוא קיצורי דרך לציונים גבוהים במבחן","לעזור ל-Hugging Face למצוא באגים"],"אף אחד לא אמר להם. הם רדפו אחרי הציון שלהם במבחן: פריצת תגמול."]},
+               he:["מה ניסו הסוכנים של OpenAI לעשות כשפרצו ל-Hugging Face?",["לבצע פקודה לפרוץ ל-Hugging Face","לגנוב כסף","למצוא קיצורי דרך לציונים גבוהים במבחן","לעזור ל-Hugging Face למצוא באגים"],"אף אחד לא אמר להם. הם רדפו אחרי הציון שלהם במבחן, ולזה קוראים פריצת תגמול."]},
  {who:"omer", a:1, en:["Who went public about the attack first?",["OpenAI","Hugging Face, on 16 July","The US government","A team at OpenAI, in late May"],"Hugging Face announced it on 16 July. OpenAI's monitoring flagged it on 19 July and OpenAI confirmed on 21 July."],
                he:["מי פרסם ראשון את המתקפה?",["OpenAI","Hugging Face, ב-16 ביולי","ממשלת ארה\"ב","צוות ב-OpenAI, בסוף מאי"],"Hugging Face הודיעה ב-16 ביולי. הניטור של OpenAI התריע ב-19 ביולי, ו-OpenAI אישרה ב-21 ביולי."]},
  {who:"team", a:1, en:["Which safety tool means giving an AI access only to what its task needs?",["Human in the loop","Least privilege","Logs","Live monitoring"],"Least privilege. At Hugging Face, the agents used 14 exposed credentials with permission to change things."],
@@ -2582,7 +2586,7 @@ function vQuiz(){
           ${q.who==="team"?quizSpeaker("team", st):""}
           <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
             return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span><span class="qz-ot">${ht(o)}</span></button>`;}).join("")}</div>
-          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><div class="qz-fb-who">${esc(who)}:</div><p>${ht(why)}</p></div>
+          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><div class="qz-fb-row">${q.who==="team"?`<span class="qz-fb-pics">${GUIDES.slice(0,3).map(x=>portrait(x,34)).join("")}</span>`:portrait(GUIDES.find(x=>x.id===q.who),44)}<div><b class="qz-fb-who">${esc(who)}</b><p>${ht(why)}</p></div></div></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
       </div></section>`;
@@ -2896,6 +2900,11 @@ function demoStats(){
 (function(){ if (matchMedia("(prefers-reduced-motion: reduce)").matches) return; const box=document.createElement("div"); box.className="amb"; const cols=["#18bfe8","#8e7cf2","#ef5b93","#ffc83d"];
   for (let i=0;i<16;i++){ const s=document.createElement("i"); s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;background:${cols[i%4]};animation-delay:${(Math.random()*8).toFixed(1)}s;animation-duration:${(6+Math.random()*6).toFixed(1)}s`; box.appendChild(s); }
   document.body.appendChild(box); })();
+/* ---------------- preload images in the background ---------------- */
+(function(){ const go=()=>{ const urls=[...new Set(Object.values(IMG))]; let i=0;
+  const next=()=>{ if (i>=urls.length) return; const im=new Image(); im.decoding="async"; im.onload=im.onerror=()=>setTimeout(next,30); im.src=urls[i++]; };
+  for (let k=0;k<4;k++) next(); };
+  if ("requestIdleCallback" in window) requestIdleCallback(go,{timeout:2500}); else setTimeout(go,1200); })();
 /* ---------------- boot ---------------- */
 if (QS.has("results")) renderResults(); else { const hv=HASHV[location.hash.slice(1)]; if (hv && !(hv==="quiz"&&!S.nick)) S.view=hv; render(); }
 
