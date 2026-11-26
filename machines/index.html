@@ -784,6 +784,32 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .tls-prog{display:flex;gap:5px;margin-top:10px}.tls-prog i{flex:1;height:5px;border-radius:4px;background:var(--line);transition:background .3s}.tls-prog i.on{background:var(--gc,var(--cyan))}
 /* badge modal guide */
 .badge-m .m-img img{max-height:230px;animation:popin .5s}
+/* sources label */
+.srcbox{margin-top:8px;font-size:14px}
+.src-l{color:var(--navy);font-size:13.5px}
+.srcbox .srcs{list-style:none;padding:0;margin:2px 0 0}
+.srcbox .srcs li{margin-bottom:4px}
+/* map: empty state + Israel solid */
+.map-panel.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:220px;border-top-color:var(--line);color:var(--muted)}
+.map-panel.empty span{font-size:42px}.map-panel.empty p{font-size:15.5px;max-width:260px}
+.wmap .ilm{fill:#14a58a;stroke:#fff;stroke-width:2}
+.map-wrap.sel-il .ilm{stroke:#0c2d5e;stroke-width:3}
+/* IT page: divider + bigger timeline */
+.blk-read.has-img:has(.side-dates) .side-dia{border-inline-start:3px solid color-mix(in srgb,var(--gc) 45%,transparent);padding-inline-start:26px}
+.side-dates .bt-t{font-size:18px;margin-bottom:12px}
+.side-dates .dates li{grid-template-columns:74px 1fr;gap:22px;padding:8px 0}
+.side-dates .dates b{font-size:15.5px}
+.side-dates .dates span{font-size:16px!important;line-height:1.45}
+.side-dates .dates::before{inset-inline-start:83px}.side-dates .dates li::before{inset-inline-start:78px;top:14px;width:14px;height:14px}
+/* did you know */
+.dfact{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,#fff7df,#fff1c9);border:2px solid #f6d77a;border-radius:18px;padding:16px 18px;margin:6px 0 4px;box-shadow:0 8px 20px rgba(242,169,0,.12);animation:fadeUp .5s ease both}
+.dfi{font-size:30px;line-height:1;flex:none;animation:popin .5s .1s backwards}
+.dfh{display:block;color:#a06400;font-size:17px;margin-bottom:2px}
+.dfact p{margin:0;font-size:16.5px!important;line-height:1.6;color:#3b2c00}
+.dfs{display:block;margin-top:8px;font-size:13px;color:#7a6020}
+.dfs a{font-weight:800}
+[data-theme=dark] .dfact{background:linear-gradient(135deg,#2b2614,#231f10);border-color:#6b5a20}
+[data-theme=dark] .dfact p{color:#f3e7c2}[data-theme=dark] .dfh{color:#ffd86b}[data-theme=dark] .dfs{color:#cbb979}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -1275,8 +1301,7 @@ const GUIDES = [
           "זו השאלה שמלווה את היחידה: **האם חוקים מספיקים כדי לשמור על מכונות בשליטה, במיוחד במצבים שאיש לא תכנן?**"]}},
      {t:"poll", key:"rulesOk", q:{en:"Your opinion: are rules like these enough to keep AI under control?",he:"הדעה שלכם: האם חוקים כאלה מספיקים כדי לשמור על AI בשליטה?"},
       opts:{en:["Yes, if they're written well","Only if humans can also step in","No, rules can't cover everything"],he:["כן, אם הם כתובים טוב","רק אם בני אדם יכולים גם להתערב","לא, חוקים לא יכולים לכסות הכול"]},
-      resp:{en:["Good rules matter, but Asimov's own stories show that even well-written rules break in situations nobody planned for.","That's close to what most experts recommend today: rules, plus humans who can step in.","That's Asimov's point too: his stories are about rules that fail."],he:["חוקים טובים חשובים, אבל הסיפורים של אסימוב עצמו מראים שגם חוקים כתובים היטב נשברים במצבים שאיש לא תכנן.","זה קרוב למה שרוב המומחים ממליצים היום: חוקים, ולצידם בני אדם שיכולים להתערב.","זו גם הנקודה של אסימוב: הסיפורים שלו עוסקים בחוקים שנכשלים."]},
-      lawsReal:true}
+      resp:{en:["Good rules matter, but Asimov's own stories show that even well-written rules break in situations nobody planned for.","That's close to what most experts recommend today: rules, plus humans who can step in.","That's Asimov's point too: his stories are about rules that fail."],he:["חוקים טובים חשובים, אבל הסיפורים של אסימוב עצמו מראים שגם חוקים כתובים היטב נשברים במצבים שאיש לא תכנן.","זה קרוב למה שרוב המומחים ממליצים היום: חוקים, ולצידם בני אדם שיכולים להתערב.","זו גם הנקודה של אסימוב: הסיפורים שלו עוסקים בחוקים שנכשלים."]}}
     ], src:["britannica"] },
 
   { say:{en:"Rules assume the machine wants what we want. One of the founders of deep learning says that's exactly where the danger is.",he:"חוקים מניחים שהמכונה רוצה את מה שאנחנו רוצים. אחד ממייסדי הלמידה העמוקה אומר שבדיוק שם נמצאת הסכנה."},
@@ -1760,9 +1785,12 @@ function furtherHTML(){
   return `<div class="further">${FURTHER.map(f=>{ const s=SRC[f.k]; const [t,why]=L(f); return `<a class="fr" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="fr-i">${f.i}</span><span><b>${ht(t)}</b><small>${ht(why)}</small></span><span class="fr-go">↗</span></a>`; }).join("")}</div>`;
 }
 function srcHTML(keys){
-  return `<ol class="srcs">${keys.map(k => { const s = SRC[k]; if(!s) return "";
-    return `<li>${esc(s[0])}${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ol>`;
+  keys=keys.filter(k=>SRC[k]); if (!keys.length) return "";
+  const lab = keys.length===1 ? (S.lang==="he"?"מקור:":"Source:") : (S.lang==="he"?"מקורות:":"Sources:");
+  return `<div class="srcbox"><b class="src-l">${lab}</b><ul class="srcs">${keys.map(k=>{ const s = SRC[k];
+    return `<li>${esc(s[0])}${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ul></div>`;
 }
+
 function openSources(keys){ openModal({kicker:"📚", title:T("sources"), html: srcHTML(keys), cls:"small"}); }
 
 /* ---------------- header ---------------- */
@@ -2002,12 +2030,12 @@ function block(b, bi){
   case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]); const k=b.items[i].k;
     return `<div class="steps"><div class="d-top"><span class="d-count">${i+1} / ${n}</span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
       <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<button type="button" class="term" data-term="${k}">${ht(h)}</button>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
-  case "map": { const sel = b.items.find(x=>x.r===mapSel) || b.items[0]; const [sh,sb]=L(sel);
+  case "map": { const sel = b.items.find(x=>x.r===mapSel); const [sh,sb]=sel?L(sel):["",""];
     return `<div class="map-head"><h3 class="rh">${ht(L(b.h))}</h3><span class="mz"><button data-act="mapZ" data-z="1.6" aria-label="zoom in">＋</button><button data-act="mapZ" data-z="0.625" aria-label="zoom out">－</button><button data-act="mapZ" data-z="0" aria-label="reset">⟲</button><button data-act="mapBig">${mapBig?"⤡":"⤢"}</button></span></div><p>${fmt(L(b.intro))}</p>
-    <div class="map-grid ${mapBig?"big":""}"><div class="map-wrap sel-${sel.r}">${MAP_SVG}</div>
-      <div class="map-panel ${sel.r}"><div class="mp-h"><span>${sel.flag}</span><div><b>${ht(sh)}</b><small>${ht(L(sel.tag))}</small></div></div>
-        <p>${fmt(sb)}</p>${sel.facts?`<ul>${L(sel.facts).map(f=>`<li>${ht(f)}</li>`).join("")}</ul>`:""}${srcHTML([sel.src])}</div></div>
-    <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
+    <div class="map-grid ${mapBig?"big":""}"><div class="map-wrap ${sel?"sel-"+sel.r:""}">${MAP_SVG}</div>
+      ${sel?`<div class="map-panel ${sel.r}"><div class="mp-h"><span>${sel.flag}</span><div><b>${ht(sh)}</b><small>${ht(L(sel.tag))}</small></div></div>
+        <p>${fmt(sb)}</p>${sel.facts?`<ul>${L(sel.facts).map(f=>`<li>${ht(f)}</li>`).join("")}</ul>`:""}${srcHTML([sel.src])}</div>`:`<div class="map-panel empty"><span>🗺️</span><p>${S.lang==="he"?"בחרו אזור צבוע על המפה או מקרא למטה כדי לראות מה נעשה שם.":"Choose a coloured area on the map, or a label below, to see what was done there."}</p></div>`}</div>
+    <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${sel&&x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
   case "tlside": { const n=TIMELINE.length, sel=tlSel; const x = sel==null?null:TIMELINE[sel];
     return `<div class="tls"><h4>🕰️ ${S.lang==="he"?"ציר הזמן":"Timeline"}</h4>
       <input type="range" min="0" max="${n-1}" step="1" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
@@ -2098,7 +2126,7 @@ function rankComment(){
     : (same ? "Exactly Asimov's order: safety first." : "A different order from Asimov's. Real AI systems face exactly this trade-off.");
   return `<div class="note">${t}</div>`;
 }
-let dialPos = 0, stepPos = 0, mapSel = "eu", mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
+let dialPos = 0, stepPos = 0, mapSel = null, mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
 function rerenderTl(){ const el=document.querySelector(".side-tlside"); if (el){ el.innerHTML = block({t:"tlside"}); const r=el.querySelector("input"); r && r.focus({preventScroll:true}); } }
 let mapVB={x:0,y:0,w:960};
 function setVB(x,y,w){ const h=w*470/960; x=Math.max(-50,Math.min(x,960-w+50)); y=Math.max(-30,Math.min(y,470-h+30)); mapVB={x,y,w}; const s=document.querySelector(".wmap"); if (s){ s.style.transition="none"; s.setAttribute("viewBox",`${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`); } }
@@ -2345,7 +2373,7 @@ const A = {
   qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
-  guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
+  guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
   next(){ if (!sceneReady(CUR)) return;
     const st = innerStep();
     if (st && st.kind==="steps"){ stepPos++; rerenderType("steps"); updateGate(); return; }
@@ -2429,7 +2457,7 @@ function rerenderBlock(el){
   blk.innerHTML = block(b);
 }
 function factHTML(d){ const s=SRC[d.src];
-  return `<div class="dfact"><b>💡 ${esc(T("dyk"))}</b> ${ht(L(d)[1])}${s&&s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"מקור":"Source"} ↗</a>`:""}</div>`; }
+  return `<div class="dfact"><span class="dfi">💡</span><div><b class="dfh">${esc(T("dyk"))}</b><p>${ht(L(d)[1])}</p>${s?`<small class="dfs">${S.lang==="he"?"מקור:":"Source:"} ${esc(s[0])}${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">↗</a>`:""}</small>`:""}</div></div>`; }
 function showFact(id){
   const d = DIAL.find(x=>x.id===id); const [name, fact] = L(d); const v = S.dial[id];
   openModal({kicker:"💡 "+esc(T("dyk")), title:esc(name), img:IMG[d.img],
