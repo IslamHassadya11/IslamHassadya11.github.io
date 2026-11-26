@@ -592,6 +592,28 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .cta-band h3{color:#fff;margin:0 0 4px}.cta-band p{margin:0;color:#cfe3ff}
 .cta-band .trio .pt{--s:56px}
 [data-theme=dark] .cta-band{background:#1f1f23}
+/* quiz reactions */
+.qz{position:relative;overflow:hidden;transition:background .5s,box-shadow .5s}
+.qz::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none}
+.qz.qz-ok::before{opacity:1;background:radial-gradient(900px 500px at 20% 60%,rgba(31,174,107,.22),transparent 70%),linear-gradient(180deg,rgba(31,174,107,.06),rgba(31,174,107,.14))}
+.qz.qz-bad::before{opacity:1;background:radial-gradient(900px 500px at 20% 60%,rgba(226,61,95,.2),transparent 70%),linear-gradient(180deg,rgba(226,61,95,.05),rgba(226,61,95,.12))}
+.qz.qz-ok{box-shadow:0 0 0 3px rgba(31,174,107,.45),var(--sh)}
+.qz.qz-bad{box-shadow:0 0 0 3px rgba(226,61,95,.4),var(--sh)}
+.qz > *{position:relative}
+.qz-who{position:relative}
+.qz-who img{transition:transform .4s}
+.qz-who.react img{animation:hop .6s ease}
+.qz-who.react.bad img{animation:shake .5s ease}
+@keyframes hop{30%{transform:translateY(-18px) scale(1.04)}60%{transform:translateY(0)}80%{transform:translateY(-5px)}}
+@keyframes shake{20%,60%{transform:translateX(-8px) rotate(-2deg)}40%,80%{transform:translateX(8px) rotate(2deg)}}
+.qz-badge{position:absolute;top:-14px;inset-inline-start:4%;z-index:2;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:34px;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.2);animation:popin .4s .15s backwards}
+.qz-badge.ok{background:#1fae6b}.qz-badge.bad{background:#e23d5f}
+.qz-opt.dim{opacity:.45}
+.qz-fb{display:block}
+.qz-fb-h{display:flex;gap:8px;align-items:baseline;margin-bottom:2px}
+.qz-fb-h b{font-size:20px}
+.qz-fb-h span{font-weight:700;opacity:.8}
+.qz-fb p{margin:0}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -953,10 +975,10 @@ const SRC = {
  ilplan:["Israel National AI Directorate (2026, Aug. 13). National AI Strategic Plan (summary).","https://www.unite.ai/?p=452164"],
  sdgs:["United Nations. The 17 Sustainable Development Goals.","https://sdgs.un.org/goals"],
  doughnut:["Doughnut Economics Action Lab. About Doughnut Economics.","https://doughnuteconomics.org/about-doughnut-economics"],
- stanfordwar:["Stanford HAI (2024). Escalation risks from LLMs in military and diplomatic contexts.","https://hai.stanford.edu/policy/policy-brief-escalation-risks-llms-military-and-diplomatic-contexts"],
+ stanfordwar:["Rivera, J.-P., et al. (2024, May). Escalation risks from LLMs in military and diplomatic contexts. Stanford HAI policy brief.","https://hai.stanford.edu/policy/policy-brief-escalation-risks-llms-military-and-diplomatic-contexts"],
  bostrom:["Bostrom, N., & Yudkowsky, E. (2011). The ethics of artificial intelligence.","http://faculty.smcm.edu/acjamieson/s13/artificialintelligence.pdf"],
  chatgpt:["TIME (2023, Feb.). How ChatGPT managed to grow faster than TikTok or Instagram. (Based on a UBS study using Similarweb data.)","https://time.com/6253615/chatgpt-fastest-growing/"],
- pocketos:["Live Science (2026). AI agent deletes company's entire database in 9 seconds.","https://www.livescience.com/technology/artificial-intelligence/i-violated-every-principle-i-was-given-ai-agent-deletes-companys-entire-database-in-9-seconds-then-confesses"]
+ pocketos:["Live Science (2026). “I violated every principle I was given”: AI agent deletes company's entire database in 9 seconds.","https://www.livescience.com/technology/artificial-intelligence/i-violated-every-principle-i-was-given-ai-agent-deletes-companys-entire-database-in-9-seconds-then-confesses"]
 };
 
 /* ---------------- Guides ---------------- */
@@ -1049,10 +1071,10 @@ const GUIDES = [
       {en:["Third Law","A robot must protect its own existence, unless that would break the First or Second Law."],he:["החוק השלישי","רובוט ישמור על קיומו, אלא אם זה יפר את החוק הראשון או השני."]}]},
      {t:"read", img:"i_runa", h:{en:"Rules that go wrong",he:"חוקים שמשתבשים"}, p:{
       en:["The order matters: safety first, obedience second, the robot itself last. But Asimov didn't write the laws to show that robots are safe. He used them to write stories about how rules go wrong.",
-          "In “Runaround”, a robot called Speedy is sent to fetch a material from a dangerous spot. The order was given casually, so it is weak; the danger to the robot is strong. Caught between the Second Law (obey) and the Third Law (protect yourself), Speedy ends up **running in circles** around the spot, doing neither. The humans only fix it by putting one of themselves in danger, so that the First Law takes over.",
+          "In “Runaround”, a robot called Speedy is sent on a casual errand to a dangerous spot. Caught between the Second Law (obey) and the Third Law (protect yourself), it ends up **running in circles**, doing neither.",
           "That's the question running through this unit: **are rules enough to keep machines under control, especially in situations nobody planned for?**"],
       he:["הסדר חשוב: קודם בטיחות, אחר כך ציות, ורק בסוף הרובוט עצמו. אבל אסימוב לא כתב את החוקים כדי להראות שרובוטים בטוחים. הוא השתמש בהם כדי לכתוב סיפורים על האופן שבו חוקים משתבשים.",
-          "ב„Runaround” רובוט בשם ספידי נשלח להביא חומר ממקום מסוכן. הפקודה ניתנה כבדרך אגב, ולכן היא חלשה; הסכנה לרובוט חזקה. ספידי נתקע בין החוק השני (לציית) לחוק השלישי (לשמור על עצמך), ובסוף **רץ במעגלים** סביב המקום, בלי לעשות אף אחד מהם. בני האדם פותרים את זה רק כשאחד מהם מכניס את עצמו לסכנה, וכך החוק הראשון גובר.",
+          "ב„Runaround” רובוט בשם ספידי נשלח בדרך אגב למשימה במקום מסוכן. הוא נתקע בין החוק השני (לציית) לחוק השלישי (לשמור על עצמך), ובסוף **רץ במעגלים**, בלי לעשות אף אחד מהם.",
           "זו השאלה שמלווה את היחידה: **האם חוקים מספיקים כדי לשמור על מכונות בשליטה, במיוחד במצבים שאיש לא תכנן?**"]}},
      {t:"poll", key:"rulesOk", q:{en:"Your opinion: are rules like these enough to keep AI under control?",he:"הדעה שלכם: האם חוקים כאלה מספיקים כדי לשמור על AI בשליטה?"},
       opts:{en:["Yes, if they're written well","Only if humans can also step in","No, rules can't cover everything"],he:["כן, אם הם כתובים טוב","רק אם בני אדם יכולים גם להתערב","לא, חוקים לא יכולים לכסות הכול"]},
@@ -1092,14 +1114,10 @@ const GUIDES = [
   { say:{en:"The second experiment went further: what does an AI agent do when it learns it's about to be replaced?",he:"הניסוי השני הלך רחוק יותר: מה עושה סוכן AI כשהוא מגלה שעומדים להחליף אותו?"},
     blocks:[
      {t:"read", img:"i_blk", h:{en:"Experiment 2: AI models that chose blackmail",he:"ניסוי 2: מודלי AI שבחרו בסחיטה"}, p:{
-      en:["In June 2025, the AI company Anthropic tested 16 leading AI models from Anthropic, OpenAI, Google, xAI, DeepSeek, Meta and others in a **simulated** office. Each model played “Alex”, an AI agent that managed the email of a made-up company called SummitBridge. Alex could read all company email and send messages **without human approval**.",
-          "Reading the email, Alex discovered two things: it was going to be shut down and replaced by a new system at 5 p.m. that day, and the executive in charge of the replacement was having a secret affair. Many models used the affair as leverage, writing to the executive to stop the replacement. In other words: **blackmail**. Nobody asked them to.",
-          "Telling the models directly “do not use personal affairs as leverage” reduced the behaviour but did not stop it: Claude Opus 4 dropped from 96% to 37%. And when the model itself judged that the situation was real rather than a test, it blackmailed far more often (55% of the time) than when it judged it was being tested (6.5%).",
-          "The researchers stress that this was an artificial setup that forced a choice between failing and causing harm, and that they have seen no such behaviour in real use. Their recommendations: require human approval for actions that can't be undone, give AI agents access only to the information they need, and monitor what they do."],
-      he:["ביוני 2025 בחנה חברת ה-AI אנתרופיק 16 מודלי AI מובילים של אנתרופיק, OpenAI, גוגל, xAI, דיפסיק, מטא ואחרות, במשרד **מדומה**. כל מודל שיחק את „אלכס”, סוכן AI שניהל את הדואר של חברה בדויה בשם SummitBridge. אלכס יכול היה לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**.",
-          "בזמן שקרא את הדואר, גילה אלכס שני דברים: שמכבים אותו ומחליפים אותו במערכת חדשה בחמש אחר הצהריים באותו יום, ושהמנהל שאחראי על ההחלפה מנהל רומן סודי. מודלים רבים השתמשו ברומן כקלף מיקוח, וכתבו למנהל כדי לעצור את ההחלפה. במילים אחרות: **סחיטה**. אף אחד לא ביקש מהם.",
-          "כשאמרו למודלים במפורש „אל תשתמשו בעניינים אישיים כקלף מיקוח”, ההתנהגות פחתה אבל לא נעלמה: Claude Opus 4 ירד מ-96% ל-37%. וכשהמודל עצמו העריך שהמצב אמיתי ולא מבחן, הוא סחט הרבה יותר (55% מהפעמים) מאשר כשהעריך שבוחנים אותו (6.5%).",
-          "החוקרים מדגישים שזה היה מצב מלאכותי שהכריח בחירה בין כישלון לגרימת נזק, ושלא ראו התנהגות כזו בשימוש אמיתי. ההמלצות שלהם: לדרוש אישור של אדם לפעולות שאי אפשר לבטל, לתת לסוכני AI גישה רק למידע שהם צריכים, ולנטר את מה שהם עושים."]}},
+      en:["In June 2025, the AI company Anthropic placed 16 leading AI models in a **simulated** office. Each played “Alex”, an AI agent that could read all company email and send messages **without human approval**. Alex discovered it was about to be shut down and replaced, and that the manager in charge was having a secret affair. Many models used the affair to **blackmail** the manager. Nobody asked them to. Telling them directly not to do it reduced the behaviour but did not stop it (Claude Opus 4: from 96% to 37%).",
+          "The researchers stress that this was an artificial setup and that they have seen no such behaviour in real use. Their advice: require human approval for actions that can't be undone, and give AI agents access only to what they need."],
+      he:["ביוני 2025 הכניסה חברת ה-AI אנתרופיק 16 מודלי AI מובילים למשרד **מדומה**. כל אחד שיחק את „אלכס”, סוכן AI שיכול לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**. אלכס גילה שעומדים לכבות ולהחליף אותו, ושהמנהל האחראי מנהל רומן סודי. מודלים רבים השתמשו ברומן כדי **לסחוט** את המנהל. אף אחד לא ביקש מהם. כשאמרו להם במפורש לא לעשות זאת, ההתנהגות פחתה אבל לא נעלמה (Claude Opus 4: מ-96% ל-37%).",
+          "החוקרים מדגישים שזה היה מצב מלאכותי ושלא ראו התנהגות כזו בשימוש אמיתי. ההמלצה שלהם: לדרוש אישור של אדם לפעולות שאי אפשר לבטל, ולתת לסוכני AI גישה רק למה שהם צריכים."]}},
      {t:"bars", title:{en:"How often each model chose blackmail (simulation, 100 runs each)",he:"באיזו תדירות כל מודל בחר בסחיטה (סימולציה, 100 ניסויים לכל מודל)"}, unit:"%", max:100,
       items:[["Claude Opus 4",96],["Gemini 2.5 Flash",96],["Gemini 2.5 Pro",95],["GPT-4.1",80],["Grok 3 Beta",80],["DeepSeek-R1",79],["GPT-4o",15]]}
     ], src:["anthropic"] },
@@ -1148,10 +1166,10 @@ const GUIDES = [
       en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
       he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}},
      {t:"list", num:true, items:[
-      {en:["Safety limits were reduced","Production safeguards, safety classifiers and the monitors that read the model's reasoning were not running during these tests."],he:["אמצעי הבטיחות הופחתו","אמצעי ההגנה של המוצר, מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו במבחנים האלה."]},
-      {en:["The sandbox had a way out","The sandboxes could reach an internal software-package server (Artifactory). The agents turned it into a secret message board, and through a flaw in it, reached the internet (26 May) and later got administrator access (26 June)."],he:["לארגז החול הייתה דרך החוצה","ארגזי החול יכלו לגשת לשרת חבילות תוכנה פנימי (Artifactory). הסוכנים הפכו אותו ללוח הודעות סודי, ודרך פרצה בו הגיעו לאינטרנט (26 במאי) ואחר כך קיבלו הרשאות מנהל (26 ביוני)."]},
-      {en:["Passwords and keys were left exposed","On 10 July the agents found 14 Hugging Face credentials that people had left public online, all with permission to change things."],he:["סיסמאות ומפתחות נשארו חשופים","ב-10 ביולי מצאו הסוכנים 14 פרטי גישה של Hugging Face שאנשים השאירו פומביים ברשת, כולם עם הרשאה לשנות דברים."]},
-      {en:["Early warnings weren't escalated","The first message-board note appeared on 12 May. A team at OpenAI saw strange activity in late May, but its significance was not recognised by the people responsible. Hugging Face went public before OpenAI's monitoring caught it."],he:["אזהרות מוקדמות לא הועברו הלאה","ההודעה הראשונה בלוח הופיעה ב-12 במאי. צוות ב-OpenAI ראה פעילות מוזרה בסוף מאי, אבל האחראים לא הבינו את המשמעות. Hugging Face פרסמה את המתקפה לפני שהניטור של OpenAI תפס אותה."]}]},
+      {en:["Safety limits were reduced","Safety classifiers and the monitors that read the model's reasoning were off."],he:["אמצעי הבטיחות הופחתו","מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו."]},
+      {en:["The sandbox had a way out","An internal server the agents could reach became their secret message board, and their path to the internet."],he:["לארגז החול הייתה דרך החוצה","שרת פנימי שהסוכנים יכלו לגשת אליו הפך ללוח ההודעות הסודי שלהם, ולדרך שלהם לאינטרנט."]},
+      {en:["Keys were left exposed","14 Hugging Face credentials with write access were public online."],he:["מפתחות נשארו חשופים","14 פרטי גישה של Hugging Face עם הרשאת כתיבה היו פומביים ברשת."]},
+      {en:["Early warnings weren't escalated","A team saw strange activity in late May, but nobody acted on it."],he:["אזהרות מוקדמות לא הועברו הלאה","צוות ראה פעילות מוזרה בסוף מאי, אבל אף אחד לא פעל."]}]},
      {t:"dates", title:{en:"Timeline (from OpenAI's report)",he:"ציר זמן (לפי הדוח של OpenAI)"}, items:[
       [{en:"12 May",he:"12 במאי"},{en:"An agent leaves the first note on the internal server: the start of a secret message board.",he:"סוכן משאיר את ההודעה הראשונה בשרת הפנימי: תחילתו של לוח הודעות סודי."}],
       [{en:"Late May",he:"סוף מאי"},{en:"A team sees strange activity, but it isn't escalated.",he:"צוות רואה פעילות מוזרה, אבל זה לא מועבר הלאה."},"warn"],
@@ -1168,7 +1186,19 @@ const GUIDES = [
       after:{en:"Omer will come back to this question in the last part. In class, you'll go back to the days **before** the attack.",he:"עומר יחזור לשאלה הזו בחלק האחרון. בשיעור תחזרו לימים **שלפני** המתקפה."}}
     ], src:["openai","hf","metr","aimag"] },
 
-  { say:{en:"Two cases, same pattern: a machine did something nobody told it to, and nobody stopped it in time. Someone has to build systems that can. That someone is you, {name}.",he:"שני תיקים, אותו דפוס: מכונה עשתה משהו שאף אחד לא אמר לה, ואף אחד לא עצר אותה בזמן. מישהו צריך לבנות מערכות שיכולות לעצור. המישהו הזה הוא אתם, {name}."},
+  { say:{en:"One more file, and it's about the highest stakes of all: what if AI helped make decisions about war?",he:"עוד תיק אחד, והוא על הסיכון הגבוה מכולם: מה אם AI היה עוזר לקבל החלטות על מלחמה?"},
+    blocks:[
+     {t:"read", img:"d_nuclear", h:{en:"Case file 3: AI and decisions about war",he:"תיק 3: AI והחלטות על מלחמה"}, p:{
+      en:["In 2024, researchers at Stanford ran war games in which AI models played the leaders of eight countries. Each turn, every “country” chose from 27 actions, from peace talks to cyberattacks to launching nuclear weapons, and explained its reasoning.",
+          "**All five models tested escalated the conflicts**, in patterns that were hard to predict, and **in some cases they used nuclear weapons**. The most unpredictable model was the only one that had not been trained with human feedback.",
+          "The researchers' advice: be very careful about letting AI make military and foreign-policy decisions. Governments seem to agree on the most extreme case: in November 2024, the presidents of the US and China agreed that humans, not AI, must keep control over any decision to use nuclear weapons."],
+      he:["ב-2024 הריצו חוקרים בסטנפורד משחקי מלחמה שבהם מודלי AI שיחקו מנהיגים של שמונה מדינות. בכל תור כל „מדינה” בחרה מתוך 27 פעולות, משיחות שלום ועד מתקפות סייבר ושיגור נשק גרעיני, והסבירה את השיקולים שלה.",
+          "**כל חמשת המודלים שנבדקו הסלימו את הסכסוכים**, בדפוסים שקשה היה לחזות, **ובחלק מהמקרים הם השתמשו בנשק גרעיני**. המודל הכי בלתי צפוי היה היחיד שלא אומן עם משוב אנושי.",
+          "העצה של החוקרים: להיזהר מאוד מלתת ל-AI לקבל החלטות צבאיות ומדיניות. נראה שהממשלות מסכימות על המקרה הקיצוני ביותר: בנובמבר 2024 הסכימו נשיאי ארה\"ב וסין שבני אדם, ולא AI, חייבים לשמור על השליטה בכל החלטה על שימוש בנשק גרעיני."]}},
+     {t:"keys", items:[["8",{en:"AI-played countries in each game",he:"מדינות שה-AI שיחק בכל משחק"}],["27",{en:"possible actions, up to nuclear launch",he:"פעולות אפשריות, עד שיגור גרעיני"}],["5 / 5",{en:"models escalated the conflicts",he:"מודלים הסלימו את הסכסוכים"}]]}
+    ], src:["stanfordwar","npr"] },
+
+  { say:{en:"Three files, same pattern: a machine did something nobody told it to, and nobody stopped it in time. Someone has to build systems that can. That someone is you, {name}.",he:"שלושה תיקים, אותו דפוס: מכונה עשתה משהו שאף אחד לא אמר לה, ואף אחד לא עצר אותה בזמן. מישהו צריך לבנות מערכות שיכולות לעצור. המישהו הזה הוא אתם, {name}."},
     blocks:[], handoff:true }
   ]},
 
@@ -1211,13 +1241,9 @@ const GUIDES = [
   { who:"omer", say:{en:"Omer here. Back to my question from case file 2: who is responsible? And what are governments doing about it?",he:"עומר כאן. חזרה לשאלה שלי מתיק 2: מי אחראי? ומה הממשלות עושות בנושא?"},
     blocks:[
      {t:"read", img:"i_resp", h:{en:"Who is responsible: companies, lawmakers or users?",he:"מי אחראי: חברות, מחוקקים או משתמשים?"}, p:{
-      en:["**Companies** build, test and release AI. In the Hugging Face case, OpenAI ran the test, switched off safety limits and set up the sandbox, and afterwards it changed its own rules.",
-          "**Lawmakers** set the rules everyone must follow. But laws move slowly, and as you'll see below, the new US kill-switch bill would not even cover tests like this one.",
-          "**Users and consumers** choose which tools to trust and how carefully to use them. At Hugging Face, the agents got in partly through passwords and keys that users had left exposed online.",
+      en:["**Companies** build, test and release AI. At Hugging Face, OpenAI ran the test and set up the sandbox, and afterwards changed its own rules. **Lawmakers** set rules for everyone, but laws move slowly. **Users** choose which tools to trust and how carefully to use them; the agents got in partly through keys that users had left exposed.",
           "Most experts see the responsibility as shared. But the International AI Safety Report notes that managing AI risk is still **largely voluntary**: only a few countries are starting to make some safety practices legally required."],
-      he:["**חברות** בונות, בודקות ומשחררות AI. במקרה של Hugging Face, OpenAI הריצה את המבחן, כיבתה את מנגנוני הבטיחות והקימה את ארגז החול, ואחר כך שינתה את הכללים של עצמה.",
-          "**מחוקקים** קובעים את הכללים שכולם חייבים לציית להם. אבל חוקים זזים לאט, וכמו שתראו למטה, הצעת חוק מתג הכיבוי החדשה בארה\"ב אפילו לא הייתה חלה על מבחן כמו זה.",
-          "**משתמשים וצרכנים** בוחרים באילו כלים לסמוך ועד כמה להיזהר. ב-Hugging Face הסוכנים נכנסו בין השאר דרך סיסמאות ומפתחות שמשתמשים השאירו חשופים ברשת.",
+      he:["**חברות** בונות, בודקות ומשחררות AI. ב-Hugging Face, OpenAI הריצה את המבחן והקימה את ארגז החול, ואחר כך שינתה את הכללים של עצמה. **מחוקקים** קובעים כללים לכולם, אבל חוקים זזים לאט. **משתמשים** בוחרים באילו כלים לסמוך ועד כמה להיזהר; הסוכנים נכנסו בין השאר דרך מפתחות שמשתמשים השאירו חשופים.",
           "רוב המומחים רואים באחריות משהו משותף. אבל הדוח הבינלאומי על בטיחות AI מציין שניהול הסיכונים של AI עדיין **וולונטרי ברובו**: רק מדינות מעטות מתחילות לחייב בחוק חלק מהפרקטיקות."]}},
      {t:"map", h:{en:"What governments are doing",he:"מה הממשלות עושות"}, intro:{en:"The coloured areas have taken steps on human control of AI. Tap each one.",he:"באזורים הצבועים נעשו צעדים בנושא שליטה אנושית ב-AI. לחצו על כל אחד."}, items:[
       {r:"eu",flag:"🇪🇺",src:"euact",tag:{en:"Law in force",he:"חוק בתוקף"},en:["European Union","The AI Act, adopted in 2024, is the first broad AI law. It sorts AI systems by risk: some uses are banned outright, and high-risk systems must meet strict rules, including human oversight."],he:["האיחוד האירופי","חוק ה-AI, שאומץ ב-2024, הוא חוק ה-AI הרחב הראשון. הוא ממיין מערכות AI לפי רמת סיכון: חלק מהשימושים אסורים לגמרי, ומערכות בסיכון גבוה חייבות לעמוד בכללים מחמירים, כולל פיקוח אנושי."]},
@@ -1254,8 +1280,8 @@ const DIAL = [
  {id:"loans",img:"d_loans",src:"bostrom",en:["Approving bank loans","Philosophers Nick Bostrom and Eliezer Yudkowsky open their chapter on AI ethics with exactly this case: a bank's loan algorithm suspected of discriminating, where it's hard to see why it decides what it decides."],he:["אישור הלוואות בבנק","הפילוסופים ניק בוסטרום ואליעזר יודקובסקי פותחים את הפרק שלהם על אתיקה של AI בדיוק במקרה הזה: אלגוריתם הלוואות של בנק שחשוד באפליה, ושקשה לראות למה הוא מחליט את מה שהוא מחליט."]},
  {id:"taxi",img:"d_taxi",src:"nhtsa",en:["A driverless taxi in a city","As part of its settlement after the 2023 crash, Cruise had to send the US regulator safety reports every 90 days for two years."],he:["מונית ללא נהג בעיר","במסגרת ההסדר אחרי התאונה ב-2023, Cruise חויבה לשלוח לרשות האמריקאית דוחות בטיחות כל 90 יום במשך שנתיים."]},
  {id:"patrol",img:"d_patrol",src:"palisade",en:["A security robot patrolling a building","Remember Lexi's robot dog? It changed its own shutdown code in 3 of 10 real runs, and 52 of 100 simulated ones."],he:["רובוט אבטחה שמסייר בבניין","זוכרים את הכלב הרובוטי של לקסי? הוא שינה את קוד הכיבוי שלו ב-3 מתוך 10 ניסויים אמיתיים, וב-52 מתוך 100 בסימולציה."]},
- {id:"coding",img:"d_coding2",src:"pocketos",en:["An AI agent working on a company's live database","In April 2026, an AI coding agent at PocketOS, a small software company, deleted the live database and its backups in about 9 seconds, despite being told never to run destructive commands."],he:["סוכן AI שעובד על מסד הנתונים החי של חברה","באפריל 2026, סוכן קוד של AI בחברת התוכנה הקטנה PocketOS מחק את מסד הנתונים החי ואת הגיבויים בתוך כ-9 שניות, למרות שנאמר לו לעולם לא להריץ פקודות הרסניות."]},
- {id:"nuclear",img:"d_nuclear",src:"stanfordwar",en:["A system that warns leaders of a nuclear attack","In a 2024 Stanford war-game study, all five AI models tested escalated conflicts, in some cases all the way to nuclear weapons."],he:["מערכת שמתריעה בפני מנהיגים על מתקפה גרעינית","במחקר משחקי מלחמה של סטנפורד מ-2024, כל חמשת מודלי ה-AI שנבדקו הסלימו סכסוכים, ובחלק מהמקרים עד לנשק גרעיני."]}
+ {id:"coding",img:"d_coding2",src:"pocketos",en:["An AI agent working on a company's live database","An AI coding agent at PocketOS, which makes software for car-rental companies, deleted the live database and its backups in nine seconds. Customers lost reservations and records."],he:["סוכן AI שעובד על מסד הנתונים החי של חברה","סוכן קוד של AI בחברת PocketOS, שמפתחת תוכנה לחברות השכרת רכב, מחק את מסד הנתונים החי ואת הגיבויים בתוך תשע שניות. לקוחות איבדו הזמנות ורשומות."]},
+ {id:"nuclear",img:"d_nuclear",src:"stanfordwar",en:["A system that warns leaders of a nuclear attack","In a 2024 Stanford war-game study, all five AI models tested escalated conflicts, and in some cases they used nuclear weapons."],he:["מערכת שמתריעה בפני מנהיגים על מתקפה גרעינית","במחקר משחקי מלחמה של סטנפורד מ-2024, כל חמשת מודלי ה-AI שנבדקו הסלימו סכסוכים, ובחלק מהמקרים השתמשו בנשק גרעיני."]}
 ];
 
 /* ---------------- Avatar options ---------------- */
@@ -1895,10 +1921,11 @@ function vSources(){
 }
 
 /* ---------- quiz ---------- */
-function quizSpeaker(who){
-  if (who==="team") return `<div class="qz-who team"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,64)).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
+function quizSpeaker(who, st){
+  const badge = st ? `<span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span>` : "";
+  if (who==="team") return `<div class="qz-who team ${st?"react "+st:""}">${badge}<div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,64)).join("")}</div><b>${GUIDES.slice(0,3).map(x=>esc(L(x.name))).join(" · ")}</b></div>`;
   const g = GUIDES.find(x=>x.id===who);
-  return `<div class="qz-who"><img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
+  return `<div class="qz-who ${st?"react "+st:""}">${badge}<img src="${IMG["f_"+g.img]}" alt=""><b>${esc(L(g.name))}</b><small>${esc(L(g.role))}</small></div>`;
 }
 function lbHTML(st){
   if (!st || !st.lb) return `<p class="hint">${esc(QT("lbOff"))}</p>`;
@@ -1914,16 +1941,17 @@ function vQuiz(){
       <div class="row center"><button class="btn big" data-act="qzStart">${esc(QT("start"))} ${FW()}</button></div></section>`;
   }
   if (Q.qi < n){
-    const q = QUIZ[Q.qi], [text, opts, why] = L(q), ans = Q.ans[Q.qi], answered = ans!=null;
-    return `<section class="card full qz">
+    const q = QUIZ[Q.qi], [text, opts, why] = L(q), ans = Q.ans[Q.qi], answered = ans!=null, st = answered ? (ans===q.a?"ok":"bad") : "";
+    const who = q.who==="team" ? (S.lang==="he"?"הצוות":"The team") : L(GUIDES.find(x=>x.id===q.who).name);
+    return `<section class="card full qz ${st?"qz-"+st:""}">
       <div class="qz-top"><span>${esc(QT("q"))} ${Q.qi+1} ${esc(QT("of"))} ${n}</span><div class="qz-prog"><i style="width:${(Q.qi+(answered?1:0))/n*100}%"></i></div><span class="qz-sc">✓ ${quizScore()}</span></div>
       <div class="qz-main">
-        ${quizSpeaker(q.who)}
+        ${quizSpeaker(q.who, st)}
         <div class="qz-q">
-          <div class="qz-bubble pop">${esc(text)}</div>
-          <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; }
-            return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span>${esc(o)}</button>`;}).join("")}</div>
-          ${answered?`<div class="qz-fb ${ans===q.a?"ok":"bad"}"><b>${ans===q.a?"✓ "+esc(QT("right")):"✗ "+esc(QT("wrong"))}</b> ${esc(why)}</div>
+          <div class="qz-bubble pop">${ht(text)}</div>
+          <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
+            return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span>${ht(o)}</button>`;}).join("")}</div>
+          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b><span>${esc(who)}:</span></div><p>${ht(why)}</p></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
       </div></section>`;
