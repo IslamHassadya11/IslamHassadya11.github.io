@@ -1236,8 +1236,10 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 .resp-more{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--gc,#18bfe8) 35%,transparent);font-weight:400}
 .map-hint{color:var(--muted);font-size:14.5px}
 .s-box h2 small{display:block}
-[dir=rtl] .s-item,[dir=rtl] .s-item a,[dir=rtl] .s-item bdi{text-align:right}
-.s-list .s-item>bdi{padding:10px 14px}
+.src-rtl,.src-rtl a,.src-rtl span{text-align:right}
+.src-ltr,.src-ltr a,.src-ltr span{text-align:left}
+.srcbox .srcs li.src-rtl{direction:rtl}.srcbox .srcs li.src-ltr{direction:ltr}
+.s-list .s-item>span{padding:10px 14px}
 footer .link+.link{margin-inline-start:18px}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
@@ -2068,11 +2070,12 @@ function openTerm(id){
 function furtherHTML(){
   return `<div class="further">${FURTHER.map(f=>{ const s=SRC[f.k]; const [t,why]=L(f); return `<a class="fr" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="fr-i">${f.i}</span><span><b>${ht(t)}</b><small>${ht(why)}</small></span><span class="fr-go">↗</span></a>`; }).join("")}</div>`;
 }
+const srcDir = t => /[\u0590-\u05FF]/.test(t) ? "rtl" : "ltr";
 function srcHTML(keys){
   keys=keys.filter(k=>SRC[k]); if (!keys.length) return "";
   const lab = keys.length===1 ? (S.lang==="he"?"מקור:":"Source:") : (S.lang==="he"?"מקורות:":"Sources:");
   return `<div class="srcbox"><b class="src-l">${lab}</b><ul class="srcs">${keys.map(k=>{ const s = SRC[k];
-    return `<li><bdi dir="auto">${esc(s[0])}</bdi>${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ul></div>`;
+    return `<li class="src-${srcDir(s[0])}" dir="${srcDir(s[0])}"><span>${esc(s[0])}</span>${s[1]?` <a href="${esc(s[1])}" target="_blank" rel="noopener">${S.lang==="he"?"לקישור":"Link"} ↗</a>`:""}</li>`; }).join("")}</ul></div>`;
 }
 
 function openSources(keys){ openModal({kicker:"📚", title:T("sources"), html: srcHTML(keys), cls:"small"}); }
@@ -2513,7 +2516,7 @@ function vGlossary(){
 }
 function vSources(){
   const groups = GUIDES.map(g=>({g, keys:[...new Set(g.scenes.flatMap(s=>(s.src||[])).concat(g.id==="maya"?["chatgpt"]:[]))].filter(k=>SRC[k])}));
-  const link = k => { const s=SRC[k]; return `<li class="s-item">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><bdi dir="auto">${esc(s[0])}</bdi><em>↗</em></a>`:`<bdi dir="auto">${esc(s[0])}</bdi>`}</li>`; };
+  const link = k => { const s=SRC[k], d=srcDir(s[0]); return `<li class="s-item src-${d}" dir="${d}">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><span>${esc(s[0])}</span><em>↗</em></a>`:`<span>${esc(s[0])}</span>`}</li>`; };
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מקורות":"Sources"}</div><h1>${S.lang==="he"?"מקורות וקריאה נוספת":"Sources & further reading"}</h1>
     <p>${S.lang==="he"?"כל עובדה ביחידה מגיעה מאחד המקורות האלה.":"Every fact in the unit comes from one of these sources."}</p></div>
     <div class="s-box s-rec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
