@@ -2196,7 +2196,7 @@ function speaker(g, sc){
   const s = GUIDES.find(x => x.id === who);
   return `<div class="spk">${portrait(s, 96)}<div class="spk-name">${esc(L(s.name))}<small>${esc(L(s.role))}</small></div></div>`;
 }
-const STARTERS = ["read","case","poll","slider","write","dial","map","dates"];
+const STARTERS = ["read","case","poll","slider","write","dial","map","dates","lawq"];
 function pagesOf(sc){
   const out=[]; let cur=[];
   (sc.blocks||[]).forEach((b,i)=>{ const prev = sc.blocks[cur[cur.length-1]]; const joinSlider = b.t==="slider" && prev && prev.t==="slider";
