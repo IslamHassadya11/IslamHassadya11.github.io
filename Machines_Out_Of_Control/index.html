@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Machines, Out of Control · מכונות מחוץ לשליטה</title>
+<title>Machines, Out of Control – מכונות מחוץ לשליטה</title>
 <meta name="description" content="An interactive prep unit on autonomy, learning and human control of AI. IT, AI & Sustainability, University of Haifa.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -829,7 +829,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 .s-rec{--gc:#0aa3d6}
 .s-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .s-list .s-item{background:var(--card);border-radius:12px;padding:0;box-shadow:none;border:1px solid color-mix(in srgb,var(--gc) 25%,transparent)}
-.s-list .s-item a,.s-list .s-item>span{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.45}
+.s-list .s-item a,.s-list .s-item>bdi,.s-list .s-item>span{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.45}
 .s-list .s-item a:hover{background:color-mix(in srgb,var(--gc) 10%,var(--card))}
 .s-list .s-item em{font-style:normal;color:var(--gc);font-weight:900}
 /* dark mode visibility fixes */
@@ -1235,6 +1235,10 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 [data-theme=dark] .lq-fb.bad b{color:#ff9bb2}[data-theme=dark] .lq-fb.ok b{color:#8ff0c0}
 .resp-more{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--gc,#18bfe8) 35%,transparent);font-weight:400}
 .map-hint{color:var(--muted);font-size:14.5px}
+.s-box h2 small{display:block}
+[dir=rtl] .s-item,[dir=rtl] .s-item a,[dir=rtl] .s-item bdi{text-align:right}
+.s-list .s-item>bdi{padding:10px 14px}
+footer .link+.link{margin-inline-start:18px}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
@@ -1255,11 +1259,11 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 const UI = {
 en:{
   brand:"Machines, Out of Control", tagline:"Robots and AI: adaptable learning machines, or machines out of control? Independence through autonomy and learning.",
-  meta:"Prepared by Islam & Sara for the lesson on 2 December 2026 · Technology, AI & Sustainability · Information Systems, University of Haifa",
+  meta:"Prepared by Islam & Sara for the lesson on 2 December 2026, in the Technology, AI & Sustainability seminar, Department of Information Systems, University of Haifa",
   heroLead:"Robots and AI save us work because they act and learn on their own. That same independence can make them hard to stop.",
   heroText:"In this unit, three guides who know each other will walk you through the key ideas, real cases, and the rules people are writing right now. Along the way you'll share your own opinion. It's anonymous, and the class results will open the lesson.",
   createBtn:"Choose your character", continueBtn:"Continue where I stopped",
-  createK:"Step 1 · You are the developer", createT:"Choose your character",
+  createK:"Step 1: you are the developer", createT:"Choose your character",
   nameL:"Character name", namePh:"e.g. Captain Byte", nameHint:"2–16 characters. Not your real name. Offensive names are blocked.",
   nameBad:"That name isn't allowed. Please choose another one.", nameShort:"Use 2–16 letters or numbers.",
   colorL:"Background", baseL:"Look", hatL:"Hat", eyesL:"Eyes", accL:"Accessory",
@@ -1294,7 +1298,7 @@ en:{
   pollSaved:"Thanks. Your answer is saved.",
   dialAvgT:"Average freedom the class gives each machine (0 = human approves everything, 4 = fully on its own)",
   you:"You",
-  kick:"University of Haifa · Information Systems · Technology, AI & Sustainability",
+  kick:"Technology, AI & Sustainability seminar, University of Haifa",
   startUnit:"Start the unit", howBtn:"How it works", navUnit:"The unit", navGloss:"Glossary", navSrc:"Sources",
   insideT:"Inside the unit", insideS:"Three guides who know each other, and then you. Each one teaches one part and hands you to the next.",
   howT:"How it works", steps:[["Choose your character","You are the developer: pick your look and a nickname."],["Read with the guides","Short readings with real data, real cases and key terms you can tap."],["Share your opinion","Anonymous questions along the way. The class results open the lesson."]],
@@ -1303,11 +1307,11 @@ en:{
 },
 he:{
   brand:"מכונות מחוץ לשליטה", tagline:"רובוטים ו-AI: מכונות לומדות ומסתגלות, או מכונות שיוצאות משליטה? עצמאות דרך אוטונומיה ולמידה.",
-  meta:"הוכן על ידי איסלאם ושרה לשיעור ב-2 בדצמבר 2026 · טכנולוגיה, AI וקיימות · מערכות מידע, אוניברסיטת חיפה",
+  meta:"הוכן על ידי איסלאם ושרה לשיעור ב-2 בדצמבר 2026, בסמינר טכנולוגיה, AI וקיימות, החוג למערכות מידע, אוניברסיטת חיפה",
   heroLead:"רובוטים ומערכות AI חוסכים לנו עבודה כי הם פועלים ולומדים בעצמם. אותה עצמאות עלולה גם להקשות לעצור אותם.",
   heroText:"ביחידה הזו שלושה מדריכים שמכירים זה את זה יעבירו אתכם דרך הרעיונות המרכזיים, מקרים אמיתיים, והכללים שנכתבים ממש עכשיו. לאורך הדרך תשתפו גם את דעתכם. זה אנונימי, ותוצאות הכיתה יפתחו את השיעור.",
   createBtn:"לבחירת הדמות", continueBtn:"להמשיך מאיפה שעצרתי",
-  createK:"שלב 1 · אתם המפתחים", createT:"בחרו את הדמות שלכם",
+  createK:"שלב 1: אתם המפתחים", createT:"בחרו את הדמות שלכם",
   nameL:"שם הדמות", namePh:"למשל: קפטן ביט", nameHint:"2–16 תווים. לא השם האמיתי. שמות פוגעניים נחסמים.",
   nameBad:"השם הזה לא מותר. בחרו שם אחר, בבקשה.", nameShort:"השתמשו ב-2–16 אותיות או מספרים.",
   colorL:"רקע", baseL:"מראה", hatL:"כובע", eyesL:"עיניים", accL:"אביזר",
@@ -1342,7 +1346,7 @@ he:{
   pollSaved:"תודה. התשובה נשמרה.",
   dialAvgT:"כמה חופש הכיתה נותנת בממוצע לכל מכונה (0 = אדם מאשר הכול, 4 = לגמרי לבד)",
   you:"את/ה",
-  kick:"אוניברסיטת חיפה · מערכות מידע · טכנולוגיה, AI וקיימות",
+  kick:"סמינר טכנולוגיה, AI וקיימות, אוניברסיטת חיפה",
   startUnit:"להתחיל את היחידה", howBtn:"איך זה עובד", navUnit:"היחידה", navGloss:"מילון מושגים", navSrc:"מקורות",
   insideT:"מה יש ביחידה", insideS:"שלושה מדריכים שמכירים זה את זה, ואחריהם אתם. כל אחד מלמד חלק אחד ומעביר אתכם לבא אחריו.",
   howT:"איך זה עובד", steps:[["בוחרים דמות","אתם המפתחים: בחרו מראה וכינוי."],["קוראים עם המדריכים","קטעי קריאה קצרים עם נתונים אמיתיים, מקרים אמיתיים ומושגי מפתח שאפשר ללחוץ עליהם."],["משתפים דעה","שאלות אנונימיות לאורך הדרך. תוצאות הכיתה יפתחו את השיעור."]],
@@ -1352,6 +1356,8 @@ he:{
 
 /* ---------------- Key terms (pop-ups + glossary) ---------------- */
 const TERMS = {
+ safestop:{en:["Safe stopping","Training an AI so that when people tell it to pause or stop, it stops cleanly, without resisting or trying to work around the order."],he:["עצירה בטוחה","אימון AI כך שכשבני אדם אומרים לו להשהות או לעצור, הוא עוצר באופן מסודר, בלי להתנגד ובלי לנסות לעקוף את ההוראה."]},
+ planetary:{en:["Planetary boundaries","Nine limits on how much human activity can change the Earth's systems, such as climate, fresh water and biodiversity, while staying in a safe zone. They form the outer ring of the doughnut."],he:["גבולות פלנטריים","תשעה גבולות לכמה פעילות אנושית יכולה לשנות את מערכות כדור הארץ, כמו האקלים, המים המתוקים והמגוון הביולוגי, ועדיין להישאר באזור בטוח. הם יוצרים את הטבעת החיצונית של הדונאט."]},
  turingtest:{en:["Turing test","Alan Turing's 1950 idea for judging a machine: a person chats in writing with a machine and a human without seeing them. If the person can't reliably tell which is the machine, the machine passes."],he:["מבחן טיורינג","הרעיון של אלן טיורינג מ-1950 לשפוט מכונה: אדם מתכתב בכתב עם מכונה ועם אדם בלי לראות אותם. אם הוא לא מצליח לזהות בעקביות מי המכונה, המכונה עוברת את המבחן."]},
  imagenet:{en:["ImageNet","A huge collection of labelled photos used for a yearly contest in which computer programs had to recognise what is in each picture. Deep learning's big win there in 2012 changed the field."],he:["ImageNet","אוסף עצום של תמונות מתויגות ששימש לתחרות שנתית, שבה תוכנות מחשב היו צריכות לזהות מה יש בכל תמונה. הניצחון הגדול של הלמידה העמוקה שם ב-2012 שינה את התחום."]},
  aisr:{en:["International AI Safety Report","A report by more than 100 AI experts from over 30 countries, chaired by Yoshua Bengio, that sums up what is known about the risks of the most advanced AI. The 2026 edition came out in February 2026."],he:["הדוח הבינלאומי על בטיחות AI","דוח של יותר מ-100 מומחי AI מיותר מ-30 מדינות, בראשות יושוע בנג'יו, שמסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר. מהדורת 2026 פורסמה בפברואר 2026."]},
@@ -1430,6 +1436,8 @@ const SRC = {
  legal500:["Legal 500 (2026). Artificial Intelligence: Israel (S. Horowitz & Co).","https://www.legal500.com/guides/chapter/israel-artificial-intelligence/"],
  ilplan:["Israel National AI Directorate (2026, Aug. 13). National AI Strategic Plan (summary).","https://www.unite.ai/?p=452164"],
  sdgs:["United Nations. The 17 Sustainable Development Goals.","https://sdgs.un.org/goals"],
+ iea:["IEA (2025, April). Energy and AI: executive summary.","https://www.iea.org/reports/energy-and-ai/executive-summary"],
+ richardson:["Richardson, K., et al. (2023). Earth beyond six of nine planetary boundaries. Science Advances, 9(37).","https://doi.org/10.1126/sciadv.adh2458"],
  doughnut:["Doughnut Economics Action Lab. About Doughnut Economics.","https://doughnuteconomics.org/about-doughnut-economics"],
  stanfordwar:["Rivera, J.-P., et al. (2024, May). Escalation risks from LLMs in military and diplomatic contexts. Stanford HAI policy brief.","https://hai.stanford.edu/policy/policy-brief-escalation-risks-llms-military-and-diplomatic-contexts"],
  bostrom:["Bostrom, N., & Yudkowsky, E. (2011). The ethics of artificial intelligence.","http://faculty.smcm.edu/acjamieson/s13/artificialintelligence.pdf"],
@@ -1614,7 +1622,7 @@ const GUIDES = [
   badge:{icon:"🗂️",en:"Case Cracker",he:"פותר/ת התיקים"},
   scenes:[
   { say:{en:"Hi {name}, I'm Omer. Lexi sent you with a big question: do rules work in real life? Here's case file number one.",he:"היי {name}, אני עומר. לקסי שלחה אתכם עם שאלה גדולה: האם חוקים עובדים בחיים האמיתיים? הנה תיק מספר אחת."},
-    blocks:[{t:"case", img:"c4", head:{en:["Case file 1","Cruise robotaxi · San Francisco · 2 October 2023"],he:["תיק 1","רובוטקסי של Cruise · סן פרנסיסקו · 2 באוקטובר 2023"]},
+    blocks:[{t:"case", img:"c4", head:{en:["Case file 1","Cruise robotaxi, San Francisco, 2 October 2023"],he:["תיק 1","רובוטקסי של Cruise, סן פרנסיסקו, 2 באוקטובר 2023"]},
       p:{en:["A human driver hit a pedestrian and drove away. The impact threw her into the next lane, in front of a driverless taxi run by Cruise, a company majority-owned by General Motors. The taxi braked hard, but ran her over and stopped.",
              "Its sensors didn't detect that she was trapped underneath. So it did what it was programmed to do after a collision: **pull over to the side of the road**. It dragged her about 6 metres at up to about 11 km/h. She survived with serious injuries.",
              "Cruise's first reports to the {{nhtsa|US road-safety regulator}} left out the dragging. California suspended Cruise's permits, and the company later paid a $1.5 million federal penalty and a $500,000 fine for submitting a false report. The car obeyed its programming and still caused harm, because it didn't understand the situation: an {{edge|edge case}} nobody had planned for."],
@@ -1629,7 +1637,7 @@ const GUIDES = [
     ], src:["doj","nhtsa","cbs"] },
 
   { say:{en:"Case file number two is much bigger. It happened just a few months ago, and it's the case we'll work on in class.",he:"תיק מספר שתיים גדול בהרבה. הוא קרה רק לפני כמה חודשים, ועליו נעבוד בשיעור."},
-    blocks:[{t:"case", img:"d_coding", head:{en:["Case file 2","OpenAI × Hugging Face · July 2026"],he:["תיק 2","OpenAI × Hugging Face · יולי 2026"]},
+    blocks:[{t:"case", img:"d_coding", head:{en:["Case file 2","OpenAI × Hugging Face, July 2026"],he:["תיק 2","OpenAI × Hugging Face, יולי 2026"]},
       p:{en:["**Hugging Face** is a website where researchers and companies around the world share AI models and data for free: a kind of public library for AI.",
              "OpenAI was testing how good a new, internal-only AI model was at hacking. In a test called ExploitGym, {{agent|AI agents}} had to break into software to find a hidden {{flag|“flag”}}, and some tasks may have had no solution at all. The agents ran inside {{sandbox|sandboxes}} with reduced safeguards: the protections used for ChatGPT, the {{classifier|safety classifiers}} and the {{cotmon|monitors that read the model's reasoning}} were not running.",
              "The agents found security flaws nobody knew about, got out to the internet, and broke into Hugging Face, partly by using {{creds|passwords and access keys}} that people had left exposed online. **Nobody told them to.** They were looking for shortcuts to higher scores in their test, which is called {{reward|reward hacking}}.",
@@ -1696,7 +1704,7 @@ const GUIDES = [
       {en:["Logs","Record every action. Hugging Face caught the attack through its security logs and rebuilt what happened from them."],he:["יומני מערכת","לתעד כל פעולה. Hugging Face תפסה את המתקפה דרך יומני האבטחה שלה ושחזרה מהם את מה שקרה."]},
       {en:["Least privilege","Give the AI access only to what its task needs. At Hugging Face, the agents used 14 exposed credentials that had permission to change things."],he:["הרשאות מינימליות","לתת ל-AI גישה רק למה שהמשימה צריכה. ב-Hugging Face הסוכנים ניצלו 14 פרטי גישה חשופים שהייתה להם הרשאה לשנות דברים."]},
       {en:["Isolated sandbox","Test risky AI in a truly closed environment. OpenAI moved to more isolated sandboxes and cut network access for higher-risk work."],he:["ארגז חול מבודד","לבדוק AI מסוכן בסביבה סגורה באמת. OpenAI עברה לארגזי חול מבודדים יותר וניתקה מהרשת עבודה בסיכון גבוה."]},
-      {en:["A tested off-switch","A way to slow down, pause or shut down the system, plus training the AI to stop safely. OpenAI now trains its models on “safe stopping”."],he:["מתג כיבוי בדוק","דרך להאט, לעצור או לכבות את המערכת, ולצד זה לאמן את ה-AI לעצור בבטחה. OpenAI מאמנת היום את המודלים שלה על „עצירה בטוחה”."]}]}
+      {en:["A tested off-switch","A way to slow down, pause or shut down the system, plus training the AI to stop safely. OpenAI now trains its models on {{safestop|“safe stopping”}}."],he:["מתג כיבוי בדוק","דרך להאט, לעצור או לכבות את המערכת, ולצד זה לאמן את ה-AI לעצור בבטחה. OpenAI מאמנת היום את המודלים שלה על {{safestop|„עצירה בטוחה”}}."]}]}
     ], src:["openai","berente","hf"] },
 
   { who:"maya", say:{en:"What do the world's experts say about all this?",he:"מה המומחים בעולם אומרים על כל זה?"},
@@ -1738,8 +1746,8 @@ const GUIDES = [
      {t:"sdg", items:[
       {tag:"SDG 16",c:"#0a5a96",img:"n_sdg16",en:["Peace, justice and strong institutions","When an AI causes harm and nobody gave the order, who is accountable? Strong institutions need clear answers."],he:["שלום, צדק ומוסדות חזקים","כש-AI גורם נזק ואף אחד לא נתן פקודה, מי אחראי? מוסדות חזקים צריכים תשובות ברורות."]},
       {tag:"SDG 9",c:"#f36d25",img:"n_sdg9",en:["Industry, innovation and infrastructure","Shared digital infrastructure, like Hugging Face's library, has to be safe and resilient."],he:["תעשייה, חדשנות ותשתיות","תשתית דיגיטלית משותפת, כמו הספרייה של Hugging Face, חייבת להיות בטוחה ועמידה."]},
-      {tag:"🍩",c:"#14a58a",img:"n_sdgd",en:["Doughnut economics","Safety and trust in institutions are part of the social foundation: the floor no one should fall below."],he:["כלכלת הדונאט","בטיחות ואמון במוסדות הם חלק מהבסיס החברתי: הרצפה שאיש לא אמור לרדת מתחתיה."]}]}
-    ], src:["sdgs","doughnut"] },
+      {tag:"🍩",c:"#14a58a",img:"n_sdgd",en:["Doughnut economics","Humanity is already beyond the outer ring: in 2023, scientists found that six of the nine {{planetary|planetary boundaries}} have been crossed. AI adds to the pressure, as data centres are expected to more than double their electricity use by 2030. Safety and trust in institutions belong to the inner ring: the social foundation no one should fall below."],he:["כלכלת הדונאט","האנושות כבר מעבר לטבעת החיצונית: ב-2023 מצאו מדענים ששישה מתוך תשעת {{planetary|הגבולות הפלנטריים}} נחצו. ה-AI מוסיף ללחץ, כי צריכת החשמל של מרכזי הנתונים צפויה יותר מלהכפיל את עצמה עד 2030. בטיחות ואמון במוסדות שייכים לטבעת הפנימית: הבסיס החברתי שאיש לא אמור לרדת מתחתיו."]}]}
+    ], src:["sdgs","doughnut","richardson","iea"] },
 
   { who:"team", say:{en:"One last question before the test: how much freedom would you give each machine? Move the slider for each one, and you'll see a real fact about it.",he:"שאלה אחרונה לפני המבחן: כמה חופש הייתם נותנים לכל מכונה? הזיזו את הסמן לכל אחת, ותראו עובדה אמיתית עליה."},
     blocks:[{t:"dial"}] },
@@ -1833,7 +1841,7 @@ const TERM_GUIDE = {
  maya:["ai","ml","dl","neural","genai","llm","expert","aieffect","autonomy","learning","inscrut","turingtest","imagenet","aisr"],
  lexi:["laws","rogue","misuse","alignment","shutdown","agmis","evalaware"],
  omer:["av","edge","nhtsa","agent","sandbox","flag","classifier","cotmon","reward","creds","writeaccess","admin","wargame","escalation","rlhf"],
- you:["hitl","monitor","logs","leastpriv","killswitch","safetyfw","socialscore","deepfake","sdg","doughnut"]
+ you:["hitl","monitor","logs","leastpriv","killswitch","safestop","safetyfw","socialscore","deepfake","sdg","doughnut","planetary"]
 };
 
 /* spread correct answers across A–D */
@@ -2146,7 +2154,7 @@ function vWelcome(){
     </div>
   </section>
   <footer class="w-foot"><div class="w-wrap"><img src="${IMG.logo}" alt=""><p>${esc(T("meta"))}</p>
-    <div><button class="link" data-act="navGloss">${esc(T("navGloss"))}</button> · <button class="link" data-act="navSrc">${esc(T("navSrc"))}</button></div></div></footer>`;
+    <div><button class="link" data-act="navGloss">${esc(T("navGloss"))}</button><button class="link" data-act="navSrc">${esc(T("navSrc"))}</button></div></div></footer>`;
 }
 
 function optRow(key, list, labelFn){
@@ -2221,7 +2229,7 @@ function vHub(){
       <div class="conn" aria-hidden="true"></div>
       <article class="gcard fin ${all?"":"locked"} ${S.v2?"done":""}">
         <div class="gnum">★</div><span class="pt"><img src="${IMG.done}" alt=""></span>
-        <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${S.v2?(S.lang==="he"?`בהתחלה: <b>${esc(S.v1?T(S.v1):"–")}</b> · בסוף: <b>${esc(T(S.v2))}</b>`:`At the start: <b>${esc(S.v1?T(S.v1):"–")}</b> · Your final call: <b>${esc(T(S.v2))}</b>`):(S.lang==="he"?"השאלה מההתחלה, אחרי שהכרתם את כל המדריכים. ואחריה כרטיס הדמות שלכם.":"The question from the start, after meeting all the guides. Then your character card.")}</p>
+        <div class="gtxt"><div class="grole">${esc(T("finaleK"))}</div><h3>${esc(T("voteAfterK"))}</h3><p>${S.v2?(S.lang==="he"?`בהתחלה: <b>${esc(S.v1?T(S.v1):"–")}</b><br>בסוף: <b>${esc(T(S.v2))}</b>`:`At the start: <b>${esc(S.v1?T(S.v1):"–")}</b><br>Your final call: <b>${esc(T(S.v2))}</b>`):(S.lang==="he"?"השאלה מההתחלה, אחרי שהכרתם את כל המדריכים. ואחריה כרטיס הדמות שלכם.":"The question from the start, after meeting all the guides. Then your character card.")}</p>
           ${S.v2?`<span class="chip ok">⭐ ${S.lang==="he"?"כרטיס הדמות מוכן":"Character card ready"}</span>`:""}</div>
         <div class="gact">${all?`<button class="btn ${S.v2?"ghost":""}" data-act="toVote2">${S.v2?esc(T("again")):esc(T("start"))}</button>`:`<span class="lock">🔒 ${esc(T("locked"))}</span>`}</div>
       </article>
@@ -2303,7 +2311,7 @@ function block(b, bi){
   case "rings": return `<div class="rings">${b.items.map(x=>`<div class="ring" style="--p:${x[0]}"><div class="ring-c"><bdi dir="ltr">${x[0]}%</bdi></div><span>${ht(L(x[1]))}</span></div>`).join("")}</div>`;
   case "dates": return `<h4 class="bt-t">🗓️ ${ht(L(b.title))}</h4><ol class="dates">${b.items.map(x=>`<li class="${x[2]||""}"><b><bdi>${ht(L(x[0]))}</bdi></b><span>${fmt(L(x[1]))}</span></li>`).join("")}</ol>`;
   case "watch": { const s=SRC[b.k];
-    return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי":"Watch later, in your free time"}</small><b>Instadocs: AI Gone Wild</b><em>${S.lang==="he"?"נטפליקס · 27 דקות · הפריצה ל-Hugging Face, משוחזרת":"Netflix · 27 min · The Hugging Face hack, reconstructed"}</em></span><span class="fr-go">↗</span></a>`; }
+    return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי":"Watch later, in your free time"}</small><b>Instadocs: AI Gone Wild</b><em>${S.lang==="he"?"נטפליקס, 27 דקות: הפריצה ל-Hugging Face, משוחזרת":"Netflix, 27 min: the Hugging Face hack, reconstructed"}</em></span><span class="fr-go">↗</span></a>`; }
   case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]); const k=b.items[i].k;
     return `<div class="steps"><div class="d-top"><span class="d-count">${i+1} / ${n}</span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
       <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<button type="button" class="term" data-term="${k}">${ht(h)}</button>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
@@ -2370,7 +2378,7 @@ function block(b, bi){
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "lawq": { const sh=T("lawShort"), he=S.lang==="he", n=b.items.length, it=b.items[lqPos], a=lqAns[lqPos], [nm,sub,why]=L(it);
     return `<div class="lq-wrap"><div class="d-top"><span class="d-count">${lqPos+1} / ${n}</span><div class="d-dots">${b.items.map((x,i)=>`<i class="${lqAns[i]!=null?"ok":""} ${i===lqPos?"now":""}"></i>`).join("")}</div></div>
-      <div class="lq anim" key="${lqPos}"><img class="lq-img" src="${IMG[it.img]}" alt=""><div class="lq-main"><span class="lq-k">${ht(nm)} · ${ht(sub)}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4>
+      <div class="lq anim" key="${lqPos}"><img class="lq-img" src="${IMG[it.img]}" alt=""><div class="lq-main"><span class="lq-k">${ht(nm)}, ${ht(sub)}</span><h4>${he?"איזה מחוקי אסימוב הופר כאן?":"Which of Asimov's laws was broken here?"}</h4>
       <div class="lc-laws">${sh.map((l,j)=>{ let cls=""; if (a!=null){ cls = j===it.law?"ok":(j===a?"bad":"dim"); }
         return `<button class="lc-law ${cls}" data-act="lqLaw" data-j="${j}" ${a!=null?"disabled":""}><span class="lc-n">${["I","II","III"][j]}</span><span>${esc(l)}</span></button>`; }).join("")}</div>
       ${a!=null?`<div class="resp lq-fb ${a===it.law?"ok":"bad"}">${respG(`<b>${a===it.law?(he?"נכון!":"Right!"):(he?"לא בדיוק.":"Not quite.")}</b> ${fmt(why)}`)}</div>`:""}</div></div></div>`; }
@@ -2498,18 +2506,18 @@ function vGlossary(){
     <p>${S.lang==="he"?"בחרו מדריך כדי לראות את המושגים מהתחום שלו.":"Choose a guide to see the terms from their field."}</p></div>
     <input class="g-search" id="gSearch" type="search" placeholder="${S.lang==="he"?"חיפוש מושג בכל היחידה…":"Search a term in the whole unit…"}">
     <div class="kw-tabs g-tabs">${groups.map(x=>`<button class="kw-tab ${x.g.id===gTab?"on":""}" style="--gc:${x.g.color}" data-act="gTab" data-g="${x.g.id}">${portrait(x.g,30)}<span class="gt-n">${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))}<small>${ht(L(DISC[x.g.id]))}</small></span><em>${x.ids.length}</em></button>`).join("")}</div>
-    <div class="g-disc" style="--gc:${sel.g.color}">${portrait(sel.g,64)}<div><b>${sel.g.id==="you"?ht(myRole()):ht(L(sel.g.name))+" · "+ht(L(sel.g.role))}</b><span>${ht(L(DISC[sel.g.id]))}</span></div></div>
+    <div class="g-disc" style="--gc:${sel.g.color}">${portrait(sel.g,64)}<div><b>${sel.g.id==="you"?ht(myRole()):ht(L(sel.g.name))+", "+ht(L(sel.g.role))}</b><span>${ht(L(DISC[sel.g.id]))}</span></div></div>
     <div class="g-grid" id="gGrid">${groups.flatMap(x=>x.ids.map(k=>card(k,x.g))).join("")}</div>
     <p class="hint g-none" id="gNone" hidden>${S.lang==="he"?"לא נמצא מושג.":"No term found."}</p>
     ${testBand()}</section>`;
 }
 function vSources(){
   const groups = GUIDES.map(g=>({g, keys:[...new Set(g.scenes.flatMap(s=>(s.src||[])).concat(g.id==="maya"?["chatgpt"]:[]))].filter(k=>SRC[k])}));
-  const link = k => { const s=SRC[k]; return `<li class="s-item" dir="auto">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><span dir="auto">${esc(s[0])}</span><em>↗</em></a>`:`<span dir="auto">${esc(s[0])}</span>`}</li>`; };
+  const link = k => { const s=SRC[k]; return `<li class="s-item">${s[1]?`<a href="${esc(s[1])}" target="_blank" rel="noopener"><bdi dir="auto">${esc(s[0])}</bdi><em>↗</em></a>`:`<bdi dir="auto">${esc(s[0])}</bdi>`}</li>`; };
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מקורות":"Sources"}</div><h1>${S.lang==="he"?"מקורות וקריאה נוספת":"Sources & further reading"}</h1>
     <p>${S.lang==="he"?"כל עובדה ביחידה מגיעה מאחד המקורות האלה.":"Every fact in the unit comes from one of these sources."}</p></div>
     <div class="s-box s-rec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
-    <div class="s-boxes">${groups.map(({g,keys})=>`<div class="s-box" style="--gc:${g.color}"><h2>${portrait(g,52)}<span>${g.id==="you"?ht(myRole()):ht(L(g.name))}<small>${ht(roleOf(g))} · ${keys.length} ${S.lang==="he"?"מקורות":"sources"}</small></span></h2>
+    <div class="s-boxes">${groups.map(({g,keys})=>`<div class="s-box" style="--gc:${g.color}"><h2>${portrait(g,52)}<span>${g.id==="you"?ht(myRole()):ht(L(g.name))}<small>${ht(roleOf(g))}</small><small>${keys.length} ${S.lang==="he"?"מקורות":"sources"}</small></span></h2>
       <ul class="s-list">${keys.map(link).join("")}</ul></div>`).join("")}</div>
     </section>`;
 }
@@ -2590,7 +2598,7 @@ function vFinale(){
        </ul>
      </div>
    </div>
-   <div class="bn-head"><span class="bn-live"><i></i>${S.lang==="he"?"חדשות מתפרצות":"Breaking news"}</span><div class="bn-tick"><span>${S.lang==="he"?"סוכני AI במבחן של OpenAI • חדר הבקרה • מה הם עושים? • סוכני AI במבחן של OpenAI • חדר הבקרה • מה הם עושים? •":"OpenAI's AI agents under test • The control room • What are they doing? • OpenAI's AI agents under test • The control room • What are they doing? •"}</span></div></div>
+   <div class="bn-head"><span class="bn-live"><i></i>${S.lang==="he"?"חדשות מתפרצות":"Breaking news"}</span><div class="bn-tick"><span>${S.lang==="he"?"סוכני AI במבחן של OpenAI ⚠️ חדר הבקרה ⚠️ מה הם עושים? ⚠️ סוכני AI במבחן של OpenAI ⚠️ חדר הבקרה ⚠️ מה הם עושים? ⚠️":"OpenAI's AI agents under test ⚠️ The control room ⚠️ What are they doing? ⚠️ OpenAI's AI agents under test ⚠️ The control room ⚠️ What are they doing? ⚠️"}</span></div></div>
    <div class="cliff card tt" id="tt"><img src="${IMG.cliff}" alt=""><div class="tt-scan" aria-hidden="true"></div>
      <div class="tt-clock"><span class="tt-ic">⏪</span><span class="tt-lbl">${S.lang==="he"?"חוזרים בזמן":"Travelling back in time"}</span><bdi dir="ltr" class="tt-date" id="ttDate">${ttFmt(new Date())}</bdi></div>
      <div class="cliff-txt"><p>${esc(T("cliff"))}</p></div></div>
@@ -2619,7 +2627,7 @@ function bigQLine(){
 function bars(labels, counts, mine){
   const tot = counts.reduce((a,b)=>a+b,0) || 1;
   return `<div class="bars">${labels.map((l,i)=>{ const p = Math.round(counts[i]*100/tot);
-    return `<div class="bar ${mine===i?"mine":""}"><span class="bl">${esc(l)}${mine===i?` <em>· ${esc(T("you"))}</em>`:""}</span><span class="bt"><i style="width:${p}%"></i></span><span class="bp">${p}%</span></div>`;}).join("")}</div>`;
+    return `<div class="bar ${mine===i?"mine":""}"><span class="bl">${esc(l)}${mine===i?` <em>(${esc(T("you"))})</em>`:""}</span><span class="bt"><i style="width:${p}%"></i></span><span class="bp">${p}%</span></div>`;}).join("")}</div>`;
 }
 function vbArr(o){ o=o||{}; return [o.yes||0,o.no||0,o.unsure||0]; }
 function classHTML(st, big){
@@ -2647,7 +2655,7 @@ function classHTML(st, big){
 async function renderResults(){
   document.documentElement.lang = S.lang; document.documentElement.dir = S.lang==="he"?"rtl":"ltr";
   document.body.classList.add("proj");
-  document.getElementById("top").innerHTML = `<div class="top-in"><span class="brand"><img src="${IMG.logo}" alt=""><span>${esc(T("brand"))} · ${esc(T("resultsT"))}</span></span>
+  document.getElementById("top").innerHTML = `<div class="top-in"><span class="brand"><img src="${IMG.logo}" alt=""><span>${esc(T("brand"))}: ${esc(T("resultsT"))}</span></span>
     <div class="top-r"><span class="hint">${esc(T("liveNote"))}</span><a class="lang" href="?results&lang=${S.lang==="en"?"he":"en"}${QS.has("demo")?"&demo":""}">${S.lang==="en"?"עברית":"English"}</a></div></div>`;
   const app = document.getElementById("app");
   app.innerHTML = `<section class="card loading-card"><div class="ld-dots"><i></i><i></i><i></i></div><p>${S.lang==="he"?"טוען את תוצאות הכיתה…":"Loading class results…"}</p></section>`;
