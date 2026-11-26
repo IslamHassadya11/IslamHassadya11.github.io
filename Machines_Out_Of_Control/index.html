@@ -1243,6 +1243,13 @@ html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8
 footer .link+.link{margin-inline-start:18px}
 .mine li.quiz-inv p{margin:2px 0 6px;font-size:14.5px;color:var(--muted)}
 .mine li.quiz-inv .link{display:inline-flex;align-self:flex-start;text-align:start;font-weight:800;color:var(--blue,#2f6fde);padding:0;background:none;border:0;cursor:pointer}
+.quiz-pill{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;color:#fff;font:inherit;font-weight:800;font-size:15.5px;padding:10px 20px;border-radius:999px;
+  background:linear-gradient(90deg,#18bfe8,#8e5cf2,#ef5b93,#14a58a,#18bfe8);background-size:300% 100%;animation:pillshift 6s linear infinite;
+  box-shadow:0 6px 18px rgba(142,92,242,.28);transition:transform .2s,box-shadow .2s}
+.mine li .quiz-pill span,.quiz-pill span{color:#fff;font-size:inherit;font-weight:800;text-transform:none;letter-spacing:0;margin:0}
+.quiz-pill:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(142,92,242,.38)}
+@keyframes pillshift{to{background-position:300% 0}}
+@media (prefers-reduced-motion:reduce){.quiz-pill{animation:none}}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
@@ -2606,7 +2613,7 @@ function vFinale(){
        <ul class="mine">
          <li class="wide"><span>${S.lang==="he"?"ההכרעה שלכם":"Your final call"}</span><b>${bigQLine()}</b></li>
          <li><span>${S.lang==="he"?"דאגה ש-AI ייצא משליטה":"Worry that AI gets out of control"}</span><b>${S.trust ?? "–"}/10</b></li>
-         ${quizDone()?`<li><span>${S.lang==="he"?"המבחן":"The test"}</span><b><bdi dir="ltr">${quizScore()}/${QUIZ.length}</bdi></b></li>`:`<li class="quiz-inv"><span>${S.lang==="he"?"רוצים לבדוק את עצמכם?":"Want to test yourself?"}</span><p>${S.lang==="he"?"12 שאלות קצרות מהמדריכים, רק בשביל הכיף. אין חובה.":"12 short questions from your guides, just for fun. No pressure."}</p><button class="link" data-act="toQuiz">${S.lang==="he"?"לנסות את המבחן":"Try the test"} ${FW()}</button></li>`}
+         ${quizDone()?`<li><span>${S.lang==="he"?"המבחן":"The test"}</span><b><bdi dir="ltr">${quizScore()}/${QUIZ.length}</bdi></b></li>`:`<li class="quiz-inv"><span>${S.lang==="he"?"רוצים לבדוק את עצמכם?":"Want to test yourself?"}</span><p>${S.lang==="he"?"12 שאלות קצרות מהמדריכים, רק בשביל הכיף. אין חובה.":"12 short questions from your guides, just for fun. No pressure."}</p><button class="quiz-pill" data-act="toQuiz"><span>✨ ${S.lang==="he"?"לנסות את המבחן":"Try the test"}</span> ${FW()}</button></li>`}
          ${S.law4?`<li class="wide law4"><span>${S.lang==="he"?"החוק הרביעי שלכם לאסימוב":"Your fourth Asimov law"}</span><b>${S.lang==="he"?`"${esc(S.law4)}"`:`“${esc(S.law4)}”`}</b><em>${S.lang==="he"?"אסימוב היה גאה בכם!":"He would be so proud of you!"}</em></li>`:""}
        </ul>
      </div>
