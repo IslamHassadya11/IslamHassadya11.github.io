@@ -1447,14 +1447,12 @@ const TERMS = {
 const SRC = {
  berente:["Berente, N., Gu, B., Recker, J., & Santhanam, R. (2021). Managing artificial intelligence. MIS Quarterly, 45(3), 1433–1450.","https://open.bu.edu/items/3a9279f5-a4e8-4f7f-9e7c-2af0f8d2f1ff"],
  neurosnap:["Amani, K. (2023). Understanding the differences between AI, machine learning, and deep learning. Neurosnap.","https://neurosnap.ai/blog/post/understanding-the-differences-between-ai-machine-learning-and-deep-learning/64279cadfeb3e5ca5ba0904a"],
- gmail:["Google Safety Center. Gmail: built-in protections.","https://safety.google/gmail/"],
  krizhevsky:["Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). ImageNet classification with deep convolutional neural networks. NeurIPS 25.","https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks"],
  britrobot:["Britannica. Robot (technology): history of robots and robotics.","https://www.britannica.com/technology/robot-technology"],
  turing:["Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59(236), 433–460.","https://doi.org/10.1093/mind/LIX.236.433"],
  dartmouth:["McCarthy, J., Minsky, M., Rochester, N., & Shannon, C. (1955). A proposal for the Dartmouth summer research project on artificial intelligence.","http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf"],
  acm:["ACM (2019, March 27). Fathers of the deep learning revolution receive ACM A.M. Turing Award.","https://www.acm.org/media-center/2019/march/turing-award-2018"],
  openaichat:["OpenAI (2022, Nov. 30). Introducing ChatGPT.","https://openai.com/index/chatgpt/"],
- davidson:["פוגל, א. (2024). קיצור תולדות הבינה המלאכותית. מכון דוידסון.","https://davidson.weizmann.ac.il/online/sciencepanorama/%D7%A7%D7%99%D7%A6%D7%95%D7%A8-%D7%AA%D7%95%D7%9C%D7%93%D7%95%D7%AA-%D7%94%D7%91%D7%99%D7%A0%D7%94-%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%95%D7%AA%D7%99%D7%AA"],
  britannica:["Britannica. Three Laws of Robotics.","https://www.britannica.com/topic/Three-Laws-of-Robotics"],
  bengio:["Bengio, Y. (2023, May 22). How rogue AIs may arise.","https://yoshuabengio.org/2023/05/22/how-rogue-ais-may-arise/"],
  palisade:["Palisade Research (2026). Shutdown resistance on robots.","https://palisaderesearch-org.pages.dev/blog/shutdown-resistance-on-robots"],
@@ -1609,7 +1607,7 @@ const GUIDES = [
           "**דרך 1, שימוש לרעה.** אנשים עם כוונות רעות נותנים ל-AI חזק מטרה מזיקה. זה {{misuse|שימוש לרעה}}.",
           "**דרך 2, חוסר התאמה.** אף אחד לא מתכוון לפגוע, אבל יש פער בין מה שבני אדם באמת מתכוונים אליו לבין מה שה-AI מבין ועושה. בנג'יו קורא לזה בעיית ה{{alignment|התאמה}}. בדרך למטרה שלה, מערכת מסוגלת עלולה להציב לעצמה מטרות ביניים שגורמות נזק שאיש לא רצה. ואם ההישרדות של ה-AI עצמו הופכת למטרה העיקרית שלו, הוא מזהיר, עלול להיווצר AI סורר.",
           "המסקנה שלו: הרבה יותר מחקר על בטיחות AI, וכללים ופיקוח שישאירו לבני אדם את היכולת להתערב."]}}
-    ], src:["bengio"] },
+    ], src:["bengio","acm"] },
 
   { say:{en:"This isn't only theory. Here's the first of two recent experiments, and it's literally about an off switch.",he:"זו לא רק תיאוריה. הנה הראשון מבין שני ניסויים מהזמן האחרון, והוא ממש על מתג כיבוי."},
     blocks:[
@@ -2364,7 +2362,7 @@ function block(b, bi){
     <div class="map-grid ${mapBig?"big":""}"><div class="map-wrap ${sel?"sel-"+sel.r:""}">${MAP_SVG}</div>
       ${sel?`<div class="map-panel ${sel.r}"><div class="mp-h"><span>${sel.flag}</span><div><b>${ht(sh)}</b><small>${ht(L(sel.tag))}</small></div></div>
         <p>${fmt(sb)}</p>${sel.facts?`<ul>${L(sel.facts).map(f=>`<li>${fmt(f)}</li>`).join("")}</ul>`:""}${srcHTML([sel.src])}</div>`:`<div class="map-panel empty"><span>🗺️</span><p>${S.lang==="he"?"בחרו אזור צבוע על המפה או מקרא למטה כדי לראות מה נעשה שם.":"Choose a coloured area on the map, or a label below, to see what was done there."}</p></div>`}</div>
-    <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${sel&&x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
+    <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${sel&&x.r===sel.r?"on":""} ${mapSeen.has(x.r)?"seen":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}${mapSeen.has(x.r)?" ✓":""}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
   case "tlside": { const n=TIMELINE.length, sel=tlSel; const x = sel==null?null:TIMELINE[sel];
     return `<div class="tls"><h4>🕰️ ${S.lang==="he"?"ציר הזמן":"Timeline"}</h4>
       <input type="range" min="0" max="${n-1}" step="0.01" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
@@ -2461,7 +2459,7 @@ function rankComment(){
     : (same ? "Exactly Asimov's order: safety first." : "A different order from Asimov's. Real AI systems face exactly this trade-off.");
   return `<div class="note">${t}</div>`;
 }
-let dialPos = 0, stepPos = 0, mapSel = null, mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
+let mapSeen = new Set(); let dialPos = 0, stepPos = 0, mapSel = null, mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
 function animateRange(r, to){ const from=+r.value, t0=performance.now(); const step=now=>{ const k=Math.min(1,(now-t0)/350), e=1-Math.pow(1-k,3); r.value=from+(to-from)*e; if (k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
 document.addEventListener("change", e => { const t=e.target; if (!t.dataset) return; if (t.dataset.inp==="tl" && tlSel!=null) animateRange(t, tlSel); if (t.dataset.inp==="dial" && S.dial[t.dataset.id]!=null) animateRange(t, S.dial[t.dataset.id]); });
 function updateTlCard(){
@@ -2507,6 +2505,7 @@ function sceneReady(sc){
     if (b.t==="write" && !S.law4) return false;
     if (b.t==="lawq" && lqAns[lqPos]==null) return false;
     if (b.t==="slider" && ANS(b.key)==null) return false;
+    if (b.t==="map" && b.items.some(x=>!mapSeen.has(x.r))) return false;
     if (b.t==="dial" && (dialPos<DIAL.length ? ANSD(DIAL[dialPos].id)==null : DIAL.some(d=>ANSD(d.id)==null))) return false;
   }
   return true;
@@ -2752,7 +2751,7 @@ const A = {
   ctaX(){ S.ctaGone=true; save(); const b=document.getElementById("ctaBand"); if (b){ b.style.transition="opacity .3s,transform .3s"; b.style.opacity=0; b.style.transform="translateY(10px)"; setTimeout(()=>b.remove(),300); } },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
-  guideStart(el){ NOW.clear(); lqAns={}; lqPos=0; const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
+  guideStart(el){ NOW.clear(); lqAns={}; lqPos=0; const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapSeen=new Set(); mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
   next(){ if (!sceneReady(CUR)) return;
     const st = innerStep();
     if (st && st.kind==="steps"){ stepPos++; rerenderType("steps"); updateGate(); return; }
@@ -2783,7 +2782,7 @@ const A = {
   theme(){ const r=document.documentElement; const d = r.dataset.theme==="dark"; if (d) delete r.dataset.theme; else r.dataset.theme="dark"; try{ localStorage.setItem("ih-mode", d?"light":"dark"); }catch(e){} renderTop(); },
   dialNext(){ dialPos++; const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); },
   dialPrev(){ dialPos=Math.max(0,dialPos-1); const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); },
-  mapR(el){ mapSel = el.dataset.r; const r=mapSel; rerenderType("map");
+  mapR(el){ mapSel = el.dataset.r; const r=mapSel; mapSeen.add(r); rerenderType("map"); updateGate();
     const svg=document.querySelector(".wmap"); if (!svg) return; const els=[...svg.querySelectorAll(`[data-r="${r}"]`)].filter(x=>x.tagName!=="circle"||r==="il");
     let bb=null; els.forEach(e=>{ const b=e.getBBox(); if (b.width*b.height>(bb?0:-1)){ if(!bb) bb={x:b.x,y:b.y,x2:b.x+b.width,y2:b.y+b.height}; else { bb.x=Math.min(bb.x,b.x); bb.y=Math.min(bb.y,b.y); bb.x2=Math.max(bb.x2,b.x+b.width); bb.y2=Math.max(bb.y2,b.y+b.height);} } });
     if (r==="us") bb={x:120,y:80,x2:330,y2:200};
