@@ -6,7 +6,7 @@
 <title>Machines, Out of Control · מכונות מחוץ לשליטה</title>
 <meta name="description" content="An interactive prep unit on autonomy, learning and human control of AI. IT, AI & Sustainability, University of Haifa.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0c2d5e; --navy2:#173f7c; --cyan:#18bfe8; --cyan2:#0aa3d6; --sky:#eaf7fd; --lav:#8e7cf2; --pink:#ef5b93;
@@ -15,7 +15,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Heebo",system-ui,sans-serif;color:var(--ink);font-size:17px;line-height:1.6;
+body{margin:0;font-family:"Source Sans 3","Heebo",system-ui,sans-serif;color:var(--ink);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;
   background:#e3f2fc url("data:image/webp;base64,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") center/cover fixed;min-height:100vh}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(1000px 500px at 85% -10%,rgba(24,191,232,.18),transparent 60%),radial-gradient(800px 500px at -10% 110%,rgba(142,124,242,.12),transparent 60%)}
 img{max-width:100%;display:block}
@@ -671,6 +671,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* quiz team */
 .trio.full{gap:0}.trio.full img{height:min(36vh,300px);width:auto;margin:0 -14px}
 .qz-who.team{align-items:center}
+.blk.waiting{display:none}
+.blk.revealed{animation:popin .45s}
+.side-dia .nest{margin:0}
+.side-dia .n1{padding:12px 12px 14px}.side-dia .n2,.side-dia .n3,.side-dia .n4{margin-inline-start:12px}
+.side-dia .nest span{font-size:14px}.side-dia .nest small{display:block;margin:2px 0 0}
+.blk-read.has-img:has(.side-dia){grid-template-columns:minmax(0,1fr) 340px}
+html[lang=he] body,html[lang=he] button,html[lang=he] input,html[lang=he] textarea{font-family:"Heebo","Source Sans 3",system-ui,sans-serif}
+html[lang=he] body{font-size:17px}
+h1,h2,h3{letter-spacing:-.01em}
+.blk p,.rtext p{font-size:18px;line-height:1.7}
+html[lang=he] .blk p,html[lang=he] .rtext p{font-size:17px}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -1086,15 +1097,14 @@ const GUIDES = [
 
   { say:{en:"Three words get mixed up all the time. Here's how they fit inside each other.",he:"שלוש מילים מתבלבלות כל הזמן. הנה איך הן נכנסות אחת בתוך השנייה."},
     blocks:[
-     {t:"read", img:"i_genai", h:{en:"AI, machine learning and deep learning",he:"AI, למידת מכונה ולמידה עמוקה"}, p:{
+     {t:"read", side:"nest", h:{en:"AI, machine learning and deep learning",he:"AI, למידת מכונה ולמידה עמוקה"}, p:{
       en:["**Artificial intelligence** is the broad goal: getting computers to do things we would call intelligent if a person did them.",
           "**Machine learning** is one way to reach that goal. Instead of a programmer writing every rule, the system learns patterns from examples. A spam filter, for instance, learns from millions of emails which ones are junk. Nobody wrote its exact rules. That makes it powerful, but also harder to check.",
           "**Deep learning** is a kind of machine learning that uses {{neural|neural networks}} with many layers. It powers speech recognition, image recognition and chatbots."],
       he:["**בינה מלאכותית** היא המטרה הרחבה: לגרום למחשבים לעשות דברים שהיינו מכנים „חכמים” אילו אדם היה עושה אותם.",
           "**למידת מכונה** היא דרך אחת להגיע למטרה הזו. במקום שמתכנת יכתוב כל כלל, המערכת לומדת דפוסים מתוך דוגמאות. מסנן ספאם, למשל, לומד ממיליוני מיילים אילו מהם זבל. אף אחד לא כתב את הכללים המדויקים שלו. זה הופך אותו לחזק, אבל גם לקשה יותר לבדיקה.",
           "**למידה עמוקה** היא סוג של למידת מכונה שמשתמש ב{{neural|רשתות נוירונים}} בעלות שכבות רבות. היא עומדת מאחורי זיהוי דיבור, זיהוי תמונות וצ'טבוטים."]}},
-     {t:"nest"},
-     {t:"read", h:{en:"Generative AI and agents",he:"בינה מלאכותית יוצרת וסוכנים"}, p:{
+     {t:"read", img:"i_genai", h:{en:"Generative AI and agents",he:"בינה מלאכותית יוצרת וסוכנים"}, p:{
       en:["**{{genai|Generative AI}}** is the newest layer: deep-learning systems that create new text, images or code. The best known are {{llm|large language models}} (LLMs), trained on huge amounts of text to predict what comes next. That one skill lets them write, summarise and answer questions.",
           "ChatGPT, released in late November 2022, reached an estimated 100 million monthly users in about two months: the fastest-growing consumer app in history at the time. Today's {{agent|AI agents}} are built on these models."],
       he:["**{{genai|בינה מלאכותית יוצרת}}** היא השכבה החדשה ביותר: מערכות למידה עמוקה שיוצרות טקסט, תמונות או קוד חדשים. המוכרות ביותר הן {{llm|מודלי שפה גדולים}} (LLM), שמאומנים על כמויות עצומות של טקסט כדי לנחש מה בא אחר כך. היכולת הזו לבדה מאפשרת להם לכתוב, לסכם ולענות על שאלות.",
@@ -1807,7 +1817,8 @@ function speaker(g, sc){
 const STARTERS = ["read","case","poll","slider","write","dial","map"];
 function pagesOf(sc){
   const out=[]; let cur=[];
-  (sc.blocks||[]).forEach((b,i)=>{ if (STARTERS.includes(b.t) && cur.length){ out.push(cur); cur=[]; } cur.push(i); });
+  (sc.blocks||[]).forEach((b,i)=>{ const prev = sc.blocks[cur[cur.length-1]]; const joinSlider = b.t==="slider" && prev && prev.t==="slider";
+    if (STARTERS.includes(b.t) && cur.length && !joinSlider){ out.push(cur); cur=[]; } cur.push(i); });
   if (cur.length || !out.length) out.push(cur);
   return out;
 }
@@ -1834,7 +1845,9 @@ function vGuide(){
       <div class="pgbar"><i style="width:${((donePages+1)/totalPages*100).toFixed(1)}%"></i></div>
     </div>
     ${pg===0?`<div class="say-row" style="--gc:${spkColor(g,sc)}">${speaker(g, sc)}<div class="bubble">${fmt(L(sc.say))}</div></div>`:""}
-    <div class="blocks">${ids.map(i=>{ const b=sc.blocks[i]; return `<div class="blk blk-${b.t} ${b.img?"has-img":""}" data-b="${i}">${block(b,i)}</div>`; }).join("")}</div>
+    <div class="blocks">${ids.map(i=>{ const b=sc.blocks[i]; const pv = ids.slice(0, ids.indexOf(i)).map(j=>sc.blocks[j]).filter(x=>x.t==="slider").pop();
+      const wait = b.t==="slider" && pv && S[pv.key]==null;
+      return `<div class="blk blk-${b.t} ${(b.img||b.side)?"has-img":""} ${wait?"waiting":""}" data-b="${i}" ${wait?`data-after="${pv.key}"`:""}>${block(b,i)}</div>`; }).join("")}</div>
     ${sc.handoff ? handoffCard(nextG) : ""}
     <div class="nav">
       <button class="btn ghost" data-act="prev" ${S.sc===0&&pg===0?"disabled":""}>${BK()} ${esc(T("back"))}</button>
@@ -1857,7 +1870,7 @@ function handoffCard(nextG){
 function block(b, bi){
   switch(b.t){
   case "read": { const ps = L(b.p);
-    return `${b.img?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,items:b.list}):""}</div>`; }
+    return `${b.img?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${block({t:b.side})}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,items:b.list}):""}</div>`; }
   case "waffle": return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="waffles">${b.items.map(x=>`<div class="waf"><div class="waf-g ${x.of<=10?"big":""}">${Array.from({length:x.of},(_,i)=>`<i class="${i<x.n?"on":""}"></i>`).join("")}</div><b><bdi dir="ltr">${x.n} / ${x.of}</bdi></b><span>${ht(L(x.l))}</span></div>`).join("")}</div>`;
   case "cols": { const mx=Math.max(...b.items.map(x=>x[1]));
     return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="cols">${b.items.map((x,i)=>`<div class="col ${i===b.hi?"hi":""}"><span class="cv"><bdi dir="ltr">${x[1]}${b.unit?" "+ht(L(b.unit)):""}</bdi></span><i style="height:${(x[1]/mx*100).toFixed(1)}%"></i><b>${ht(typeof x[0]==="string"?x[0]:L(x[0]))}</b></div>`).join("")}</div>`; }
@@ -1876,7 +1889,7 @@ function block(b, bi){
         <p>${fmt(sb)}</p>${sel.facts?`<ul>${L(sel.facts).map(f=>`<li>${ht(f)}</li>`).join("")}</ul>`:""}${srcHTML([sel.src])}</div></div>
     <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
   case "tl": return `<p class="hint">${S.lang==="he"?"לחצו על שנה כדי לקרוא עוד":"Tap a year to read more"}</p><div class="stl">${b.items.map((x,i)=>`<button class="stl-i" data-act="tlPop" data-i="${i}"><b><bdi dir="ltr">${esc(x[0])}</bdi></b><span>${ht(L(x[1]))}</span></button>`).join("")}</div>`;
-  case "nest": { const n = S.lang==="he"?["בינה מלאכותית (AI)","למידת מכונה","למידה עמוקה","בינה מלאכותית יוצרת (ChatGPT)"]:["Artificial intelligence (AI)","Machine learning","Deep learning","Generative AI (e.g. ChatGPT)"];
+  case "nest": { const n = S.lang==="he"?["בינה מלאכותית (AI)","למידת מכונה","למידה עמוקה","בינה מלאכותית יוצרת"]:["Artificial intelligence (AI)","Machine learning","Deep learning","Generative AI"];
     const s = S.lang==="he"?["המטרה הרחבה","לומדת מדוגמאות","רשתות נוירונים בשכבות","יוצרת טקסט, תמונות וקוד"]:["The broad goal","Learns from examples","Many-layered neural networks","Creates text, images and code"];
     return `<div class="nest"><div class="n1"><span>${ht(n[0])} <small>${ht(s[0])}</small></span><div class="n2"><span>${ht(n[1])} <small>${ht(s[1])}</small></span><div class="n3"><span>${ht(n[2])} <small>${ht(s[2])}</small></span><div class="n4"><span>${ht(n[3])} <small>${ht(s[3])}</small></span></div></div></div></div></div>`; }
   case "list": return `${b.title?`<h3 class="rh">${esc(L(b.title))}</h3>`:""}<div class="slist">${b.items.map((x,i)=>{ const [h,t]=L(x); const mk = b.roman?["I","II","III","IV"][i]:(b.num?String(i+1):"");
@@ -1976,6 +1989,7 @@ function sceneReady(sc){
   for (const i of ids){ const b = sc.blocks[i];
     if (b.t==="poll" && S[b.key]==null) return false;
     if (b.t==="write" && !S.law4) return false;
+    if (b.t==="slider" && S[b.key]==null) return false;
     if (b.t==="dial" && DIAL.some(d=>S.dial[d.id]==null)) return false;
   }
   return true;
@@ -2261,8 +2275,9 @@ document.addEventListener("input", e => {
     const msg=document.getElementById("nickMsg"); if (t.value.trim().length>1 && isBad(t.value,false)){ msg.textContent=T("nameBad"); msg.className="hint err"; } else { msg.textContent=T("nameHint"); msg.className="hint"; } }
   if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); document.querySelectorAll(".g-card").forEach(c=>c.style.display=!q||c.dataset.s.includes(q)?"":"none"); }
   if (t.id === "law4"){ const c=document.getElementById("lawCnt"); if(c) c.textContent=t.value.length; }
-  if (t.dataset.inp === "slider"){ const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; document.getElementById("ss_"+k).classList.add("show");
-    const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r) r.innerHTML=ht(sliderResp(b,+t.value)); syncSoon(); }
+  if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; document.getElementById("ss_"+k).classList.add("show");
+    const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r) r.innerHTML=ht(sliderResp(b,+t.value));
+    document.querySelectorAll(`.waiting[data-after="${k}"]`).forEach(el=>{ el.classList.remove("waiting"); el.classList.add("revealed"); }); syncSoon(); }
   if (t.dataset.inp === "dial"){ const id=t.dataset.id; document.getElementById("dl_"+id).textContent=T("lvls")[+t.value];
     if (S.dial[id]!=null){ S.dial[id]=+t.value; syncSoon(); } }
 });
