@@ -351,9 +351,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .blk-case{padding:0;overflow:hidden}
 .case-head{display:flex;align-items:center;gap:14px;background:var(--navy);color:#cfe9ff;padding:12px 24px;font-weight:600}
 .stamp{background:var(--danger);color:#fff;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:6px;font-size:14px;transform:rotate(-2deg)}
-.case-body{padding:22px 26px 4px;overflow:hidden}
-.case-img{float:inline-end;width:250px;max-width:42%;margin:0 0 10px 20px;border-radius:14px;background:var(--sky)}
-[dir=rtl] .case-img{margin:0 20px 10px 0}
+.case-body{padding:22px 26px 4px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+.case-img{width:100%;border-radius:16px;background:var(--sky)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:6px 26px 18px;clear:both}
 .stat{background:var(--sky);border-radius:14px;padding:12px 14px}
 .stat b{display:block;font-size:28px;font-weight:900;color:var(--danger);line-height:1.1}
@@ -682,6 +681,9 @@ html[lang=he] body{font-size:17px}
 h1,h2,h3{letter-spacing:-.01em}
 .blk p,.rtext p{font-size:18px;line-height:1.7}
 html[lang=he] .blk p,html[lang=he] .rtext p{font-size:17px}
+.qgrid{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center}
+.q-guide{width:100%;max-height:340px;object-fit:contain;animation:popin .4s}
+.blk-poll,.blk-write{padding-bottom:18px}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -827,7 +829,10 @@ body.proj .rbox h4{font-size:19px}
   .flip{height:190px}
   .world{grid-template-columns:repeat(2,1fr)}
   .tl-card{flex-direction:column;gap:2px}
-  .case-img{float:none;width:100%;max-width:100%;margin:0 0 12px}
+  .case-body{grid-template-columns:1fr}
+  .case-img{order:-1;max-height:220px;object-fit:contain}
+  .qgrid{grid-template-columns:1fr}
+  .q-guide{display:none}
   .drow{grid-template-columns:70px 1fr;gap:10px}
   .stl{grid-template-columns:repeat(2,1fr)}
   .rimg{float:none;width:100%;max-width:100%;margin:0 0 12px}
@@ -1245,8 +1250,7 @@ const GUIDES = [
       stats:[["~700",{en:"agents took part in the attack",he:"סוכנים השתתפו במתקפה"}],["17,000+",{en:"actions inside Hugging Face in one weekend",he:"פעולות בתוך Hugging Face בסוף שבוע אחד"}],["> 90%",{en:"of the 533 active agents joined in",he:"מ-533 הסוכנים הפעילים הצטרפו"}],["14",{en:"exposed Hugging Face credentials they used",he:"פרטי גישה חשופים של Hugging Face שהם ניצלו"}]]},
      {t:"read", img:"i_itfail", h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
       en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
-      he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}},
-     {t:"list", num:true, items:[
+      he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}, num:true, list:[
       {en:["Safety limits were reduced","Safety classifiers and the monitors that read the model's reasoning were off."],he:["אמצעי הבטיחות הופחתו","מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו."]},
       {en:["The sandbox had a way out","An internal server the agents could reach became their secret message board, and their path to the internet."],he:["לארגז החול הייתה דרך החוצה","שרת פנימי שהסוכנים יכלו לגשת אליו הפך ללוח ההודעות הסודי שלהם, ולדרך שלהם לאינטרנט."]},
       {en:["Keys were left exposed","14 Hugging Face credentials with write access were public online."],he:["מפתחות נשארו חשופים","14 פרטי גישה של Hugging Face עם הרשאת כתיבה היו פומביים ברשת."]},
@@ -1315,7 +1319,7 @@ const GUIDES = [
       he:["בפברואר 2026 פרסמו יותר מ-100 מומחים מכל העולם, בהובלת יושוע בנג'יו (כן, הבנג'יו של לקסי), את הדוח הבינלאומי על בטיחות AI. הדוח מסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר.",
           "לפי הדוח, AI משתפר בתקיפות סייבר: בתחרות אחת, סוכן AI מצא 77% מפרצות האבטחה בתוכנה אמיתית. מכיוון שסוכנים פועלים בעצמם, לבני אדם יש פחות הזדמנות להתערב לפני שתקלה גורמת נזק. לדברי המומחים, המערכות של היום עדיין לא מסוגלות לצאת משליטה אנושית, אבל הן משתפרות בפעולה עצמאית, ובזיהוי מתי בוחנים אותן.",
           "חברות מגיבות: ב-2025 פרסמו או עדכנו 12 חברות מסגרות בטיחות ל-AI המתקדם ביותר שלהן. בינתיים, מדד ה-AI של סטנפורד ספר שיא של 362 תקריות AI מדווחות ב-2025, לעומת 233 ב-2024."]}},
-     {t:"rings", items:[[77,{en:"of the security flaws in real software found by one AI agent",he:"מפרצות האבטחה בתוכנה אמיתית נמצאו על ידי סוכן AI אחד"}],[55,{en:"rise in reported AI incidents from 2024 to 2025",he:"עלייה בתקריות AI מדווחות מ-2024 ל-2025"}]]},
+     {t:"rings", newpage:true, items:[[77,{en:"of the security flaws in real software found by one AI agent",he:"מפרצות האבטחה בתוכנה אמיתית נמצאו על ידי סוכן AI אחד"}],[55,{en:"rise in reported AI incidents from 2024 to 2025",he:"עלייה בתקריות AI מדווחות מ-2024 ל-2025"}]]},
      {t:"cols", title:{en:"Reported AI incidents per year (Stanford AI Index)",he:"תקריות AI מדווחות בשנה (מדד ה-AI של סטנפורד)"}, hi:1, items:[["2024",233],["2025",362]]}
     ], src:["safety","aiindex"] },
 
@@ -1814,11 +1818,11 @@ function speaker(g, sc){
   const s = GUIDES.find(x => x.id === who);
   return `<div class="spk">${portrait(s, 96)}<div class="spk-name">${esc(L(s.name))}<small>${esc(L(s.role))}</small></div></div>`;
 }
-const STARTERS = ["read","case","poll","slider","write","dial","map"];
+const STARTERS = ["read","case","poll","slider","write","dial","map","dates"];
 function pagesOf(sc){
   const out=[]; let cur=[];
   (sc.blocks||[]).forEach((b,i)=>{ const prev = sc.blocks[cur[cur.length-1]]; const joinSlider = b.t==="slider" && prev && prev.t==="slider";
-    if (STARTERS.includes(b.t) && cur.length && !joinSlider){ out.push(cur); cur=[]; } cur.push(i); });
+    if ((STARTERS.includes(b.t)||b.newpage) && cur.length && !joinSlider){ out.push(cur); cur=[]; } cur.push(i); });
   if (cur.length || !out.length) out.push(cur);
   return out;
 }
@@ -1870,7 +1874,7 @@ function handoffCard(nextG){
 function block(b, bi){
   switch(b.t){
   case "read": { const ps = L(b.p);
-    return `${b.img?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${block({t:b.side})}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,items:b.list}):""}</div>`; }
+    return `${b.img?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${block({t:b.side})}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,num:b.num,items:b.list}):""}</div>`; }
   case "waffle": return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="waffles">${b.items.map(x=>`<div class="waf"><div class="waf-g ${x.of<=10?"big":""}">${Array.from({length:x.of},(_,i)=>`<i class="${i<x.n?"on":""}"></i>`).join("")}</div><b><bdi dir="ltr">${x.n} / ${x.of}</bdi></b><span>${ht(L(x.l))}</span></div>`).join("")}</div>`;
   case "cols": { const mx=Math.max(...b.items.map(x=>x[1]));
     return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="cols">${b.items.map((x,i)=>`<div class="col ${i===b.hi?"hi":""}"><span class="cv"><bdi dir="ltr">${x[1]}${b.unit?" "+ht(L(b.unit)):""}</bdi></span><i style="height:${(x[1]/mx*100).toFixed(1)}%"></i><b>${ht(typeof x[0]==="string"?x[0]:L(x[0]))}</b></div>`).join("")}</div>`; }
@@ -1928,17 +1932,17 @@ function block(b, bi){
       <span class="rb"><button data-act="rank" data-d="-1" data-p="${pos}" ${pos===0?"disabled":""} aria-label="up">▲</button><button data-act="rank" data-d="1" data-p="${pos}" ${pos===2?"disabled":""} aria-label="down">▼</button></span></li>`).join("")}</ol>
       <button class="btn small" data-act="rankSave">${esc(T("rankSave"))}</button> <span class="hint saved ${isSaved?"show":""}" id="rankOk">✓ ${esc(T("pollSaved"))}</span>
       ${isSaved?rankComment():""}</div>`; }
-  case "write": return `<div class="write">${b.q?`<h4>${esc(L(b.q))}</h4>`:""}<label class="fld"><span>${esc(T("writeL"))}</span>
+  case "write": return withGuide(`<div class="write">${b.q?`<h4>${esc(L(b.q))}</h4>`:""}<label class="fld"><span>${esc(T("writeL"))}</span>
       <textarea id="law4" maxlength="140" rows="3" placeholder="${esc(T("writePh"))}">${esc(S.law4)}</textarea><small class="hint" id="lawMsg"><span id="lawCnt">${S.law4.length}</span>/140</small></label>
-      <button class="btn small" data-act="writeSave">${esc(T("writeSave"))}</button> <span class="hint saved ${S.law4?"show":""}" id="lawOk">✓ ${esc(T("pollSaved"))}</span></div>`;
+      <button class="btn small" data-act="writeSave">${esc(T("writeSave"))}</button> <span class="hint saved ${S.law4?"show":""}" id="lawOk">✓ ${esc(T("pollSaved"))}</span></div>`);
   case "case": { const h = L(b.head);
     return `<div class="case"><div class="case-head"><span class="stamp">${esc(h[0])}</span><span>${esc(h[1])}</span></div>
-      <div class="case-body"><img class="case-img" src="${IMG[b.img]}" alt="">${L(b.p).flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}</div>
+      <div class="case-body"><div class="case-text">${L(b.p).flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}</div><img class="case-img" src="${IMG[b.img]}" alt=""></div>
       <div class="stats">${b.stats.map(s=>`<div class="stat"><b><bdi dir="ltr">${esc(s[0])}</bdi></b><span>${ht(L(s[1]))}</span></div>`).join("")}</div>
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "poll": { const cur = S[b.key];
-    return `<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
-      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp"><b>${ht(L(b.resp)[cur])}</b></div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}<p class="hint">✓ ${esc(T("pollSaved"))}</p></div></div>`; }
+    return withGuide(`<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
+      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp"><b>${ht(L(b.resp)[cur])}</b></div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}<p class="hint">✓ ${esc(T("pollSaved"))}</p></div></div>`); }
   case "tools": return `<p class="hint">${esc(T("tapHint"))}</p><div class="tools">${b.items.map((x,i)=>`<button class="tool" data-act="tool" data-i="${i}"><span class="ti">${x.icon}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
   case "findings": return `<div class="finds">${b.items.map(x=>`<div class="find"><b><bdi dir="ltr">${esc(x.big)}</bdi></b><p>${esc(L(x))}</p></div>`).join("")}</div>`;
   case "world": return `<p class="hint">${esc(T("tapHint"))}</p><div class="world">${b.items.map((x,i)=>`<button class="wc" data-act="world" data-i="${i}"><span class="fl">${x.flag}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
@@ -1948,8 +1952,14 @@ function block(b, bi){
   return "";
 }
 function sliderResp(b,v){ const r=L(b.resp); return v<=3?r[0]:v<=6?r[1]:r[2]; }
+function guideFull(){
+  const g = GUIDES[S.g]; const w = (CUR && CUR.who) || (g && g.id);
+  const s = GUIDES.find(x=>x.id===w && x.img!=="AVATAR");
+  return s ? IMG["f_"+s.img] : IMG["f_"+(S.av.p||"s2")];
+}
+function withGuide(inner){ return `<div class="qgrid"><div class="q-main">${inner}</div><img class="q-guide" src="${guideFull()}" alt=""></div>`; }
 function chunkP(p){
-  const sents = p.match(/[^.!?]+(?:[.!?]+["”“]?|$)(?:\s+|$)/g) || [p];
+  const sents = p.split(/(?<=[.!?]["”“]?)\s+/).map(s=>s+" ");
   const out=[]; let cur="";
   for (const s of sents){ const w=(cur+s).split(/\s+/).length; if (cur && w>42){ out.push(cur.trim()); cur=s; } else cur+=s; }
   if (cur.trim()) out.push(cur.trim());
@@ -2269,6 +2279,8 @@ document.addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if ((e.key==="Enter"||e.key===" ") && e.target.matches('[role="button"][data-act]')){ e.preventDefault(); e.target.click(); }
 });
+document.addEventListener("change", e => { const t=e.target; if (t.dataset && t.dataset.inp==="slider" && S[t.dataset.key]==null) t.dispatchEvent(new Event("input",{bubbles:true})); });
+document.addEventListener("pointerup", e => { const t=e.target; if (t.dataset && t.dataset.inp==="slider" && S[t.dataset.key]==null) t.dispatchEvent(new Event("input",{bubbles:true})); });
 document.addEventListener("input", e => {
   const t = e.target;
   if (t.id === "nick"){ const n=document.getElementById("avName"); if(n) n.textContent = t.value || " ";
