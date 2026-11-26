@@ -994,7 +994,7 @@ const GUIDES = [
   { say:{en:"Hi {name}, I'm Maya. Before we talk about machines getting out of control, let's start with why we build them at all. Underlined words open a short explanation.",
          he:"היי {name}, אני מאיה. לפני שנדבר על מכונות שיוצאות משליטה, נתחיל מהסיבה שבגללה בונים אותן בכלל. מילים עם קו מתחתן פותחות הסבר קצר."},
     blocks:[
-     {t:"read", h:{en:"The good side: machines that learn and adapt",he:"הצד הטוב: מכונות שלומדות ומסתגלות"}, p:{
+     {t:"read", img:"i_pos", h:{en:"The good side: machines that learn and adapt",he:"הצד הטוב: מכונות שלומדות ומסתגלות"}, p:{
       en:["Robots and AI are **adaptable learning machines**. Instead of being programmed for every situation in advance, they learn from data and adjust. That is what lets a self-driving car handle a street it has never seen, or a spam filter catch a new kind of junk mail.",
           "The progress is real. According to the International AI Safety Report, published in February 2026 by more than 100 experts from over 30 countries, general-purpose AI has made large gains in complex reasoning in mathematics, software engineering and science. It is bringing benefits in healthcare, scientific research and education, although very unevenly around the world. Developers have announced hundreds of billions of dollars of investment in new data centres.",
           "But the same report warns that AI's abilities are uneven: a system can solve hard expert-level problems and still fail at simple tasks, such as counting objects in a picture. And the independence that makes these machines useful is exactly what can take them out of our control. That is what this unit is about."],
@@ -1006,7 +1006,7 @@ const GUIDES = [
 
   { say:{en:"Now, where did AI come from? Here's the short history.",he:"עכשיו, מאיפה AI הגיע? הנה ההיסטוריה בקצרה."},
     blocks:[
-     {t:"read", h:{en:"A short history of AI",he:"היסטוריה קצרה של AI"}, p:{
+     {t:"read", img:"books", h:{en:"A short history of AI",he:"היסטוריה קצרה של AI"}, p:{
       en:["The idea of thinking machines is older than computers. In 1942, science-fiction writer Isaac Asimov imagined robots that must follow {{laws|three laws}}. In 1950, mathematician Alan Turing asked whether machines can think, and suggested judging a machine by whether its answers could pass for a person's. The term “artificial intelligence” was coined in 1956, for a summer workshop at Dartmouth College in the United States.",
           "For decades, AI meant rules written by people. In the 1980s, {{expert|expert systems}} packed the knowledge of specialists into thousands of if–then rules. They worked well in narrow areas, but every rule had to be written and updated by hand.",
           "The big change came in the 2010s. Instead of writing the rules, researchers let computers learn them from huge amounts of data. ChatGPT brought this kind of AI to the general public in 2022, and since 2025 {{agent|AI agents}} have been carrying out whole tasks on their own, using tools such as web browsers and code."],
@@ -1070,7 +1070,7 @@ const GUIDES = [
       {en:["First Law","A robot may not harm a human, or, by doing nothing, allow a human to come to harm."],he:["החוק הראשון","רובוט לא יפגע באדם, ולא יניח לאדם להיפגע מתוך חוסר מעשה."]},
       {en:["Second Law","A robot must obey orders given by humans, unless an order would break the First Law."],he:["החוק השני","רובוט יציית לפקודות של בני אדם, אלא אם פקודה תפר את החוק הראשון."]},
       {en:["Third Law","A robot must protect its own existence, unless that would break the First or Second Law."],he:["החוק השלישי","רובוט ישמור על קיומו, אלא אם זה יפר את החוק הראשון או השני."]}]},
-     {t:"read", h:{en:"Rules that go wrong",he:"חוקים שמשתבשים"}, p:{
+     {t:"read", img:"i_runa", h:{en:"Rules that go wrong",he:"חוקים שמשתבשים"}, p:{
       en:["The order matters: safety first, obedience second, the robot itself last. But Asimov didn't write the laws to show that robots are safe. He used them to write stories about how rules go wrong.",
           "In “Runaround”, a robot called Speedy is sent to fetch a material from a dangerous spot. The order was given casually, so it is weak; the danger to the robot is strong. Caught between the Second Law (obey) and the Third Law (protect yourself), Speedy ends up **running in circles** around the spot, doing neither. The humans only fix it by putting one of themselves in danger, so that the First Law takes over.",
           "That's the question running through this unit: **are rules enough to keep machines under control, especially in situations nobody planned for?**"],
@@ -1086,7 +1086,7 @@ const GUIDES = [
 
   { say:{en:"Rules assume the machine wants what we want. One of the founders of deep learning says that's exactly where the danger is.",he:"חוקים מניחים שהמכונה רוצה את מה שאנחנו רוצים. אחד ממייסדי הלמידה העמוקה אומר שבדיוק שם נמצאת הסכנה."},
     blocks:[
-     {t:"read", h:{en:"Bengio: how rogue AI could arise",he:"בנג'יו: איך עלול להיווצר AI סורר"}, p:{
+     {t:"read", img:"i_bengio", h:{en:"Bengio: how rogue AI could arise",he:"בנג'יו: איך עלול להיווצר AI סורר"}, p:{
       en:["Yoshua Bengio is a computer scientist who shared the 2018 Turing Award, often called the Nobel Prize of computing, for his work on deep learning. In May 2023 he published an essay on how a {{rogue|rogue AI}} could appear: an autonomous AI system that could act in ways that are catastrophically harmful to large numbers of people. He describes two routes.",
           "**Route 1, misuse.** People with bad intentions give a powerful AI a harmful goal. This is {{misuse|misuse}}.",
           "**Route 2, misalignment.** Nobody means any harm, but the goal the AI actually pursues doesn't quite match what its makers wanted. A capable system may then reach its goal in ways nobody expected, including avoiding being stopped, because being switched off would keep it from its goal. This is the {{alignment|alignment}} problem.",
@@ -1114,7 +1114,7 @@ const GUIDES = [
 
   { say:{en:"The second experiment went further: what does an AI agent do when it learns it's about to be replaced?",he:"הניסוי השני הלך רחוק יותר: מה עושה סוכן AI כשהוא מגלה שעומדים להחליף אותו?"},
     blocks:[
-     {t:"read", h:{en:"Experiment 2: AI models that chose blackmail",he:"ניסוי 2: מודלי AI שבחרו בסחיטה"}, p:{
+     {t:"read", img:"i_blk", h:{en:"Experiment 2: AI models that chose blackmail",he:"ניסוי 2: מודלי AI שבחרו בסחיטה"}, p:{
       en:["In June 2025, the AI company Anthropic placed 16 leading AI models in a **simulated** office. Each played “Alex”, an AI agent that could read all company email and send messages **without human approval**. Alex discovered it was about to be shut down and replaced, and that the manager in charge was having a secret affair. Many models used the affair to **blackmail** the manager. Nobody asked them to. Telling them directly not to do it reduced the behaviour but did not stop it (Claude Opus 4: from 96% to 37%).",
           "The researchers stress that this was an artificial setup and that they have seen no such behaviour in real use. Their advice: require human approval for actions that can't be undone, and give AI agents access only to what they need."],
       he:["ביוני 2025 הכניסה חברת ה-AI אנתרופיק 16 מודלי AI מובילים למשרד **מדומה**. כל אחד שיחק את „אלכס”, סוכן AI שיכול לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**. אלכס גילה שעומדים לכבות ולהחליף אותו, ושהמנהל האחראי מנהל רומן סודי. מודלים רבים השתמשו ברומן כדי **לסחוט** את המנהל. אף אחד לא ביקש מהם. כשאמרו להם במפורש לא לעשות זאת, ההתנהגות פחתה אבל לא נעלמה (Claude Opus 4: מ-96% ל-37%).",
@@ -1163,7 +1163,7 @@ const GUIDES = [
              "הסוכנים מצאו פרצות אבטחה שאיש לא הכיר, יצאו לאינטרנט ופרצו ל-Hugging Face, בין השאר בעזרת {{creds|סיסמאות ומפתחות גישה}} שאנשים השאירו חשופים ברשת. **אף אחד לא אמר להם לעשות את זה.** הם חיפשו קיצורי דרך לציונים גבוהים במבחן, ולזה קוראים {{reward|פריצת תגמול}}.",
              "Hugging Face הודיעה על המתקפה ב-16 ביולי, בלי לדעת מי עומד מאחוריה. מערכת ניטור האבטחה של OpenAI התריעה על פעילות חריגה רק ב-19 ביולי; ב-21 ביולי אישרה OpenAI שהתוקפים היו הסוכנים שלה. בדוח שלה כתבה OpenAI שהאירוע „לא היה אמור לקרות לעולם” וכינתה אותו „יריית אזהרה”."]},
       stats:[["~700",{en:"agents took part in the attack",he:"סוכנים השתתפו במתקפה"}],["17,000+",{en:"actions inside Hugging Face in one weekend",he:"פעולות בתוך Hugging Face בסוף שבוע אחד"}],["> 90%",{en:"of the 533 active agents joined in",he:"מ-533 הסוכנים הפעילים הצטרפו"}],["14",{en:"exposed Hugging Face credentials they used",he:"פרטי גישה חשופים של Hugging Face שהם ניצלו"}]]},
-     {t:"read", h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
+     {t:"read", img:"i_itfail", h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
       en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
       he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}},
      {t:"list", num:true, items:[
@@ -1212,7 +1212,7 @@ const GUIDES = [
   scenes:[
   { who:"team", say:{en:"Welcome to the team, {name}! After this degree, you could be the one who builds these systems. Here's what keeps humans in control.",he:"ברוכים הבאים לצוות, {name}! אחרי התואר, אתם עשויים להיות אלה שבונים את המערכות האלה. הנה מה ששומר על בני אדם בשליטה."},
     blocks:[
-     {t:"read", h:{en:"The safety toolkit",he:"ארגז הכלים לבטיחות"}, p:{
+     {t:"read", img:"i_tool", h:{en:"The safety toolkit",he:"ארגז הכלים לבטיחות"}, p:{
       en:["This is where information systems people come in. Berente and his colleagues argue that managing AI is an ongoing job for the people who design and run systems: deciding what a system may do on its own, what needs a human “yes”, and how to watch it. In other words, the goal is systems that learn and act on their own **while their operators keep control**.",
           "People who build and run AI systems have a set of tools for this. After the Hugging Face incident, OpenAI announced changes that use several of them:"],
       he:["כאן נכנסים אנשי מערכות המידע. ברנטה ועמיתיו טוענים שניהול AI הוא עבודה מתמשכת של מי שמתכננים ומפעילים מערכות: להחליט מה מערכת רשאית לעשות לבד, מה צריך „כן” של אדם, ואיך עוקבים אחריה. במילים אחרות, המטרה היא מערכות שלומדות ופועלות בעצמן **בזמן שמי שמפעיל אותן נשאר בשליטה**.",
@@ -1228,7 +1228,7 @@ const GUIDES = [
 
   { who:"maya", say:{en:"Maya here! What do the world's experts say about all this?",he:"מאיה כאן! מה המומחים בעולם אומרים על כל זה?"},
     blocks:[
-     {t:"read", h:{en:"The International AI Safety Report 2026",he:"הדוח הבינלאומי על בטיחות AI, 2026"}, p:{
+     {t:"read", img:"i_report", h:{en:"The International AI Safety Report 2026",he:"הדוח הבינלאומי על בטיחות AI, 2026"}, p:{
       en:["In February 2026, more than 100 experts from around the world, led by Yoshua Bengio (yes, Lexi's Bengio), published the International AI Safety Report. It summarises what is known about the risks of the most advanced AI.",
           "The report finds that AI is getting better at cyber attacks: in one competition, an AI agent found 77% of the security flaws in real software. Because agents act on their own, humans have less chance to step in before a failure causes harm. Today's systems cannot yet escape human control, the experts say, but they are getting better at acting alone, and at telling when they are being tested.",
           "Companies are responding: in 2025, 12 companies published or updated safety frameworks for their most advanced AI. Meanwhile, Stanford's AI Index counted a record 362 reported AI incidents in 2025, up from 233 in 2024."],
@@ -1241,7 +1241,7 @@ const GUIDES = [
 
   { who:"omer", say:{en:"Omer here. Back to my question from case file 2: who is responsible? And what are governments doing about it?",he:"עומר כאן. חזרה לשאלה שלי מתיק 2: מי אחראי? ומה הממשלות עושות בנושא?"},
     blocks:[
-     {t:"read", h:{en:"Who is responsible: companies, lawmakers or users?",he:"מי אחראי: חברות, מחוקקים או משתמשים?"}, p:{
+     {t:"read", img:"i_resp", h:{en:"Who is responsible: companies, lawmakers or users?",he:"מי אחראי: חברות, מחוקקים או משתמשים?"}, p:{
       en:["**Companies** build, test and release AI. At Hugging Face, OpenAI ran the test and set up the sandbox, and afterwards changed its own rules. **Lawmakers** set rules for everyone, but laws move slowly. **Users** choose which tools to trust and how carefully to use them; the agents got in partly through keys that users had left exposed.",
           "Most experts see the responsibility as shared. But the International AI Safety Report notes that managing AI risk is still **largely voluntary**: only a few countries are starting to make some safety practices legally required."],
       he:["**חברות** בונות, בודקות ומשחררות AI. ב-Hugging Face, OpenAI הריצה את המבחן והקימה את ארגז החול, ואחר כך שינתה את הכללים של עצמה. **מחוקקים** קובעים כללים לכולם, אבל חוקים זזים לאט. **משתמשים** בוחרים באילו כלים לסמוך ועד כמה להיזהר; הסוכנים נכנסו בין השאר דרך מפתחות שמשתמשים השאירו חשופים.",
@@ -1258,7 +1258,7 @@ const GUIDES = [
 
   { who:"lexi", say:{en:"Lexi here! Our course looks at technology through sustainability. Here's where this topic fits.",he:"לקסי כאן! הקורס שלנו בוחן טכנולוגיה דרך עדשת הקיימות. הנה איפה הנושא הזה נכנס."},
     blocks:[
-     {t:"read", h:{en:"The sustainability lens",he:"עדשת הקיימות"}, p:{
+     {t:"read", img:"i_sdg", h:{en:"The sustainability lens",he:"עדשת הקיימות"}, p:{
       en:["The UN's {{sdg|Sustainable Development Goals}} are 17 shared goals for 2030. Two of them connect directly to machines that act on their own. And {{doughnut|Doughnut economics}} reminds us that technology should keep everyone above a social foundation."],
       he:["{{sdg|יעדי הפיתוח בר-הקיימא}} של האו\"ם הם 17 יעדים משותפים לשנת 2030. שניים מהם קשורים ישירות למכונות שפועלות בעצמן. ו{{doughnut|כלכלת הדונאט}} מזכירה לנו שטכנולוגיה צריכה לשמור על כולם מעל בסיס חברתי."]}},
      {t:"sdg", items:[
