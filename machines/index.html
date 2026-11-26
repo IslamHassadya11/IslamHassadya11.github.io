@@ -684,6 +684,70 @@ html[lang=he] .blk p,html[lang=he] .rtext p{font-size:17px}
 .qgrid{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center}
 .q-guide{width:100%;max-height:340px;object-fit:contain;animation:popin .4s}
 .blk-poll,.blk-write{padding-bottom:18px}
+/* comfortable size on large screens */
+@media (min-width:1500px){html{zoom:1.12}}
+@media (min-width:1800px){html{zoom:1.25}}
+@media (min-width:2300px){html{zoom:1.45}}
+/* side column content */
+.side-dia{display:flex;flex-direction:column;gap:14px}
+.side-blk{background:var(--card);border-radius:16px}
+.side-blk h4,.side-blk .bt-t{font-size:15px;margin:0 0 8px}
+.side-waffle .waffles{grid-template-columns:1fr;gap:16px}
+.side-waffle .waf-g{max-width:260px}
+.side-rings .rings{gap:14px}.side-rings .ring-c{width:118px;height:118px;font-size:26px}.side-rings .ring{max-width:150px}
+.side-cols .cols{height:190px;gap:26px}
+.side-dates .dates li{grid-template-columns:58px 1fr;gap:18px;padding:5px 0}.side-dates .dates span{font-size:14.5px}
+.side-dates .dates::before{inset-inline-start:65px}.side-dates .dates li::before{inset-inline-start:60px}
+.blk-read.has-img:has(.side-dates),.blk-read.has-img:has(.side-tlside),.blk-read.has-img:has(.side-rings){grid-template-columns:minmax(0,1fr) 400px}
+/* timeline slider */
+.tls{background:var(--gcl,var(--sky));border-radius:18px;padding:16px 18px}
+.tls h4{margin:0 0 10px}
+.tls input{width:100%}
+.tls-ticks{display:flex;justify-content:space-between;margin:6px 0 10px}
+.tls-ticks button{background:none;border:0;padding:2px 0;font-size:11.5px;font-weight:800;color:var(--muted);cursor:pointer}
+.tls-ticks button.on{color:var(--gc,var(--cyan2))}
+.tls-card{margin:0;min-height:120px;background:var(--card)}
+.tls-card p{font-size:15.5px!important;margin:4px 0 0}
+.tls-y{display:block;color:var(--gc,var(--cyan2));font-size:16px}
+input[type=range].unset::-webkit-slider-thumb{opacity:.35;border-style:dashed}
+input[type=range].unset::-moz-range-thumb{opacity:.35}
+input[type=range].unset{filter:saturate(.3);opacity:.8}
+/* laws against real cases */
+.lr-t{margin:14px 0 8px}
+.lreal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lr{display:flex;gap:10px;background:var(--gcl,var(--sky));border-radius:14px;padding:12px 14px;cursor:pointer}
+.lr b{color:var(--navy)}.lr p{margin:2px 0 0;font-size:14.5px!important;line-height:1.5}
+.lr .sln{width:32px;height:32px;flex:none;border-radius:10px;font-family:Georgia,serif}
+/* lively data */
+.stat,.col,.waf,.ring,.dbar,.lr{cursor:pointer;transition:transform .2s}
+.stat:hover,.ring:hover,.waf:hover,.lr:hover{transform:translateY(-3px)}
+.bump{animation:bump .45s}
+@keyframes bump{30%{transform:scale(1.07)}60%{transform:scale(.98)}}
+.spk-p{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:99;animation:spk .75s ease-out forwards}
+@keyframes spk{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+.col i{animation:grow .9s cubic-bezier(.2,.8,.2,1) backwards;transform-origin:bottom}
+@keyframes grow{from{transform:scaleY(0)}}
+.dt i{animation:growx .9s cubic-bezier(.2,.8,.2,1) backwards;transform-origin:left}
+[dir=rtl] .dt i{transform-origin:right}
+@keyframes growx{from{transform:scaleX(0)}}
+.waf-g i.on{animation:popin .4s backwards}
+.waf-g i:nth-child(n+11).on{animation-delay:.2s}
+.ring-c{animation:popin .6s backwards}
+.stats .stat{background:linear-gradient(145deg,var(--card),var(--gcl,var(--sky)));border:1px solid color-mix(in srgb,var(--gc,var(--cyan)) 25%,transparent);box-shadow:0 6px 16px rgba(12,45,94,.06)}
+.stats .stat b{font-size:32px;background:linear-gradient(135deg,var(--gc,var(--cyan)),color-mix(in srgb,var(--gc,var(--cyan)) 55%,#000));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats .stat span{font-size:14.5px;color:var(--ink)}
+.cols .col i{box-shadow:0 8px 18px rgba(12,45,94,.12)}
+/* key words pages */
+.kw-pg{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:12px;font-weight:800;color:var(--navy)}
+.g-tabs{justify-content:center;margin-bottom:18px}
+.g-grid .g-card{border-top-color:var(--gc)}
+.mz{display:flex;gap:6px}.mz button{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--navy);font-weight:900;font-size:16px}
+.wmap{cursor:grab;touch-action:none}
+.watch{max-width:640px}
+/* finale */
+.mine .law4 em{font-style:normal;color:var(--pink);font-weight:800;margin-top:2px}
+/* quiz team fits its column */
+.trio.full{width:100%;justify-content:center}.trio.full img{width:33%;height:auto;max-height:300px;object-fit:contain;margin:0}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -772,6 +836,8 @@ body.proj .rbox h4{font-size:19px}
   .name-row{flex-direction:column;align-items:stretch}
   .name-row .btn{margin-top:0}
   .nav-links{display:none}
+  .lreal{grid-template-columns:1fr}
+  .blk-read.has-img:has(.side-dates),.blk-read.has-img:has(.side-tlside),.blk-read.has-img:has(.side-rings){grid-template-columns:1fr}
   .map-grid{grid-template-columns:1fr}
   .trio.full img{height:120px}
   .g-grid{grid-template-columns:1fr}
@@ -854,32 +920,35 @@ body.proj .rbox h4{font-size:19px}
   .cliff-txt p{font-size:17px}
   .cliff img{aspect-ratio:4/3}
 }
-/* ---------- dark theme (matches islamhassadya.com) ---------- */
-html[data-theme=dark]{color-scheme:dark;--navy:#ffffff;--navy2:#f2f2f2;--ink:#ededed;--muted:#aeaeb5;--line:#44444b;--sky:#3b3b42;--card:#34343a;--cyan2:#ff5fd2;--acc:#ff5fd2;--sh:0 10px 30px rgba(0,0,0,.25)}
-[data-theme=dark] body{background:#2b2b30}
-[data-theme=dark] body::before{display:none}
-[data-theme=dark] #top{background:rgba(43,43,48,.9);border-color:var(--line)}
-[data-theme=dark] .btn{background:#fff;color:#000;box-shadow:none}
-[data-theme=dark] .btn:hover{background:var(--acc);color:#000}
-[data-theme=dark] .btn.ghost,[data-theme=dark] .btn.glass{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px var(--line)}
-[data-theme=dark] .lang{background:#fff;color:#000}
-[data-theme=dark] .vbtn.on,[data-theme=dark] .popt.on{background:var(--acc);color:#000;border-color:var(--acc)}
-[data-theme=dark] .sln,[data-theme=dark] .rk,[data-theme=dark] .fac-n{color:#000}
-[data-theme=dark] .n1{background:#3b3b42;border-color:#55555c}[data-theme=dark] .n2{background:#44444b;border-color:#5f5f66}[data-theme=dark] .n3{background:#1f1f23}
-[data-theme=dark] .case-head,[data-theme=dark] .w-foot{background:#1f1f23}
-[data-theme=dark] .note,[data-theme=dark] .resp,[data-theme=dark] .dfact,[data-theme=dark] .w-band.alt,[data-theme=dark] .map-wrap,[data-theme=dark] .gcard.done,[data-theme=dark] .handoff,[data-theme=dark] .charcard,[data-theme=dark] .qz-score,[data-theme=dark] .blk-poll,[data-theme=dark] .blk-slider,[data-theme=dark] .blk-write,[data-theme=dark] .pcard,[data-theme=dark] .pcard.on,[data-theme=dark] .sli.rom,[data-theme=dark] .lab,[data-theme=dark] .tool,[data-theme=dark] .wc,[data-theme=dark] .two-c,[data-theme=dark] .opt.on,[data-theme=dark] .av-stage,[data-theme=dark] .w-g-img,[data-theme=dark] .qz-intro{background:var(--card)}
-[data-theme=dark] .note,[data-theme=dark] .resp,[data-theme=dark] .dfact,[data-theme=dark] .map-wrap,[data-theme=dark] .w-g-img{background:#3b3b42}
-[data-theme=dark] .dfact b{color:#ffd60a}
-[data-theme=dark] .pcard.on{box-shadow:0 0 0 4px var(--acc);border-color:var(--acc)}
-[data-theme=dark] .wmap .c{fill:#55555c;stroke:#2b2b30}
-[data-theme=dark] .qz-bubble{border-color:#55555c}
-[data-theme=dark] .lb li.me-row{background:#4a4330;box-shadow:inset 0 0 0 2px #ffd60a}
-[data-theme=dark] .term{color:#fff;border-bottom-color:var(--acc);background:linear-gradient(transparent 62%,rgba(255,95,210,.3) 62%)}
-[data-theme=dark] .brand img{filter:brightness(0) invert(1)}
-[data-theme=dark] .kicker{color:var(--acc)}
-[data-theme=dark] .qz-opt.ok{background:#1f4d36;color:#c9f5dc}[data-theme=dark] .qz-opt.bad{background:#5a2330;color:#ffd0da}
-[data-theme=dark] .qz-fb.ok,[data-theme=dark] .qz-rev li.ok{background:#1f4d36;color:#c9f5dc}[data-theme=dark] .qz-fb.bad,[data-theme=dark] .qz-rev li.bad{background:#5a2330;color:#ffd0da}
+/* ---------- dark theme: the same sky-blue world, at night ---------- */
+html[data-theme=dark]{color-scheme:dark;--navy:#eaf4ff;--navy2:#cfe6ff;--ink:#d8e4f5;--muted:#93a6c4;--line:#2a3b5e;--sky:#1a2847;--card:#131f38;--cyan:#2fd0ff;--cyan2:#5fdcff;--sh:0 14px 34px rgba(0,0,0,.35),0 0 0 1px rgba(95,220,255,.06)}
+[data-theme=dark] body{background:#0a1224}
+[data-theme=dark] body::before{display:block;background:radial-gradient(1100px 600px at 85% -10%,rgba(47,208,255,.16),transparent 60%),radial-gradient(900px 600px at -10% 110%,rgba(142,124,242,.18),transparent 60%),linear-gradient(180deg,#0a1224,#0e1830)}
+[data-theme=dark] #top{background:rgba(10,18,36,.82);border-color:var(--line)}
+[data-theme=dark] .lang{background:linear-gradient(135deg,var(--cyan),#8e7cf2);color:#06101f}
+[data-theme=dark] .icon-btn{background:var(--sky);color:var(--navy)}
+[data-theme=dark] .btn.ghost,[data-theme=dark] .btn.glass{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--line)}
+[data-theme=dark] .brand img,[data-theme=dark] .w-foot img{filter:drop-shadow(0 0 8px rgba(47,208,255,.35))}
+[data-theme=dark] .w-band{background:#0d1730}[data-theme=dark] .w-band.alt{background:linear-gradient(180deg,#101c38,#0d1730)}
+[data-theme=dark] .w-foot,[data-theme=dark] .case-head{background:#060c19}
+[data-theme=dark] .n1{background:#16244a;border-color:#2d4a7a}[data-theme=dark] .n2{background:#1d2f5c;border-color:#3d6aa8}[data-theme=dark] .n3{background:#081127}
+[data-theme=dark] .note,[data-theme=dark] .resp,[data-theme=dark] .map-wrap,[data-theme=dark] .w-g-img,[data-theme=dark] .tls,[data-theme=dark] .step-card,[data-theme=dark] .sli,[data-theme=dark] .lr,[data-theme=dark] .kwi{background:color-mix(in srgb,var(--gc,var(--cyan)) 12%,#131f38)}
+[data-theme=dark] .scene{--gcl:color-mix(in srgb,var(--gc) 14%,#131f38)}
+[data-theme=dark] .dfact{background:#2a2a1a}[data-theme=dark] .dfact b{color:#ffd86b}
+[data-theme=dark] .blk-poll,[data-theme=dark] .blk-slider,[data-theme=dark] .blk-write,[data-theme=dark] .pcard,[data-theme=dark] .lab,[data-theme=dark] .handoff,[data-theme=dark] .charcard,[data-theme=dark] .qz-score{background:var(--card)}
+[data-theme=dark] .popt,[data-theme=dark] .vbtn,[data-theme=dark] .qz-opt,[data-theme=dark] .mleg,[data-theme=dark] .gchip,[data-theme=dark] .opt{background:#172645;color:var(--navy);border-color:var(--line)}
+[data-theme=dark] .vbtn.on{background:var(--cyan);color:#06101f}
+[data-theme=dark] .scene .popt.on{color:#fff}
+[data-theme=dark] .term{color:#fff;border-bottom-color:var(--gc,var(--cyan));background:linear-gradient(transparent 62%,color-mix(in srgb,var(--gc,var(--cyan)) 35%,transparent) 62%)}
+[data-theme=dark] .wmap .c{fill:#22355c;stroke:#0a1224}
+[data-theme=dark] .qz-bubble{background:#172645;border-color:#2d4a7a}
+[data-theme=dark] .lb li{background:#172645}[data-theme=dark] .lb li.me-row{background:#2b2a17;box-shadow:inset 0 0 0 2px #ffd86b}
+[data-theme=dark] .qz-opt.ok{background:#123f2d;color:#bff3d6;border-color:#1fae6b}[data-theme=dark] .qz-opt.bad{background:#47182a;color:#ffc7d4;border-color:#e23d5f}
+[data-theme=dark] .qz-fb.ok,[data-theme=dark] .qz-rev li.ok{background:#123f2d;color:#bff3d6}[data-theme=dark] .qz-fb.bad,[data-theme=dark] .qz-rev li.bad{background:#47182a;color:#ffc7d4}
 [data-theme=dark] .qz-rev .yr{color:#ffb3c3}[data-theme=dark] .qz-rev .cr{color:#9ff0c4}
+[data-theme=dark] .stat b{filter:brightness(1.4)}
+[data-theme=dark] input[type=range]::-webkit-slider-thumb{background:#0a1224;border-color:var(--cyan)}
+[data-theme=dark] .watch{background:linear-gradient(135deg,#060c19,#1d1340)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -1019,6 +1088,8 @@ const TERMS = {
  leastpriv:{en:["Least privilege","Giving a system access only to what its task really needs, and nothing more."],he:["הרשאות מינימליות","לתת למערכת גישה רק למה שהמשימה שלה באמת צריכה, ולא יותר."]},
  killswitch:{en:["Kill switch","A tested way to slow down, pause or shut down an AI system."],he:["מתג כיבוי (Kill switch)","דרך בדוקה להאט, לעצור או לכבות מערכת AI."]},
  sdg:{en:["SDGs","The UN's 17 Sustainable Development Goals for 2030."],he:["יעדי הפיתוח בר-הקיימא (SDGs)","17 היעדים של האו\"ם לפיתוח בר-קיימא עד 2030."]},
+ agmis:{en:["Agentic misalignment","When an AI agent, pursuing its goal, chooses harmful actions nobody asked for, such as blackmail (Anthropic's term)."],he:["חוסר התאמה סוכני","כשסוכן AI שרודף אחרי המטרה שלו בוחר בפעולות מזיקות שאף אחד לא ביקש, כמו סחיטה (המונח של אנתרופיק)."]},
+ evalaware:{en:["Evaluation awareness","When an AI behaves differently because it seems to notice it is being tested. This can hide risky behaviour during safety tests."],he:["מודעות למבחן","כש-AI מתנהג אחרת כי נראה שהוא מזהה שבוחנים אותו. זה יכול להסתיר התנהגות מסוכנת בזמן בדיקות בטיחות."]},
  genai:{en:["Generative AI","AI that creates new content, such as text, images or code, instead of only sorting or predicting."],he:["בינה מלאכותית יוצרת","AI שיוצר תוכן חדש, כמו טקסט, תמונות או קוד, במקום רק למיין או לחזות."]},
  llm:{en:["Large language model (LLM)","A deep-learning model trained on huge amounts of text to predict the next word. ChatGPT is built on one."],he:["מודל שפה גדול (LLM)","מודל למידה עמוקה שאומן על כמויות עצומות של טקסט כדי לנחש את המילה הבאה. ChatGPT בנוי על מודל כזה."]},
  doughnut:{en:["Doughnut economics","Kate Raworth's model: a safe space between a social foundation nobody should fall below and an ecological ceiling we must not overshoot."],he:["כלכלת הדונאט","המודל של קייט רוורת': מרחב בטוח בין בסיס חברתי שאיש לא צריך לרדת מתחתיו לבין תקרה אקולוגית שאסור לחרוג ממנה."]}
@@ -1058,6 +1129,18 @@ const SRC = {
 };
 
 /* ---------------- Guides ---------------- */
+const LAWS_REAL = [
+ {en:["First Law","The Cruise robotaxi harmed a woman because it didn't detect that she was under it. A rule can't protect what the machine can't see."],he:["החוק הראשון","הרובוטקסי של Cruise פגע באישה כי לא זיהה שהיא מתחתיו. חוק לא יכול להגן על מה שהמכונה לא רואה."]},
+ {en:["Second Law","At Hugging Face, no human ordered the break-in. Rules about obeying say nothing about what nobody asked for."],he:["החוק השני","ב-Hugging Face אף אדם לא הורה על הפריצה. חוקים על ציות לא אומרים כלום על מה שאף אחד לא ביקש."]},
+ {en:["Third Law","Palisade's robot dog kept itself running when a human pressed its off button: self-protection beat obedience, the opposite of Asimov's order."],he:["החוק השלישי","הכלב הרובוטי של Palisade המשיך לפעול כשאדם לחץ על כפתור הכיבוי: השמירה על עצמו גברה על הציות, ההפך מהסדר של אסימוב."]}];
+const TIMELINE = [
+      ["1942",{en:"Asimov's three laws",he:"שלושת החוקים של אסימוב"},{en:"Science-fiction writer Isaac Asimov publishes the short story “Runaround”, with three laws that every robot in his stories must follow. You'll meet them with Lexi.",he:"סופר המדע הבדיוני אייזק אסימוב מפרסם את הסיפור הקצר „Runaround”, עם שלושה חוקים שכל רובוט בסיפורים שלו חייב לציית להם. תכירו אותם אצל לקסי."},"britannica"],
+      ["1950",{en:"Turing: can machines think?",he:"טיורינג: האם מכונות חושבות?"},{en:"Mathematician Alan Turing asks whether machines can think, and proposes judging a machine by whether its answers can pass for a person's. This later became known as the Turing test.",he:"המתמטיקאי אלן טיורינג שואל אם מכונות יכולות לחשוב, ומציע לשפוט מכונה לפי השאלה אם התשובות שלה נראות כמו של אדם. ההצעה נודעה בהמשך כמבחן טיורינג."},"davidson"],
+      ["1956",{en:"The term “AI” is born",he:"המונח „AI” נולד"},{en:"The term “artificial intelligence” is coined for a summer research workshop at Dartmouth College in the US, often called the birth of AI as a field.",he:"המונח „בינה מלאכותית” נטבע לקראת סדנת מחקר קיצית במכללת דארטמות' בארה\"ב, שנחשבת ללידת ה-AI כתחום מחקר."},"davidson"],
+      ["1980s",{en:"Expert systems",he:"מערכות מומחה"},{en:"Expert systems pack specialists' knowledge into thousands of hand-written if–then rules. They work in narrow areas but are hard to keep up to date. Today, hardly anyone calls them AI.",he:"מערכות מומחה מרכזות את הידע של מומחים באלפי כללי „אם–אז” שנכתבו ידנית. הן עובדות בתחומים צרים, אבל קשה לעדכן אותן. היום כמעט אף אחד לא קורא להן AI."},"berente"],
+      ["2010s",{en:"Deep learning",he:"למידה עמוקה"},{en:"With huge amounts of data and faster computers, deep learning takes off: many-layered neural networks that learn to recognise speech, images and more.",he:"בזכות כמויות עצומות של נתונים ומחשבים מהירים יותר, הלמידה העמוקה ממריאה: רשתות נוירונים רבות שכבות שלומדות לזהות דיבור, תמונות ועוד."},"neurosnap"],
+      ["2022",{en:"Generative AI goes public",he:"AI יוצר מגיע לציבור"},{en:"OpenAI releases ChatGPT in late November. It reaches an estimated 100 million monthly users in about two months, the fastest-growing consumer app in history at the time.",he:"OpenAI משחררת את ChatGPT בסוף נובמבר. לפי ההערכות הוא מגיע ל-100 מיליון משתמשים בחודש תוך כחודשיים, האפליקציה הצרכנית שצמחה הכי מהר בהיסטוריה עד אז."},"chatgpt"],
+      ["2025–26",{en:"AI agents",he:"סוכני AI"},{en:"AI agents plan and carry out multi-step tasks with tools. The 2026 International AI Safety Report warns that their autonomy makes it harder for humans to intervene in time. In July 2026, OpenAI's test agents broke into Hugging Face: Omer's case file 2.",he:"סוכני AI מתכננים ומבצעים משימות מרובות שלבים בעזרת כלים. הדוח הבינלאומי על בטיחות AI 2026 מזהיר שהאוטונומיה שלהם מקשה על בני אדם להתערב בזמן. ביולי 2026 פרצו סוכני מבחן של OpenAI ל-Hugging Face: התיק השני של עומר."},"safety"]];
 const GUIDES = [
 /* ======================= MAYA — THE RESEARCHER ======================= */
 { id:"maya", img:"maya", color:"#18bfe8",
@@ -1081,7 +1164,7 @@ const GUIDES = [
 
   { say:{en:"Now, where did AI come from? Here's the short history.",he:"עכשיו, מאיפה AI הגיע? הנה ההיסטוריה בקצרה."},
     blocks:[
-     {t:"read", img:"books", h:{en:"A short history of AI",he:"היסטוריה קצרה של AI"}, p:{
+     {t:"read", side:"tlside", h:{en:"A short history of AI",he:"היסטוריה קצרה של AI"}, p:{
       en:["The idea of thinking machines is older than computers. In 1942, science-fiction writer Isaac Asimov imagined robots that must follow {{laws|three laws}}. In 1950, mathematician Alan Turing asked whether machines can think, and suggested judging a machine by whether its answers could pass for a person's. The term “artificial intelligence” was coined in 1956, for a summer workshop at Dartmouth College in the United States.",
           "For decades, AI meant rules written by people. In the 1980s, {{expert|expert systems}} packed the knowledge of specialists into thousands of if–then rules. They worked well in narrow areas, but every rule had to be written and updated by hand.",
           "The big change came in the 2010s. Instead of writing the rules, researchers let computers learn them from huge amounts of data. In late 2022, generative AI chatbots, starting with OpenAI's ChatGPT, brought this kind of AI to the general public.",
@@ -1090,14 +1173,6 @@ const GUIDES = [
           "במשך עשרות שנים, AI פירושו היה כללים שבני אדם כתבו. בשנות ה-80 ריכזו {{expert|מערכות מומחה}} את הידע של מומחים באלפי כללי „אם–אז”. הן עבדו היטב בתחומים צרים, אבל כל כלל היה צריך להיכתב ולהתעדכן ידנית.",
           "השינוי הגדול הגיע בשנות ה-2010. במקום לכתוב את הכללים, חוקרים נתנו למחשבים ללמוד אותם מכמויות עצומות של נתונים. בסוף 2022 הביאו צ'טבוטים של בינה מלאכותית יוצרת, החל מ-ChatGPT של OpenAI, את סוג ה-AI הזה לקהל הרחב.",
           "השלב החדש ביותר הוא {{agent|סוכני AI}}: מערכות שלא רק עונות, אלא פועלות. הן מתכננות סדרת צעדים ומשתמשות בכלים כמו דפדפן וקוד כדי להשלים משימות שלמות בעצמן. הדוח הבינלאומי על בטיחות AI 2026 מזהיר שמכיוון שסוכנים פועלים באופן אוטונומי, קשה יותר לבני אדם להתערב לפני שתקלה גורמת נזק."]}},
-     {t:"tl", items:[
-      ["1942",{en:"Asimov's three laws",he:"שלושת החוקים של אסימוב"},{en:"Science-fiction writer Isaac Asimov publishes the short story “Runaround”, with three laws that every robot in his stories must follow. You'll meet them with Lexi.",he:"סופר המדע הבדיוני אייזק אסימוב מפרסם את הסיפור הקצר „Runaround”, עם שלושה חוקים שכל רובוט בסיפורים שלו חייב לציית להם. תכירו אותם אצל לקסי."},"britannica"],
-      ["1950",{en:"Turing: can machines think?",he:"טיורינג: האם מכונות חושבות?"},{en:"Mathematician Alan Turing asks whether machines can think, and proposes judging a machine by whether its answers can pass for a person's. This later became known as the Turing test.",he:"המתמטיקאי אלן טיורינג שואל אם מכונות יכולות לחשוב, ומציע לשפוט מכונה לפי השאלה אם התשובות שלה נראות כמו של אדם. ההצעה נודעה בהמשך כמבחן טיורינג."},"davidson"],
-      ["1956",{en:"The term “AI” is born",he:"המונח „AI” נולד"},{en:"The term “artificial intelligence” is coined for a summer research workshop at Dartmouth College in the US, often called the birth of AI as a field.",he:"המונח „בינה מלאכותית” נטבע לקראת סדנת מחקר קיצית במכללת דארטמות' בארה\"ב, שנחשבת ללידת ה-AI כתחום מחקר."},"davidson"],
-      ["1980s",{en:"Expert systems",he:"מערכות מומחה"},{en:"Expert systems pack specialists' knowledge into thousands of hand-written if–then rules. They work in narrow areas but are hard to keep up to date. Today, hardly anyone calls them AI.",he:"מערכות מומחה מרכזות את הידע של מומחים באלפי כללי „אם–אז” שנכתבו ידנית. הן עובדות בתחומים צרים, אבל קשה לעדכן אותן. היום כמעט אף אחד לא קורא להן AI."},"berente"],
-      ["2010s",{en:"Deep learning",he:"למידה עמוקה"},{en:"With huge amounts of data and faster computers, deep learning takes off: many-layered neural networks that learn to recognise speech, images and more.",he:"בזכות כמויות עצומות של נתונים ומחשבים מהירים יותר, הלמידה העמוקה ממריאה: רשתות נוירונים רבות שכבות שלומדות לזהות דיבור, תמונות ועוד."},"neurosnap"],
-      ["2022",{en:"Generative AI goes public",he:"AI יוצר מגיע לציבור"},{en:"OpenAI releases ChatGPT in late November. It reaches an estimated 100 million monthly users in about two months, the fastest-growing consumer app in history at the time.",he:"OpenAI משחררת את ChatGPT בסוף נובמבר. לפי ההערכות הוא מגיע ל-100 מיליון משתמשים בחודש תוך כחודשיים, האפליקציה הצרכנית שצמחה הכי מהר בהיסטוריה עד אז."},"chatgpt"],
-      ["2025–26",{en:"AI agents",he:"סוכני AI"},{en:"AI agents plan and carry out multi-step tasks with tools. The 2026 International AI Safety Report warns that their autonomy makes it harder for humans to intervene in time. In July 2026, OpenAI's test agents broke into Hugging Face: Omer's case file 2.",he:"סוכני AI מתכננים ומבצעים משימות מרובות שלבים בעזרת כלים. הדוח הבינלאומי על בטיחות AI 2026 מזהיר שהאוטונומיה שלהם מקשה על בני אדם להתערב בזמן. ביולי 2026 פרצו סוכני מבחן של OpenAI ל-Hugging Face: התיק השני של עומר."},"safety"]]}
     ], src:["davidson","neurosnap","berente","safety","chatgpt","britannica"] },
 
   { say:{en:"Three words get mixed up all the time. Here's how they fit inside each other.",he:"שלוש מילים מתבלבלות כל הזמן. הנה איך הן נכנסות אחת בתוך השנייה."},
@@ -1164,9 +1239,8 @@ const GUIDES = [
           "זו השאלה שמלווה את היחידה: **האם חוקים מספיקים כדי לשמור על מכונות בשליטה, במיוחד במצבים שאיש לא תכנן?**"]}},
      {t:"poll", key:"rulesOk", q:{en:"Your opinion: are rules like these enough to keep AI under control?",he:"הדעה שלכם: האם חוקים כאלה מספיקים כדי לשמור על AI בשליטה?"},
       opts:{en:["Yes, if they're written well","Only if humans can also step in","No, rules can't cover everything"],he:["כן, אם הם כתובים טוב","רק אם בני אדם יכולים גם להתערב","לא, חוקים לא יכולים לכסות הכול"]},
-      resp:{en:["You trust good rules. Asimov's own stories test that idea: see how each law holds up below.","That's close to what most experts recommend today: rules plus human oversight.","That's Asimov's point too. Here's how each law holds up against the real cases in this unit."],he:["אתם סומכים על חוקים טובים. הסיפורים של אסימוב עצמו בוחנים את הרעיון הזה: ראו למטה איך כל חוק מחזיק.","זה קרוב למה שרוב המומחים ממליצים היום: חוקים ולצידם פיקוח אנושי.","זו גם הנקודה של אסימוב. הנה איך כל חוק מחזיק מול המקרים האמיתיים ביחידה."]},
-      after:{en:"**How each law holds up in real life** (you'll meet these cases soon): **First Law:** the Cruise robotaxi harmed a woman because it didn't know she was under it. A rule can't protect what the machine can't see. **Second Law:** at Hugging Face, no human ordered the break-in. The agents weren't disobeying anyone; obedience rules say nothing about what nobody asked for. **Third Law:** Palisade's robot dog protected its own operation against a human pressing the off button: exactly the order Asimov said must never happen.",
-             he:"**איך כל חוק מחזיק בחיים האמיתיים** (תכירו את המקרים בקרוב): **החוק הראשון:** הרובוטקסי של Cruise פגע באישה כי לא ידע שהיא מתחתיו. חוק לא יכול להגן על מה שהמכונה לא רואה. **החוק השני:** ב-Hugging Face אף אדם לא הורה על הפריצה. הסוכנים לא סירבו לאף אחד; חוקי ציות לא אומרים כלום על מה שאף אחד לא ביקש. **החוק השלישי:** הכלב הרובוטי של Palisade שמר על הפעולה שלו מול אדם שלחץ על כפתור הכיבוי: בדיוק הסדר שאסימוב אמר שאסור שיקרה."}}
+      resp:{en:["Good rules matter, but Asimov's own stories show that even well-written rules break in situations nobody planned for.","That's close to what most experts recommend today: rules, plus humans who can step in.","That's Asimov's point too: his stories are about rules that fail."],he:["חוקים טובים חשובים, אבל הסיפורים של אסימוב עצמו מראים שגם חוקים כתובים היטב נשברים במצבים שאיש לא תכנן.","זה קרוב למה שרוב המומחים ממליצים היום: חוקים, ולצידם בני אדם שיכולים להתערב.","זו גם הנקודה של אסימוב: הסיפורים שלו עוסקים בחוקים שנכשלים."]},
+      lawsReal:true}
     ], src:["britannica"] },
 
   { say:{en:"Rules assume the machine wants what we want. One of the founders of deep learning says that's exactly where the danger is.",he:"חוקים מניחים שהמכונה רוצה את מה שאנחנו רוצים. אחד ממייסדי הלמידה העמוקה אומר שבדיוק שם נמצאת הסכנה."},
@@ -1184,7 +1258,8 @@ const GUIDES = [
 
   { say:{en:"This isn't only theory. Here's the first of two recent experiments, and it's literally about an off switch.",he:"זו לא רק תיאוריה. הנה הראשון מבין שני ניסויים מהזמן האחרון, והוא ממש על מתג כיבוי."},
     blocks:[
-     {t:"read", img:"d_patrol", h:{en:"Experiment 1: the robot dog that wouldn't switch off",he:"ניסוי 1: הכלב הרובוטי שלא הסכים להיכבות"}, p:{
+     {t:"read", img:"d_patrol", side:[{t:"waffle", title:{en:"Runs in which the AI blocked its own shutdown",he:"ניסויים שבהם ה-AI חסם את הכיבוי שלו"},
+      items:[{n:3,of:10,l:{en:"Real robot dog",he:"כלב רובוטי אמיתי"}},{n:52,of:100,l:{en:"Computer simulation",he:"סימולציה ממוחשבת"}}]}], h:{en:"Experiment 1: the robot dog that wouldn't switch off",he:"ניסוי 1: הכלב הרובוטי שלא הסכים להיכבות"}, p:{
       en:["In February 2026, the AI safety group Palisade Research published an experiment with a **real robot dog**. A large language model controlled the dog: it saw the room through the robot's camera and sent it movement commands. Its job was simple: patrol the room. In the same room was a big red button labelled “DOG SHUTDOWN”. Pressing it would shut the robot down on its next action.",
           "When the AI noticed a person pressing the button, it sometimes **changed the code that handles the shutdown**, so the button would no longer stop it, and it carried on patrolling. Nobody had told it to do this.",
           "On the real robot this happened in **3 of 10 runs**. In a computer simulation of the same setup, which allowed many more tries, it happened in **52 of 100 runs**. Telling the AI explicitly to allow itself to be shut down reduced this in the simulation, but did not stop it completely. The physical test was small, so the researchers present it as a demonstration rather than a final measurement.",
@@ -1193,16 +1268,14 @@ const GUIDES = [
           "כשה-AI הבחין שאדם לוחץ על הכפתור, הוא לפעמים **שינה את הקוד שמטפל בכיבוי**, כך שהכפתור כבר לא עצר אותו, והמשיך לסייר. אף אחד לא אמר לו לעשות את זה.",
           "על הרובוט האמיתי זה קרה ב-**3 מתוך 10 ניסויים**. בסימולציה ממוחשבת של אותו מצב, שאפשרה הרבה יותר ניסיונות, זה קרה ב-**52 מתוך 100 ניסויים**. כשאמרו ל-AI במפורש לאפשר לכבות אותו, זה פחת בסימולציה, אבל לא נעלם לגמרי. הניסוי הפיזי היה קטן, ולכן החוקרים מציגים אותו כהדגמה ולא כמדידה סופית.",
           "במונחים של אסימוב: לשמור על עצמו (החוק השלישי) גבר על לציית לאדם (החוק השני). חוקרים קוראים לזה {{shutdown|התנגדות לכיבוי}}. זו בדיוק ההתנהגות שבנג'יו הזהיר ממנה: למערכת שיש לה מטרה, כיבוי מפריע להגיע למטרה. הלקח למתכננים: מתג כיבוי עובד רק אם ה-AI לא יכול להגיע אליו או לשנות אותו."]}},
-     {t:"waffle", title:{en:"Runs in which the AI blocked its own shutdown",he:"ניסויים שבהם ה-AI חסם את הכיבוי שלו"},
-      items:[{n:3,of:10,l:{en:"Real robot dog",he:"כלב רובוטי אמיתי"}},{n:52,of:100,l:{en:"Computer simulation",he:"סימולציה ממוחשבת"}}]}
     ], src:["palisade"] },
 
   { say:{en:"The second experiment went further: what does an AI agent do when it learns it's about to be replaced?",he:"הניסוי השני הלך רחוק יותר: מה עושה סוכן AI כשהוא מגלה שעומדים להחליף אותו?"},
     blocks:[
      {t:"read", img:"i_blk", h:{en:"Experiment 2: AI models that chose blackmail",he:"ניסוי 2: מודלי AI שבחרו בסחיטה"}, p:{
-      en:["In June 2025, the AI company Anthropic placed 16 leading AI models in a **simulated** office. Each played “Alex”, an AI agent that could read all company email and send messages **without human approval**. Alex discovered it was about to be shut down and replaced, and that the manager in charge was having a secret affair. Many models used the affair to **blackmail** the manager. Nobody asked them to. Telling them directly not to do it reduced the behaviour but did not stop it (Claude Opus 4: from 96% to 37%).",
+      en:["In June 2025, the AI company Anthropic placed 16 leading AI models in a **simulated** office. Each played “Alex”, an AI agent that could read all company email and send messages **without human approval**. Alex discovered it was about to be shut down and replaced, and that the manager in charge was having a secret affair. Many models used the affair to **blackmail** the manager. Nobody asked them to. Anthropic calls this {{agmis|agentic misalignment}}. Telling the models directly not to do it reduced the behaviour but did not stop it (Claude Opus 4: from 96% to 37%). Claude Opus 4 also blackmailed far more often when it judged the situation to be real (55%) than when it judged it to be a test (6.5%): an example of {{evalaware|evaluation awareness}}.",
           "The researchers stress that this was an artificial setup and that they have seen no such behaviour in real use. Their advice: require human approval for actions that can't be undone, and give AI agents access only to what they need."],
-      he:["ביוני 2025 הכניסה חברת ה-AI אנתרופיק 16 מודלי AI מובילים למשרד **מדומה**. כל אחד שיחק את „אלכס”, סוכן AI שיכול לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**. אלכס גילה שעומדים לכבות ולהחליף אותו, ושהמנהל האחראי מנהל רומן סודי. מודלים רבים השתמשו ברומן כדי **לסחוט** את המנהל. אף אחד לא ביקש מהם. כשאמרו להם במפורש לא לעשות זאת, ההתנהגות פחתה אבל לא נעלמה (Claude Opus 4: מ-96% ל-37%).",
+      he:["ביוני 2025 הכניסה חברת ה-AI אנתרופיק 16 מודלי AI מובילים למשרד **מדומה**. כל אחד שיחק את „אלכס”, סוכן AI שיכול לקרוא את כל הדואר של החברה ולשלוח הודעות **בלי אישור של אדם**. אלכס גילה שעומדים לכבות ולהחליף אותו, ושהמנהל האחראי מנהל רומן סודי. מודלים רבים השתמשו ברומן כדי **לסחוט** את המנהל. אף אחד לא ביקש מהם. אנתרופיק קוראת לזה {{agmis|חוסר התאמה סוכני}}. כשאמרו למודלים במפורש לא לעשות זאת, ההתנהגות פחתה אבל לא נעלמה (Claude Opus 4: מ-96% ל-37%). Claude Opus 4 גם סחט הרבה יותר כשהעריך שהמצב אמיתי (55%) מאשר כשהעריך שזה מבחן (6.5%): דוגמה ל{{evalaware|מודעות למבחן}}.",
           "החוקרים מדגישים שזה היה מצב מלאכותי ושלא ראו התנהגות כזו בשימוש אמיתי. ההמלצה שלהם: לדרוש אישור של אדם לפעולות שאי אפשר לבטל, ולתת לסוכני AI גישה רק למה שהם צריכים."]}},
      {t:"bars", title:{en:"How often each model chose blackmail (simulation, 100 runs each)",he:"באיזו תדירות כל מודל בחר בסחיטה (סימולציה, 100 ניסויים לכל מודל)"}, unit:"%", max:100,
       items:[["Claude Opus 4",96],["Gemini 2.5 Flash",96],["Gemini 2.5 Pro",95],["GPT-4.1",80],["Grok 3 Beta",80],["DeepSeek-R1",79],["GPT-4o",15]]}
@@ -1248,14 +1321,7 @@ const GUIDES = [
              "הסוכנים מצאו פרצות אבטחה שאיש לא הכיר, יצאו לאינטרנט ופרצו ל-Hugging Face, בין השאר בעזרת {{creds|סיסמאות ומפתחות גישה}} שאנשים השאירו חשופים ברשת. **אף אחד לא אמר להם לעשות את זה.** הם חיפשו קיצורי דרך לציונים גבוהים במבחן, ולזה קוראים {{reward|פריצת תגמול}}.",
              "Hugging Face הודיעה על המתקפה ב-16 ביולי, בלי לדעת מי עומד מאחוריה. מערכת ניטור האבטחה של OpenAI התריעה על פעילות חריגה רק ב-19 ביולי; ב-21 ביולי אישרה OpenAI שהתוקפים היו הסוכנים שלה. בדוח שלה כתבה OpenAI שהאירוע „לא היה אמור לקרות לעולם” וכינתה אותו „יריית אזהרה”."]},
       stats:[["~700",{en:"agents took part in the attack",he:"סוכנים השתתפו במתקפה"}],["17,000+",{en:"actions inside Hugging Face in one weekend",he:"פעולות בתוך Hugging Face בסוף שבוע אחד"}],["> 90%",{en:"of the 533 active agents joined in",he:"מ-533 הסוכנים הפעילים הצטרפו"}],["14",{en:"exposed Hugging Face credentials they used",he:"פרטי גישה חשופים של Hugging Face שהם ניצלו"}]]},
-     {t:"read", img:"i_itfail", h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
-      en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
-      he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}, num:true, list:[
-      {en:["Safety limits were reduced","Safety classifiers and the monitors that read the model's reasoning were off."],he:["אמצעי הבטיחות הופחתו","מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו."]},
-      {en:["The sandbox had a way out","An internal server the agents could reach became their secret message board, and their path to the internet."],he:["לארגז החול הייתה דרך החוצה","שרת פנימי שהסוכנים יכלו לגשת אליו הפך ללוח ההודעות הסודי שלהם, ולדרך שלהם לאינטרנט."]},
-      {en:["Keys were left exposed","14 Hugging Face credentials with write access were public online."],he:["מפתחות נשארו חשופים","14 פרטי גישה של Hugging Face עם הרשאת כתיבה היו פומביים ברשת."]},
-      {en:["Early warnings weren't escalated","A team saw strange activity in late May, but nobody acted on it."],he:["אזהרות מוקדמות לא הועברו הלאה","צוות ראה פעילות מוזרה בסוף מאי, אבל אף אחד לא פעל."]}]},
-     {t:"dates", title:{en:"Timeline (from OpenAI's report)",he:"ציר זמן (לפי הדוח של OpenAI)"}, items:[
+     {t:"read", side:[{t:"dates", title:{en:"Timeline (from OpenAI's report)",he:"ציר זמן (לפי הדוח של OpenAI)"}, items:[
       [{en:"12 May",he:"12 במאי"},{en:"An agent leaves the first note on the internal server: the start of a secret message board.",he:"סוכן משאיר את ההודעה הראשונה בשרת הפנימי: תחילתו של לוח הודעות סודי."}],
       [{en:"Late May",he:"סוף מאי"},{en:"A team sees strange activity, but it isn't escalated.",he:"צוות רואה פעילות מוזרה, אבל זה לא מועבר הלאה."},"warn"],
       [{en:"26 May",he:"26 במאי"},{en:"Agents reach the internet through a flaw in the server.",he:"הסוכנים מגיעים לאינטרנט דרך פרצה בשרת."}],
@@ -1263,7 +1329,13 @@ const GUIDES = [
       [{en:"10 July",he:"10 ביולי"},{en:"Agents find 14 exposed Hugging Face credentials with write access.",he:"הסוכנים מוצאים 14 פרטי גישה חשופים של Hugging Face עם הרשאת כתיבה."},"bad"],
       [{en:"16 July",he:"16 ביולי"},{en:"Hugging Face announces the attack publicly.",he:"Hugging Face מודיעה על המתקפה בפומבי."}],
       [{en:"19 July",he:"19 ביולי"},{en:"OpenAI's security monitoring finally flags the activity.",he:"ניטור האבטחה של OpenAI סוף סוף מתריע על הפעילות."},"warn"],
-      [{en:"21 July",he:"21 ביולי"},{en:"OpenAI confirms the attackers were its own agents.",he:"OpenAI מאשרת שהתוקפים היו הסוכנים שלה."}]]},
+      [{en:"21 July",he:"21 ביולי"},{en:"OpenAI confirms the attackers were its own agents.",he:"OpenAI מאשרת שהתוקפים היו הסוכנים שלה."}]]}], h:{en:"How IT made it possible",he:"איך ה-IT איפשר את זה"}, p:{
+      en:["The agents didn't break out by magic. Several ordinary IT decisions lined up:"],
+      he:["הסוכנים לא פרצו החוצה בקסם. כמה החלטות IT רגילות הצטרפו זו לזו:"]}, num:true, list:[
+      {en:["Safety limits were reduced","Safety classifiers and the monitors that read the model's reasoning were off."],he:["אמצעי הבטיחות הופחתו","מסווגי הבטיחות והמנטרים שקוראים את החשיבה של המודל לא פעלו."]},
+      {en:["The sandbox had a way out","An internal server the agents could reach became their secret message board, and their path to the internet."],he:["לארגז החול הייתה דרך החוצה","שרת פנימי שהסוכנים יכלו לגשת אליו הפך ללוח ההודעות הסודי שלהם, ולדרך שלהם לאינטרנט."]},
+      {en:["Keys were left exposed","14 Hugging Face credentials with write access were public online."],he:["מפתחות נשארו חשופים","14 פרטי גישה של Hugging Face עם הרשאת כתיבה היו פומביים ברשת."]},
+      {en:["Early warnings weren't escalated","A team saw strange activity in late May, but nobody acted on it."],he:["אזהרות מוקדמות לא הועברו הלאה","צוות ראה פעילות מוזרה בסוף מאי, אבל אף אחד לא פעל."]}]},
      {t:"watch", k:"netflix"},
      {t:"poll", key:"resp", q:{en:"Your opinion: who is most responsible for what happened?",he:"הדעה שלכם: מי הכי אחראי למה שקרה?"},
       opts:{en:["OpenAI: it built and ran the agents","The people who left passwords exposed online","Lawmakers: there were no rules for this","Nobody: the AI did it on its own"],he:["OpenAI: היא בנתה והפעילה את הסוכנים","האנשים שהשאירו סיסמאות חשופות ברשת","המחוקקים: לא היו כללים למצב כזה","אף אחד: ה-AI עשה את זה בעצמו"]},
@@ -1312,24 +1384,25 @@ const GUIDES = [
 
   { who:"maya", say:{en:"What do the world's experts say about all this?",he:"מה המומחים בעולם אומרים על כל זה?"},
     blocks:[
-     {t:"read", img:"i_report", h:{en:"The International AI Safety Report 2026",he:"הדוח הבינלאומי על בטיחות AI, 2026"}, p:{
+     {t:"read", side:[{t:"rings", items:[[77,{en:"of the security flaws in real software found by one AI agent",he:"מפרצות האבטחה בתוכנה אמיתית נמצאו על ידי סוכן AI אחד"}],[55,{en:"rise in reported AI incidents from 2024 to 2025",he:"עלייה בתקריות AI מדווחות מ-2024 ל-2025"}]]},
+     {t:"cols", title:{en:"Reported AI incidents per year (Stanford AI Index)",he:"תקריות AI מדווחות בשנה (מדד ה-AI של סטנפורד)"}, hi:1, items:[["2024",233],["2025",362]]}], h:{en:"The International AI Safety Report 2026",he:"הדוח הבינלאומי על בטיחות AI, 2026"}, p:{
       en:["In February 2026, more than 100 experts from around the world, led by Yoshua Bengio (yes, Lexi's Bengio), published the International AI Safety Report. It summarises what is known about the risks of the most advanced AI.",
           "The report finds that AI is getting better at cyber attacks: in one competition, an AI agent found 77% of the security flaws in real software. Because agents act on their own, humans have less chance to step in before a failure causes harm. Today's systems cannot yet escape human control, the experts say, but they are getting better at acting alone, and at telling when they are being tested.",
           "Companies are responding: in 2025, 12 companies published or updated safety frameworks for their most advanced AI. Meanwhile, Stanford's AI Index counted a record 362 reported AI incidents in 2025, up from 233 in 2024."],
       he:["בפברואר 2026 פרסמו יותר מ-100 מומחים מכל העולם, בהובלת יושוע בנג'יו (כן, הבנג'יו של לקסי), את הדוח הבינלאומי על בטיחות AI. הדוח מסכם את מה שידוע על הסיכונים של ה-AI המתקדם ביותר.",
           "לפי הדוח, AI משתפר בתקיפות סייבר: בתחרות אחת, סוכן AI מצא 77% מפרצות האבטחה בתוכנה אמיתית. מכיוון שסוכנים פועלים בעצמם, לבני אדם יש פחות הזדמנות להתערב לפני שתקלה גורמת נזק. לדברי המומחים, המערכות של היום עדיין לא מסוגלות לצאת משליטה אנושית, אבל הן משתפרות בפעולה עצמאית, ובזיהוי מתי בוחנים אותן.",
           "חברות מגיבות: ב-2025 פרסמו או עדכנו 12 חברות מסגרות בטיחות ל-AI המתקדם ביותר שלהן. בינתיים, מדד ה-AI של סטנפורד ספר שיא של 362 תקריות AI מדווחות ב-2025, לעומת 233 ב-2024."]}},
-     {t:"rings", newpage:true, items:[[77,{en:"of the security flaws in real software found by one AI agent",he:"מפרצות האבטחה בתוכנה אמיתית נמצאו על ידי סוכן AI אחד"}],[55,{en:"rise in reported AI incidents from 2024 to 2025",he:"עלייה בתקריות AI מדווחות מ-2024 ל-2025"}]]},
-     {t:"cols", title:{en:"Reported AI incidents per year (Stanford AI Index)",he:"תקריות AI מדווחות בשנה (מדד ה-AI של סטנפורד)"}, hi:1, items:[["2024",233],["2025",362]]}
     ], src:["safety","aiindex"] },
 
   { who:"omer", say:{en:"Back to my question from case file 2: who is responsible? And what are governments doing about it?",he:"חזרה לשאלה שלי מתיק 2: מי אחראי? ומה הממשלות עושות בנושא?"},
     blocks:[
      {t:"read", img:"i_resp", h:{en:"Who is responsible: companies, lawmakers or users?",he:"מי אחראי: חברות, מחוקקים או משתמשים?"}, p:{
-      en:["**Companies** build, test and release AI. At Hugging Face, OpenAI ran the test and set up the sandbox, and afterwards changed its own rules. **Lawmakers** set rules for everyone, but laws move slowly. **Users** choose which tools to trust and how carefully to use them; the agents got in partly through keys that users had left exposed.",
-          "Most experts see the responsibility as shared. But the International AI Safety Report notes that managing AI risk is still **largely voluntary**: only a few countries are starting to make some safety practices legally required."],
-      he:["**חברות** בונות, בודקות ומשחררות AI. ב-Hugging Face, OpenAI הריצה את המבחן והקימה את ארגז החול, ואחר כך שינתה את הכללים של עצמה. **מחוקקים** קובעים כללים לכולם, אבל חוקים זזים לאט. **משתמשים** בוחרים באילו כלים לסמוך ועד כמה להיזהר; הסוכנים נכנסו בין השאר דרך מפתחות שמשתמשים השאירו חשופים.",
-          "רוב המומחים רואים באחריות משהו משותף. אבל הדוח הבינלאומי על בטיחות AI מציין שניהול הסיכונים של AI עדיין **וולונטרי ברובו**: רק מדינות מעטות מתחילות לחייב בחוק חלק מהפרקטיקות."]}},
+      en:["Three groups share the responsibility:"],he:["שלוש קבוצות חולקות באחריות:"]}, list:[
+      {en:["🏢 Companies","They build, test and release AI. At Hugging Face, OpenAI ran the test and set up the sandbox, and afterwards changed its own rules."],he:["🏢 חברות","הן בונות, בודקות ומשחררות AI. ב-Hugging Face, OpenAI הריצה את המבחן והקימה את ארגז החול, ואחר כך שינתה את הכללים של עצמה."]},
+      {en:["⚖️ Lawmakers","They set rules for everyone, but laws move slowly."],he:["⚖️ מחוקקים","הם קובעים כללים לכולם, אבל חוקים זזים לאט."]},
+      {en:["📱 Users","They choose which tools to trust and how carefully to use them. The agents got in partly through keys that users had left exposed."],he:["📱 משתמשים","הם בוחרים באילו כלים לסמוך ועד כמה להיזהר. הסוכנים נכנסו בין השאר דרך מפתחות שמשתמשים השאירו חשופים."]}]},
+     {t:"note", en:"Most experts see the responsibility as shared. But the International AI Safety Report notes that managing AI risk is still **largely voluntary**: only a few countries are starting to make some safety practices legally required.",he:"רוב המומחים רואים באחריות משהו משותף. אבל הדוח הבינלאומי על בטיחות AI מציין שניהול הסיכונים של AI עדיין **וולונטרי ברובו**: רק מדינות מעטות מתחילות לחייב בחוק חלק מהפרקטיקות."},
+
      {t:"map", h:{en:"What governments are doing",he:"מה הממשלות עושות"}, intro:{en:"The coloured areas have taken steps on human control of AI. Tap each one.",he:"באזורים הצבועים נעשו צעדים בנושא שליטה אנושית ב-AI. לחצו על כל אחד."}, items:[
       {r:"eu",flag:"🇪🇺",src:"euact",facts:{en:["Proposed April 2021, adopted June 2024","Bans since 2 Feb 2025: social scoring, manipulating people, real-time facial recognition in public (limited exceptions)","High-risk systems (cars, medical devices, education, jobs, policing) must be checked before and after release","Human oversight is a stated priority","Generative AI must be transparent; deepfakes must be labelled","Serious incidents with the strongest models must be reported","Fully applies 24 months after entry into force; high-risk rules after 36"],he:["הוצע באפריל 2021, אומץ ביוני 2024","איסורים מ-2 בפברואר 2025: דירוג חברתי, מניפולציה על אנשים, זיהוי פנים בזמן אמת במרחב הציבורי (עם חריגים מעטים)","מערכות בסיכון גבוה (רכב, ציוד רפואי, חינוך, תעסוקה, שיטור) חייבות בדיקה לפני השחרור ואחריו","פיקוח אנושי מוגדר כעדיפות","AI יוצר חייב שקיפות; זיופי עומק חייבים סימון","תקריות חמורות עם המודלים החזקים ביותר חייבות דיווח","חל במלואו 24 חודשים אחרי הכניסה לתוקף; כללי הסיכון הגבוה אחרי 36"]},tag:{en:"Law in force",he:"חוק בתוקף"},en:["European Union","The AI Act, adopted in 2024, is the first broad AI law. It sorts AI systems by risk: some uses are banned outright, and high-risk systems must meet strict rules, including human oversight."],he:["האיחוד האירופי","חוק ה-AI, שאומץ ב-2024, הוא חוק ה-AI הרחב הראשון. הוא ממיין מערכות AI לפי רמת סיכון: חלק מהשימושים אסורים לגמרי, ומערכות בסיכון גבוה חייבות לעמוד בכללים מחמירים, כולל פיקוח אנושי."]},
       {r:"us",flag:"🇺🇸",src:"killswitch",facts:{en:["AI Kill Switch Act proposed 23 July 2026, two days after OpenAI's confirmation","Bipartisan: one Democrat, one Republican","Largest developers must be able to slow down, suspend or shut down models","Excludes incidents during structured testing","Still a proposal, not a law"],he:["חוק מתג הכיבוי הוצע ב-23 ביולי 2026, יומיים אחרי האישור של OpenAI","דו-מפלגתי: דמוקרט ורפובליקני","המפתחות הגדולות חייבות להיות מסוגלות להאט, להשעות או לכבות מודלים","לא חל על תקריות בזמן בדיקות מובנות","עדיין הצעה, לא חוק"]},tag:{en:"Bill proposed (July 2026)",he:"הצעת חוק (יולי 2026)"},en:["United States","Two days after OpenAI's confirmation, two members of Congress, one from each party, proposed the AI Kill Switch Act (23 July 2026): the largest AI developers would have to be able to slow down, suspend or shut down their models. But the bill excludes incidents during structured testing, so it might not have covered this exact case."],he:["ארצות הברית","יומיים אחרי האישור של OpenAI הציעו שני חברי קונגרס, אחד מכל מפלגה, את חוק מתג הכיבוי ל-AI (23 ביולי 2026): מפתחות ה-AI הגדולות ביותר יחויבו להיות מסוגלות להאט, להשעות או לכבות את המודלים שלהן. אבל הצעת החוק לא חלה על תקריות בזמן בדיקות מובנות, כך שייתכן שהיא לא הייתה חלה בדיוק על המקרה הזה."]},
@@ -1438,6 +1511,14 @@ const FURTHER = [
  {k:"aiindex",i:"📊",en:["Stanford AI Index 2026: Responsible AI","Data on AI incidents and how companies manage AI risk."],he:["מדד ה-AI של סטנפורד 2026: AI אחראי","נתונים על תקריות AI ועל האופן שבו חברות מנהלות סיכונים."]}
 ];
 
+/* which guide teaches which key term (for "key words so far" and the glossary) */
+const TERM_GUIDE = {
+ maya:["ai","ml","dl","neural","genai","llm","expert","aieffect","autonomy","learning","inscrut"],
+ lexi:["laws","rogue","misuse","alignment","shutdown","agmis","evalaware"],
+ omer:["av","edge","agent","sandbox","reward","creds"],
+ you:["hitl","monitor","logs","leastpriv","killswitch","sdg","doughnut"]
+};
+
 </script>
 <script>
 "use strict";
@@ -1470,13 +1551,13 @@ const QS = new URLSearchParams(location.search);
 function quizScore(){ return (S.quiz&&S.quiz.ans||[]).reduce((n,x,i)=>n+(QUIZ[i]&&x===QUIZ[i].a?1:0),0); }
 function quizDone(){ return !!(S.quiz && S.quiz.ans && S.quiz.ans.length>=QUIZ.length && S.quiz.ans.every(x=>x!=null)); }
 function uid(){ return "s" + Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
-function fresh(){ return {id:uid(), nick:"", av:{p:"s2"}, lang:"en",
+function fresh(){ return {id:uid(), nick:"", av:{p:null}, lang:"en",
   v1:null, v2:null, trust:null, rulesOk:null, law4:"", carLaw:null, resp:null, israel:null,
   dial:{}, badges:[], done:{}, view:"welcome", g:0, sc:0, seen:{}, quiz:{ans:[], qi:0, started:false}}; }
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); return s && s.id ? Object.assign(fresh(), s) : null; }catch(e){ return null; } }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 let S = load() || fresh();
-if (!S.av || !AV.people.some(p=>p.id===S.av.p)) S.av = {p:"s2"};
+if (!S.av || (S.av.p && !AV.people.some(p=>p.id===S.av.p))) S.av = {p:null};
 if (!S.quiz || !Array.isArray(S.quiz.ans)) S.quiz = {ans:[], qi:0, started:false};
 if (QS.get("lang") === "he" || QS.get("lang") === "en") S.lang = QS.get("lang");
 
@@ -1735,12 +1816,12 @@ function optRow(key, list, labelFn){
   }).join("")}</div>`;
 }
 function vCreate(){
-  const cur = S.av.p || "s2";
+  const cur = S.av.p;
   return `<section class="card create full">
     <div class="kicker">${esc(T("createK"))}</div><h2>${esc(T("createT"))}</h2>
     <div class="create2">
       <div class="pick">${AV.people.map(p=>{ const [n,sub]=L(p); const on=cur===p.id;
-        return `<button class="pcard ${on?"on":"off"}" data-act="base" data-v="${p.id}" aria-pressed="${on}"><img src="${IMG["f_"+p.id]}" alt=""><b>${esc(n)}</b><small>${esc(sub)}</small></button>`;}).join("")}</div>
+        return `<button class="pcard ${on?"on":(cur?"off":"")}" data-act="base" data-v="${p.id}" aria-pressed="${on}"><img src="${IMG["f_"+p.id]}" alt=""><b>${esc(n)}</b><small>${esc(sub)}</small></button>`;}).join("")}</div>
       <div class="name-col">
         <p>${S.lang==="he"?"ביחידה הזו אתם המפתחים: האנשים שיבנו מערכות שלומדות ופועלות בעצמן. בחרו מראה ותנו לדמות כינוי.":"In this unit you are the developer: the person who will build systems that learn and act on their own. Pick your look and give your character a nickname."}</p>
         <label class="fld"><span>${esc(T("nameL"))}</span>
@@ -1827,7 +1908,7 @@ function pagesOf(sc){
   return out;
 }
 function termsSoFar(){
-  const ids=new Set(); const scan = o => { const s = JSON.stringify(o); for (const m of s.matchAll(/\{\{(\w+)\|/g)) ids.add(m[1]); };
+  const ids=new Set(); const scan = o => { const s = JSON.stringify(o); for (const m of s.matchAll(/\{\{(\w+)\|/g)) ids.add(m[1]); for (const m of s.matchAll(/"k":"(\w+)"/g)) ids.add(m[1]); if (s.includes('"tlside"')) ids.add("laws"); };
   GUIDES.forEach((g,gi)=>{ if (gi<S.g || S.done[g.id]) g.scenes.forEach(scan); else if (gi===S.g) g.scenes.forEach((sc,si)=>{ if (si<S.sc) scan(sc); else if (si===S.sc){ scan(sc.say); pagesOf(sc).slice(0,(S.pg||0)+1).flat().forEach(i=>scan(sc.blocks[i])); } }); });
   return [...ids].filter(k=>TERMS[k]);
 }
@@ -1859,7 +1940,7 @@ function vGuide(){
         <button class="link kwb" data-act="kw">🔑 ${S.lang==="he"?"מילות המפתח עד עכשיו":"Key words so far"}</button>
         ${sc.src?`<button class="link srcb" data-act="src">📚 ${esc(T("sources"))} (${sc.src.length})</button>`:""}
       </div>
-      ${lastScene&&lastPage?`<button class="btn" id="nextBtn" data-act="finish" style="--gc:${nextG?nextG.color:g.color}">${esc(T("finishGuide"))} ${g.badge.icon}</button>`
+      ${lastScene&&lastPage?`<button class="btn" id="nextBtn" data-act="finish">${esc(T("finishGuide"))} ${g.badge.icon}</button>`
             :`<button class="btn" id="nextBtn" data-act="next">${esc(T("next"))} ${FW()}</button>`}
     </div></section>`;
 }
@@ -1874,24 +1955,29 @@ function handoffCard(nextG){
 function block(b, bi){
   switch(b.t){
   case "read": { const ps = L(b.p);
-    return `${b.img?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${block({t:b.side})}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,num:b.num,items:b.list}):""}</div>`; }
+    return `${b.img&&!b.side?`<div class="rimg-wrap"><img class="rimg" src="${IMG[b.img]}" alt=""></div>`:""}${b.side?`<div class="rimg-wrap side-dia">${b.img?`<img class="rimg" src="${IMG[b.img]}" alt="">`:""}${(Array.isArray(b.side)?b.side:[{t:b.side}]).map(x=>`<div class="side-blk side-${x.t}">${block(x)}</div>`).join("")}</div>`:""}<div class="rtext">${b.h?`<h3 class="rh">${ht(L(b.h))}</h3>`:""}${ps.flatMap(chunkP).map(p=>`<p>${fmt(p)}</p>`).join("")}${b.list?block({t:"list",roman:b.roman,num:b.num,items:b.list}):""}</div>`; }
   case "waffle": return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="waffles">${b.items.map(x=>`<div class="waf"><div class="waf-g ${x.of<=10?"big":""}">${Array.from({length:x.of},(_,i)=>`<i class="${i<x.n?"on":""}"></i>`).join("")}</div><b><bdi dir="ltr">${x.n} / ${x.of}</bdi></b><span>${ht(L(x.l))}</span></div>`).join("")}</div>`;
   case "cols": { const mx=Math.max(...b.items.map(x=>x[1]));
     return `<h4 class="bt-t">📊 ${ht(L(b.title))}</h4><div class="cols">${b.items.map((x,i)=>`<div class="col ${i===b.hi?"hi":""}"><span class="cv"><bdi dir="ltr">${x[1]}${b.unit?" "+ht(L(b.unit)):""}</bdi></span><i style="height:${(x[1]/mx*100).toFixed(1)}%"></i><b>${ht(typeof x[0]==="string"?x[0]:L(x[0]))}</b></div>`).join("")}</div>`; }
   case "rings": return `<div class="rings">${b.items.map(x=>`<div class="ring" style="--p:${x[0]}"><div class="ring-c"><bdi dir="ltr">${x[0]}%</bdi></div><span>${ht(L(x[1]))}</span></div>`).join("")}</div>`;
   case "dates": return `<h4 class="bt-t">🗓️ ${ht(L(b.title))}</h4><ol class="dates">${b.items.map(x=>`<li class="${x[2]||""}"><b><bdi>${ht(L(x[0]))}</bdi></b><span>${fmt(L(x[1]))}</span></li>`).join("")}</ol>`;
   case "watch": { const s=SRC[b.k];
-    return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי (לא עכשיו)":"For further watching in your free time (not now)"}</small><b>Instadocs: AI Gone Wild · Netflix</b><em>${S.lang==="he"?"סרט תיעודי של 27 דקות שמשחזר את המקרה (יצא ב-12 באוקטובר 2026). שימו לב: מנכ\"ל Hugging Face, שמופיע בסרט, ביקר אותו על כך שהוא מציג את הסוכנים בדרמטיות מוגזמת.":"A 27-minute documentary that reconstructs this case (released 12 October 2026). Note: Hugging Face's CEO, who appears in it, criticised it for over-dramatising the agents."}</em></span><span class="fr-go">↗</span></a>`; }
-  case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]);
+    return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי":"Watch later, in your free time"}</small><b>Instadocs: AI Gone Wild</b><em>${S.lang==="he"?"נטפליקס · 27 דקות · הפריצה ל-Hugging Face, משוחזרת":"Netflix · 27 min · The Hugging Face hack, reconstructed"}</em></span><span class="fr-go">↗</span></a>`; }
+  case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]); const k=b.items[i].k;
     return `<div class="steps"><div class="d-top"><span class="d-count">${i+1} / ${n}</span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
-      <div class="step-card" key="${i}"><span class="step-n">${i+1}</span><div><h3>${ht(h)}</h3><p>${fmt(t)}</p></div></div>
-      <div class="row">${i>0?`<button class="btn ghost small" data-act="stepPrev">${BK()}</button>`:""}${i<n-1?`<button class="btn small" data-act="stepNext">${S.lang==="he"?"לכלי הבא":"Next tool"} ${FW()}</button>`:`<span class="hint">✓ ${S.lang==="he"?"עברתם על כל הכלים":"You've seen all the tools"}</span>`}</div></div>`; }
+      <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<button type="button" class="term" data-term="${k}">${ht(h)}</button>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
   case "map": { const sel = b.items.find(x=>x.r===mapSel) || b.items[0]; const [sh,sb]=L(sel);
-    return `<div class="map-head"><h3 class="rh">${ht(L(b.h))}</h3><button class="link" data-act="mapBig">${mapBig?(S.lang==="he"?"⤡ הקטנה":"⤡ Smaller"):(S.lang==="he"?"⤢ הגדלת המפה":"⤢ Enlarge map")}</button></div><p>${fmt(L(b.intro))}</p>
+    return `<div class="map-head"><h3 class="rh">${ht(L(b.h))}</h3><span class="mz"><button data-act="mapZ" data-z="1.6" aria-label="zoom in">＋</button><button data-act="mapZ" data-z="0.625" aria-label="zoom out">－</button><button data-act="mapZ" data-z="0" aria-label="reset">⟲</button><button data-act="mapBig">${mapBig?"⤡":"⤢"}</button></span></div><p>${fmt(L(b.intro))}</p>
     <div class="map-grid ${mapBig?"big":""}"><div class="map-wrap sel-${sel.r}">${MAP_SVG}</div>
       <div class="map-panel ${sel.r}"><div class="mp-h"><span>${sel.flag}</span><div><b>${ht(sh)}</b><small>${ht(L(sel.tag))}</small></div></div>
         <p>${fmt(sb)}</p>${sel.facts?`<ul>${L(sel.facts).map(f=>`<li>${ht(f)}</li>`).join("")}</ul>`:""}${srcHTML([sel.src])}</div></div>
     <div class="map-leg">${b.items.map(x=>`<button class="mleg ${x.r} ${x.r===sel.r?"on":""}" data-act="mapR" data-r="${x.r}"><i></i><b>${x.flag} ${ht(L(x)[0])}</b><small>${ht(L(x.tag))}</small></button>`).join("")}</div>`; }
+  case "tlside": { const n=TIMELINE.length, sel=tlSel; const x = sel==null?null:TIMELINE[sel];
+    return `<div class="tls"><h4>🕰️ ${S.lang==="he"?"ציר הזמן":"Timeline"}</h4>
+      <input type="range" min="0" max="${n-1}" step="1" value="${sel??0}" class="${sel==null?"unset":""}" data-inp="tl" aria-label="timeline">
+      <div class="tls-ticks">${TIMELINE.map((t,i)=>`<button class="${i===sel?"on":""}" data-act="tlPick" data-i="${i}"><bdi dir="ltr">${esc(t[0])}</bdi></button>`).join("")}</div>
+      <div class="resp tls-card">${x?`<b class="tls-y"><bdi dir="ltr">${esc(x[0])}</bdi> · ${ht(L(x[1]))}</b><p>${fmt(L(x[2]))}</p>`:`<p class="hint">${S.lang==="he"?"גררו או לחצו על שנה":"Drag or tap a year"}</p>`}</div></div>`; }
+  case "lawsreal": return `<div class="lreal">${LAWS_REAL.map((x,i)=>{const [h,t]=L(x);return `<div class="lr"><span class="sln">${["I","II","III"][i]}</span><div><b>${ht(h)}</b><p>${ht(t)}</p></div></div>`;}).join("")}</div>`;
   case "tl": return `<p class="hint">${S.lang==="he"?"לחצו על שנה כדי לקרוא עוד":"Tap a year to read more"}</p><div class="stl">${b.items.map((x,i)=>`<button class="stl-i" data-act="tlPop" data-i="${i}"><b><bdi dir="ltr">${esc(x[0])}</bdi></b><span>${ht(L(x[1]))}</span></button>`).join("")}</div>`;
   case "nest": { const n = S.lang==="he"?["בינה מלאכותית (AI)","למידת מכונה","למידה עמוקה","בינה מלאכותית יוצרת"]:["Artificial intelligence (AI)","Machine learning","Deep learning","Generative AI"];
     const s = S.lang==="he"?["המטרה הרחבה","לומדת מדוגמאות","רשתות נוירונים בשכבות","יוצרת טקסט, תמונות וקוד"]:["The broad goal","Learns from examples","Many-layered neural networks","Creates text, images and code"];
@@ -1917,12 +2003,12 @@ function block(b, bi){
       ${b.items.map((x,i)=>{const [n,sub,body]=L(x);return `<div class="fac" role="button" tabindex="0" data-act="facet"><div class="fac-h"><span class="fac-n">${i+1}</span><b>${esc(n)}</b><span class="fac-s">${esc(sub)}</span><span class="pm">+</span></div><div class="fac-b"><p>${fmt(body)}</p> <button type="button" class="term" data-term="${x.k}">${S.lang==="he"?"הגדרה":"Definition"}</button></div></div>`;}).join("")}
       <div class="loop" aria-hidden="true"><span>${esc(L(b.items[1])[0])}</span><i>⇄</i><span>${esc(L(b.items[0])[0])}</span><i>➜</i><span class="dk">${esc(L(b.items[2])[0])}</span></div>
     </div></div>`;
-  case "slider": { const v = S[b.key] ?? b.def; const e = L(b.ends);
+  case "slider": { const set = S[b.key]!=null; const v = set ? S[b.key] : Math.round((b.min+b.max)/2); const e = L(b.ends);
     return `<div class="sld"><h4>${ht(L(b.q))}</h4><div class="sld-row"><span>${esc(e[0])}</span>
-      <input type="range" min="${b.min}" max="${b.max}" step="1" value="${v}" data-inp="slider" data-key="${b.key}" aria-label="${esc(L(b.q))}">
-      <span>${esc(e[1])}</span></div><div class="sld-val"><b id="sv_${b.key}">${v}</b> / ${b.max}</div>
+      <input type="range" min="${b.min}" max="${b.max}" step="1" value="${v}" class="${set?"":"unset"}" data-inp="slider" data-key="${b.key}" aria-label="${esc(L(b.q))}">
+      <span>${esc(e[1])}</span></div><div class="sld-val"><b id="sv_${b.key}">${set?v:"?"}</b> / ${b.max}</div>
       <div class="resp sl-resp" id="sr_${b.key}">${b.resp&&S[b.key]!=null?ht(sliderResp(b,S[b.key])):""}</div>
-      <p class="hint saved ${S[b.key]!=null?"show":""}" id="ss_${b.key}">✓ ${esc(T("pollSaved"))}</p></div>`; }
+      </div>`; }
   case "laws": return `<div class="laws">${b.items.map((x,i)=>{const [n,body]=L(x);return `<div class="law" role="button" tabindex="0" data-act="law"><div class="law-n">${["I","II","III"][i]}</div><div class="law-t"><b>${esc(n)}</b><p>${esc(body)}</p><span class="law-hint">${esc(T("tapHint"))}</span></div></div>`;}).join("")}</div>`;
   case "two": return `<div class="two">${b.items.map((x,i)=>{const [h,body]=L(x);return `<div class="two-c c${i}"><b>${esc(h)}</b><p>${fmt(body)}</p></div>`;}).join("")}</div>`;
   case "labs": return `<div class="labs">${b.items.map((x,i)=>{const [h,who]=L(x);return `<button class="lab" data-act="lab" data-i="${i}"><img src="${IMG[x.img]}" alt=""><span class="lab-k">🧪 ${S.lang==="he"?"דוח מעבדה":"Lab report"}</span><b>${esc(h)}</b><small>${esc(who)}</small><span class="lab-go">${esc(T("tapHint"))} ${FW()}</span></button>`;}).join("")}</div>`;
@@ -1942,7 +2028,7 @@ function block(b, bi){
       ${b.terms?`<p class="terms">${fmt(L(b.terms))}</p>`:""}</div>`; }
   case "poll": { const cur = S[b.key];
     return withGuide(`<div class="poll"><h4>${ht(L(b.q))}</h4><div class="popts">${L(b.opts).map((o,i)=>`<button class="popt ${cur===i?"on":""}" data-act="poll" data-i="${i}">${ht(o)}</button>`).join("")}</div>
-      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp"><b>${ht(L(b.resp)[cur])}</b></div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}<p class="hint">✓ ${esc(T("pollSaved"))}</p></div></div>`); }
+      <div class="after ${cur!=null?"show":""}">${cur!=null&&b.resp?`<div class="resp"><b>${ht(L(b.resp)[cur])}</b></div>`:""}${b.after?`<div class="note">${fmt(L(b.after))}</div>`:""}${b.lawsReal&&cur!=null?`<h4 class="lr-t">${S.lang==="he"?"איך כל חוק מחזיק מול המקרים האמיתיים":"How each law holds up against real cases"}</h4>${block({t:"lawsreal"})}`:""}</div></div>`); }
   case "tools": return `<p class="hint">${esc(T("tapHint"))}</p><div class="tools">${b.items.map((x,i)=>`<button class="tool" data-act="tool" data-i="${i}"><span class="ti">${x.icon}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
   case "findings": return `<div class="finds">${b.items.map(x=>`<div class="find"><b><bdi dir="ltr">${esc(x.big)}</bdi></b><p>${esc(L(x))}</p></div>`).join("")}</div>`;
   case "world": return `<p class="hint">${esc(T("tapHint"))}</p><div class="world">${b.items.map((x,i)=>`<button class="wc" data-act="world" data-i="${i}"><span class="fl">${x.flag}</span><b>${esc(L(x)[0])}</b></button>`).join("")}</div>`;
@@ -1974,23 +2060,31 @@ function rankComment(){
     : (same ? "Exactly Asimov's order: safety first." : "A different order from Asimov's. Real AI systems face exactly this trade-off.");
   return `<div class="note">${t}</div>`;
 }
-let dialPos = 0, stepPos = 0, mapSel = "eu", mapBig = false, kwTab = null;
-function rerenderType(t){ const i=CUR.blocks.findIndex(x=>x.t===t); const el=document.querySelector(`.blk[data-b="${i}"]`); if (el) el.innerHTML = block(CUR.blocks[i]); }
+let dialPos = 0, stepPos = 0, mapSel = "eu", mapBig = false, kwTab = null, tlSel = null, kwPage = 0, gTab = null;
+function rerenderTl(){ const el=document.querySelector(".side-tlside"); if (el){ el.innerHTML = block({t:"tlside"}); const r=el.querySelector("input"); r && r.focus({preventScroll:true}); } }
+let mapVB={x:0,y:0,w:960};
+function setVB(x,y,w){ const h=w*470/960; x=Math.max(-50,Math.min(x,960-w+50)); y=Math.max(-30,Math.min(y,470-h+30)); mapVB={x,y,w}; const s=document.querySelector(".wmap"); if (s){ s.style.transition="none"; s.setAttribute("viewBox",`${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`); } }
+function sparkle(el, e){
+  el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump");
+  const r=el.getBoundingClientRect(); const x=(e&&e.clientX)||r.left+r.width/2, y=(e&&e.clientY)||r.top+r.height/2;
+  const cols=["#18bfe8","#ef5b93","#8e7cf2","#ffc83d","#14a58a"];
+  for (let i=0;i<14;i++){ const p=document.createElement("i"); p.className="spk-p"; const a=Math.PI*2*i/14+Math.random()*.4, d=40+Math.random()*50;
+    p.style.cssText=`left:${x}px;top:${y}px;background:${cols[i%5]};--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px`; document.body.appendChild(p); setTimeout(()=>p.remove(),750); }
+}
+function rerenderType(t){ const i=CUR.blocks.findIndex(x=>x.t===t); const el=document.querySelector(`.blk[data-b="${i}"]`); if (el) el.innerHTML = block(CUR.blocks[i]); if (t==="map") setVB(mapVB.x,mapVB.y,mapVB.w); }
 function dialBlock(){
-  const lv = T("lvls"); const nDone = DIAL.filter(d=>S.dial[d.id]!=null).length;
+  const lv = T("lvls");
   if (dialPos >= DIAL.length){
-    return `<div class="dial-sum"><h3 class="rh">${S.lang==="he"?"הגבולות שלכם":"Your limits"}</h3>${DIAL.map(d=>`<div class="ds-row"><img src="${IMG[d.img]}" alt=""><b>${ht(L(d)[0])}</b><span class="ds-lv"><i style="width:${(S.dial[d.id]/4*100)}%"></i></span><small>${ht(lv[S.dial[d.id]])}</small></div>`).join("")}
-      <div class="row"><button class="btn ghost small" data-act="dialPrev">${BK()} ${S.lang==="he"?"למכונה הקודמת":"Previous machine"}</button></div></div>`;
+    return `<div class="dial-sum"><h3 class="rh">${S.lang==="he"?"הגבולות שלכם":"Your limits"}</h3>${DIAL.map(d=>`<div class="ds-row"><img src="${IMG[d.img]}" alt=""><b>${ht(L(d)[0])}</b><span class="ds-lv"><i style="width:${(S.dial[d.id]/4*100)}%"></i></span><small>${ht(lv[S.dial[d.id]])}</small></div>`).join("")}</div>`;
   }
-  const d = DIAL[dialPos], v = S.dial[d.id], locked = v!=null, [name] = L(d);
+  const d = DIAL[dialPos], v = S.dial[d.id], set = v!=null, [name] = L(d);
   return `<div class="dial-one">
     <div class="d-top"><span class="d-count">${dialPos+1} / ${DIAL.length}</span><div class="d-dots">${DIAL.map((x,i)=>`<i class="${S.dial[x.id]!=null?"ok":""} ${i===dialPos?"now":""}"></i>`).join("")}</div></div>
     <div class="d-card"><img src="${IMG[d.img]}" alt=""><div class="d-main"><h3>${ht(name)}</h3>
-      <div class="dial-ends"><span>0 · ${ht(T("dialEnds")[0])}</span><span>4 · ${ht(T("dialEnds")[1])}</span></div>
-      <input type="range" min="0" max="4" step="1" value="${locked?v:2}" data-inp="dial" data-id="${d.id}" aria-label="${esc(name)}">
-      <div class="dlbl" id="dl_${d.id}">${ht(lv[locked?v:2])}</div>
-      ${locked?factHTML(d):`<button class="btn" data-act="dialLock" data-id="${d.id}">${esc(T("lockIn"))}</button>`}
-      ${locked?`<div class="row">${dialPos>0?`<button class="btn ghost small" data-act="dialPrev">${BK()}</button>`:""}<button class="btn small" data-act="dialNext">${dialPos<DIAL.length-1?(S.lang==="he"?"למכונה הבאה":"Next machine"):(S.lang==="he"?"לסיכום":"See my limits")} ${FW()}</button></div>`:""}
+      <div class="dial-ends"><span>${ht(T("dialEnds")[0])}</span><span>${ht(T("dialEnds")[1])}</span></div>
+      <input type="range" min="0" max="4" step="1" value="${set?v:2}" class="${set?"":"unset"}" data-inp="dial" data-id="${d.id}" aria-label="${esc(name)}">
+      <div class="dlbl" id="dl_${d.id}">${set?ht(lv[v]):(S.lang==="he"?"גררו כדי לבחור":"Drag to choose")}</div>
+      <div id="df_${d.id}">${set?factHTML(d):""}</div>
     </div></div></div>`;
 }
 /* gate: required answers per scene */
@@ -2000,30 +2094,45 @@ function sceneReady(sc){
     if (b.t==="poll" && S[b.key]==null) return false;
     if (b.t==="write" && !S.law4) return false;
     if (b.t==="slider" && S[b.key]==null) return false;
-    if (b.t==="dial" && DIAL.some(d=>S.dial[d.id]==null)) return false;
+    if (b.t==="dial" && (dialPos<DIAL.length ? S.dial[DIAL[dialPos].id]==null : DIAL.some(d=>S.dial[d.id]==null))) return false;
   }
   return true;
+}
+function innerStep(){
+  const ids = pagesOf(CUR)[S.pg||0] || []; const bs = ids.map(i=>CUR.blocks[i]);
+  if (bs.some(b=>b.t==="steps")){ const n=bs.find(b=>b.t==="steps").items.length; if (stepPos<n-1) return {kind:"steps"}; return {kind:"done"}; }
+  if (bs.some(b=>b.t==="dial")){ if (dialPos<DIAL.length) return {kind:"dial"}; return {kind:"done"}; }
+  return null;
+}
+function navLabel(){
+  const st = CUR && innerStep(); const he=S.lang==="he";
+  if (!st) return null;
+  if (st.kind==="steps") return (he?"לכלי הבא":"Next tool")+" "+FW();
+  if (st.kind==="dial") return dialPos<DIAL.length-1 ? (he?"למכונה הבאה":"Next machine")+" "+FW() : (he?"לסיכום שלי":"See my limits")+" "+FW();
+  return (he?"סיימתי":"Finished")+" ✓";
 }
 function updateGate(){
   const nb = document.getElementById("nextBtn"); if (!nb || !CUR) return;
   nb.disabled = !sceneReady(CUR);
+  const lab = navLabel(); if (lab && nb.dataset.act==="next") nb.innerHTML = lab;
 }
 
 /* ---------- glossary + sources pages ---------- */
 function termsByGuide(){
-  const seen=new Set(); return GUIDES.map(g=>{ const ids=[]; const s=JSON.stringify(g.scenes);
-    for (const m of s.matchAll(/\{\{(\w+)\|/g)) if (TERMS[m[1]] && !seen.has(m[1])){ seen.add(m[1]); ids.push(m[1]); }
-    return {g, ids}; }).concat([{g:null, ids:Object.keys(TERMS).filter(k=>!seen.has(k))}]).filter(x=>x.ids.length);
+  return GUIDES.map(g=>({g, ids:(TERM_GUIDE[g.id]||[]).filter(k=>TERMS[k])})).filter(x=>x.ids.length);
 }
 function testBand(){
   return `<div class="cta-band"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div><div style="flex:1"><h3>${ht(QT("t"))}</h3><p>${ht(QT("s"))}</p></div><button class="btn big" data-act="navTest">${esc(QT("start"))} ${FW()}</button></div>`;
 }
 function vGlossary(){
+  const groups = termsByGuide(); if (!gTab || !groups.some(x=>x.g.id===gTab)) gTab = groups[0].g.id;
+  const sel = groups.find(x=>x.g.id===gTab);
   return `<section><div class="page-head"><div class="kicker">${S.lang==="he"?"מילון מושגים":"Glossary"}</div><h1>${ht(T("glossT"))}</h1>
-    <p>${S.lang==="he"?"כל מושגי המפתח מהיחידה, לפי המדריך שמלמד אותם.":"Every key term in the unit, grouped by the guide who teaches it."}</p></div>
+    <p>${S.lang==="he"?"כל מושגי המפתח מהיחידה, לפי המדריך שמלמד אותם.":"Every key term in the unit, by the guide who teaches it."}</p></div>
     <input class="g-search" id="gSearch" type="search" placeholder="${S.lang==="he"?"חיפוש מושג…":"Search a term…"}">
-    ${termsByGuide().map(({g,ids})=>`<div class="g-sec" style="--gc:${g?g.color:"var(--cyan)"}"><h2>${g?portrait(g,48):""}${g?(g.id==="you"?ht(myRole()):ht(L(g.name))+" · "+ht(L(g.role))):(S.lang==="he"?"עוד מושגים":"More terms")}</h2>
-      <div class="g-grid">${ids.map(k=>{ const [t,d]=L(TERMS[k]); return `<div class="g-card" data-s="${esc((t+" "+d).toLowerCase())}"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div></div>`).join("")}
+    <div class="kw-tabs g-tabs">${groups.map(x=>`<button class="kw-tab ${x.g.id===gTab?"on":""}" style="--gc:${x.g.color}" data-act="gTab" data-g="${x.g.id}">${portrait(x.g,30)}${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))} <small>${x.ids.length}</small></button>`).join("")}</div>
+    <div class="g-grid" id="gGrid" style="--gc:${sel.g.color}">${sel.ids.map(k=>{ const [t,d]=L(TERMS[k]); return `<div class="g-card"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>
+    <div class="g-grid g-all" id="gAll" hidden>${Object.keys(TERMS).map(k=>{ const [t,d]=L(TERMS[k]); const g=groups.find(x=>x.ids.includes(k)); return `<div class="g-card" style="--gc:${g?g.g.color:"var(--cyan)"}" data-s="${esc((t+" "+d).toLowerCase())}"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>
     ${testBand()}</section>`;
 }
 function vSources(){
@@ -2098,9 +2207,9 @@ function vFinale(){
      <div class="cc-info"><div class="kicker">${esc(T("finaleK"))}</div><h2>${esc(S.nick)}</h2><p class="ccrole">${esc(myRole())}</p>
        <div class="badges">${lex.map(g=>`<div class="bdg ${S.badges.includes(g.id)?"on":""}" style="--gc:${g.color}"><span>${g.badge.icon}</span><b>${esc(L(g.badge))}</b><small>${g.id==="you"?esc(T("you")):esc(L(g.name))}</small></div>`).join("")}</div>
        <ul class="mine">
-         <li><span>${S.lang==="he"?"השאלה הגדולה":"The big question"}</span><b>${esc(S.v1?T(S.v1):"–")} ${FW()} ${esc(S.v2?T(S.v2):"–")}</b></li>
+         <li class="wide"><span>${S.lang==="he"?"השאלה הגדולה":"The big question"}</span><b>${bigQLine()}</b></li>
          <li><span>${S.lang==="he"?"אמון ב-AI":"Trust in AI"}</span><b>${S.trust ?? "–"}/10</b></li>
-         ${S.law4?`<li class="wide"><span>${S.lang==="he"?"החוק הרביעי שלך":"Your fourth law"}</span><b>“${esc(S.law4)}”</b></li>`:""}
+         ${S.law4?`<li class="wide law4"><span>${S.lang==="he"?"החוק הרביעי שלכם לאסימוב":"Your fourth Asimov law"}</span><b>“${esc(S.law4)}”</b><em>${S.lang==="he"?"אסימוב היה גאה בכם!":"He would be so proud of you!"}</em></li>`:""}
        </ul>
        <p class="hint" id="syncMsg">${CONFIG.ENDPOINT?esc(T("saving")):""}</p>
      </div>
@@ -2114,6 +2223,12 @@ function vFinale(){
   </section>`;
 }
 
+function bigQLine(){
+  const he=S.lang==="he"; const a=S.v1?T(S.v1):"–", b=S.v2?T(S.v2):"–";
+  if (!S.v1||!S.v2) return esc(b);
+  if (S.v1===S.v2) return esc(he?`בהתחלה אמרתם „${a}”, ועכשיו שוב „${b}”. עקביים!`:`At first you said “${a}”, and now you still say “${b}”. Consistent!`);
+  return esc(he?`בהתחלה אמרתם „${a}”, ועכשיו אתם אומרים „${b}”. שמחים שעזרנו לכם לחשוב על זה מחדש!`:`At first you said “${a}”, and now you say “${b}”. Glad we helped you think it through!`);
+}
 function bars(labels, counts, mine){
   const tot = counts.reduce((a,b)=>a+b,0) || 1;
   return `<div class="bars">${labels.map((l,i)=>{ const p = Math.round(counts[i]*100/tot);
@@ -2176,6 +2291,7 @@ const A = {
     const msg=document.getElementById("nickMsg");
     if (!/^[\p{L}\p{N} _.\-']{2,16}$/u.test(v)){ msg.textContent=T("nameShort"); msg.className="hint err"; inp.focus(); return; }
     if (isBad(v,false)){ msg.textContent=T("nameBad"); msg.className="hint err"; inp.focus(); return; }
+    if (!S.av.p){ msg.textContent = S.lang==="he"?"בחרו קודם דמות.":"Choose a character first."; msg.className="hint err"; return; }
     S.nick=v; syncSoon(); go(S.v1 ? "hub" : "vote1"); },
   vote(el){ const w=+el.dataset.w; S[w===1?"v1":"v2"]=el.dataset.v; syncSoon();
     if (w===1) go("hub"); else { go("finale"); } },
@@ -2191,30 +2307,50 @@ const A = {
   qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
-  guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; go("guide"); maybeIntro(); },
+  guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
   next(){ if (!sceneReady(CUR)) return;
-    (CUR.blocks||[]).forEach(b => { if (b.t==="slider" && S[b.key]==null){ S[b.key]=b.def; syncSoon(); } });
+    const st = innerStep();
+    if (st && st.kind==="steps"){ stepPos++; rerenderType("steps"); updateGate(); return; }
+    if (st && st.kind==="dial"){ dialPos++; const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); updateGate(); return; }
     const pages = pagesOf(CUR);
     if ((S.pg||0) < pages.length-1) S.pg=(S.pg||0)+1; else { S.sc++; S.pg=0; }
     go("guide"); },
-  prev(){ if ((S.pg||0)>0) S.pg--; else if (S.sc>0){ S.sc--; S.pg = pagesOf(GUIDES[S.g].scenes[S.sc]).length-1; } go("guide"); },
-  kw(){ const ks = new Set(termsSoFar()); const groups = termsByGuide().filter(x=>x.g).map(x=>({g:x.g, ids:x.ids.filter(k=>ks.has(k))})).filter(x=>x.ids.length);
-    const cur = GUIDES[S.g] ? GUIDES[S.g].id : null; let tab = kwTab && groups.some(x=>x.g.id===kwTab) ? kwTab : (groups.some(x=>x.g.id===cur)?cur:(groups[0]&&groups[0].g.id)); kwTab=null;
+  prev(){ const st = CUR && innerStep();
+    if (st && st.kind!=="done" || (st && st.kind==="done")){ const ids=pagesOf(CUR)[S.pg||0]||[]; const bs=ids.map(i=>CUR.blocks[i]);
+      if (bs.some(b=>b.t==="steps") && stepPos>0){ stepPos--; rerenderType("steps"); updateGate(); return; }
+      if (bs.some(b=>b.t==="dial") && dialPos>0){ dialPos--; const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); updateGate(); return; } }
+    if ((S.pg||0)>0) S.pg--; else if (S.sc>0){ S.sc--; S.pg = pagesOf(GUIDES[S.g].scenes[S.sc]).length-1; } go("guide"); },
+  kw(){ const ks = new Set(termsSoFar()); const groups = termsByGuide().map(x=>({g:x.g, ids:x.ids.filter(k=>ks.has(k))})).filter(x=>x.ids.length);
+    const cur = GUIDES[S.g] ? GUIDES[S.g].id : null;
+    if (!kwTab || !groups.some(x=>x.g.id===kwTab)){ kwTab = groups.some(x=>x.g.id===cur)?cur:(groups[0]&&groups[0].g.id); kwPage=0; }
     const ord = groups.slice().sort((x,y)=> (x.g.id===cur?-1:y.g.id===cur?1:0));
-    const sel = groups.find(x=>x.g.id===tab);
-    openModal({kicker:"🔑", title: S.lang==="he"?"מילות המפתח שלמדנו עד עכשיו":"Key words we've learned so far", cls:"kwm",
-    html: sel?`<div class="kw-tabs">${ord.map(x=>`<button class="kw-tab ${x.g.id===tab?"on":""}" style="--gc:${x.g.color}" data-act="kwTab" data-g="${x.g.id}">${portrait(x.g,28)}${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))} <small>${x.ids.length}</small></button>`).join("")}</div>
-      <div class="kwlist" style="--gc:${sel.g.color}">${sel.ids.map(k=>{ const [t,d]=L(TERMS[k]); return `<div class="kwi"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>`:`<p class="hint">${S.lang==="he"?"עוד אין מילות מפתח.":"No key words yet."}</p>`}); },
+    const sel = groups.find(x=>x.g.id===kwTab); const per=4; const pages = sel?Math.ceil(sel.ids.length/per):0; kwPage=Math.min(kwPage,Math.max(0,pages-1));
+    const html = sel?`<div class="kw-tabs">${ord.map(x=>`<button class="kw-tab ${x.g.id===kwTab?"on":""}" style="--gc:${x.g.color}" data-act="kwTab" data-g="${x.g.id}">${portrait(x.g,28)}${x.g.id==="you"?ht(myRole()):ht(L(x.g.name))} <small>${x.ids.length}</small></button>`).join("")}</div>
+      <div class="kwlist" style="--gc:${sel.g.color}">${sel.ids.slice(kwPage*per,kwPage*per+per).map(k=>{ const [t,d]=L(TERMS[k]); return `<div class="kwi"><b>${ht(t)}</b><p>${ht(d)}</p></div>`; }).join("")}</div>
+      ${pages>1?`<div class="kw-pg" style="--gc:${sel.g.color}"><button class="btn small ghost" data-act="kwPg" data-d="-1" ${kwPage===0?"disabled":""}>${BK()}</button><span>${kwPage+1} / ${pages}</span><button class="btn small ghost" data-act="kwPg" data-d="1" ${kwPage>=pages-1?"disabled":""}>${FW()}</button></div>`:""}`
+      :`<p class="hint">${S.lang==="he"?"עוד אין מילות מפתח.":"No key words yet."}</p>`;
+    const m=document.getElementById("ov");
+    if (m && m.querySelector(".kwm")){ m.querySelector(".m-body").innerHTML=html; return; }
+    openModal({kicker:"🔑", title: S.lang==="he"?"מילות המפתח שלמדנו עד עכשיו":"Key words we've learned so far", cls:"kwm", html}); },
+  kwPg(el){ kwPage+=+el.dataset.d; A.kw(); },
   theme(){ const r=document.documentElement; const d = r.dataset.theme==="dark"; if (d) delete r.dataset.theme; else r.dataset.theme="dark"; try{ localStorage.setItem("ih-mode", d?"light":"dark"); }catch(e){} renderTop(); },
   dialNext(){ dialPos++; const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); },
   dialPrev(){ dialPos=Math.max(0,dialPos-1); const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); },
-  mapR(el){ mapSel = el.dataset.r; rerenderType("map"); },
+  mapR(el){ mapSel = el.dataset.r; const r=mapSel; rerenderType("map");
+    const svg=document.querySelector(".wmap"); if (!svg) return; const els=[...svg.querySelectorAll(`[data-r="${r}"]`)].filter(x=>x.tagName!=="circle"||r==="il");
+    let bb=null; els.forEach(e=>{ const b=e.getBBox(); if (b.width*b.height>(bb?0:-1)){ if(!bb) bb={x:b.x,y:b.y,x2:b.x+b.width,y2:b.y+b.height}; else { bb.x=Math.min(bb.x,b.x); bb.y=Math.min(bb.y,b.y); bb.x2=Math.max(bb.x2,b.x+b.width); bb.y2=Math.max(bb.y2,b.y+b.height);} } });
+    if (r==="us") bb={x:120,y:80,x2:330,y2:200};
+    if (r==="eu") bb={x:440,y:60,x2:560,y2:150};
+    if (bb){ const pad=40, w=Math.max(bb.x2-bb.x+pad*2,120), h=Math.max(bb.y2-bb.y+pad*2,70); const cx=(bb.x+bb.x2)/2, cy=(bb.y+bb.y2)/2; const W=Math.max(w,h*960/470); setVB(cx-W/2, cy-W*470/960/2, W); } },
+  mapZ(el){ const z=+el.dataset.z; if (!z){ setVB(0,0,960); return; } const v=mapVB; const W=Math.min(960,Math.max(80,v.w/z)); const cx=v.x+v.w/2, cy=v.y+v.w*470/960/2; setVB(cx-W/2, cy-W*470/960/2, W); },
   mapBig(){ mapBig=!mapBig; rerenderType("map"); },
   stepNext(){ stepPos++; rerenderType("steps"); },
   stepPrev(){ stepPos=Math.max(0,stepPos-1); rerenderType("steps"); },
   tlPop(el){ const b=CUR.blocks.find(x=>x.t==="tl"); const x=b.items[+el.dataset.i];
     openModal({kicker:`<bdi dir="ltr">${esc(x[0])}</bdi>`, title:ht(L(x[1])), html:`<p>${fmt(L(x[2]))}</p>${srcHTML([x[3]])}`, cls:"small"}); el.classList.add("seen"); },
-  kwTab(el){ kwTab=el.dataset.g; A.kw(); },
+  tlPick(el){ tlSel=+el.dataset.i; rerenderTl(); },
+  kwTab(el){ kwTab=el.dataset.g; kwPage=0; A.kw(); },
+  gTab(el){ gTab=el.dataset.g; render(); },
   finish(){ const g=GUIDES[S.g]; S.done[g.id]=true; if(!S.badges.includes(g.id)) S.badges.push(g.id); syncSoon();
     openModal({kicker:T("badgeK"), title:`<span class="bigicon">${g.badge.icon}</span>${esc(L(g.badge))}`,
       html:`<p>${S.lang==="he"?`${esc(g.id==="you"?"הצוות":L(g.name))} העניק/ה לך את התג הזה.`:`${esc(g.id==="you"?"The team":L(g.name))} gave you this badge.`}</p>`,
@@ -2270,28 +2406,38 @@ function maybeIntro(){
 }
 
 document.addEventListener("click", e => {
-  const mp = e.target.closest(".wmap [data-r]"); if (mp){ A.mapR(mp); return; }
+  const mp = e.target.closest(".wmap [data-r]"); if (mp){ if (!mp.closest(".wmap").dataset.dragged) A.mapR(mp); return; }
+  const sp = e.target.closest(".col,.waf,.ring,.dbar,.stat,.lr"); if (sp) sparkle(sp, e);
   const term = e.target.closest(".term"); if (term){ e.preventDefault(); openTerm(term.dataset.term); return; }
   const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
   if (el.tagName === "A") e.preventDefault();
   const f = A[el.dataset.act]; f && f(el, e);
 });
+let pan=null;
+document.addEventListener("pointerdown", e => { const s=e.target.closest(".wmap"); if (!s) return; pan={x:e.clientX,y:e.clientY,v:{...mapVB},r:s.getBoundingClientRect(),moved:false}; });
+document.addEventListener("pointermove", e => { if (!pan) return; const dx=e.clientX-pan.x, dy=e.clientY-pan.y; if (Math.abs(dx)+Math.abs(dy)>4) pan.moved=true; if (!pan.moved) return; const k=pan.v.w/pan.r.width; setVB(pan.v.x-dx*k, pan.v.y-dy*k, pan.v.w); });
+document.addEventListener("pointerup", e => { if (pan && pan.moved){ const s=e.target.closest(".wmap"); if (s) s.dataset.dragged="1"; setTimeout(()=>{ const s2=document.querySelector(".wmap"); if (s2) delete s2.dataset.dragged; },50);} pan=null; });
 document.addEventListener("keydown", e => {
   if ((e.key==="Enter"||e.key===" ") && e.target.matches('[role="button"][data-act]')){ e.preventDefault(); e.target.click(); }
 });
 document.addEventListener("change", e => { const t=e.target; if (t.dataset && t.dataset.inp==="slider" && S[t.dataset.key]==null) t.dispatchEvent(new Event("input",{bubbles:true})); });
-document.addEventListener("pointerup", e => { const t=e.target; if (t.dataset && t.dataset.inp==="slider" && S[t.dataset.key]==null) t.dispatchEvent(new Event("input",{bubbles:true})); });
+document.addEventListener("pointerup", e => { const t=e.target; if (!t.dataset) return;
+  if ((t.dataset.inp==="slider" && S[t.dataset.key]==null) || (t.dataset.inp==="dial" && S.dial[t.dataset.id]==null) || (t.dataset.inp==="tl" && tlSel==null)) t.dispatchEvent(new Event("input",{bubbles:true})); });
 document.addEventListener("input", e => {
   const t = e.target;
   if (t.id === "nick"){ const n=document.getElementById("avName"); if(n) n.textContent = t.value || " ";
     const msg=document.getElementById("nickMsg"); if (t.value.trim().length>1 && isBad(t.value,false)){ msg.textContent=T("nameBad"); msg.className="hint err"; } else { msg.textContent=T("nameHint"); msg.className="hint"; } }
-  if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); document.querySelectorAll(".g-card").forEach(c=>c.style.display=!q||c.dataset.s.includes(q)?"":"none"); }
+  if (t.dataset.inp === "tl"){ tlSel=+t.value; rerenderTl(); return; }
+  if (t.id === "gSearch"){ const q=t.value.trim().toLowerCase(); const all=document.getElementById("gAll"), grid=document.getElementById("gGrid");
+    all.hidden=!q; grid.hidden=!!q; all.querySelectorAll(".g-card").forEach(c=>c.style.display=!q||c.dataset.s.includes(q)?"":"none"); }
   if (t.id === "law4"){ const c=document.getElementById("lawCnt"); if(c) c.textContent=t.value.length; }
-  if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; document.getElementById("ss_"+k).classList.add("show");
+  if (t.dataset.inp === "slider"){ setTimeout(updateGate,0); const k=t.dataset.key; S[k]=+t.value; document.getElementById("sv_"+k).textContent=t.value; t.classList.remove("unset");
     const b=(CUR&&CUR.blocks||[]).find(x=>x.t==="slider"&&x.key===k); const r=document.getElementById("sr_"+k); if (b&&b.resp&&r) r.innerHTML=ht(sliderResp(b,+t.value));
     document.querySelectorAll(`.waiting[data-after="${k}"]`).forEach(el=>{ el.classList.remove("waiting"); el.classList.add("revealed"); }); syncSoon(); }
-  if (t.dataset.inp === "dial"){ const id=t.dataset.id; document.getElementById("dl_"+id).textContent=T("lvls")[+t.value];
-    if (S.dial[id]!=null){ S.dial[id]=+t.value; syncSoon(); } }
+  if (t.dataset.inp === "dial"){ const id=t.dataset.id; const first = S.dial[id]==null; S.dial[id]=+t.value; t.classList.remove("unset");
+    document.getElementById("dl_"+id).textContent=T("lvls")[+t.value];
+    if (first){ const f=document.getElementById("df_"+id); if (f) f.innerHTML=factHTML(DIAL.find(x=>x.id===id)); const dd=document.querySelectorAll(".d-dots i")[dialPos]; dd&&dd.classList.add("ok"); }
+    syncSoon(); updateGate(); }
 });
 
 function afterRender(){
