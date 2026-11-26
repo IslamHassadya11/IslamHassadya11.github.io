@@ -883,6 +883,36 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25)}
 [data-theme=dark] .qz-intro::before{background:none}
 [data-theme=dark] .qz-intro .bigq{background:linear-gradient(135deg,#eaf4ff,#5fdcff 50%,#b9a9ff);-webkit-background-clip:text;background-clip:text}
 [data-theme=dark] .qz-intro .kicker{background:#172645}
+/* test band close */
+.cta-band{position:relative}
+.cta-x{position:absolute;top:10px;inset-inline-end:12px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:20px;line-height:1}
+.cta-x:hover{background:rgba(255,255,255,.32)}
+.cta-band .btn{margin-inline-end:26px}
+/* coloured stages instead of plain white */
+.card.full,.hub-head,.charcard,.page-head{position:relative}
+.card.full,.hub-head,.charcard{background:
+ radial-gradient(520px 300px at 8% 15%,rgba(24,191,232,.20),transparent 70%),
+ radial-gradient(520px 320px at 95% 20%,rgba(142,124,242,.20),transparent 70%),
+ radial-gradient(640px 280px at 50% 115%,rgba(239,91,147,.12),transparent 70%),
+ linear-gradient(180deg,#eef9ff,#f6f1ff)!important;border:2px solid rgba(255,255,255,.85)}
+.vote.full .vote-img img{filter:drop-shadow(0 18px 24px rgba(12,45,94,.16));animation:float 5s ease-in-out infinite}
+.vote.full .bigq{background:linear-gradient(135deg,#0c2d5e,#2f6fde 60%,#8e7cf2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vote.full .kicker{display:inline-block;background:#fff;border-radius:999px;padding:4px 14px;box-shadow:0 4px 12px rgba(12,45,94,.08)}
+.vote.full .prev{background:#fff;box-shadow:0 4px 12px rgba(12,45,94,.06)}
+.vbtn{background:#fff;box-shadow:0 6px 14px rgba(12,45,94,.06)}
+.vbtn.on{background:linear-gradient(135deg,#0c2d5e,#2f6fde)}
+.page-head h1{background:linear-gradient(135deg,#0c2d5e,#2f6fde 60%,#8e7cf2);-webkit-background-clip:text;background-clip:text;color:transparent}
+[data-theme=dark] .card.full,[data-theme=dark] .hub-head,[data-theme=dark] .charcard{background:radial-gradient(520px 300px at 8% 15%,rgba(47,208,255,.16),transparent 70%),radial-gradient(520px 320px at 95% 20%,rgba(142,124,242,.2),transparent 70%),linear-gradient(180deg,#131f38,#1a1840)!important;border-color:#2a3b5e}
+[data-theme=dark] .vote.full .bigq,[data-theme=dark] .page-head h1{background:linear-gradient(135deg,#eaf4ff,#5fdcff 55%,#b9a9ff);-webkit-background-clip:text;background-clip:text}
+[data-theme=dark] .vote.full .kicker,[data-theme=dark] .vote.full .prev,[data-theme=dark] .vbtn{background:#172645}
+/* header: soft glass with a colour line */
+#top{background:linear-gradient(90deg,rgba(234,247,253,.92),rgba(255,255,255,.92) 45%,rgba(243,239,255,.92));box-shadow:0 6px 20px rgba(12,45,94,.05)}
+#top::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:linear-gradient(90deg,#18bfe8,#2f6fde,#8e7cf2,#ef5b93);opacity:.85}
+.nav-links button{position:relative}
+.nav-links button::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:2px;background:linear-gradient(90deg,#18bfe8,#8e7cf2);transform:scaleX(0);transition:transform .25s}
+.nav-links button:hover::after{transform:scaleX(1)}
+.nav-links button:hover{background:none}
+[data-theme=dark] #top{background:linear-gradient(90deg,rgba(10,18,36,.92),rgba(16,24,48,.92) 50%,rgba(26,24,64,.92))}
 /* modal */
 .ov{position:fixed;inset:0;z-index:50;background:rgba(12,45,94,.45);backdrop-filter:blur(3px);display:grid;place-items:center;padding:18px;opacity:0;transition:opacity .2s}
 .ov.in{opacity:1}
@@ -2270,7 +2300,8 @@ function termsByGuide(){
   return GUIDES.map(g=>({g, ids:(TERM_GUIDE[g.id]||[]).filter(k=>TERMS[k])})).filter(x=>x.ids.length);
 }
 function testBand(){
-  return `<div class="cta-band"><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div><div style="flex:1"><h3>${ht(QT("t"))}</h3><p>${ht(QT("s"))}</p></div><button class="btn big" data-act="navTest">${esc(QT("start"))} ${FW()}</button></div>`;
+  if (S.ctaGone || quizDone()) return "";
+  return `<div class="cta-band" id="ctaBand"><button class="cta-x" data-act="ctaX" aria-label="${T("close")}">×</button><div class="trio">${GUIDES.slice(0,3).map(x=>portrait(x,56)).join("")}</div><div style="flex:1"><h3>${ht(QT("t"))}</h3><p>${ht(QT("s"))}</p></div><button class="btn big" data-act="navTest">${esc(QT("start"))} ${FW()}</button></div>`;
 }
 const DISC = {maya:{en:"AI basics & theory",he:"יסודות ה-AI ותיאוריה"},lexi:{en:"Rules & risks",he:"חוקים וסיכונים"},omer:{en:"Real cases",he:"מקרים אמיתיים"},you:{en:"Safety & policy",he:"בטיחות ומדיניות"}};
 function vGlossary(){
@@ -2294,7 +2325,7 @@ function vSources(){
     <div class="s-box s-rec"><h2>📚 ${S.lang==="he"?"להעמקה: מומלץ לקרוא":"Go deeper: recommended reading"}</h2>${furtherHTML()}</div>
     <div class="s-boxes">${groups.map(({g,keys})=>`<div class="s-box" style="--gc:${g.color}"><h2>${portrait(g,52)}<span>${g.id==="you"?ht(myRole()):ht(L(g.name))}<small>${ht(roleOf(g))} · ${keys.length} ${S.lang==="he"?"מקורות":"sources"}</small></span></h2>
       <ul class="s-list">${keys.map(link).join("")}</ul></div>`).join("")}</div>
-    ${testBand()}</section>`;
+    </section>`;
 }
 
 /* ---------- quiz ---------- */
@@ -2461,6 +2492,7 @@ const A = {
   qzStart(){ S.quiz.started=true; S.quiz.qi=0; save(); render(); },
   qzAns(el){ const Q=S.quiz; if (Q.ans[Q.qi]!=null) return; Q.ans[Q.qi]=+el.dataset.i; save(); if (quizDone()) syncSoon(); render(); },
   revPg(el){ revPage+=+el.dataset.d; const c=el.closest(".card"); c.innerHTML=`<h3>${esc(QT("review"))}</h3>${reviewHTML()}`; },
+  ctaX(){ S.ctaGone=true; save(); const b=document.getElementById("ctaBand"); if (b){ b.style.transition="opacity .3s,transform .3s"; b.style.opacity=0; b.style.transform="translateY(10px)"; setTimeout(()=>b.remove(),300); } },
   qzRetry(){ S.quiz={ans:[],qi:0,started:true}; save(); go("quiz"); },
   qzNext(){ S.quiz.qi++; save(); go("quiz"); if (quizDone()) syncSoon(); },
   guideStart(el){ const i=+el.dataset.i; if (S.g!==i || S.done[GUIDES[i].id]){ S.sc=0; S.pg=0; } S.g=i; dialPos=0; stepPos=0; tlSel=null; mapSel=null; mapVB={x:0,y:0,w:960}; go("guide"); maybeIntro(); },
