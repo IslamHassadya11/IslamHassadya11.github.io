@@ -1253,12 +1253,34 @@ footer .link+.link{margin-inline-start:18px}
 .qz-fb-row{display:flex;gap:12px;align-items:flex-start}
 .qz-fb-row .pt{--s:44px;flex:none}
 .qz-fb-pics{display:flex;flex:none}.qz-fb-pics .pt{--s:34px;margin-inline-end:-8px}
-.qz-fb-row .qz-fb-who{display:block;font-size:15px;opacity:.85;margin:0 0 2px}
+.qz-fb-say .qz-fb-who{display:inline;font-size:inherit;opacity:1;margin:0;margin-inline-end:4px}
 /* watch card centred */
 .blk-watch{display:flex;justify-content:center}.blk-watch .watch{margin-inline:auto;width:100%}
 .breaking{display:inline-block;background:#e23d5f;color:#fff;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:5px 14px;border-radius:8px;margin-bottom:10px;box-shadow:0 0 0 0 rgba(226,61,95,.6);animation:brk 1.6s infinite}
 @keyframes brk{0%{box-shadow:0 0 0 0 rgba(226,61,95,.6)}70%{box-shadow:0 0 0 12px rgba(226,61,95,0)}100%{box-shadow:0 0 0 0 rgba(226,61,95,0)}}
 @media (prefers-reduced-motion:reduce){.breaking{animation:none}}
+
+.term{display:inline;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cols{margin-bottom:30px}
+/* ---- phone fixes ---- */
+@media (max-width:760px){
+  .blk-read.has-img,.blk-read.has-img:has(.side-dia),.blk-read.has-img:has(.side-dates),.blk-read.has-img:has(.side-waffle),.blk-read.has-img:has(.side-rings),.blk-read.has-img:has(.side-tlside),.blk-read.has-banner{display:flex!important;flex-direction:column;gap:16px}
+  .blk-read.has-img .rimg-wrap,.side-dia{position:static!important;order:0;width:100%;max-width:100%}
+  .blk-read.has-img .rtext{order:1;width:100%}
+  .side-dia .nest span{font-size:13.5px}
+  .mine{grid-template-columns:1fr}
+  .mine li.quiz-inv .quiz-pill{align-self:flex-start}
+  .quiz-pill{white-space:nowrap}
+  .d-card{grid-template-columns:1fr}
+  .d-card img{height:180px}
+  .side-waffle .waffles{grid-template-columns:1fr 1fr;gap:12px}
+  .side-waffle .waf-g{max-width:150px}.side-waffle .waf-g.big{max-width:120px}
+  .side-rings .rings,.rings{justify-content:center}
+  .case-body{grid-template-columns:1fr!important}
+  .lq{grid-template-columns:1fr}
+  .tls-ticks button{font-size:11px}
+  .brand-t small{display:none}
+}
 </style>
 </head>
 <body>
@@ -1359,7 +1381,7 @@ he:{
   lvls:["אדם מאשר כל צעד","אדם מאשר החלטות גדולות","פועלת לבד, אדם צופה בזמן אמת","פועלת לבד, אדם יכול לעצור","לגמרי לבד"],
   lockIn:"לנעול", dyk:"הידעתם?",
   pollSaved:"תודה. התשובה נשמרה.",
-  dialAvgT:"כמה חופש הכיתה נותנת בממוצע לכל מכונה (0 = אדם מאשר הכול, 4 = לגמרי לבד)",
+  dialAvgT:"כמה חופש הכיתה נותנת בממוצע לכל מערכת (0 = אדם מאשר הכול, 4 = לגמרי לבד)",
   you:"את/ה",
   kick:"סמינר טכנולוגיה, AI וקיימות, אוניברסיטת חיפה",
   startUnit:"להתחיל את היחידה", howBtn:"איך זה עובד", navUnit:"היחידה", navGloss:"מילון מושגים", navSrc:"מקורות",
@@ -1768,7 +1790,7 @@ const GUIDES = [
       {tag:"🍩",c:"#14a58a",img:"n_sdgd",en:["Doughnut economics","Humanity is already beyond the outer ring: in 2023, scientists found that six of the nine {{planetary|planetary boundaries}} have been crossed. AI adds to the pressure, as data centres are expected to more than double their electricity use by 2030. Safety and trust in institutions belong to the inner ring: the social foundation no one should fall below."],he:["כלכלת הדונאט","האנושות כבר מעבר לטבעת החיצונית: ב-2023 מצאו מדענים ששישה מתוך תשעת {{planetary|הגבולות הפלנטריים}} נחצו. ה-AI מוסיף ללחץ, כי צריכת החשמל של מרכזי הנתונים צפויה יותר מלהכפיל את עצמה עד 2030. בטיחות ואמון במוסדות שייכים לטבעת הפנימית: הבסיס החברתי שאיש לא אמור לרדת מתחתיו."]}]}
     ], src:["sdgs","doughnut","richardson","iea"] },
 
-  { who:"team", say:{en:"One last question before the test: how much freedom would you give each machine? Move the slider for each one, and you'll see a real fact about it.",he:"שאלה אחרונה לפני המבחן: כמה חופש הייתם נותנים לכל מכונה? הזיזו את הסמן לכל אחת, ותראו עובדה אמיתית עליה."},
+  { who:"team", say:{en:"One last question before the test: how much freedom would you give each machine? Move the slider for each one, and you'll see a real fact about it.",he:"שאלה אחרונה לפני המבחן: כמה חופש הייתם נותנים לכל מערכת? הזיזו את הסמן לכל אחת, ותראו עובדה אמיתית עליה."},
     blocks:[{t:"dial"}] },
 
   { who:"team", say:{en:"You did it, {name}! Next, an optional challenge from all three of us, only if you want to compete with the class. Then it's time for your final call on the question you answered at the start.",he:"עשיתם את זה, {name}! עכשיו אתגר רשות משלושתנו, רק אם בא לכם להתחרות עם הכיתה. ואחר כך מגיע הזמן להכרעה שלכם בשאלה שעניתם עליה בהתחלה."},
@@ -1937,7 +1959,7 @@ function bidiFix(html){
 function fmt(s){
   if (!s) return "";
   if (S.lang==="he") s = s.replace(/(^|[\s(„"'])([ובלכמהש])\{\{(\w+)\|/g, "$1{{$3|$2");
-  return bidiFix(s.replace(/\{\{(\w+)\|([^}]+)\}\}/g, (m,id,t) => `<button type="button" class="term" data-term="${id}">${t}</button>`)
+  return bidiFix(s.replace(/\{\{(\w+)\|([^}]+)\}\}/g, (m,id,t) => `<span class="term" role="button" tabindex="0" data-term="${id}">${t}</span>`)
           .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
           .replace(/\{name\}/g, `<b class="nm">${esc(S.nick)}</b>`));
 }
@@ -2336,7 +2358,7 @@ function block(b, bi){
     return `<a class="watch" href="${esc(s[1])}" target="_blank" rel="noopener"><span class="w-ic">🎬</span><span><small>${S.lang==="he"?"לצפייה בזמן הפנוי":"Watch later, in your free time"}</small><b>Instadocs: AI Gone Wild</b><em>${S.lang==="he"?"נטפליקס, 27 דקות: הפריצה ל-Hugging Face, משוחזרת":"Netflix, 27 min: the Hugging Face hack, reconstructed"}</em></span><span class="fr-go">↗</span></a>`; }
   case "steps": { const n=b.items.length; const i=Math.min(stepPos,n-1); const [h,t]=L(b.items[i]); const k=b.items[i].k;
     return `<div class="steps"><div class="d-top"><span class="d-count">${i+1} / ${n}</span><div class="d-dots">${b.items.map((_,j)=>`<i class="${j<i?"ok":""} ${j===i?"now":""}"></i>`).join("")}</div></div>
-      <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<button type="button" class="term" data-term="${k}">${ht(h)}</button>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
+      <div class="step-card"><span class="step-n">${i+1}</span><div><h3>${k?`<span class="term" role="button" tabindex="0" data-term="${k}">${ht(h)}</span>`:ht(h)}</h3><p>${fmt(t)}</p></div></div></div>`; }
   case "map": { const sel = b.items.find(x=>x.r===mapSel); const [sh,sb]=sel?L(sel):["",""];
     return `<div class="map-head"><h3 class="rh">${ht(L(b.h))}</h3><span class="mz"><button data-act="mapZ" data-z="1.6" aria-label="zoom in">＋</button><button data-act="mapZ" data-z="0.625" aria-label="zoom out">－</button><button data-act="mapZ" data-z="0" aria-label="reset">⟲</button><button data-act="mapBig">${mapBig?"⤡":"⤢"}</button></span></div><p>${fmt(L(b.intro))} <span class="map-hint">${S.lang==="he"?"גללו על המפה כדי להגדיל, וגררו כדי לזוז.":"Scroll on the map to zoom in, and drag to move around."}</span></p>
     <div class="map-grid ${mapBig?"big":""}"><div class="map-wrap ${sel?"sel-"+sel.r:""}">${MAP_SVG}</div>
@@ -2372,7 +2394,7 @@ function block(b, bi){
       <div class="f-front"><b>${esc(k)}</b><span>${esc(sub)}</span><small>↻</small></div>
       <div class="f-back"><b>${esc(k)}</b><p>${fmt(body)}</p></div></div></div>`;}).join("")}</div>`;
   case "facets": return `<div class="facets"><div class="fac-img"><img src="${IMG[b.img]}" alt=""></div><div class="fac-list">
-      ${b.items.map((x,i)=>{const [n,sub,body]=L(x);return `<div class="fac" role="button" tabindex="0" data-act="facet"><div class="fac-h"><span class="fac-n">${i+1}</span><b>${esc(n)}</b><span class="fac-s">${esc(sub)}</span><span class="pm">+</span></div><div class="fac-b"><p>${fmt(body)}</p> <button type="button" class="term" data-term="${x.k}">${S.lang==="he"?"הגדרה":"Definition"}</button></div></div>`;}).join("")}
+      ${b.items.map((x,i)=>{const [n,sub,body]=L(x);return `<div class="fac" role="button" tabindex="0" data-act="facet"><div class="fac-h"><span class="fac-n">${i+1}</span><b>${esc(n)}</b><span class="fac-s">${esc(sub)}</span><span class="pm">+</span></div><div class="fac-b"><p>${fmt(body)}</p> <span class="term" role="button" tabindex="0" data-term="${x.k}">${S.lang==="he"?"הגדרה":"Definition"}</span></div></div>`;}).join("")}
       <div class="loop" aria-hidden="true"><span>${esc(L(b.items[1])[0])}</span><i>⇄</i><span>${esc(L(b.items[0])[0])}</span><i>➜</i><span class="dk">${esc(L(b.items[2])[0])}</span></div>
     </div></div>`;
   case "slider": { const set = ANS(b.key)!=null; const v = set ? ANS(b.key) : Math.round((b.min+b.max)/2); const e = L(b.ends);
@@ -2502,7 +2524,7 @@ function navLabel(){
   if (st.kind==="steps") return (he?"לכלי הבא":"Next tool")+" "+FW();
   if (st.kind==="lawq") return (he?"למקרה הבא":"Next case")+" "+FW();
   if (st.kind==="lawqEnd") return esc(T("next"))+" "+FW();
-  if (st.kind==="dial") return dialPos<DIAL.length-1 ? (he?"למכונה הבאה":"Next machine")+" "+FW() : (he?"לסיכום שלי":"See my limits")+" "+FW();
+  if (st.kind==="dial") return dialPos<DIAL.length-1 ? (he?"למערכת הבאה":"Next machine")+" "+FW() : (he?"לסיכום שלי":"See my limits")+" "+FW();
   return (he?"סיימתי":"Finished")+" ✓";
 }
 function updateGate(){
@@ -2586,7 +2608,7 @@ function vQuiz(){
           ${q.who==="team"?quizSpeaker("team", st):""}
           <div class="qz-opts">${opts.map((o,i)=>{ let cls=""; if(answered){ if(i===q.a) cls="ok"; else if(i===ans) cls="bad"; else cls="dim"; }
             return `<button class="qz-opt ${cls}" data-act="qzAns" data-i="${i}" ${answered?"disabled":""}><span class="qz-l">${"ABCD"[i]}</span><span class="qz-ot">${ht(o)}</span></button>`;}).join("")}</div>
-          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><div class="qz-fb-row">${q.who==="team"?`<span class="qz-fb-pics">${GUIDES.slice(0,3).map(x=>portrait(x,34)).join("")}</span>`:portrait(GUIDES.find(x=>x.id===q.who),44)}<div><b class="qz-fb-who">${esc(who)}</b><p>${ht(why)}</p></div></div></div>
+          ${answered?`<div class="qz-fb ${st}"><div class="qz-fb-h"><span class="qz-badge ${st}">${st==="ok"?"✓":"✗"}</span><b>${st==="ok"?esc(QT("right")):esc(QT("wrong"))}</b></div><p class="qz-fb-say"><b class="qz-fb-who">${esc(who)}</b> ${ht(why)}</p></div>
           <div class="row"><button class="btn big" data-act="qzNext">${Q.qi===n-1?esc(QT("finish")):esc(QT("next"))} ${FW()}</button></div>`:""}
         </div>
       </div></section>`;
@@ -2645,8 +2667,8 @@ function startTT(){
 function bigQLine(){
   const he=S.lang==="he"; const a=S.v1?T(S.v1):"–", b=S.v2?T(S.v2):"–";
   if (!S.v1||!S.v2) return esc(b);
-  if (S.v1===S.v2) return esc(he?`בהתחלה אמרתם „${a}”, ועכשיו שוב „${b}”. עקביים!`:`At first you said “${a}”, and now you still say “${b}”. Consistent!`);
-  return esc(he?`בהתחלה אמרתם „${a}”, ועכשיו אתם אומרים „${b}”. שמחים שעזרנו לכם לחשוב על זה מחדש!`:`At first you said “${a}”, and now you say “${b}”. Glad we helped you think it through!`);
+  if (S.v1===S.v2) return esc(he?`בהתחלה אמרתם "${a}", ועכשיו שוב "${b}". עקביים!`:`At first you said “${a}”, and now you still say “${b}”. Consistent!`);
+  return esc(he?`בהתחלה אמרתם "${a}", ועכשיו אתם אומרים "${b}". שמחים שעזרנו לכם לחשוב על זה מחדש!`:`At first you said “${a}”, and now you say “${b}”. Glad we helped you think it through!`);
 }
 function bars(labels, counts, mine){
   const tot = counts.reduce((a,b)=>a+b,0) || 1;
@@ -2801,7 +2823,7 @@ const A = {
   poll(el){ const blk=el.closest("[data-b]"); const b=CUR.blocks[+blk.dataset.b]; S[b.key]=+el.dataset.i; NOW.add(b.key); syncSoon();
     blk.innerHTML = block(b); updateGate(); },
   tool(el){ const blk=el.closest("[data-b]"); const x=CUR.blocks[+blk.dataset.b].items[+el.dataset.i]; const [h,body]=L(x); el.classList.add("seen");
-    openModal({kicker:`<span class="bigicon sm">${x.icon}</span>`, title:esc(h), html:`<p>${fmt(body)}</p><p><button type="button" class="term" data-term="${x.k}">${S.lang==="he"?"הגדרה קצרה":"Short definition"}</button></p>`}); },
+    openModal({kicker:`<span class="bigicon sm">${x.icon}</span>`, title:esc(h), html:`<p>${fmt(body)}</p><p><span class="term" role="button" tabindex="0" data-term="${x.k}">${S.lang==="he"?"הגדרה קצרה":"Short definition"}</span></p>`}); },
   world(el){ const blk=el.closest("[data-b]"); const x=CUR.blocks[+blk.dataset.b].items[+el.dataset.i]; const [h,body]=L(x); el.classList.add("seen");
     openModal({kicker:`<span class="bigicon sm">${x.flag}</span>`, title:esc(h), html:`<p>${fmt(body)}</p>${srcHTML([x.src])}`}); },
   dialLock(el){ const id=el.dataset.id; const r=document.querySelector(`input[data-id="${id}"]`); S.dial[id]=Math.round(+r.value); NOW.add("d:"+id); syncSoon();
@@ -2851,7 +2873,7 @@ document.addEventListener("pointerdown", e => { const s=e.target.closest(".wmap"
 document.addEventListener("pointermove", e => { if (!pan) return; const dx=e.clientX-pan.x, dy=e.clientY-pan.y; if (Math.abs(dx)+Math.abs(dy)>4) pan.moved=true; if (!pan.moved) return; const k=pan.v.w/pan.r.width; setVB(pan.v.x-dx*k, pan.v.y-dy*k, pan.v.w); });
 document.addEventListener("pointerup", e => { if (pan && pan.moved){ const s=e.target.closest(".wmap"); if (s) s.dataset.dragged="1"; setTimeout(()=>{ const s2=document.querySelector(".wmap"); if (s2) delete s2.dataset.dragged; },50);} pan=null; });
 document.addEventListener("keydown", e => {
-  if ((e.key==="Enter"||e.key===" ") && e.target.matches('[role="button"][data-act]')){ e.preventDefault(); e.target.click(); }
+  if ((e.key==="Enter"||e.key===" ") && e.target.matches('[role="button"][data-act],.term[role="button"]')){ e.preventDefault(); e.target.click(); }
 });
 document.addEventListener("change", e => { const t=e.target; if (t.dataset && t.dataset.inp==="slider" && ANS(t.dataset.key)==null) t.dispatchEvent(new Event("input",{bubbles:true})); });
 document.addEventListener("pointerup", e => { const t=e.target; if (!t.dataset) return;
