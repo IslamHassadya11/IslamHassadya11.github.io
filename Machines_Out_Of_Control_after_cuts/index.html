@@ -1922,7 +1922,7 @@ const IMG = {
 };
 
 /* ---------------- state ---------------- */
-const KEY = "offswitch_v2_after";
+const KEY = "offswitch_v2";
 try{ const t=localStorage.getItem("ih-mode"); if(t==="dark") document.documentElement.dataset.theme="dark"; }catch(e){}
 const QS = new URLSearchParams(location.search);
 function quizScore(){ return (S.quiz&&S.quiz.ans||[]).reduce((n,x,i)=>n+(QUIZ[i]&&x===QUIZ[i].a?1:0),0); }
