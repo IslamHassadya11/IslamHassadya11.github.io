@@ -2332,7 +2332,7 @@ function vGuide(){
       return `<div class="blk blk-${b.t} ${(b.img||b.side)?"has-img":""} ${b.banner?"has-banner":""} ${wait?"waiting":""}" data-b="${i}" ${wait?`data-after="${pv.key}"`:""}>${block(b,i)}</div>`; }).join("")}</div>
     ${sc.handoff ? handoffCard(nextG) : ""}
     <div class="nav">
-      <button class="btn ghost" data-act="prev" ${S.sc===0&&pg===0&&!(stepPos>0||dialPos>0||lqPos>0)?"disabled":""}>${BK()} ${esc(T("back"))}</button>
+      <button class="btn ghost" data-act="prev">${BK()} ${esc(T("back"))}</button>
       <div class="nav-mid">
         ${sc.src?`<button class="link srcb" data-act="src">📚 ${esc(T("sources"))} (${sc.src.length})</button>`:""}
       </div>
@@ -2532,7 +2532,7 @@ function navLabel(){
 function updateGate(){
   const nb = document.getElementById("nextBtn"); if (!nb || !CUR) return;
   nb.disabled = !sceneReady(CUR);
-  const pb = document.querySelector('[data-act="prev"]'); if (pb) pb.disabled = S.sc===0 && (S.pg||0)===0 && !(stepPos>0||dialPos>0||lqPos>0);
+  const pb = document.querySelector('[data-act="prev"]'); if (pb) pb.disabled = false;
   const lab = navLabel(); if (lab && nb.dataset.act==="next") nb.innerHTML = lab;
 }
 
@@ -2768,7 +2768,7 @@ const A = {
     if (st && st.kind!=="done" || (st && st.kind==="done")){ const ids=pagesOf(CUR)[S.pg||0]||[]; const bs=ids.map(i=>CUR.blocks[i]);
       if (bs.some(b=>b.t==="steps") && stepPos>0){ stepPos--; rerenderType("steps"); updateGate(); return; }
       if (bs.some(b=>b.t==="dial") && dialPos>0){ dialPos--; const el=document.querySelector(".blk-dial"); if (el) el.innerHTML = dialBlock(); updateGate(); return; } }
-    if ((S.pg||0)>0) S.pg--; else if (S.sc>0){ S.sc--; S.pg = pagesOf(GUIDES[S.g].scenes[S.sc]).length-1; } go("guide"); },
+    if ((S.pg||0)>0) S.pg--; else if (S.sc>0){ S.sc--; S.pg = pagesOf(GUIDES[S.g].scenes[S.sc]).length-1; } else if (S.g>0){ S.g--; const scs=GUIDES[S.g].scenes; S.sc=scs.length-1; S.pg=pagesOf(scs[S.sc]).length-1; NOW.clear(); lqAns={}; lqPos=0; dialPos=0; stepPos=0; } else { go("hub"); return; } go("guide"); },
   kw(){ const ks = new Set(termsSoFar()); const groups = termsByGuide().map(x=>({g:x.g, ids:x.ids.filter(k=>ks.has(k))})).filter(x=>x.ids.length);
     const cur = GUIDES[S.g] ? GUIDES[S.g].id : null;
     if (!kwTab || !groups.some(x=>x.g.id===kwTab)){ kwTab = groups.some(x=>x.g.id===cur)?cur:(groups[0]&&groups[0].g.id); kwPage=0; }
