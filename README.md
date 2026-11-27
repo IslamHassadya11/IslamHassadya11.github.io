@@ -39,7 +39,7 @@ Dark theme update: black and white with one accent colour (Pink, Purple or Brigh
 
 ## Hebrew version
 
-`he/index.html` is generated from `index.html`. After editing the English page, run `python3 tools/build_he.py`; it applies the translations in `tools/he.py` and lists any new text that still needs a Hebrew version.
+The Research page (`research/index.html`) is generated from `index.html` (header, contact, footer) and `tools/research_section.html`: run `python3 tools/build_research.py` first. `he/index.html` is generated from `index.html`. After editing the English page, run `python3 tools/build_he.py`; it builds `he/index.html` and `he/research/index.html`, applies the translations in `tools/he.py` and lists any new text that still needs a Hebrew version.
 
 ## Colours
 

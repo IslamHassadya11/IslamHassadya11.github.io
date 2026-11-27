@@ -22,10 +22,10 @@
   const email = 'ihassadya@gmail.com';
 
   const T = {
-    en: { sections: 'Sections', projects: 'Projects', live: 'Open live', theme: 'Theme', contact: 'Contact', about: 'About me', proj: 'Projects', comm: 'Community', exp: 'Experience', edu: 'Education and awards', skills: 'Skills', cont: 'Contact',
+    en: { sections: 'Sections', projects: 'Projects', live: 'Open live', theme: 'Theme', contact: 'Contact', about: 'About me', proj: 'Projects', comm: 'Community', exp: 'Experience', edu: 'Education and awards', res: 'Research and conferences', skills: 'Skills', cont: 'Contact',
       open: x => `Open ${x}`, toLight: 'Switch to light theme', toDark: 'Switch to dark theme', accent: x => `Accent colour: ${x}`, pink: 'Pink', purple: 'Purple', yellow: 'Bright yellow',
       copy: 'Copy my email', copied: 'Email copied', mail: 'Send me an email', lang: 'עברית (Hebrew version)', none: 'Nothing matches. Try "projects" or "email".' },
-    he: { sections: 'חלקים באתר', projects: 'פרויקטים', live: 'פתיחה', theme: 'ערכת צבעים', contact: 'יצירת קשר', about: 'קצת עליי', proj: 'פרויקטים', comm: 'קהילה', exp: 'ניסיון', edu: 'השכלה ופרסים', skills: 'מיומנויות', cont: 'צור קשר',
+    he: { sections: 'חלקים באתר', projects: 'פרויקטים', live: 'פתיחה', theme: 'ערכת צבעים', contact: 'יצירת קשר', about: 'קצת עליי', proj: 'פרויקטים', comm: 'קהילה', exp: 'ניסיון', edu: 'השכלה ופרסים', res: 'מחקר וכנסים', skills: 'מיומנויות', cont: 'צור קשר',
       open: x => `פתיחת ${x}`, toLight: 'מעבר לערכה בהירה', toDark: 'מעבר לערכה כהה', accent: x => `צבע הדגשה: ${x}`, pink: 'ורוד', purple: 'סגול', yellow: 'צהוב',
       copy: 'העתקת המייל שלי', copied: 'כתובת המייל הועתקה', mail: 'שליחת מייל', lang: 'English version', none: 'לא נמצאה התאמה. נסו "פרויקטים" או "מייל".' },
   };
@@ -34,7 +34,7 @@
     const out = [];
     const sec = (label, id, ic) => { const el = document.getElementById(id); if (el) out.push({ g: tx.sections, label, ic, run: () => go(el) }); };
     sec(tx.about, 'about', '01'); sec(tx.proj, 'projects', '03'); sec(tx.comm, 'community', '04');
-    sec(tx.exp, 'experience', '05'); sec(tx.edu, 'education', '06'); sec(tx.skills, 'skills', '08'); sec(tx.cont, 'contact', '09');
+    sec(tx.exp, 'experience', '05'); sec(tx.edu, 'education', '06'); out.push({ g: tx.sections, label: tx.res, ic: '07', run: () => { location.href = document.documentElement.lang === 'he' ? '/he/research/' : '/research/'; } }); sec(tx.skills, 'skills', '08'); sec(tx.cont, 'contact', '09');
     $$('#projects .case').forEach(c => {
       const h = $('h3', c), demo = $$('.p-links a', c).find(a => /Live demo|Open the app/i.test(a.textContent));
       out.push({ g: tx.projects, label: h.textContent.trim(), ic: '▲', hint: $('.label', c)?.textContent.trim(), run: () => go(c) });

@@ -102,7 +102,7 @@
   // scroll spy + reveal
   if ('IntersectionObserver' in window) {
     const spy = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) $$('.nav-links a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+      if (e.isIntersecting) $$('.nav-links a:not([aria-current])').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
     }), { rootMargin: '-45% 0px -50% 0px' });
     $$('main section[id]').forEach(s => spy.observe(s));
     if (!location.search.includes('edit')) {
